@@ -1,0 +1,14 @@
+# ninja log v5
+7	196	6655276525546415	CMakeFiles/course.dir/main.c.obj	3c54e443c0d81610
+22	1091	6655193169770296	libs/data_structures/CMakeFiles/data_structures.dir/ordered_array_set/ordered_array_set.c.obj	15dcb19ebe0e7887
+264	4017	6654468690618443	libs/algorithms/CMakeFiles/algorithms.dir/array/array.c.obj	1f13ee63719282b5
+420	4589	6654468704040111	libs/data_structures/CMakeFiles/data_structures.dir/bitset/bitset.c.obj	a095d95a305aa2e8
+72	766	6617910116055437	libs/algorithms/CMakeFiles/algorithms.dir/algorithm.c.obj	1898ef665b52189c
+4018	5718	6654468716692254	libs/algorithms/libalgorithms.a	bc48b0749c454485
+43	1066	6655193168832830	libs/data_structures/CMakeFiles/data_structures.dir/unordered_array_set/unordered_array_set.c.obj	cebbe54d66d9da5
+257	475	6655249320815491	libs/data_structures/libdata_structures.a	b6a1d89fe2a19e76
+197	494	6655276528421450	course.exe	71a98a97398807e6
+4	517	6655298889416800	build.ninja	6ac4971318b7d922
+0	222	6654833868548011	CMakeFiles/course2.dir/main2.c.obj	948e7f0ea59ec9dc
+22	257	6655249318626831	libs/data_structures/CMakeFiles/data_structures.dir/vector/vector.c.obj	ff72822fd1d71f72
+223	533	6654833872141665	course2.exe	f0cf30a29b33ee34
