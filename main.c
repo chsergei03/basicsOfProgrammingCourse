@@ -510,6 +510,194 @@ void test_popBack_fullVector() {
     deleteVector(&expectedV);
 }
 
+void test_atVector_filledVector() {
+    int source[] = {3, 5, 7, 9};
+    size_t size = 4;
+    size_t capacity = 5;
+    vector v = createVectorFromArray(source, size, capacity);
+    size_t index = 2;
+    int *pointer = atVector(&v, index);
+    int *expectedPointer = &v.data[index];
+
+    assert(pointer == expectedPointer);
+
+    deleteVector(&v);
+}
+
+void test_atVector_filledVector_firstElement() {
+    int source[] = {5, 8, 9, 4};
+    size_t size = 4;
+    size_t capacity = 15;
+    vector v = createVectorFromArray(source, size, capacity);
+    size_t index = 0;
+    int *pointer = atVector(&v, index);
+    int *expectedPointer = v.data;
+
+    assert(pointer == expectedPointer);
+
+    deleteVector(&v);
+}
+
+void test_atVector_filledVector_lastElement() {
+    int source[] = {1, 5, 6, 20, 3};
+    size_t size = 5;
+    size_t capacity = 7;
+    vector v = createVectorFromArray(source, size, capacity);
+    size_t index = size - 1;
+    int *pointer = atVector(&v, index);
+    int *expectedPointer = &v.data[index];
+
+    assert(pointer == expectedPointer);
+
+    deleteVector(&v);
+}
+
+void test_atVector_fullVector() {
+    int source[] = {1, 7, 13};
+    size_t size = 3;
+    size_t capacity = size;
+    vector v = createVectorFromArray(source, size, capacity);
+    size_t index = 1;
+    int *pointer = atVector(&v, index);
+    int *expectedPointer = &v.data[index];
+
+    assert(pointer == expectedPointer);
+
+    deleteVector(&v);
+}
+
+void test_atVector_fullVector_firstElement() {
+    int source[] = {9, 3, 12};
+    size_t size = 3;
+    size_t capacity = size;
+    vector v = createVectorFromArray(source, size, capacity);
+    size_t index = 0;
+    int *pointer = atVector(&v, index);
+    int *expectedPointer = v.data;
+
+    assert(pointer == expectedPointer);
+
+    deleteVector(&v);
+}
+
+void test_atVector_fullVector_lastElement() {
+    int source[] = {4, 12, 7, 2};
+    size_t size = 4;
+    size_t capacity = size;
+    vector v = createVectorFromArray(source, size, capacity);
+    size_t index = size - 1;
+    int *pointer = atVector(&v, index);
+    int *expectedPointer = &v.data[index];
+
+    assert(pointer == expectedPointer);
+
+    deleteVector(&v);
+}
+
+void test_back_filledVector() {
+    int source[] = {1, 2, 3};
+    size_t size = 3;
+    size_t capacity = 5;
+    vector v = createVectorFromArray(source, size, capacity);
+    int *pointer = back(&v);
+    int *expectedPointer = &v.data[v.size - 1];
+
+    assert(pointer == expectedPointer);
+
+    deleteVector(&v);
+}
+
+void test_back_filledVector_oneElementInVector() {
+    int source[] = {25};
+    size_t size = 1;
+    size_t capacity = 3;
+    vector v = createVectorFromArray(source, size, capacity);
+    int *pointer = back(&v);
+    int *expectedPointer = &v.data[v.size - 1];
+
+    assert(pointer == expectedPointer);
+
+    deleteVector(&v);
+}
+
+void test_back_fullVector() {
+    int source[] = {5, 3, 1};
+    size_t size = 3;
+    size_t capacity = size;
+    vector v = createVectorFromArray(source, size, capacity);
+    int *pointer = back(&v);
+    int *expectedPointer = &v.data[v.size - 1];
+
+    assert(pointer == expectedPointer);
+
+    deleteVector(&v);
+}
+
+void test_back_fullVector_oneElementInVector() {
+    int source[] = {9};
+    size_t size = 1;
+    size_t capacity = size;
+    vector v = createVectorFromArray(source, size, capacity);
+    int *pointer = back(&v);
+    int *expectedPointer = &v.data[v.size - 1];
+
+    assert(pointer == expectedPointer);
+
+    deleteVector(&v);
+}
+
+void test_front_filledVector() {
+    int source[] = {3, 5, 6};
+    size_t size = 3;
+    size_t capacity = 6;
+    vector v = createVectorFromArray(source, size, capacity);
+    int *pointer = front(&v);
+    int *expectedPointer = v.data;
+
+    assert(pointer == expectedPointer);
+
+    deleteVector(&v);
+}
+
+void test_front_filledVector_oneElement() {
+    int source[] = {7};
+    size_t size = 1;
+    size_t capacity = 5;
+    vector v = createVectorFromArray(source, size, capacity);
+    int *pointer = front(&v);
+    int *expectedPointer = v.data;
+
+    assert(pointer == expectedPointer);
+
+    deleteVector(&v);
+}
+
+void test_front_fullVector() {
+    int source[] = {4, 9, 13};
+    size_t size = 3;
+    size_t capacity = size;
+    vector v = createVectorFromArray(source, size, capacity);
+    int *pointer = front(&v);
+    int *expectedPointer = v.data;
+
+    assert(pointer == expectedPointer);
+
+    deleteVector(&v);
+}
+
+void test_front_fullVector_oneElement() {
+    int source[] = {256};
+    size_t size = 1;
+    size_t capacity = size;
+    vector v = createVectorFromArray(source, size, capacity);
+    int *pointer = front(&v);
+    int *expectedPointer = v.data;
+
+    assert(pointer == expectedPointer);
+
+    deleteVector(&v);
+}
+
 void test() {
     test_createVector_zeroVector();
     test_createVector_nonZeroVector();
@@ -553,6 +741,23 @@ void test() {
 
     test_popBack_filledVector();
     test_popBack_fullVector();
+
+    test_atVector_filledVector();
+    test_atVector_filledVector_firstElement();
+    test_atVector_filledVector_lastElement();
+    test_atVector_fullVector();
+    test_atVector_fullVector_firstElement();
+    test_atVector_fullVector_lastElement();
+
+    test_back_filledVector();
+    test_back_filledVector_oneElementInVector();
+    test_back_fullVector();
+    test_back_fullVector_oneElementInVector();
+
+    test_front_filledVector();
+    test_front_filledVector_oneElement();
+    test_front_fullVector();
+    test_front_fullVector_oneElement();
 }
 
 int main() {

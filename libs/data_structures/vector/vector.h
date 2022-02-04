@@ -139,4 +139,32 @@ void popBack(vector *v) {
     v->size -= 1;
 }
 
+// выводит сообщение о том, что элемента с индексом
+// index нет в векторе.
+void notExistingElementMessage(size_t index) {
+    fprintf(stderr, "IndexError: a[%zu] is not exists", index);
+    exit(1);
+}
+
+// возвращает указатель на index-ый элемент вектора v.
+int *atVector(vector *v, size_t index) {
+    if (isEmpty(v))
+        emptyVectorMessage();
+
+    if (index >= v->size)
+        notExistingElementMessage(index);
+
+    return v->data + index;
+}
+
+// возвращает указатель на последний элемент вектора v.
+int *back(vector *v) {
+    return atVector(v, v->size - 1);
+}
+
+// возвращает указатель на нулевой элемент вектора v.
+int *front(vector *v) {
+    return atVector(v, 0);
+}
+
 #endif
