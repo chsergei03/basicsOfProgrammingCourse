@@ -96,4 +96,47 @@ void deleteVector(vector *v) {
     free(v->data);
 }
 
+// возвращает значение 'истина', если вектор v
+// является пустым, в противном случае - 'ложь'.
+bool isEmpty(vector *v) {
+    return v->size == 0;
+}
+
+// возвращает значение 'истина', если вектор v
+// является полным, в противном случае - 'ложь'.
+bool isFull(vector *v) {
+    return v->size == v->capacity;
+}
+
+// возвращает i-ый элемент вектора v.
+int getVectorValue(vector *v, size_t i) {
+    return v->data[i];
+}
+
+// добавляет элемент x в конец вектора v.
+void pushBack(vector *v, int x) {
+    if (isFull(v)) {
+        size_t newCapacity = v->capacity > 0 ? 2 * v->capacity : 1;
+        reserve(v, newCapacity);
+    }
+
+    v->data[v->size] = x;
+    v->size += 1;
+}
+
+// выводит сообщение о том, что вектор пуст и заканчивает
+// выполнение программы с кодом 1.
+void emptyVectorMessage() {
+    fprintf(stderr, "empty vector");
+    exit(1);
+}
+
+// удаляет последний элемент из вектора v.
+void popBack(vector *v) {
+    if (isEmpty(v))
+        emptyVectorMessage();
+
+    v->size -= 1;
+}
+
 #endif

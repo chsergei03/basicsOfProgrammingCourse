@@ -247,6 +247,269 @@ void test_shrinkToFit_filledNonZeroVector_notEqualSizeAndCapacity() {
     deleteVector(&expectedV);
 }
 
+void test_isEmpty_zeroVector() {
+    size_t capacity = 0;
+    vector v = createVector(capacity);
+
+    assert(isEmpty(&v));
+
+    deleteVector(&v);
+}
+
+void test_isEmpty_emptyVector() {
+    size_t capacity = 5;
+    vector v = createVector(capacity);
+
+    assert(isEmpty(&v));
+
+    deleteVector(&v);
+}
+
+void test_isEmpty_filledVector() {
+    int source[] = {5, 4, 3};
+    size_t size = 3;
+    size_t capacity = 5;
+    vector v = createVectorFromArray(source, size, capacity);
+
+    assert(!isEmpty(&v));
+
+    deleteVector(&v);
+}
+
+void test_isEmpty_fullVector() {
+    int source[] = {7, 6, 8};
+    size_t size = 3;
+    size_t capacity = size;
+    vector v = createVectorFromArray(source, size, capacity);
+
+    assert(!isEmpty(&v));
+
+    deleteVector(&v);
+}
+
+void test_isFull_zeroVector() {
+    size_t capacity = 0;
+    vector v = createVector(capacity);
+
+    assert(isFull(&v));
+
+    deleteVector(&v);
+}
+
+void test_isFull_emptyVector() {
+    size_t capacity = 5;
+    vector v = createVector(capacity);
+
+    assert(!isFull(&v));
+
+    deleteVector(&v);
+}
+
+void test_isFull_filledVector() {
+    int source[] = {4, 1, 9, 15};
+    size_t size = 4;
+    size_t capacity = 8;
+    vector v = createVectorFromArray(source, size, capacity);
+
+    assert(!isFull(&v));
+
+    deleteVector(&v);
+}
+
+void test_isFull_fullVector() {
+    int source[] = {1, 2, 3};
+    size_t size = 3;
+    size_t capacity = size;
+    vector v = createVectorFromArray(source, size, capacity);
+
+    assert(isFull(&v));
+
+    deleteVector(&v);
+}
+
+void test_getVectorValue_filledVector() {
+    int source[] = {3, 2, 1};
+    size_t size = 3;
+    size_t capacity = 5;
+    vector v = createVectorFromArray(source, size, capacity);
+    size_t pos = 1;
+    int exceptedValue = source[pos];
+    int value = getVectorValue(&v, pos);
+
+    assert(value == exceptedValue);
+
+    deleteVector(&v);
+}
+
+void test_getVectorValue_filledVector_firstElement() {
+    int source[] = {7, 5, 8, 9};
+    size_t size = 4;
+    size_t capacity = 10;
+    vector v = createVectorFromArray(source, size, capacity);
+    size_t pos = 0;
+    int exceptedValue = source[pos];
+    int value = getVectorValue(&v, pos);
+
+    assert(value == exceptedValue);
+
+    deleteVector(&v);
+}
+
+void test_getVectorValue_filledVector_lastElement() {
+    int source[] = {9, 6, 3};
+    size_t size = 3;
+    size_t capacity = size;
+    vector v = createVectorFromArray(source, size, capacity);
+    size_t pos = size - 1;
+    int exceptedValue = source[pos];
+    int value = getVectorValue(&v, pos);
+
+    assert(value == exceptedValue);
+
+    deleteVector(&v);
+}
+
+void test_getVectorValue_fullVector() {
+    int source[] = {1, 2, 3};
+    size_t size = 3;
+    size_t capacity = size;
+    vector v = createVectorFromArray(source, size, capacity);
+    size_t pos = 1;
+    int exceptedValue = source[pos];
+    int value = getVectorValue(&v, pos);
+
+    assert(value == exceptedValue);
+
+    deleteVector(&v);
+}
+
+
+void test_getVectorValue_fullVector_firstElement() {
+    int source[] = {6, 14, 8, 7};
+    size_t size = 4;
+    size_t capacity = size;
+    vector v = createVectorFromArray(source, size, capacity);
+    size_t pos = 0;
+    int exceptedValue = source[pos];
+    int value = getVectorValue(&v, pos);
+
+    assert(value == exceptedValue);
+
+    deleteVector(&v);
+}
+
+void test_getVectorValue_fullVector_lastElement() {
+    int source[] = {1, 2, 3};
+    size_t size = 3;
+    size_t capacity = size;
+    vector v = createVectorFromArray(source, size, capacity);
+    size_t pos = size - 1;
+    int exceptedValue = source[pos];
+    int value = getVectorValue(&v, pos);
+
+    assert(value == exceptedValue);
+
+    deleteVector(&v);
+}
+
+void test_pushBack_zeroVector() {
+    size_t capacity = 0;
+    vector v = createVector(capacity);
+    int x = 4;
+    pushBack(&v, x);
+    int expectedSource[] = {4};
+    size_t expectedSize = 1;
+    size_t expectedCapacity = expectedSize;
+    vector expectedV = createVectorFromArray(expectedSource, expectedSize, expectedCapacity);
+
+    assert(isIdenticalVectors(v, expectedV));
+
+    deleteVector(&v);
+    deleteVector(&expectedV);
+}
+
+void test_pushBack_emptyVector() {
+    size_t capacity = 4;
+    vector v = createVector(capacity);
+    int x = 15;
+    pushBack(&v, x);
+    int expectedSource[] = {15};
+    size_t expectedSize = 1;
+    size_t expectedCapacity = capacity;
+    vector expectedV = createVectorFromArray(expectedSource, expectedSize, expectedCapacity);
+
+    assert(isIdenticalVectors(v, expectedV));
+
+    deleteVector(&v);
+    deleteVector(&expectedV);
+}
+
+void test_pushBack_filledVector() {
+    int source[] = {1, 2, 3};
+    size_t size = 3;
+    size_t capacity = 5;
+    vector v = createVectorFromArray(source, size, capacity);
+    int x = 4;
+    pushBack(&v, x);
+    int expectedSource[] = {1, 2, 3, 4};
+    size_t expectedSize = 4;
+    size_t expectedCapacity = capacity;
+    vector expectedV = createVectorFromArray(expectedSource, expectedSize, expectedCapacity);
+
+    assert(isIdenticalVectors(v, expectedV));
+
+    deleteVector(&v);
+    deleteVector(&expectedV);
+}
+
+void test_pushBack_fullVector() {
+    int source[] = {4, 6, 8, 10};
+    size_t size = 4;
+    size_t capacity = size;
+    vector v = createVectorFromArray(source, size, capacity);
+    int x = 12;
+    pushBack(&v, x);
+    int expectedSource[] = {4, 6, 8, 10, 12};
+    size_t expectedSize = 5;
+    size_t expectedCapacity = 2 * capacity;
+    vector expectedV = createVectorFromArray(expectedSource, expectedSize, expectedCapacity);
+
+    assert(isIdenticalVectors(v, expectedV));
+
+    deleteVector(&v);
+    deleteVector(&expectedV);
+}
+
+void test_popBack_filledVector() {
+    int source[] = {4, 5, 6};
+    size_t size = 3;
+    size_t capacity = 5;
+    vector v = createVectorFromArray(source, size, capacity);
+    popBack(&v);
+    size_t expectedSize = 2;
+    vector expectedV = createVectorFromArray(source, expectedSize, capacity);
+
+    assert(isIdenticalVectors(v, expectedV));
+
+    deleteVector(&v);
+    deleteVector(&expectedV);
+}
+
+void test_popBack_fullVector() {
+    int source[] = {15};
+    size_t size = 1;
+    size_t capacity = 1;
+    vector v = createVectorFromArray(source, size, capacity);
+    popBack(&v);
+    size_t expectedSize = 0;
+    vector expectedV = createVectorFromArray(source, expectedSize, capacity);
+
+    assert(isIdenticalVectors(v, expectedV));
+
+    deleteVector(&v);
+    deleteVector(&expectedV);
+}
+
 void test() {
     test_createVector_zeroVector();
     test_createVector_nonZeroVector();
@@ -265,6 +528,31 @@ void test() {
     test_shrinkToFit_emptyNonZeroVector();
     test_shrinkToFit_filledNonZeroVector_equalSizeAndCapacity();
     test_shrinkToFit_filledNonZeroVector_notEqualSizeAndCapacity();
+
+    test_isEmpty_zeroVector();
+    test_isEmpty_emptyVector();
+    test_isEmpty_filledVector();
+    test_isEmpty_fullVector();
+
+    test_isFull_zeroVector();
+    test_isFull_emptyVector();
+    test_isFull_filledVector();
+    test_isFull_fullVector();
+
+    test_getVectorValue_filledVector();
+    test_getVectorValue_filledVector_firstElement();
+    test_getVectorValue_filledVector_lastElement();
+    test_getVectorValue_fullVector();
+    test_getVectorValue_fullVector_firstElement();
+    test_getVectorValue_fullVector_lastElement();
+
+    test_pushBack_zeroVector();
+    test_pushBack_emptyVector();
+    test_pushBack_filledVector();
+    test_pushBack_fullVector();
+
+    test_popBack_filledVector();
+    test_popBack_fullVector();
 }
 
 int main() {
