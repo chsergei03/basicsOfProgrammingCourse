@@ -5,6 +5,7 @@
 #include <stdbool.h>
 
 #include "../../../libs/algorithms/array/array.h"
+#include "../../../libs/algorithms/algorithm.h"
 
 typedef struct unordered_array_set {
     int *data; // элементы множества.

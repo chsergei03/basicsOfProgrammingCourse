@@ -38,14 +38,6 @@ bool unordered_array_set_isValueInSet(unordered_array_set *set, int value) {
     return unordered_array_set_in(set, value) < set->size;
 }
 
-int compare_ints(const void *a, const void *b) {
-    int arg1 = *(const int *) a;
-    int arg2 = *(const int *) b;
-    if (arg1 < arg2) return -1;
-    if (arg1 > arg2) return 1;
-    return 0;
-}
-
 bool unordered_array_set_isEqual(unordered_array_set set1,
                                  unordered_array_set set2) {
     if (set1.size != set2.size)
