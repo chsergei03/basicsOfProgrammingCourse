@@ -1,6 +1,7 @@
 #include <assert.h>
 
 #include "libs/data_structures/vector/vector.h"
+#include "libs/data_structures/vector/void_vector.h"
 
 void test_createVector_zeroVector() {
     size_t capacity = 0;
@@ -958,6 +959,8 @@ void test() {
 
 int main() {
     test();
+
+    vectorVoid v = {(int[]) {}, 0, 0, sizeof(int)};
 
     return 0;
 }
