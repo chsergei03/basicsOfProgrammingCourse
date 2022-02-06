@@ -886,6 +886,1320 @@ void test_front_fullVector_oneElementInVector() {
     deleteVector(&v);
 }
 
+void test_createVectorV_zeroVector_int() {
+    size_t capacity = 0;
+    size_t baseTypeSize = sizeof(int);
+    vectorVoid v = createVectorV(capacity, baseTypeSize);
+    int expectedSource[] = {};
+    size_t expectedSize = capacity;
+    size_t expectedCapacity = expectedSize;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_createVectorV_zeroVector_char() {
+    size_t capacity = 0;
+    size_t baseTypeSize = sizeof(char);
+    vectorVoid v = createVectorV(capacity, baseTypeSize);
+    char expectedSource[] = {};
+    size_t expectedSize = capacity;
+    size_t expectedCapacity = expectedSize;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_createVectorV_zeroVector_float() {
+    size_t capacity = 0;
+    size_t baseTypeSize = sizeof(float);
+    vectorVoid v = createVectorV(capacity, baseTypeSize);
+    float expectedSource[] = {};
+    size_t expectedSize = capacity;
+    size_t expectedCapacity = expectedSize;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_createVectorV_emptyVector_int() {
+    size_t capacity = 10;
+    size_t baseTypeSize = sizeof(int);
+    vectorVoid v = createVectorV(capacity, baseTypeSize);
+    int expectedSource[] = {};
+    size_t expectedSize = 0;
+    size_t expectedCapacity = capacity;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_createVectorV_emptyVector_char() {
+    size_t capacity = 7;
+    size_t baseTypeSize = sizeof(char);
+    vectorVoid v = createVectorV(capacity, baseTypeSize);
+    char expectedSource[] = {};
+    size_t expectedSize = 0;
+    size_t expectedCapacity = capacity;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_createVectorV_emptyVector_float() {
+    size_t capacity = 12;
+    size_t baseTypeSize = sizeof(float);
+    vectorVoid v = createVectorV(capacity, baseTypeSize);
+    float expectedSource[] = {};
+    size_t expectedSize = 0;
+    size_t expectedCapacity = capacity;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_reserveV_toEmptyVector_int() {
+    size_t capacity = 0;
+    size_t newCapacity = 5;
+    size_t baseTypeSize = sizeof(int);
+    vectorVoid v = createVectorV(capacity, baseTypeSize);
+    reserveV(&v, newCapacity);
+    int expectedSource[] = {};
+    size_t expectedSize = capacity;
+    size_t expectedCapacity = newCapacity;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_reserveV_toEmptyVector_char() {
+    size_t capacity = 0;
+    size_t newCapacity = 3;
+    size_t baseTypeSize = sizeof(char);
+    vectorVoid v = createVectorV(capacity, baseTypeSize);
+    reserveV(&v, newCapacity);
+    char expectedSource[] = {};
+    size_t expectedSize = capacity;
+    size_t expectedCapacity = newCapacity;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_reserveV_toEmptyVector_float() {
+    size_t capacity = 0;
+    size_t newCapacity = 8;
+    size_t baseTypeSize = sizeof(float);
+    vectorVoid v = createVectorV(capacity, baseTypeSize);
+    reserveV(&v, newCapacity);
+    float expectedSource[] = {};
+    size_t expectedSize = capacity;
+    size_t expectedCapacity = newCapacity;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_reserveV_toZeroVector_emptyVector_int() {
+    size_t capacity = 10;
+    size_t newCapacity = 0;
+    size_t baseTypeSize = sizeof(int);
+    vectorVoid v = createVectorV(capacity, baseTypeSize);
+    reserveV(&v, newCapacity);
+    int expectedSource[] = {};
+    size_t expectedSize = newCapacity;
+    size_t expectedCapacity = expectedSize;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_reserveV_toZeroVector_emptyVector_char() {
+    size_t capacity = 9;
+    size_t newCapacity = 0;
+    size_t baseTypeSize = sizeof(char);
+    vectorVoid v = createVectorV(capacity, baseTypeSize);
+    reserveV(&v, newCapacity);
+    char expectedSource[] = {};
+    size_t expectedSize = newCapacity;
+    size_t expectedCapacity = expectedSize;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_reserveV_toZeroVector_emptyVector_float() {
+    size_t capacity = 3;
+    size_t newCapacity = 0;
+    size_t baseTypeSize = sizeof(float);
+    vectorVoid v = createVectorV(capacity, baseTypeSize);
+    reserveV(&v, newCapacity);
+    float expectedSource[] = {};
+    size_t expectedSize = newCapacity;
+    size_t expectedCapacity = expectedSize;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_reserveV_toZeroVector_filledVector_int() {
+    int source[] = {4, 5, 6};
+    size_t size = 3;
+    size_t capacity = 6;
+    size_t newCapacity = 0;
+    size_t baseTypeSize = sizeof(int);
+    vectorVoid v = createVectorVFromArray(source, size,
+                                          capacity, baseTypeSize);
+    reserveV(&v, newCapacity);
+    int expectedSource[] = {};
+    size_t expectedSize = newCapacity;
+    size_t expectedCapacity = expectedSize;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_reserveV_toZeroVector_filledVector_char() {
+    char source[] = {'a', 4, 7};
+    size_t size = 3;
+    size_t capacity = 5;
+    size_t newCapacity = 0;
+    size_t baseTypeSize = sizeof(char);
+    vectorVoid v = createVectorVFromArray(source, size,
+                                          capacity, baseTypeSize);
+    reserveV(&v, newCapacity);
+    char expectedSource[] = {};
+    size_t expectedSize = newCapacity;
+    size_t expectedCapacity = expectedSize;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_reserveV_toZeroVector_filledVector_float() {
+    float source[] = {1.5f, 2.3f, 3.7f};
+    size_t size = 3;
+    size_t capacity = 7;
+    size_t newCapacity = 0;
+    size_t baseTypeSize = sizeof(float);
+    vectorVoid v = createVectorVFromArray(source, size,
+                                          capacity, baseTypeSize);
+    reserveV(&v, newCapacity);
+    float expectedSource[] = {};
+    size_t expectedSize = newCapacity;
+    size_t expectedCapacity = expectedSize;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_reserveV_toZeroVector_fullVector_int() {
+    int source[] = {4, 14, 24};
+    size_t size = 3;
+    size_t capacity = size;
+    size_t newCapacity = 0;
+    size_t baseTypeSize = sizeof(int);
+    vectorVoid v = createVectorVFromArray(source, size,
+                                          capacity, baseTypeSize);
+    reserveV(&v, newCapacity);
+    int expectedSource[] = {};
+    size_t expectedSize = newCapacity;
+    size_t expectedCapacity = expectedSize;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_reserveV_toZeroVector_fullVector_char() {
+    char source[] = {125, 5, '.'};
+    size_t size = 3;
+    size_t capacity = size;
+    size_t newCapacity = 0;
+    size_t baseTypeSize = sizeof(char);
+    vectorVoid v = createVectorVFromArray(source, size,
+                                          capacity, baseTypeSize);
+    reserveV(&v, newCapacity);
+    char expectedSource[] = {};
+    size_t expectedSize = newCapacity;
+    size_t expectedCapacity = expectedSize;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_reserveV_toZeroVector_fullVector_float() {
+    float source[] = {125.6f, 5.56f, 25.75f};
+    size_t size = 3;
+    size_t capacity = size;
+    size_t newCapacity = 0;
+    size_t baseTypeSize = sizeof(float);
+    vectorVoid v = createVectorVFromArray(source, size,
+                                          capacity, baseTypeSize);
+    reserveV(&v, newCapacity);
+    float expectedSource[] = {};
+    size_t expectedSize = newCapacity;
+    size_t expectedCapacity = expectedSize;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_reserveV_expandedEmptyVector_int() {
+    size_t capacity = 3;
+    size_t newCapacity = 6;
+    size_t baseTypeSize = sizeof(int);
+    vectorVoid v = createVectorV(capacity, baseTypeSize);
+    reserveV(&v, newCapacity);
+    int expectedSource[] = {};
+    size_t expectedSize = 0;
+    size_t expectedCapacity = newCapacity;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_reserveV_expandedEmptyVector_char() {
+    size_t capacity = 5;
+    size_t newCapacity = 7;
+    size_t baseTypeSize = sizeof(char);
+    vectorVoid v = createVectorV(capacity, baseTypeSize);
+    reserveV(&v, newCapacity);
+    char expectedSource[] = {};
+    size_t expectedSize = 0;
+    size_t expectedCapacity = newCapacity;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_reserveV_expandedEmptyVector_float() {
+    size_t capacity = 2;
+    size_t newCapacity = 4;
+    size_t baseTypeSize = sizeof(float);
+    vectorVoid v = createVectorV(capacity, baseTypeSize);
+    reserveV(&v, newCapacity);
+    float expectedSource[] = {};
+    size_t expectedSize = 0;
+    size_t expectedCapacity = newCapacity;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_reserveV_expandedFilledVector_int() {
+    int source[] = {5, 3, 15};
+    size_t size = 3;
+    size_t capacity = 6;
+    size_t newCapacity = 9;
+    size_t baseTypeSize = sizeof(int);
+    vectorVoid v = createVectorVFromArray(source, size,
+                                          capacity, baseTypeSize);
+    reserveV(&v, newCapacity);
+    int expectedSource[] = {5, 3, 15};
+    size_t expectedSize = size;
+    size_t expectedCapacity = newCapacity;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_reserveV_expandedFilledVector_char() {
+    char source[] = {3, '&', 1};
+    size_t size = 3;
+    size_t capacity = 4;
+    size_t newCapacity = 8;
+    size_t baseTypeSize = sizeof(char);
+    vectorVoid v = createVectorVFromArray(source, size,
+                                          capacity, baseTypeSize);
+    reserveV(&v, newCapacity);
+    char expectedSource[] = {3, '&', 1};
+    size_t expectedSize = size;
+    size_t expectedCapacity = newCapacity;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_reserveV_expandedFilledVector_float() {
+    float source[] = {1.15f, 6.71f, 15.25f};
+    size_t size = 3;
+    size_t capacity = 7;
+    size_t newCapacity = 10;
+    size_t baseTypeSize = sizeof(float);
+    vectorVoid v = createVectorVFromArray(source, size,
+                                          capacity, baseTypeSize);
+    reserveV(&v, newCapacity);
+    float expectedSource[] = {1.15f, 6.71f, 15.25f};
+    size_t expectedSize = size;
+    size_t expectedCapacity = newCapacity;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_reserveV_expandedFullVector_int() {
+    int source[] = {3, 4, 5};
+    size_t size = 3;
+    size_t capacity = size;
+    size_t newCapacity = 10;
+    size_t baseTypeSize = sizeof(int);
+    vectorVoid v = createVectorVFromArray(source, size,
+                                          capacity, baseTypeSize);
+    reserveV(&v, newCapacity);
+    int expectedSource[] = {3, 4, 5};
+    size_t expectedSize = size;
+    size_t expectedCapacity = newCapacity;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_reserveV_expandedFullVector_char() {
+    char source[] = {3, 'b', 2, 1};
+    size_t size = 4;
+    size_t capacity = size;
+    size_t newCapacity = 8;
+    size_t baseTypeSize = sizeof(char);
+    vectorVoid v = createVectorVFromArray(source, size,
+                                          capacity, baseTypeSize);
+    reserveV(&v, newCapacity);
+    char expectedSource[] = {3, 'b', 2, 1};
+    size_t expectedSize = size;
+    size_t expectedCapacity = newCapacity;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_reserveV_expandedFullVector_float() {
+    float source[] = {3.25f, 9.75f, 12.25f};
+    size_t size = 3;
+    size_t capacity = size;
+    size_t newCapacity = 6;
+    size_t baseTypeSize = sizeof(float);
+    vectorVoid v = createVectorVFromArray(source, size,
+                                          capacity, baseTypeSize);
+    reserveV(&v, newCapacity);
+    float expectedSource[] = {3.25f, 9.75f, 12.25f};
+    size_t expectedSize = size;
+    size_t expectedCapacity = newCapacity;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_reserveV_reducedEmptyVector_int() {
+    size_t capacity = 10;
+    size_t newCapacity = 5;
+    size_t baseTypeSize = sizeof(int);
+    vectorVoid v = createVectorV(capacity, baseTypeSize);
+    reserveV(&v, newCapacity);
+    int expectedSource[] = {};
+    size_t expectedSize = 0;
+    size_t expectedCapacity = newCapacity;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_reserveV_reducedEmptyVector_char() {
+    size_t capacity = 7;
+    size_t newCapacity = 4;
+    size_t baseTypeSize = sizeof(char);
+    vectorVoid v = createVectorV(capacity, baseTypeSize);
+    reserveV(&v, newCapacity);
+    char expectedSource[] = {};
+    size_t expectedSize = 0;
+    size_t expectedCapacity = newCapacity;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_reserveV_reducedEmptyVector_float() {
+    size_t capacity = 12;
+    size_t newCapacity = 6;
+    size_t baseTypeSize = sizeof(float);
+    vectorVoid v = createVectorV(capacity, baseTypeSize);
+    reserveV(&v, newCapacity);
+    float expectedSource[] = {};
+    size_t expectedSize = 0;
+    size_t expectedCapacity = newCapacity;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+
+void test_reserveV_reducedFilledVector_newCapacityLessThanSize_int() {
+    int source[] = {7, 8, 9};
+    size_t size = 3;
+    size_t capacity = 12;
+    size_t newCapacity = 1;
+    size_t baseTypeSize = sizeof(int);
+    vectorVoid v = createVectorVFromArray(source, size,
+                                          capacity, baseTypeSize);
+    reserveV(&v, newCapacity);
+    int expectedSource[] = {7};
+    size_t expectedSize = newCapacity;
+    size_t expectedCapacity = expectedSize;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_reserveV_reducedFilledVector_newCapacityLessThanSize_char() {
+    char source[] = {'#', 4, 9, 14};
+    size_t size = 4;
+    size_t capacity = 8;
+    size_t newCapacity = 2;
+    size_t baseTypeSize = sizeof(char);
+    vectorVoid v = createVectorVFromArray(source, size,
+                                          capacity, baseTypeSize);
+    reserveV(&v, newCapacity);
+    char expectedSource[] = {'#', 4};
+    size_t expectedSize = newCapacity;
+    size_t expectedCapacity = expectedSize;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_reserveV_reducedFilledVector_newCapacityLessThanSize_float() {
+    float source[] = {1.1f, 2.2f, 3.3f};
+    size_t size = 3;
+    size_t capacity = 5;
+    size_t newCapacity = 2;
+    size_t baseTypeSize = sizeof(float);
+    vectorVoid v = createVectorVFromArray(source, size,
+                                          capacity, baseTypeSize);
+    reserveV(&v, newCapacity);
+    float expectedSource[] = {1.1f, 2.2f};
+    size_t expectedSize = newCapacity;
+    size_t expectedCapacity = expectedSize;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_reserveV_reducedFilledVector_newCapacityMoreThanSize_int() {
+    int source[] = {6, 3, 5};
+    size_t size = 3;
+    size_t capacity = 5;
+    size_t newCapacity = 4;
+    size_t baseTypeSize = sizeof(int);
+    vectorVoid v = createVectorVFromArray(source, size,
+                                          capacity, baseTypeSize);
+    reserveV(&v, newCapacity);
+    int expectedSource[] = {6, 3, 5};
+    size_t expectedSize = size;
+    size_t expectedCapacity = newCapacity;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_reserveV_reducedFilledVector_newCapacityMoreThanSize_char() {
+    char source[] = {22, 1, '&', 8};
+    size_t size = 4;
+    size_t capacity = 8;
+    size_t newCapacity = 6;
+    size_t baseTypeSize = sizeof(char);
+    vectorVoid v = createVectorVFromArray(source, size,
+                                          capacity, baseTypeSize);
+    reserveV(&v, newCapacity);
+    char expectedSource[] = {22, 1, '&', 8};
+    size_t expectedSize = size;
+    size_t expectedCapacity = newCapacity;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_reserveV_reducedFilledVector_newCapacityMoreThanSize_float() {
+    float source[] = {1.15f, 2.25f, 3.35f};
+    size_t size = 3;
+    size_t capacity = 7;
+    size_t newCapacity = 6;
+    size_t baseTypeSize = sizeof(float);
+    vectorVoid v = createVectorVFromArray(source, size,
+                                          capacity, baseTypeSize);
+    reserveV(&v, newCapacity);
+    float expectedSource[] = {1.15f, 2.25f, 3.35f};
+    size_t expectedSize = size;
+    size_t expectedCapacity = newCapacity;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+
+void test_reserveV_reducedFullVector_int() {
+    int source[] = {3, 5, 7, 9};
+    size_t size = 4;
+    size_t capacity = size;
+    size_t newCapacity = 3;
+    size_t baseTypeSize = sizeof(int);
+    vectorVoid v = createVectorVFromArray(source, size,
+                                          capacity, baseTypeSize);
+    reserveV(&v, newCapacity);
+    int expectedSource[] = {3, 5, 7};
+    size_t expectedSize = newCapacity;
+    size_t expectedCapacity = expectedSize;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_reserveV_reducedFullVector_char() {
+    char source[] = {6, 8, 'm', 10, 12};
+    size_t size = 5;
+    size_t capacity = size;
+    size_t newCapacity = 3;
+    size_t baseTypeSize = sizeof(char);
+    vectorVoid v = createVectorVFromArray(source, size,
+                                          capacity, baseTypeSize);
+    reserveV(&v, newCapacity);
+    char expectedSource[] = {6, 8, 'm'};
+    size_t expectedSize = newCapacity;
+    size_t expectedCapacity = expectedSize;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_reserveV_reducedFullVector_float() {
+    float source[] = {1.25f, 2.5f, 3.75f, 4};
+    size_t size = 4;
+    size_t capacity = size;
+    size_t newCapacity = 1;
+    size_t baseTypeSize = sizeof(float);
+    vectorVoid v = createVectorVFromArray(source, size,
+                                          capacity, baseTypeSize);
+    reserveV(&v, newCapacity);
+    float expectedSource[] = {1.25f};
+    size_t expectedSize = newCapacity;
+    size_t expectedCapacity = expectedSize;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_clearV_clearedZeroVector_int() {
+    size_t capacity = 0;
+    size_t baseTypeSize = sizeof(int);
+    vectorVoid v = createVectorV(capacity, baseTypeSize);
+    clearV(&v);
+    int expectedSource[] = {};
+    size_t expectedSize = capacity;
+    size_t expectedCapacity = expectedSize;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_clearV_clearedZeroVector_char() {
+    size_t capacity = 0;
+    size_t baseTypeSize = sizeof(char);
+    vectorVoid v = createVectorV(capacity, baseTypeSize);
+    clearV(&v);
+    char expectedSource[] = {};
+    size_t expectedSize = capacity;
+    size_t expectedCapacity = expectedSize;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_clearV_clearedZeroVector_float() {
+    size_t capacity = 0;
+    size_t baseTypeSize = sizeof(float);
+    vectorVoid v = createVectorV(capacity, baseTypeSize);
+    clearV(&v);
+    float expectedSource[] = {};
+    size_t expectedSize = capacity;
+    size_t expectedCapacity = expectedSize;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_clearV_clearedEmptyVector_int() {
+    size_t capacity = 10;
+    size_t baseTypeSize = sizeof(int);
+    vectorVoid v = createVectorV(capacity, baseTypeSize);
+    clearV(&v);
+    int expectedSource[] = {};
+    size_t expectedSize = 0;
+    size_t expectedCapacity = capacity;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_clearV_clearedEmptyVector_char() {
+    size_t capacity = 5;
+    size_t baseTypeSize = sizeof(char);
+    vectorVoid v = createVectorV(capacity, baseTypeSize);
+    clearV(&v);
+    char expectedSource[] = {};
+    size_t expectedSize = 0;
+    size_t expectedCapacity = capacity;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_clearV_clearedEmptyVector_float() {
+    size_t capacity = 1;
+    size_t baseTypeSize = sizeof(float);
+    vectorVoid v = createVectorV(capacity, baseTypeSize);
+    clearV(&v);
+    float expectedSource[] = {};
+    size_t expectedSize = 0;
+    size_t expectedCapacity = capacity;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_clearV_clearedFilledVector_int() {
+    int source[] = {5, 7, 11};
+    size_t size = 3;
+    size_t capacity = 5;
+    size_t baseTypeSize = sizeof(int);
+    vectorVoid v = createVectorVFromArray(source, size,
+                                          capacity, baseTypeSize);
+    clearV(&v);
+    int expectedSource[] = {5, 7, 11};
+    size_t expectedSize = 0;
+    size_t expectedCapacity = capacity;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_clearV_clearedFilledVector_char() {
+    char source[] = {2, 4, 6, '@'};
+    size_t size = 4;
+    size_t capacity = 5;
+    size_t baseTypeSize = sizeof(char);
+    vectorVoid v = createVectorVFromArray(source, size,
+                                          capacity, baseTypeSize);
+    clearV(&v);
+    char expectedSource[] = {2, 4, 6, '@'};
+    size_t expectedSize = 0;
+    size_t expectedCapacity = capacity;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_clearV_clearedFilledVector_float() {
+    float source[] = {7.4f, 8.6f, 9.8f};
+    size_t size = 3;
+    size_t capacity = 9;
+    size_t baseTypeSize = sizeof(float);
+    vectorVoid v = createVectorVFromArray(source, size,
+                                          capacity, baseTypeSize);
+    clearV(&v);
+    float expectedSource[] = {7.4f, 8.6f, 9.8f};
+    size_t expectedSize = 0;
+    size_t expectedCapacity = capacity;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_clearV_clearedFullVector_int() {
+    int source[] = {5, 4, 3};
+    size_t size = 3;
+    size_t capacity = size;
+    size_t baseTypeSize = sizeof(int);
+    vectorVoid v = createVectorVFromArray(source, size,
+                                          capacity, baseTypeSize);
+    clearV(&v);
+    int expectedSource[] = {5, 4, 3};
+    size_t expectedSize = 0;
+    size_t expectedCapacity = capacity;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_clearV_clearedFullVector_char() {
+    char source[] = {8, 6, 4, '!'};
+    size_t size = 3;
+    size_t capacity = size;
+    size_t baseTypeSize = sizeof(char);
+    vectorVoid v = createVectorVFromArray(source, size,
+                                          capacity, baseTypeSize);
+    clearV(&v);
+    char expectedSource[] = {8, 6, 4, '!'};
+    size_t expectedSize = 0;
+    size_t expectedCapacity = capacity;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_clearV_clearedFullVector_float() {
+    float source[] = {7.63f, 4.41f, 2.13f};
+    size_t size = 3;
+    size_t capacity = 9;
+    size_t baseTypeSize = sizeof(float);
+    vectorVoid v = createVectorVFromArray(source, size,
+                                          capacity, baseTypeSize);
+    clearV(&v);
+    float expectedSource[] = {7.63f, 4.41f, 2.13f};
+    size_t expectedSize = 0;
+    size_t expectedCapacity = capacity;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_shrinkToFitV_zeroVector_int() {
+    size_t capacity = 0;
+    size_t baseTypeSize = sizeof(int);
+    vectorVoid v = createVectorV(capacity, baseTypeSize);
+    shrinkToFitV(&v);
+    int expectedSource[] = {};
+    size_t expectedSize = capacity;
+    size_t expectedCapacity = expectedSize;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_shrinkToFitV_zeroVector_char() {
+    size_t capacity = 0;
+    size_t baseTypeSize = sizeof(char);
+    vectorVoid v = createVectorV(capacity, baseTypeSize);
+    shrinkToFitV(&v);
+    char expectedSource[] = {};
+    size_t expectedSize = capacity;
+    size_t expectedCapacity = expectedSize;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_shrinkToFitV_zeroVector_float() {
+    size_t capacity = 0;
+    size_t baseTypeSize = sizeof(float);
+    vectorVoid v = createVectorV(capacity, baseTypeSize);
+    shrinkToFitV(&v);
+    float expectedSource[] = {};
+    size_t expectedSize = capacity;
+    size_t expectedCapacity = expectedSize;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_shrinkToFitV_emptyVector_int() {
+    size_t capacity = 8;
+    size_t baseTypeSize = sizeof(int);
+    vectorVoid v = createVectorV(capacity, baseTypeSize);
+    shrinkToFitV(&v);
+    int expectedSource[] = {};
+    size_t expectedSize = 0;
+    size_t expectedCapacity = expectedSize;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_shrinkToFitV_emptyVector_char() {
+    size_t capacity = 4;
+    size_t baseTypeSize = sizeof(char);
+    vectorVoid v = createVectorV(capacity, baseTypeSize);
+    shrinkToFitV(&v);
+    char expectedSource[] = {};
+    size_t expectedSize = 0;
+    size_t expectedCapacity = expectedSize;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_shrinkToFitV_emptyVector_float() {
+    size_t capacity = 2;
+    size_t baseTypeSize = sizeof(float);
+    vectorVoid v = createVectorV(capacity, baseTypeSize);
+    shrinkToFitV(&v);
+    float expectedSource[] = {};
+    size_t expectedSize = 0;
+    size_t expectedCapacity = expectedSize;
+    vectorVoid expectedV = createVectorVFromArray(expectedSource,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_shrinkToFitV_filledVector_int() {
+    int source[] = {7, 14, 21};
+    size_t size = 3;
+    size_t capacity = 6;
+    size_t baseTypeSize = sizeof(int);
+    vectorVoid v = createVectorVFromArray(source, size,
+                                          capacity, baseTypeSize);
+    shrinkToFitV(&v);
+    size_t expectedSize = size;
+    size_t expectedCapacity = expectedSize;
+    vectorVoid expectedV = createVectorVFromArray(source,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_shrinkToFitV_filledVector_char() {
+    char source[] = {27, 18, '$', 9};
+    size_t size = 3;
+    size_t capacity = 5;
+    size_t baseTypeSize = sizeof(char);
+    vectorVoid v = createVectorVFromArray(source, size,
+                                          capacity, baseTypeSize);
+    shrinkToFitV(&v);
+    size_t expectedSize = size;
+    size_t expectedCapacity = expectedSize;
+    vectorVoid expectedV = createVectorVFromArray(source,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_shrinkToFitV_filledVector_float() {
+    float source[] = {15, 7.5f, 3.25f};
+    size_t size = 3;
+    size_t capacity = 10;
+    size_t baseTypeSize = sizeof(float);
+    vectorVoid v = createVectorVFromArray(source, size,
+                                          capacity, baseTypeSize);
+    shrinkToFitV(&v);
+    size_t expectedSize = size;
+    size_t expectedCapacity = expectedSize;
+    vectorVoid expectedV = createVectorVFromArray(source,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_shrinkToFitV_fullVector_int() {
+    int source[] = {4, 8, 7};
+    size_t size = 3;
+    size_t capacity = size;
+    size_t baseTypeSize = sizeof(int);
+    vectorVoid v = createVectorVFromArray(source, size,
+                                          capacity, baseTypeSize);
+    shrinkToFitV(&v);
+    size_t expectedSize = size;
+    size_t expectedCapacity = expectedSize;
+    vectorVoid expectedV = createVectorVFromArray(source,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_shrinkToFitV_fullVector_char() {
+    char source[] = {3, '*', 4, 5};
+    size_t size = 3;
+    size_t capacity = size;
+    size_t baseTypeSize = sizeof(char);
+    vectorVoid v = createVectorVFromArray(source, size,
+                                          capacity, baseTypeSize);
+    shrinkToFitV(&v);
+    size_t expectedSize = size;
+    size_t expectedCapacity = expectedSize;
+    vectorVoid expectedV = createVectorVFromArray(source,
+                                                  expectedSize,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
+void test_shrinkToFitV_fullVector_float() {
+    float source[] = {3.13f, 4.14f, 7.17f};
+    size_t size = 3;
+    size_t capacity = size;
+    size_t baseTypeSize = sizeof(float);
+    vectorVoid v = createVectorVFromArray(source, size,
+                                          capacity, baseTypeSize);
+    shrinkToFitV(&v);
+    size_t expectedSize = size;
+    size_t expectedCapacity = expectedSize;
+    vectorVoid expectedV = createVectorVFromArray(source,
+                                                  size,
+                                                  expectedCapacity,
+                                                  baseTypeSize);
+
+    assert(isIdenticalVoidVectors(v, expectedV));
+
+    deleteVectorV(&v);
+    deleteVectorV(&expectedV);
+}
+
 void test() {
     test_createVector_zeroVector();
     test_createVector_emptyVector();
@@ -955,12 +2269,77 @@ void test() {
     test_front_filledVector_oneElementInVector();
     test_front_fullVector();
     test_front_fullVector_oneElementInVector();
+
+    test_createVectorV_zeroVector_int();
+    test_createVectorV_zeroVector_char();
+    test_createVectorV_zeroVector_float();
+    test_createVectorV_emptyVector_int();
+    test_createVectorV_emptyVector_char();
+    test_createVectorV_emptyVector_float();
+
+    test_reserveV_toEmptyVector_int();
+    test_reserveV_toEmptyVector_char();
+    test_reserveV_toEmptyVector_float();
+    test_reserveV_toZeroVector_emptyVector_int();
+    test_reserveV_toZeroVector_emptyVector_char();
+    test_reserveV_toZeroVector_emptyVector_float();
+    test_reserveV_toZeroVector_filledVector_int();
+    test_reserveV_toZeroVector_filledVector_char();
+    test_reserveV_toZeroVector_filledVector_float();
+    test_reserveV_toZeroVector_fullVector_int();
+    test_reserveV_toZeroVector_fullVector_char();
+    test_reserveV_toZeroVector_fullVector_float();
+    test_reserveV_expandedEmptyVector_int();
+    test_reserveV_expandedEmptyVector_char();
+    test_reserveV_expandedEmptyVector_float();
+    test_reserveV_expandedFilledVector_int();
+    test_reserveV_expandedFilledVector_char();
+    test_reserveV_expandedFilledVector_float();
+    test_reserveV_expandedFullVector_int();
+    test_reserveV_expandedFullVector_char();
+    test_reserveV_expandedFullVector_float();
+    test_reserveV_reducedEmptyVector_int();
+    test_reserveV_reducedEmptyVector_char();
+    test_reserveV_reducedEmptyVector_float();
+    test_reserveV_reducedFilledVector_newCapacityLessThanSize_int();
+    test_reserveV_reducedFilledVector_newCapacityLessThanSize_char();
+    test_reserveV_reducedFilledVector_newCapacityLessThanSize_float();
+    test_reserveV_reducedFilledVector_newCapacityMoreThanSize_int();
+    test_reserveV_reducedFilledVector_newCapacityMoreThanSize_char();
+    test_reserveV_reducedFilledVector_newCapacityMoreThanSize_float();
+    test_reserveV_reducedFullVector_int();
+    test_reserveV_reducedFullVector_char();
+    test_reserveV_reducedFullVector_float();
+
+    test_clearV_clearedZeroVector_int();
+    test_clearV_clearedZeroVector_char();
+    test_clearV_clearedZeroVector_float();
+    test_clearV_clearedEmptyVector_int();
+    test_clearV_clearedEmptyVector_char();
+    test_clearV_clearedEmptyVector_float();
+    test_clearV_clearedFilledVector_int();
+    test_clearV_clearedFilledVector_char();
+    test_clearV_clearedFilledVector_float();
+    test_clearV_clearedFullVector_int();
+    test_clearV_clearedFullVector_char();
+    test_clearV_clearedFullVector_float();
+
+    test_shrinkToFitV_zeroVector_int();
+    test_shrinkToFitV_zeroVector_char();
+    test_shrinkToFitV_zeroVector_float();
+    test_shrinkToFitV_emptyVector_int();
+    test_shrinkToFitV_emptyVector_char();
+    test_shrinkToFitV_emptyVector_float();
+    test_shrinkToFitV_filledVector_int();
+    test_shrinkToFitV_filledVector_char();
+    test_shrinkToFitV_filledVector_float();
+    test_shrinkToFitV_fullVector_int();
+    test_shrinkToFitV_fullVector_char();
+    test_shrinkToFitV_fullVector_float();
 }
 
 int main() {
     test();
-
-    vectorVoid v = {(int[]) {}, 0, 0, sizeof(int)};
 
     return 0;
 }
