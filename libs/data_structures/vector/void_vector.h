@@ -101,4 +101,64 @@ void deleteVectorV(vectorVoid *v) {
     free(v->data);
 }
 
+// возвращает значение 'истина', если вектор v произвольного
+// типа является пустым, в противном случае - 'ложь'.
+bool isEmptyV(vectorVoid *v) {
+    return v->size == 0;
+}
+
+// возвращает значение 'истина', если вектор v произвольного
+// типа является полным, в противном случае - 'ложь'.
+bool isFullV(vectorVoid *v) {
+    return v->size == v->capacity;
+}
+
+// возвращает значение 'истина', если значения по адресам
+// a и b равны, в противном случае - 'ложь'.
+bool equalValuesCheckByPointers(void *a, void *b, size_t baseTypeSize) {
+    return memcmp(a, b, baseTypeSize) == 0;
+}
+
+// записывает по адресу destination index-ый элемент
+// вектора v произвольного типа.
+void getVectorValueV(vectorVoid *v, size_t index,
+                     void *destination) {
+    char *source = (char *) v->data + index * v->baseTypeSize;
+    memcpy(destination, source, v->baseTypeSize);
+}
+
+// записывает в index-ый элемент вектора v произвольного
+// типа значение, расположенное по адресу source.
+void setVectorValueV(vectorVoid *v, size_t index,
+                     void *source) {
+    char *destination = (char *) v->data + index * v->baseTypeSize;
+    memcpy(destination, source, v->baseTypeSize);
+}
+
+// выводит сообщение о том, что вектор пуст, при
+// этом выполнение программы завершается с кодом 1.
+void emptyVoidVectorMessage() {
+    fprintf(stderr, "empty vector");
+    exit(1);
+}
+
+// удаляет последний элемент из вектора v.
+void popBackV(vectorVoid *v) {
+    if (isEmptyV(v))
+        emptyVoidVectorMessage();
+
+    v->size -= 1;
+}
+
+// добавляет элемент x в конец вектора v.
+void pushBackV(vectorVoid *v, void *source) {
+    if (isFullV(v)) {
+        size_t newCapacity = v->capacity > 0 ? 2 * v->capacity : 1;
+        reserveV(v, newCapacity);
+    }
+
+    setVectorValueV(v, v->size, source);
+    v->size += 1;
+}
+
 #endif
