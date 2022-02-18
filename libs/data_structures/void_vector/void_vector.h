@@ -71,7 +71,7 @@ void getVectorValueV(const vectorVoid *v,
                      void *destination);
 
 // записывает в index-ый элемент вектора v произвольного
-// типа значение, расположенное по адресу source.
+// типа значение, расположенного по адресу source.
 void setVectorValueV(vectorVoid *v,
                      size_t index,
                      const void *source);

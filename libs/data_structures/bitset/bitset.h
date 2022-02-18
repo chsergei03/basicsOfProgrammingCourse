@@ -12,11 +12,11 @@ typedef struct bitset {
 // возвращает пустое множество c универсумом 0, 1,..., maxValue.
 bitset bitset_create(uint32_t maxValue);
 
-// возвращает значение ’истина’, если значение x имеется в множестве set.
+// возвращает значение ’истина’, если значение x имеется в множестве set,
 // иначе - ’ложь’.
 bool bitset_in(bitset set, uint32_t x);
 
-// возвращает значение ’истина’, если множества set1 и set2 равны
+// возвращает значение ’истина’, если множества set1 и set2 равны,
 // иначе - ’ложь’.
 bool bitset_isEqual(bitset set1, bitset set2);
 
@@ -45,7 +45,7 @@ bitset bitset_symmetricDifference(bitset set1, bitset set2);
 // возвращает дополнение до универсума множества set.
 bitset bitset_complement(bitset set);
 
-// вывод множества set.
+// выводит множество set.
 void bitset_print(bitset set);
 
 #endif
