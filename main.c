@@ -1,6 +1,7 @@
 #include <assert.h>
 
 #include "libs/data_structures/matrix/matrix.h"
+#include "libs/data_structures/matrix/tasks_matrix.h"
 
 void test_swapRows_squareMatrix() {
     int source[] = {1, 2, 3,
@@ -826,6 +827,110 @@ void test_matrix() {
     test_getMaxValuePos();
 }
 
+void test_swapRowsWithMaxAndMinValuesOfSquareMatrix_oneMinAndOneMaxValues() {
+    int source[] = {5, 25, 6,
+                    4, 3, 1,
+                    0, 8, 2};
+    size_t nRows = 3;
+    size_t nCols = 3;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    swapRowsWithMaxAndMinValuesOfSquareMatrix(&m);
+    int expectedSource[] = {0, 8, 2,
+                            4, 3, 1,
+                            5, 25, 6};
+    matrix expectedM = createMatrixFromArray(expectedSource, nRows, nCols);
+    assert(areTwoMatricesEqual(m, expectedM));
+    freeMemMatrix(&m);
+    freeMemMatrix(&expectedM);
+}
+
+void test_swapRowsWithMaxAndMinValuesOfSquareMatrix_oneMinAndSomeMaxValues() {
+    int source[] = {3, 1, 7,
+                    4, 2, 0,
+                    7, 5, 3};
+    size_t nRows = 3;
+    size_t nCols = 3;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    swapRowsWithMaxAndMinValuesOfSquareMatrix(&m);
+    int expectedSource[] = {4, 2, 0,
+                            3, 1, 7,
+                            7, 5, 3};
+    matrix expectedM = createMatrixFromArray(expectedSource, nRows, nCols);
+    assert(areTwoMatricesEqual(m, expectedM));
+    freeMemMatrix(&m);
+    freeMemMatrix(&expectedM);
+}
+
+void test_swapRowsWithMaxAndMinValuesOfSquareMatrix_someMinAndOneMaxValues() {
+    int source[] = {9, 13, 5,
+                    13, 11, 7,
+                    0, 1, 8};
+    size_t nRows = 3;
+    size_t nCols = 3;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    swapRowsWithMaxAndMinValuesOfSquareMatrix(&m);
+    int expectedSource[] = {0, 1, 8,
+                            13, 11, 7,
+                            9, 13, 5};
+    matrix expectedM = createMatrixFromArray(expectedSource, nRows, nCols);
+    assert(areTwoMatricesEqual(m, expectedM));
+    freeMemMatrix(&m);
+    freeMemMatrix(&expectedM);
+}
+
+void test_swapRowsWithMaxAndMinValuesOfSquareMatrix_someMinAndSomeMaxValues() {
+    int source[] = {1, 9, 5, 4,
+                    4, 0, 8, 6,
+                    3, 7, 0, 8,
+                    9, 2, 5, 7};
+    size_t nRows = 4;
+    size_t nCols = 4;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    swapRowsWithMaxAndMinValuesOfSquareMatrix(&m);
+    int expectedSource[] = {4, 0, 8, 6,
+                            1, 9, 5, 4,
+                            3, 7, 0, 8,
+                            9, 2, 5, 7};
+    matrix expectedM = createMatrixFromArray(expectedSource, nRows, nCols);
+    assert(areTwoMatricesEqual(m, expectedM));
+    freeMemMatrix(&m);
+    freeMemMatrix(&expectedM);
+}
+
+void test_swapRowsWithMaxAndMinValuesOfSquareMatrix_minAndMaxValuesInOneRow() {
+    int source[] = {6, 8, 5, 3,
+                    5, 9, 4, 0,
+                    4, 1, 1, 7,
+                    2, 5, 1, 3};
+    size_t nRows = 4;
+    size_t nCols = 4;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    swapRowsWithMaxAndMinValuesOfSquareMatrix(&m);
+    int expectedSource[] = {6, 8, 5, 3,
+                            5, 9, 4, 0,
+                            4, 1, 1, 7,
+                            2, 5, 1, 3};
+    matrix expectedM = createMatrixFromArray(expectedSource, nRows, nCols);
+    assert(areTwoMatricesEqual(m, expectedM));
+    freeMemMatrix(&m);
+    freeMemMatrix(&expectedM);
+}
+
+void test_swapRowsWithMaxAndMinValuesOfSquareMatrix() {
+    test_swapRowsWithMaxAndMinValuesOfSquareMatrix_oneMinAndOneMaxValues();
+    test_swapRowsWithMaxAndMinValuesOfSquareMatrix_oneMinAndSomeMaxValues();
+    test_swapRowsWithMaxAndMinValuesOfSquareMatrix_someMinAndOneMaxValues();
+    test_swapRowsWithMaxAndMinValuesOfSquareMatrix_someMinAndSomeMaxValues();
+    test_swapRowsWithMaxAndMinValuesOfSquareMatrix_minAndMaxValuesInOneRow();
+}
+
+void test_tasks_matrix() {
+    test_swapRowsWithMaxAndMinValuesOfSquareMatrix();
+}
+
 int main() {
     test_matrix();
+    test_tasks_matrix();
+
+    return 0;
 }
