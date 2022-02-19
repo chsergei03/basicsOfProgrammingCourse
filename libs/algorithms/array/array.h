@@ -68,4 +68,11 @@ void deleteIf_(int *a, size_t *n, int(*deletePredicate)(int));
 // удовлетворяющих функции-предикату predicate.
 int countIf_(const int *a, size_t n, int (*predicate)(int));
 
+// возвращает сумму элементов массива a размера n.
+int getSum_(const int *a, size_t n);
+
+// возвращает позицию минимального элемента массива
+// a размера n в области, начинающейся с позиции pos.
+size_t getMinPos_(const int *a, size_t n, size_t pos);
+
 #endif

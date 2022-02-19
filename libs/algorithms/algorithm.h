@@ -12,4 +12,8 @@ int compare_ints(const void *a, const void *b);
 // типа size_t.
 size_t min2_size_t(size_t a, size_t b);
 
+// обменивает два значения произвольного типа (baseTypeSize
+// - размер этого произвольного типа).
+void void_swap(void *a, void *b, size_t baseTypeSize);
+
 #endif

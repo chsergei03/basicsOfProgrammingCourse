@@ -55,6 +55,7 @@ size_t linearSearch_(const int *const a,
     for (size_t i = 0; i < n; i++)
         if (a[i] == x)
             return i;
+
     return n;
 }
 
@@ -63,6 +64,7 @@ int any_(const int *const a, const size_t n,
     for (size_t i = 0; i < n; i++)
         if (predicate(a[i]))
             return 1;
+
     return 0;
 }
 
@@ -71,6 +73,7 @@ int all_(const int *const a, const size_t n,
     for (size_t i = 0; i < n; i++)
         if (!predicate(a[i]))
             return 0;
+
     return 1;
 }
 
@@ -79,6 +82,7 @@ int countIf_(const int *const a, const size_t n,
     int count = 0;
     for (size_t i = 0; i < n; i++)
         count += predicate(a[i]);
+
     return count;
 }
 
@@ -120,6 +124,7 @@ size_t binarySearch_(const int *const a,
         else
             return middle;
     }
+
     return n;
 }
 
@@ -142,6 +147,7 @@ size_t binarySearchOrderedSet_(const int *const a,
         else
             return middle;
     }
+
     return n;
 }
 
@@ -159,5 +165,29 @@ size_t binarySearchMoreOrEqual_(const int *const a,
         else
             right = middle;
     }
+
     return right;
+}
+
+int getSum_(const int *const a,
+            const size_t n) {
+    int sum = 0;
+    for (size_t i = 0; i < n; i++)
+        sum += a[i];
+
+    return sum;
+}
+
+size_t getMinPos_(const int *const a,
+                  const size_t size,
+                  const size_t pos) {
+    int min = a[pos];
+    size_t minPos = pos;
+    for (size_t i = pos; i < size; i++)
+        if (a[i] < min) {
+            min = a[i];
+            minPos = i;
+        }
+
+    return minPos;
 }

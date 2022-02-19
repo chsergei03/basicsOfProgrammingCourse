@@ -11,3 +11,15 @@ int compare_ints(const void *a, const void *b) {
 size_t min2_size_t(const size_t a, const size_t b) {
     return a < b ? a : b;
 }
+
+void void_swap(void *a, void *b, const size_t baseTypeSize) {
+    char *pa = a;
+    char *pb = b;
+    for (int i = 0; i < baseTypeSize; i++) {
+        char t = *pa;
+        *pa = *pb;
+        *pb = t;
+        pa++;
+        pb++;
+    }
+}
