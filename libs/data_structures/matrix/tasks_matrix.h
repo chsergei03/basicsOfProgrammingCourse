@@ -15,4 +15,12 @@ void sortRowsByMaxElements(matrix *m);
 // наименьших элементов столбцов.
 void sortColsByMinElements(matrix *m);
 
+// возвращает матрицу, полученную умножением
+// матрицы m1 на матрицу m2.
+matrix mulMatrices(matrix m1, matrix m2);
+
+// заменяет квадратную матрицу m её квадратом,
+// если матрица симметрична.
+void getSquareOfMatrixIfSymmetric(matrix *m);
+
 #endif

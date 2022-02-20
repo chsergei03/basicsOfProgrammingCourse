@@ -1164,10 +1164,327 @@ void test_sortColsByMinElement() {
     test_sortColsByMinElement_colsMoreThanRows_someEqualCriteriaValues();
 }
 
+void test_mulMatrices_squareMatrices() {
+    int source1[] = {2, 4,
+                     7, 6};
+    size_t nRows = 2;
+    size_t nCols = 2;
+    matrix m1 = createMatrixFromArray(source1, nRows, nCols);
+    int source2[] = {1, 6,
+                     3, 5};
+    matrix m2 = createMatrixFromArray(source2, nRows, nCols);
+    matrix mulMatrix = mulMatrices(m1, m2);
+    freeMemMatrix(&m1);
+    freeMemMatrix(&m2);
+    int expectedSource[] = {14, 32,
+                            25, 72};
+    size_t expectedNRows = 2;
+    size_t expectedNCols = 2;
+    matrix expectedM = createMatrixFromArray(expectedSource,
+                                             expectedNRows,
+                                             expectedNCols);
+    assert(areTwoMatricesEqual(mulMatrix, expectedM));
+    freeMemMatrix(&expectedM);
+}
+
+void test_mulMatrices_squareMatrixAndMatrixWithRowsMoreThanCols() {
+    int source1[] = {2, 3, 4,
+                     1, 2, 0,
+                     2, 3, 1};
+    size_t nRows1 = 3;
+    size_t nCols1 = 3;
+    matrix m1 = createMatrixFromArray(source1, nRows1, nCols1);
+    int source2[] = {1, 2,
+                     3, 4,
+                     5, 6};
+    size_t nRows2 = 3;
+    size_t nCols2 = 2;
+    matrix m2 = createMatrixFromArray(source2, nRows2, nCols2);
+    matrix mulMatrix = mulMatrices(m1, m2);
+    freeMemMatrix(&m1);
+    freeMemMatrix(&m2);
+    int expectedSource[] = {31, 40,
+                            7, 10,
+                            16, 22};
+    size_t expectedNRows = 3;
+    size_t expectedNCols = 2;
+    matrix expectedM = createMatrixFromArray(expectedSource,
+                                             expectedNRows,
+                                             expectedNCols);
+    assert(areTwoMatricesEqual(mulMatrix, expectedM));
+    freeMemMatrix(&expectedM);
+}
+
+void test_mulMatrices_squareMatrixAndMatrixWithColsMoreThanRows() {
+    int source1[] = {1, 2,
+                     3, 4};
+    size_t nRows1 = 2;
+    size_t nCols1 = 2;
+    matrix m1 = createMatrixFromArray(source1, nRows1, nCols1);
+    int source2[] = {2, 3, 1,
+                     0, 0, 1};
+    size_t nRows2 = 2;
+    size_t nCols2 = 3;
+    matrix m2 = createMatrixFromArray(source2, nRows2, nCols2);
+    matrix mulMatrix = mulMatrices(m1, m2);
+    freeMemMatrix(&m1);
+    freeMemMatrix(&m2);
+    int expectedSource[] = {2, 3, 3,
+                            6, 9, 7};
+    size_t expectedNRows = 2;
+    size_t expectedNCols = 3;
+    matrix expectedM = createMatrixFromArray(expectedSource,
+                                             expectedNRows,
+                                             expectedNCols);
+    assert(areTwoMatricesEqual(mulMatrix, expectedM));
+    freeMemMatrix(&expectedM);
+}
+
+void test_mulMatrices_matrixWithRowsMoreThanColsAndSquareMatrix() {
+    int source1[] = {1, 3,
+                     3, 4,
+                     2, 5};
+    size_t nRows1 = 3;
+    size_t nCols1 = 2;
+    matrix m1 = createMatrixFromArray(source1, nRows1, nCols1);
+    int source2[] = {2, 5,
+                     1, 2};
+    size_t nRows2 = 2;
+    size_t nCols2 = 2;
+    matrix m2 = createMatrixFromArray(source2, nRows2, nCols2);
+    matrix mulMatrix = mulMatrices(m1, m2);
+    freeMemMatrix(&m1);
+    freeMemMatrix(&m2);
+    int expectedSource[] = {5, 11,
+                            10, 23,
+                            9, 20};
+    size_t expectedNRows = 3;
+    size_t expectedNCols = 2;
+    matrix expectedM = createMatrixFromArray(expectedSource,
+                                             expectedNRows,
+                                             expectedNCols);
+    assert(areTwoMatricesEqual(mulMatrix, expectedM));
+    freeMemMatrix(&expectedM);
+}
+
+void test_mulMatrices_matrixWithColsMoreThanRowsAndSquareMatrix() {
+    int source1[] = {7, 9, 2,
+                     8, 1, 3};
+    size_t nRows1 = 2;
+    size_t nCols1 = 3;
+    matrix m1 = createMatrixFromArray(source1, nRows1, nCols1);
+    int source2[] = {2, 5, 6,
+                     1, 2, 5,
+                     1, 3, 2};
+    size_t nRows2 = 3;
+    size_t nCols2 = 3;
+    matrix m2 = createMatrixFromArray(source2, nRows2, nCols2);
+    matrix mulMatrix = mulMatrices(m1, m2);
+    freeMemMatrix(&m1);
+    freeMemMatrix(&m2);
+    int expectedSource[] = {25, 59, 91,
+                            20, 51, 59};
+    size_t expectedNRows = 2;
+    size_t expectedNCols = 3;
+    matrix expectedM = createMatrixFromArray(expectedSource,
+                                             expectedNRows,
+                                             expectedNCols);
+    assert(areTwoMatricesEqual(mulMatrix, expectedM));
+    freeMemMatrix(&expectedM);
+}
+
+void test_mulMatrices_matrixWithRowsMoreThanColsAndMatrixWithColsMoreThanRows() {
+    int source1[] = {2, 1,
+                     0, 3,
+                     1, 2};
+    size_t nRows1 = 3;
+    size_t nCols1 = 2;
+    matrix m1 = createMatrixFromArray(source1, nRows1, nCols1);
+    int source2[] = {1, 1, 0,
+                     2, 1, 2};
+    size_t nRows2 = 2;
+    size_t nCols2 = 3;
+    matrix m2 = createMatrixFromArray(source2, nRows2, nCols2);
+    matrix mulMatrix = mulMatrices(m1, m2);
+    freeMemMatrix(&m1);
+    freeMemMatrix(&m2);
+    int expectedSource[] = {4, 3, 2,
+                            6, 3, 6,
+                            5, 3, 4};
+    size_t expectedNRows = 3;
+    size_t expectedNCols = 3;
+    matrix expectedM = createMatrixFromArray(expectedSource,
+                                             expectedNRows,
+                                             expectedNCols);
+    assert(areTwoMatricesEqual(mulMatrix, expectedM));
+    freeMemMatrix(&expectedM);
+}
+
+void test_mulMatrices_matrixWithColsMoreThanRowsAndMatrixWithRowsMoreThanCols() {
+    int source1[] = {2, 3, 0,
+                     1, 0, 4};
+    size_t nRows1 = 2;
+    size_t nCols1 = 3;
+    matrix m1 = createMatrixFromArray(source1, nRows1, nCols1);
+    int source2[] = {1, 0,
+                     1, 4,
+                     0, 2};
+    size_t nRows2 = 3;
+    size_t nCols2 = 2;
+    matrix m2 = createMatrixFromArray(source2, nRows2, nCols2);
+    matrix mulMatrix = mulMatrices(m1, m2);
+    freeMemMatrix(&m1);
+    freeMemMatrix(&m2);
+    int expectedSource[] = {5, 12,
+                            1, 8};
+    size_t expectedNRows = 2;
+    size_t expectedNCols = 2;
+    matrix expectedM = createMatrixFromArray(expectedSource,
+                                             expectedNRows,
+                                             expectedNCols);
+    assert(areTwoMatricesEqual(mulMatrix, expectedM));
+    freeMemMatrix(&expectedM);
+}
+
+void test_mulMatrices_matrixWithOneRowAndColsAndMatrixWithOneColAndRows() {
+    int source1[] = {4,
+                     5,
+                     6};
+    size_t nRows1 = 3;
+    size_t nCols1 = 1;
+    matrix m1 = createMatrixFromArray(source1, nRows1, nCols1);
+    int source2[] = {1, 2, 3};
+    size_t nRows2 = 1;
+    size_t nCols2 = 3;
+    matrix m2 = createMatrixFromArray(source2, nRows2, nCols2);
+    matrix mulMatrix = mulMatrices(m1, m2);
+    freeMemMatrix(&m1);
+    freeMemMatrix(&m2);
+    int expectedSource[] = {4, 8, 12,
+                            5, 10, 15,
+                            6, 12, 18};
+    size_t expectedNRows = 3;
+    size_t expectedNCols = 3;
+    matrix expectedM = createMatrixFromArray(expectedSource,
+                                             expectedNRows,
+                                             expectedNCols);
+    assert(areTwoMatricesEqual(mulMatrix, expectedM));
+    freeMemMatrix(&expectedM);
+}
+
+void test_mulMatrices_matrixWithOneColAndRowsAndMatrixWithOneRowAndCols() {
+    int source1[] = {1, 2, 3};
+    size_t nRows1 = 1;
+    size_t nCols1 = 3;
+    matrix m1 = createMatrixFromArray(source1, nRows1, nCols1);
+    int source2[] = {4,
+                     5,
+                     6};
+    size_t nRows2 = 3;
+    size_t nCols2 = 1;
+    matrix m2 = createMatrixFromArray(source2, nRows2, nCols2);
+    matrix mulMatrix = mulMatrices(m1, m2);
+    freeMemMatrix(&m1);
+    freeMemMatrix(&m2);
+    int expectedSource[] = {32};
+    size_t expectedNRows = 1;
+    size_t expectedNCols = 1;
+    matrix expectedM = createMatrixFromArray(expectedSource,
+                                             expectedNRows,
+                                             expectedNCols);
+    assert(areTwoMatricesEqual(mulMatrix, expectedM));
+    freeMemMatrix(&expectedM);
+}
+
+void test_mulMatrices() {
+    test_mulMatrices_squareMatrices();
+    test_mulMatrices_squareMatrixAndMatrixWithRowsMoreThanCols();
+    test_mulMatrices_squareMatrixAndMatrixWithColsMoreThanRows();
+    test_mulMatrices_matrixWithRowsMoreThanColsAndSquareMatrix();
+    test_mulMatrices_matrixWithColsMoreThanRowsAndSquareMatrix();
+    test_mulMatrices_matrixWithRowsMoreThanColsAndMatrixWithColsMoreThanRows();
+    test_mulMatrices_matrixWithColsMoreThanRowsAndMatrixWithRowsMoreThanCols();
+    test_mulMatrices_matrixWithOneRowAndColsAndMatrixWithOneColAndRows();
+    test_mulMatrices_matrixWithOneColAndRowsAndMatrixWithOneRowAndCols();
+}
+
+void test_getSquareOfMatrixIfSymmetric_symmetricMatrixOfFirstOrder() {
+    int source1[] = {15};
+    size_t nRows = 1;
+    size_t nCols = 1;
+    matrix m = createMatrixFromArray(source1, nRows, nCols);
+    getSquareOfMatrixIfSymmetric(&m);
+    int expectedSource[] = {225};
+    matrix expectedM = createMatrixFromArray(expectedSource, nRows, nCols);
+    assert(areTwoMatricesEqual(m, expectedM));
+    freeMemMatrix(&m);
+    freeMemMatrix(&expectedM);
+}
+
+void test_getSquareOfMatrixIfSymmetric_symmetricMatrixOfSecondOrder() {
+    int source1[] = {1, 2,
+                     2, 0};
+    size_t nRows = 2;
+    size_t nCols = 2;
+    matrix m = createMatrixFromArray(source1, nRows, nCols);
+    getSquareOfMatrixIfSymmetric(&m);
+    int expectedSource[] = {5, 2,
+                            2, 4};
+    matrix expectedM = createMatrixFromArray(expectedSource, nRows, nCols);
+    assert(areTwoMatricesEqual(m, expectedM));
+    freeMemMatrix(&m);
+    freeMemMatrix(&expectedM);
+}
+
+void test_getSquareOfMatrixIfSymmetric_symmetricMatrixOfThirdOrder() {
+    int source1[] = {1, 4, 2,
+                     4, 3, 6,
+                     2, 6, 5};
+    size_t nRows = 3;
+    size_t nCols = 3;
+    matrix m = createMatrixFromArray(source1, nRows, nCols);
+    getSquareOfMatrixIfSymmetric(&m);
+    int expectedSource[] = {21, 28, 36,
+                            28, 61, 56,
+                            36, 56, 65};
+    matrix expectedM = createMatrixFromArray(expectedSource, nRows, nCols);
+    assert(areTwoMatricesEqual(m, expectedM));
+    freeMemMatrix(&m);
+    freeMemMatrix(&expectedM);
+}
+
+void test_getSquareOfMatrixIfSymmetric_symmetricMatrixOfFourthOrder() {
+    int source1[] = {1, 2, 3, 4,
+                     2, 3, 4, 1,
+                     3, 4, 1, 2,
+                     4, 1, 2, 3};
+    size_t nRows = 4;
+    size_t nCols = 4;
+    matrix m = createMatrixFromArray(source1, nRows, nCols);
+    getSquareOfMatrixIfSymmetric(&m);
+    int expectedSource[] = {30, 24, 22, 24,
+                            24, 30, 24, 22,
+                            22, 24, 30, 24,
+                            24, 22, 24, 30};
+    matrix expectedM = createMatrixFromArray(expectedSource, nRows, nCols);
+    assert(areTwoMatricesEqual(m, expectedM));
+    freeMemMatrix(&m);
+    freeMemMatrix(&expectedM);
+}
+
+void test_getSquareOfMatrixIfSymmetric() {
+    test_getSquareOfMatrixIfSymmetric_symmetricMatrixOfFirstOrder();
+    test_getSquareOfMatrixIfSymmetric_symmetricMatrixOfSecondOrder();
+    test_getSquareOfMatrixIfSymmetric_symmetricMatrixOfThirdOrder();
+    test_getSquareOfMatrixIfSymmetric_symmetricMatrixOfFourthOrder();
+}
+
 void test_tasks_matrix() {
     test_swapRowsWithMaxAndMinValuesOfSquareMatrix();
     test_sortRowsByMaxElement();
     test_sortColsByMinElement();
+    test_mulMatrices();
+    test_getSquareOfMatrixIfSymmetric();
 }
 
 int main() {
