@@ -2,6 +2,7 @@
 #define INC_ARRAY_H
 
 #include <stddef.h>
+#include <stdbool.h>
 
 // вводит массив a размера n.
 void inputArray_(int *a, size_t n);
@@ -9,8 +10,8 @@ void inputArray_(int *a, size_t n);
 // выводит массив a размера n.
 void outputArray_(const int *a, size_t n);
 
-// возвращает значение первого вхождения элемента x
-// в массиве a размера n при его наличии, иначе - n.
+// возвращает позицию первого вхождения элемента x
+// в массиве a размера n типа int при его наличии, иначе - n.
 size_t linearSearch_(const int *a, size_t n, int x);
 
 // возвращает позицию вхождения элемента x в отсортированном
@@ -69,11 +70,11 @@ void deleteIf_(int *a, size_t *n, int(*deletePredicate)(int));
 int countIf_(const int *a, size_t n, int (*predicate)(int));
 
 // возвращает сумму элементов массива a размера n.
-int getSum_(const int *a, size_t n);
+long long getSum_(const int *a, size_t n);
 
 // возвращает позицию минимального элемента массива
 // a размера n в области, начинающейся с позиции pos.
-size_t getMinPos_(const int *a, size_t n, size_t pos);
+size_t getMinPos_longLong_(const long long *a, size_t n, size_t pos);
 
 // возвращает максимальный элемент
 // массива a размера n.
@@ -82,5 +83,19 @@ int getMax_(const int *a, size_t n);
 // возвращает минимальный элемент
 // массива a размера n.
 int getMin_(const int *a, size_t n);
+
+// возвращает позицию первого вхождения элемента x в массиве
+// a размера n типа long long в области, начинающейся с позиции
+// pos при его наличии, иначе - n.
+size_t linearSearchFromPos_longLong_(const long long *a,
+                                     size_t n,
+                                     size_t pos,
+                                     long long x);
+
+// возвращает значение 'истина', если массив
+// a размера n типа long long состоит только
+// из уникальных элементов, в противном случае
+// - 'ложь'.
+bool isUnique_longLong_(const long long *a, size_t n);
 
 #endif

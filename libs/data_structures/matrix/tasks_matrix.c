@@ -26,7 +26,6 @@ matrix mulMatrices(const matrix m1, const matrix m2) {
     assert(m1.nCols == m2.nRows);
 
     matrix mulMatrix = getMemMatrix(m1.nRows, m2.nCols);
-    int mV;
     for (size_t i = 0; i < m1.nRows; i++)
         for (size_t j = 0; j < m2.nCols; j++) {
             int matrixElement = 0;
@@ -42,4 +41,17 @@ void getSquareOfMatrixIfSymmetric(matrix *m) {
     assert(isSymmetricMatrix(*m));
 
     *m = mulMatrices(*m, *m);
+}
+
+void transposeIfMatrixHasNotEqualSumsOfRows(matrix *m) {
+    assert(isSquareMatrix(*m));
+
+    long long *sumsOfRowsArray = (long long *) malloc(m->nRows *
+                                                      sizeof(long long));
+    for (size_t i = 0; i < m->nRows; i++) {
+        sumsOfRowsArray[i] = getSum_(m->values[i], m->nCols);
+    }
+
+    if (isUnique_longLong_(sumsOfRowsArray, m->nRows))
+        transposeSquareMatrix(m);
 }

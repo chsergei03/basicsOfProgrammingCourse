@@ -1409,10 +1409,10 @@ void test_mulMatrices() {
 }
 
 void test_getSquareOfMatrixIfSymmetric_symmetricMatrixOfFirstOrder() {
-    int source1[] = {15};
+    int source[] = {15};
     size_t nRows = 1;
     size_t nCols = 1;
-    matrix m = createMatrixFromArray(source1, nRows, nCols);
+    matrix m = createMatrixFromArray(source, nRows, nCols);
     getSquareOfMatrixIfSymmetric(&m);
     int expectedSource[] = {225};
     matrix expectedM = createMatrixFromArray(expectedSource, nRows, nCols);
@@ -1422,11 +1422,11 @@ void test_getSquareOfMatrixIfSymmetric_symmetricMatrixOfFirstOrder() {
 }
 
 void test_getSquareOfMatrixIfSymmetric_symmetricMatrixOfSecondOrder() {
-    int source1[] = {1, 2,
-                     2, 0};
+    int source[] = {1, 2,
+                    2, 0};
     size_t nRows = 2;
     size_t nCols = 2;
-    matrix m = createMatrixFromArray(source1, nRows, nCols);
+    matrix m = createMatrixFromArray(source, nRows, nCols);
     getSquareOfMatrixIfSymmetric(&m);
     int expectedSource[] = {5, 2,
                             2, 4};
@@ -1437,12 +1437,12 @@ void test_getSquareOfMatrixIfSymmetric_symmetricMatrixOfSecondOrder() {
 }
 
 void test_getSquareOfMatrixIfSymmetric_symmetricMatrixOfThirdOrder() {
-    int source1[] = {1, 4, 2,
-                     4, 3, 6,
-                     2, 6, 5};
+    int source[] = {1, 4, 2,
+                    4, 3, 6,
+                    2, 6, 5};
     size_t nRows = 3;
     size_t nCols = 3;
-    matrix m = createMatrixFromArray(source1, nRows, nCols);
+    matrix m = createMatrixFromArray(source, nRows, nCols);
     getSquareOfMatrixIfSymmetric(&m);
     int expectedSource[] = {21, 28, 36,
                             28, 61, 56,
@@ -1454,13 +1454,13 @@ void test_getSquareOfMatrixIfSymmetric_symmetricMatrixOfThirdOrder() {
 }
 
 void test_getSquareOfMatrixIfSymmetric_symmetricMatrixOfFourthOrder() {
-    int source1[] = {1, 2, 3, 4,
-                     2, 3, 4, 1,
-                     3, 4, 1, 2,
-                     4, 1, 2, 3};
+    int source[] = {1, 2, 3, 4,
+                    2, 3, 4, 1,
+                    3, 4, 1, 2,
+                    4, 1, 2, 3};
     size_t nRows = 4;
     size_t nCols = 4;
-    matrix m = createMatrixFromArray(source1, nRows, nCols);
+    matrix m = createMatrixFromArray(source, nRows, nCols);
     getSquareOfMatrixIfSymmetric(&m);
     int expectedSource[] = {30, 24, 22, 24,
                             24, 30, 24, 22,
@@ -1479,12 +1479,54 @@ void test_getSquareOfMatrixIfSymmetric() {
     test_getSquareOfMatrixIfSymmetric_symmetricMatrixOfFourthOrder();
 }
 
+void test_transposeIfMatrixHasNotEqualSumsOfRows_noEqualSumsOfRows() {
+    int source[] = {1, 7, 4,
+                    0, 5, 3,
+                    4, 8, 7};
+    size_t nRows = 3;
+    size_t nCols = 3;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    transposeIfMatrixHasNotEqualSumsOfRows(&m);
+    int expectedSource[] = {1, 0, 4,
+                            7, 5, 8,
+                            4, 3, 7};
+    matrix expectedM = createMatrixFromArray(expectedSource, nRows, nCols);
+    assert(areTwoMatricesEqual(m, expectedM));
+    freeMemMatrix(&m);
+    freeMemMatrix(&expectedM);
+}
+
+void test_transposeIfMatrixHasNotEqualSumsOfRows_someEqualSumsOfRows() {
+    int source[] = {7, 1, 5, 1,
+                    14, 0, 0, 0,
+                    3, 1, 3, 6,
+                    1, 6, 2, 4};
+    size_t nRows = 4;
+    size_t nCols = 4;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    transposeIfMatrixHasNotEqualSumsOfRows(&m);
+    int expectedSource[] = {7, 1, 5, 1,
+                            14, 0, 0, 0,
+                            3, 1, 3, 6,
+                            1, 6, 2, 4};
+    matrix expectedM = createMatrixFromArray(expectedSource, nRows, nCols);
+    assert(areTwoMatricesEqual(m, expectedM));
+    freeMemMatrix(&m);
+    freeMemMatrix(&expectedM);
+}
+
+void test_transposeIfMatrixHasNotEqualSumsOfRows() {
+    test_transposeIfMatrixHasNotEqualSumsOfRows_noEqualSumsOfRows();
+    test_transposeIfMatrixHasNotEqualSumsOfRows_someEqualSumsOfRows();
+}
+
 void test_tasks_matrix() {
     test_swapRowsWithMaxAndMinValuesOfSquareMatrix();
     test_sortRowsByMaxElement();
     test_sortColsByMinElement();
     test_mulMatrices();
     test_getSquareOfMatrixIfSymmetric();
+    test_transposeIfMatrixHasNotEqualSumsOfRows();
 }
 
 int main() {

@@ -169,8 +169,8 @@ size_t binarySearchMoreOrEqual_(const int *const a,
     return right;
 }
 
-int getSum_(const int *const a,
-            const size_t n) {
+long long getSum_(const int *const a,
+                  const size_t n) {
     int sum = 0;
     for (size_t i = 0; i < n; i++)
         sum += a[i];
@@ -178,10 +178,10 @@ int getSum_(const int *const a,
     return sum;
 }
 
-size_t getMinPos_(const int *const a,
-                  const size_t size,
-                  const size_t pos) {
-    int min = a[pos];
+size_t getMinPos_longLong_(const long long *const a,
+                           const size_t size,
+                           const size_t pos) {
+    long long min = a[pos];
     size_t minPos = pos;
     for (size_t i = pos; i < size; i++)
         if (a[i] < min) {
@@ -210,4 +210,24 @@ int getMin_(const int *const a,
             min = a[i];
 
     return min;
+}
+
+size_t linearSearchFromPos_longLong_(const long long *const a,
+                                     const size_t n,
+                                     const size_t pos,
+                                     const long long x) {
+    for (size_t i = pos; i < n; i++)
+        if (a[i] == x)
+            return i;
+
+    return n;
+}
+
+bool isUnique_longLong_(const long long *const a,
+                        const size_t n) {
+    for (size_t i = 0; i < n; i++)
+        if (linearSearchFromPos_longLong_(a, n, i + 1, a[i]) != n)
+            return false;
+
+    return true;
 }

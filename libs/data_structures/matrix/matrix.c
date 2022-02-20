@@ -108,15 +108,16 @@ void swapCols(matrix *m, const size_t j1, const size_t j2) {
 
 void selectionSortRowsMatrixByRowCriteria(matrix *m,
                                           int (*criteria)(int *, size_t)) {
-    int *criteriaValueArray = (int *) malloc(m->nRows * sizeof(int));
+    long long *criteriaValueArray = (long long *) malloc(m->nRows *
+                                                         sizeof(long long));
     for (size_t i = 0; i < m->nRows; i++)
         criteriaValueArray[i] = criteria(m->values[i], m->nCols);
 
     for (size_t i = 0; i < m->nRows; i++) {
-        size_t minPos = getMinPos_(criteriaValueArray, m->nRows, i);
+        size_t minPos = getMinPos_longLong_(criteriaValueArray, m->nRows, i);
         void_swap(&criteriaValueArray[i],
                   &criteriaValueArray[minPos],
-                  sizeof(int));
+                  sizeof(long long));
         swapRows(m, i, minPos);
     }
 
@@ -132,7 +133,8 @@ void copyElementsOfColToArray(int *dest,
 
 void selectionSortColsMatrixByColCriteria(matrix *m,
                                           int (*criteria)(int *, size_t)) {
-    int *criteriaValueArray = (int *) malloc(m->nCols * sizeof(int));
+    long long *criteriaValueArray = (long long *) malloc(m->nCols *
+                                                         sizeof(long long));
     int *currentCol = (int *) malloc(m->nRows * sizeof(int));
 
     for (size_t i = 0; i < m->nCols; i++) {
@@ -141,10 +143,10 @@ void selectionSortColsMatrixByColCriteria(matrix *m,
     }
 
     for (size_t i = 0; i < m->nCols; i++) {
-        size_t minPos = getMinPos_(criteriaValueArray, m->nCols, i);
+        size_t minPos = getMinPos_longLong_(criteriaValueArray, m->nCols, i);
         void_swap(&criteriaValueArray[i],
                   &criteriaValueArray[minPos],
-                  sizeof(int));
+                  sizeof(long long));
         swapCols(m, i, minPos);
     }
 
@@ -174,7 +176,7 @@ bool isEMatrix(const matrix m) {
         return false;
 
     for (size_t i = 0; i < m.nRows; i++) {
-        int rowSum = getSum_(m.values[i], m.nCols);
+        long long rowSum = getSum_(m.values[i], m.nCols);
         if (m.values[i][i] != 1 || rowSum != 1)
             return false;
     }

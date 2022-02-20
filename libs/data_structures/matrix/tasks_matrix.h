@@ -23,4 +23,8 @@ matrix mulMatrices(matrix m1, matrix m2);
 // если матрица симметрична.
 void getSquareOfMatrixIfSymmetric(matrix *m);
 
+// транспонирует квадратную матрицу m, если среди
+// сумм элементов строк матрицы нет равных.
+void transposeIfMatrixHasNotEqualSumsOfRows(matrix *m);
+
 #endif
