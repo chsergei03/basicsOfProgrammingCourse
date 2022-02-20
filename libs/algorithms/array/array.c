@@ -201,3 +201,13 @@ int getMax_(const int *const a,
 
     return max;
 }
+
+int getMin_(const int *const a,
+            const size_t n) {
+    int min = a[0];
+    for (size_t i = 1; i < n; i++)
+        if (a[i] < min)
+            min = a[i];
+
+    return min;
+}

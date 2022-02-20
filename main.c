@@ -1045,9 +1045,129 @@ void test_sortRowsByMaxElement() {
     test_sortRowsByMaxElement_colsMoreThanRows_someEqualCriteriaValues();
 }
 
+void test_sortColsByMinElement_squareMatrix() {
+    int source[] = {4, 2, 2,
+                    9, 1, 7,
+                    3, 4, 1};
+    size_t nRows = 3;
+    size_t nCols = 3;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    sortColsByMinElements(&m);
+    int expectedSource[] = {2, 2, 4,
+                            1, 7, 9,
+                            4, 1, 3};
+    matrix expectedM = createMatrixFromArray(expectedSource, nRows, nCols);
+    assert(areTwoMatricesEqual(m, expectedM));
+    freeMemMatrix(&m);
+    freeMemMatrix(&expectedM);
+}
+
+void test_sortColsByMinElement_rowsMoreThanCols() {
+    int source[] = {8, 3, 7,
+                    15, 1, 5,
+                    6, 4, 2,
+                    5, 0, 12};
+    size_t nRows = 4;
+    size_t nCols = 3;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    sortColsByMinElements(&m);
+    int expectedSource[] = {3, 7, 8,
+                            1, 5, 15,
+                            4, 2, 6,
+                            0, 12, 5};
+    matrix expectedM = createMatrixFromArray(expectedSource, nRows, nCols);
+    assert(areTwoMatricesEqual(m, expectedM));
+    freeMemMatrix(&m);
+    freeMemMatrix(&expectedM);
+}
+
+void test_sortColsByMinElement_colsMoreThanRows() {
+    int source[] = {5, 12, 0, 1,
+                    20, 3, 1, 6,
+                    4, 7, 1, 2};
+    size_t nRows = 3;
+    size_t nCols = 4;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    sortColsByMinElements(&m);
+    int expectedSource[] = {0, 1, 12, 5,
+                            1, 6, 3, 20,
+                            1, 2, 7, 4};
+    matrix expectedM = createMatrixFromArray(expectedSource, nRows, nCols);
+    assert(areTwoMatricesEqual(m, expectedM));
+    freeMemMatrix(&m);
+    freeMemMatrix(&expectedM);
+}
+
+void test_sortColsByMinElement_squareMatrix_someEqualCriteriaValues() {
+    int source[] = {9, 1, 3, 0,
+                    3, 2, 1, 1,
+                    7, 2, 3, 1,
+                    4, 0, 2, 1};
+    size_t nRows = 4;
+    size_t nCols = 4;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    sortColsByMinElements(&m);
+    int expectedSource[] = {1, 0, 3, 9,
+                            2, 1, 1, 3,
+                            2, 1, 3, 7,
+                            0, 1, 2, 4};
+    matrix expectedM = createMatrixFromArray(expectedSource, nRows, nCols);
+    assert(areTwoMatricesEqual(m, expectedM));
+    freeMemMatrix(&m);
+    freeMemMatrix(&expectedM);
+}
+
+void test_sortColsByMinElement_rowsMoreThanCols_someEqualCriteriaValues() {
+    int source[] = {1, 2, 4, 0,
+                    2, 3, 8, 1,
+                    3, 1, 4, 2,
+                    2, 0, 3, 1,
+                    2, 4, 6, 8};
+    size_t nRows = 5;
+    size_t nCols = 4;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    sortColsByMinElements(&m);
+    int expectedSource[] = {2, 0, 1, 4,
+                            3, 1, 2, 8,
+                            1, 2, 3, 4,
+                            0, 1, 2, 3,
+                            4, 8, 2, 6};
+    matrix expectedM = createMatrixFromArray(expectedSource, nRows, nCols);
+    assert(areTwoMatricesEqual(m, expectedM));
+    freeMemMatrix(&m);
+    freeMemMatrix(&expectedM);
+}
+
+void test_sortColsByMinElement_colsMoreThanRows_someEqualCriteriaValues() {
+    int source[] = {8, 7, 5, 15, 2,
+                    13, 3, 1, 3, 1,
+                    10, 6, 4, 5, 0};
+    size_t nRows = 3;
+    size_t nCols = 5;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    sortColsByMinElements(&m);
+    int expectedSource[] = {2, 5, 7, 15, 8,
+                            1, 1, 3, 3, 13,
+                            0, 4, 6, 5, 10};
+    matrix expectedM = createMatrixFromArray(expectedSource, nRows, nCols);
+    assert(areTwoMatricesEqual(m, expectedM));
+    freeMemMatrix(&m);
+    freeMemMatrix(&expectedM);
+}
+
+void test_sortColsByMinElement() {
+    test_sortColsByMinElement_squareMatrix();
+    test_sortColsByMinElement_rowsMoreThanCols();
+    test_sortColsByMinElement_colsMoreThanRows();
+    test_sortColsByMinElement_squareMatrix_someEqualCriteriaValues();
+    test_sortColsByMinElement_rowsMoreThanCols_someEqualCriteriaValues();
+    test_sortColsByMinElement_colsMoreThanRows_someEqualCriteriaValues();
+}
+
 void test_tasks_matrix() {
     test_swapRowsWithMaxAndMinValuesOfSquareMatrix();
     test_sortRowsByMaxElement();
+    test_sortColsByMinElement();
 }
 
 int main() {

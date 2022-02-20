@@ -79,4 +79,8 @@ size_t getMinPos_(const int *a, size_t n, size_t pos);
 // массива a размера n.
 int getMax_(const int *a, size_t n);
 
+// возвращает минимальный элемент
+// массива a размера n.
+int getMin_(const int *a, size_t n);
+
 #endif

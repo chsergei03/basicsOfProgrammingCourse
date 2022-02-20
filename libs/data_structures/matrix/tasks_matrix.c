@@ -16,3 +16,8 @@ void sortRowsByMaxElements(matrix *m) {
     selectionSortRowsMatrixByRowCriteria(m,
                                          (int (*)(int *, size_t)) getMax_);
 }
+
+void sortColsByMinElements(matrix *m) {
+    selectionSortColsMatrixByColCriteria(m,
+                                         (int (*)(int *, size_t)) getMin_);
+}
