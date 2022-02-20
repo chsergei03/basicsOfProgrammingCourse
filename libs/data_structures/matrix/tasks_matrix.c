@@ -55,3 +55,9 @@ void transposeIfMatrixHasNotEqualSumsOfRows(matrix *m) {
     if (isUnique_longLong_(sumsOfRowsArray, m->nRows))
         transposeSquareMatrix(m);
 }
+
+bool areMutuallyInverseMatrices(const matrix m1, const matrix m2) {
+    matrix mulMatrix = mulMatrices(m1, m2);
+
+    return isEMatrix(mulMatrix);
+}
