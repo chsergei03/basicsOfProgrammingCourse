@@ -61,3 +61,40 @@ bool areMutuallyInverseMatrices(const matrix m1, const matrix m2) {
 
     return isEMatrix(mulMatrix);
 }
+
+bool isSquareMatrixOfFirstOrder(const matrix m) {
+    return m.nRows * m.nCols == 1;
+}
+
+long long findSumOfMaxesOfPseudoDiagonals(const matrix m) {
+    if (isSquareMatrixOfFirstOrder(m))
+        return 0;
+
+    size_t nOfMaxes = m.nRows + m.nCols - 2;
+    int *arrayOfMaxes = (int *) malloc(nOfMaxes * sizeof(int));
+
+    size_t iWrite = 0;
+    for (size_t i = m.nRows - 1; i > 0; i--) {
+        arrayOfMaxes[iWrite] = m.values[i][0];
+        iWrite += 1;
+    }
+
+    for (size_t j = 1; j < m.nCols; j++) {
+        arrayOfMaxes[iWrite] = m.values[0][j];
+        iWrite += 1;
+    }
+
+    iWrite = nOfMaxes - 2;
+    for (size_t i = 1; i < m.nRows; i++) {
+        for (size_t j = m.nCols - 1; j > 0; j--) {
+            if (i != j) {
+                arrayOfMaxes[iWrite] = max2_int(arrayOfMaxes[iWrite],
+                                                m.values[i][j]);
+                iWrite -= 1;
+            }
+        }
+        iWrite += 1;
+    }
+
+    return getSum_(arrayOfMaxes, nOfMaxes);
+}

@@ -1557,6 +1557,92 @@ void test_areMutuallyInverseMatrices() {
     test_areMutuallyInverseMatrices_notMutuallyInverseMatrices();
 }
 
+void test_findSumOfMaxesOfPseudoDiagonals_squareMatrixOfFirstOrder() {
+    int source[] = {9};
+    size_t nRows = 1;
+    size_t nCols = 1;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    long long sum = findSumOfMaxesOfPseudoDiagonals(m);
+    long long expectedSum = 0;
+    assert(sum == expectedSum);
+    freeMemMatrix(&m);
+}
+
+void test_findSumOfMaxesOfPseudoDiagonals_squareMatrixOfSecondOrder() {
+    int source[] = {2, 4,
+                    3, 5};
+    size_t nRows = 2;
+    size_t nCols = 2;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    long long sum = findSumOfMaxesOfPseudoDiagonals(m);
+    long long expectedSum = 7;
+    assert(sum == expectedSum);
+    freeMemMatrix(&m);
+}
+
+void test_findSumOfMaxesOfPseudoDiagonals_squareMatrixOfThirdOrder() {
+    int source[] = {7, 5, 1,
+                    5, 3, 1,
+                    1, 2, 3};
+    size_t nRows = 3;
+    size_t nCols = 3;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    long long sum = findSumOfMaxesOfPseudoDiagonals(m);
+    long long expectedSum = 12;
+    assert(sum == expectedSum);
+    freeMemMatrix(&m);
+}
+
+void test_findSumOfMaxesOfPseudoDiagonals_squareMatrixOfFourthOrder() {
+    int source[] = {1, 8, 2, 3,
+                    3, 2, 0, 4,
+                    5, 3, 7, 1,
+                    3, 2, 0, 2};
+    size_t nRows = 4;
+    size_t nCols = 4;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    long long sum = findSumOfMaxesOfPseudoDiagonals(m);
+    long long expectedSum = 26;
+    assert(sum == expectedSum);
+    freeMemMatrix(&m);
+}
+
+void test_findSumOfMaxesOfPseudoDiagonals_rowsMoreThanCols() {
+    int source[] = {3, 2, 0,
+                    1, 1, 2,
+                    4, 5, 1,
+                    1, 2, 3};
+    size_t nRows = 4;
+    size_t nCols = 3;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    long long sum = findSumOfMaxesOfPseudoDiagonals(m);
+    long long expectedSum = 12;
+    assert(sum == expectedSum);
+    freeMemMatrix(&m);
+}
+
+void test_findSumOfMaxesOfPseudoDiagonals_colsMoreThanRows() {
+    int source[] = {0, 4, 1, 1,
+                    4, 2, 1, 3,
+                    1, 3, 4, 3};
+    size_t nRows = 3;
+    size_t nCols = 4;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    long long sum = findSumOfMaxesOfPseudoDiagonals(m);
+    long long expectedSum = 13;
+    assert(sum == expectedSum);
+    freeMemMatrix(&m);
+}
+
+void test_findSumOfMaxesOfPseudoDiagonal() {
+    test_findSumOfMaxesOfPseudoDiagonals_squareMatrixOfFirstOrder();
+    test_findSumOfMaxesOfPseudoDiagonals_squareMatrixOfSecondOrder();
+    test_findSumOfMaxesOfPseudoDiagonals_squareMatrixOfThirdOrder();
+    test_findSumOfMaxesOfPseudoDiagonals_squareMatrixOfFourthOrder();
+    test_findSumOfMaxesOfPseudoDiagonals_rowsMoreThanCols();
+    test_findSumOfMaxesOfPseudoDiagonals_colsMoreThanRows();
+}
+
 void test_tasks_matrix() {
     test_swapRowsWithMaxAndMinValuesOfSquareMatrix();
     test_sortRowsByMaxElement();
@@ -1565,6 +1651,7 @@ void test_tasks_matrix() {
     test_getSquareOfMatrixIfSymmetric();
     test_transposeIfMatrixHasNotEqualSumsOfRows();
     test_areMutuallyInverseMatrices();
+    test_findSumOfMaxesOfPseudoDiagonal();
 }
 
 int main() {

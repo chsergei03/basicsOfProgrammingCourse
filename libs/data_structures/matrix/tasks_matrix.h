@@ -31,4 +31,13 @@ void transposeIfMatrixHasNotEqualSumsOfRows(matrix *m);
 // являются взаимно обратными, в противном случае - 'ложь'.
 bool areMutuallyInverseMatrices(matrix m1, matrix m2);
 
+// возвращает значение 'истина', если матрица m
+// является квадратной матрицей первого порядка,
+// в противном случае - 'ложь'.
+bool isSquareMatrixOfFirstOrder(matrix m);
+
+// возвращает сумму максимальных элементов всех псевдодиагоналей
+// матрицы m.
+long long findSumOfMaxesOfPseudoDiagonals(matrix m);
+
 #endif

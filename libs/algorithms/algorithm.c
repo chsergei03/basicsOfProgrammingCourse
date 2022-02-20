@@ -23,3 +23,7 @@ void void_swap(void *a, void *b, const size_t baseTypeSize) {
         pb++;
     }
 }
+
+int max2_int(const int a, const int b) {
+    return a > b ? a : b;
+}

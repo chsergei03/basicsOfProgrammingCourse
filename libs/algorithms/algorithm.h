@@ -16,4 +16,8 @@ size_t min2_size_t(size_t a, size_t b);
 // - размер этого произвольного типа).
 void void_swap(void *a, void *b, size_t baseTypeSize);
 
+// возвращает максимальное из двух значений a и b
+// типа int.
+int max2_int(int a, int b);
+
 #endif
