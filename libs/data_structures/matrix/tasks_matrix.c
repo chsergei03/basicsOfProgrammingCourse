@@ -11,3 +11,8 @@ void swapRowsWithMaxAndMinValuesOfSquareMatrix(matrix *m) {
 
     swapRows(m, minValuePos.rowIndex, maxValuePos.rowIndex);
 }
+
+void sortRowsByMaxElements(matrix *m) {
+    selectionSortRowsMatrixByRowCriteria(m,
+                                         (int (*)(int *, size_t)) getMax_);
+}

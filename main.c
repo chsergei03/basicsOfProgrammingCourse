@@ -924,8 +924,130 @@ void test_swapRowsWithMaxAndMinValuesOfSquareMatrix() {
     test_swapRowsWithMaxAndMinValuesOfSquareMatrix_minAndMaxValuesInOneRow();
 }
 
+void test_sortRowsByMaxElement_squareMatrix() {
+    int source[] = {7, 1, 2,
+                    1, 8, 1,
+                    3, 2, 3};
+    size_t nRows = 3;
+    size_t nCols = 3;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    sortRowsByMaxElements(&m);
+    int expectedSource[] = {3, 2, 3,
+                            7, 1, 2,
+                            1, 8, 1};
+    matrix expectedM = createMatrixFromArray(expectedSource, nRows, nCols);
+    assert(areTwoMatricesEqual(m, expectedM));
+    freeMemMatrix(&m);
+    freeMemMatrix(&expectedM);
+}
+
+void test_sortRowsByMaxElement_rowsMoreThanCols() {
+    int source[] = {1, 6, 3,
+                    2, 1, 1,
+                    5, 3, 8,
+                    1, 1, 0};
+    size_t nRows = 4;
+    size_t nCols = 3;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    sortRowsByMaxElements(&m);
+    int expectedSource[] = {1, 1, 0,
+                            2, 1, 1,
+                            1, 6, 3,
+                            5, 3, 8};
+    matrix expectedM = createMatrixFromArray(expectedSource, nRows, nCols);
+    assert(areTwoMatricesEqual(m, expectedM));
+    freeMemMatrix(&m);
+    freeMemMatrix(&expectedM);
+}
+
+void test_sortRowsByMaxElement_colsMoreThanRows() {
+    int source[] = {9, 4, 5, 0,
+                    4, 0, 5, 0,
+                    1, 3, 4, 2};
+    size_t nRows = 3;
+    size_t nCols = 4;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    sortRowsByMaxElements(&m);
+    int expectedSource[] = {1, 3, 4, 2,
+                            4, 0, 5, 0,
+                            9, 4, 5, 0};
+    matrix expectedM = createMatrixFromArray(expectedSource, nRows, nCols);
+    assert(areTwoMatricesEqual(m, expectedM));
+    freeMemMatrix(&m);
+    freeMemMatrix(&expectedM);
+}
+
+void test_sortRowsByMaxElement_squareMatrix_someEqualCriteriaValues() {
+    int source[] = {1, 4, 7, 13, 0,
+                    6, 8, 5, 3, 2,
+                    13, 0, 5, 7, 0,
+                    0, 2, 8, 1, 5,
+                    6, 6, 10, 7, 11};
+    size_t nRows = 5;
+    size_t nCols = 5;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    sortRowsByMaxElements(&m);
+    int expectedSource[] = {6, 8, 5, 3, 2,
+                            0, 2, 8, 1, 5,
+                            6, 6, 10, 7, 11,
+                            1, 4, 7, 13, 0,
+                            13, 0, 5, 7, 0};
+    matrix expectedM = createMatrixFromArray(expectedSource, nRows, nCols);
+    assert(areTwoMatricesEqual(m, expectedM));
+    freeMemMatrix(&m);
+    freeMemMatrix(&expectedM);
+}
+
+void test_sortRowsByMaxElement_rowsMoreThanCols_someEqualCriteriaValues() {
+    int source[] = {15, 36, 1,
+                    3, 5, 2,
+                    4, 0, 7,
+                    2, 4, 5};
+    size_t nRows = 4;
+    size_t nCols = 3;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    sortRowsByMaxElements(&m);
+    int expectedSource[] = {3, 5, 2,
+                            2, 4, 5,
+                            4, 0, 7,
+                            15, 36, 1};
+    matrix expectedM = createMatrixFromArray(expectedSource, nRows, nCols);
+    assert(areTwoMatricesEqual(m, expectedM));
+    freeMemMatrix(&m);
+    freeMemMatrix(&expectedM);
+}
+
+void test_sortRowsByMaxElement_colsMoreThanRows_someEqualCriteriaValues() {
+    int source[] = {7, 45, 9, 6, 2,
+                    2, 4, 6, 3, 1,
+                    3, 1, 0, 1, 0,
+                    5, 4, 6, 0, 3};
+    size_t nRows = 4;
+    size_t nCols = 5;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    sortRowsByMaxElements(&m);
+    int expectedSource[] = {3, 1, 0, 1, 0,
+                            2, 4, 6, 3, 1,
+                            5, 4, 6, 0, 3,
+                            7, 45, 9, 6, 2};
+    matrix expectedM = createMatrixFromArray(expectedSource, nRows, nCols);
+    assert(areTwoMatricesEqual(m, expectedM));
+    freeMemMatrix(&m);
+    freeMemMatrix(&expectedM);
+}
+
+void test_sortRowsByMaxElement() {
+    test_sortRowsByMaxElement_squareMatrix();
+    test_sortRowsByMaxElement_rowsMoreThanCols();
+    test_sortRowsByMaxElement_colsMoreThanRows();
+    test_sortRowsByMaxElement_squareMatrix_someEqualCriteriaValues();
+    test_sortRowsByMaxElement_rowsMoreThanCols_someEqualCriteriaValues();
+    test_sortRowsByMaxElement_colsMoreThanRows_someEqualCriteriaValues();
+}
+
 void test_tasks_matrix() {
     test_swapRowsWithMaxAndMinValuesOfSquareMatrix();
+    test_sortRowsByMaxElement();
 }
 
 int main() {

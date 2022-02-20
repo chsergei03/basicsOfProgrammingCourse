@@ -75,4 +75,8 @@ int getSum_(const int *a, size_t n);
 // a размера n в области, начинающейся с позиции pos.
 size_t getMinPos_(const int *a, size_t n, size_t pos);
 
+// возвращает максимальный элемент
+// массива a размера n.
+int getMax_(const int *a, size_t n);
+
 #endif

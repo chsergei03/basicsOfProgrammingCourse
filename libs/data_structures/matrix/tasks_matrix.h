@@ -7,4 +7,8 @@
 // максимальный и минимальный элементы.
 void swapRowsWithMaxAndMinValuesOfSquareMatrix(matrix *m);
 
+// сортирует строки матрицы m по неубыванию
+// наибольших элементов строк.
+void sortRowsByMaxElements(matrix *m);
+
 #endif
