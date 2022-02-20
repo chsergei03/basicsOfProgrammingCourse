@@ -40,4 +40,10 @@ bool isSquareMatrixOfFirstOrder(matrix m);
 // матрицы m.
 long long findSumOfMaxesOfPseudoDiagonals(matrix m);
 
+// возвращает минимальный элемент в области
+// матрицы m, имеющей форму перевернутой
+// ступенчатой пирамиды, вершиной которой
+// является максимальный элемент матрицы
+int getMinInArea(matrix m);
+
 #endif

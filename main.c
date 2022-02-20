@@ -1643,6 +1643,96 @@ void test_findSumOfMaxesOfPseudoDiagonal() {
     test_findSumOfMaxesOfPseudoDiagonals_colsMoreThanRows();
 }
 
+void test_minInArea_squareMatrix_areaHasOnlyMaxElementInArea() {
+    int source[] = {3, 6, 17,
+                    2, 4, 6,
+                    1, 2, 3};
+    size_t nRows = 3;
+    size_t nCols = 3;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    long long min = getMinInArea(m);
+    long long expectedMin = 17;
+    assert(min == expectedMin);
+    freeMemMatrix(&m);
+}
+
+void test_minInArea_squareMatrix_maxElementIsNotOneElementInArea() {
+    int source[] = {5, 3, 7,
+                    3, 2, 0,
+                    2, 14, 4};
+    size_t nRows = 3;
+    size_t nCols = 3;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    long long min = getMinInArea(m);
+    long long expectedMin = 0;
+    assert(min == expectedMin);
+    freeMemMatrix(&m);
+}
+
+void test_minInArea_rowsMoreThanCols_areaHasOnlyMaxElementInArea() {
+    int source[] = {12, 0, 1,
+                    3, 1, 7,
+                    1, 3, 2,
+                    2, 2, 1};
+    size_t nRows = 4;
+    size_t nCols = 3;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    long long min = getMinInArea(m);
+    long long expectedMin = 12;
+    assert(min == expectedMin);
+    freeMemMatrix(&m);
+}
+
+void test_minInArea_rowsMoreThanCols_maxElementIsNotOneElementInArea() {
+    int source[] = {6, 8, 9,
+                    7, 12, 3,
+                    10, 11, 5,
+                    2, 4, 1};
+    size_t nRows = 4;
+    size_t nCols = 3;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    long long min = getMinInArea(m);
+    long long expectedMin = 6;
+    assert(min == expectedMin);
+    freeMemMatrix(&m);
+}
+
+void test_minInArea_colsMoreThanRows_areaHasOnlyMaxElementInArea() {
+    int source[] = {3, 2, 25, 8,
+                    3, 2, 1, 5,
+                    1, 0, 2, 10};
+    size_t nRows = 3;
+    size_t nCols = 4;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    long long min = getMinInArea(m);
+    long long expectedMin = 25;
+    assert(min == expectedMin);
+    freeMemMatrix(&m);
+}
+
+void test_minInArea_colsMoreThanRows_maxElementIsNotOneElementInArea() {
+    int source[] = {10, 7, 5, 6,
+                    3, 11, 8, 9,
+                    4, 1, 12, 2};
+    size_t nRows = 3;
+    size_t nCols = 4;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    long long min = getMinInArea(m);
+    long long expectedMin = 5;
+    assert(min == expectedMin);
+    freeMemMatrix(&m);
+}
+
+
+void test_minInArea() {
+    test_minInArea_squareMatrix_areaHasOnlyMaxElementInArea();
+    test_minInArea_squareMatrix_maxElementIsNotOneElementInArea();
+    test_minInArea_rowsMoreThanCols_areaHasOnlyMaxElementInArea();
+    test_minInArea_rowsMoreThanCols_maxElementIsNotOneElementInArea();
+    test_minInArea_colsMoreThanRows_areaHasOnlyMaxElementInArea();
+    test_minInArea_colsMoreThanRows_maxElementIsNotOneElementInArea();
+}
+
 void test_tasks_matrix() {
     test_swapRowsWithMaxAndMinValuesOfSquareMatrix();
     test_sortRowsByMaxElement();
@@ -1652,6 +1742,7 @@ void test_tasks_matrix() {
     test_transposeIfMatrixHasNotEqualSumsOfRows();
     test_areMutuallyInverseMatrices();
     test_findSumOfMaxesOfPseudoDiagonal();
+    test_minInArea();
 }
 
 int main() {
