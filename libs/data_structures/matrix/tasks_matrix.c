@@ -1,4 +1,5 @@
 #include <assert.h>
+#include <math.h>
 
 #include "tasks_matrix.h"
 
@@ -128,4 +129,45 @@ int getMinInArea(matrix m) {
     }
 
     return min;
+}
+
+float getDistance(const int *const a,
+                  const size_t n) {
+    int sumOfSquares = 0;
+    for (size_t i = 0; i < n; i++)
+        sumOfSquares += a[i] * a[i];
+
+    return sqrtf((float) sumOfSquares);
+}
+
+float getArithmeticMean(const int *const a,
+                        const size_t n) {
+    long long sum = getSum_(a, n);
+
+    return (float) sum / (float) n;
+}
+
+void selectionSortRowsMatrixByRowCriteriaF(matrix *m,
+                                           float (*criteria)(int *, size_t)) {
+    float *criteriaValueArray = (float *) malloc(m->nRows *
+                                                 sizeof(float));
+
+    for (size_t i = 0; i < m->nRows; i++) {
+        criteriaValueArray[i] = criteria(m->values[i], m->nCols);
+    }
+
+    for (size_t i = 0; i < m->nRows; i++) {
+        size_t minPos = getMinPos_float_(criteriaValueArray, m->nRows, i);
+        void_swap(&criteriaValueArray[i],
+                  &criteriaValueArray[minPos],
+                  sizeof(float));
+        swapRows(m, i, minPos);
+    }
+
+    free(criteriaValueArray);
+}
+
+void sortByDistances(matrix *m) {
+    selectionSortRowsMatrixByRowCriteriaF(m,
+                                          (float (*)(int *, size_t)) getDistance);
 }

@@ -231,3 +231,17 @@ bool isUnique_longLong_(const long long *const a,
 
     return true;
 }
+
+size_t getMinPos_float_(const float *const a,
+                        const size_t size,
+                        const size_t pos) {
+    float min = a[pos];
+    size_t minPos = pos;
+    for (size_t i = pos; i < size; i++)
+        if (a[i] < min) {
+            min = a[i];
+            minPos = i;
+        }
+
+    return minPos;
+}

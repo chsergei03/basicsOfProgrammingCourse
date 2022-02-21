@@ -1723,7 +1723,6 @@ void test_minInArea_colsMoreThanRows_maxElementIsNotOneElementInArea() {
     freeMemMatrix(&m);
 }
 
-
 void test_minInArea() {
     test_minInArea_squareMatrix_areaHasOnlyMaxElementInArea();
     test_minInArea_squareMatrix_maxElementIsNotOneElementInArea();
@@ -1731,6 +1730,278 @@ void test_minInArea() {
     test_minInArea_rowsMoreThanCols_maxElementIsNotOneElementInArea();
     test_minInArea_colsMoreThanRows_areaHasOnlyMaxElementInArea();
     test_minInArea_colsMoreThanRows_maxElementIsNotOneElementInArea();
+}
+
+void test_selectionSortRowsMatrixByRowCriteriaF_squareMatrix() {
+    int source[] = {2, 7, 2,
+                    3, 4, 0,
+                    1, 1, 2};
+    size_t nRows = 3;
+    size_t nCols = 3;
+    matrix m = createMatrixFromArray(source,
+                                     nRows, nCols);
+    selectionSortRowsMatrixByRowCriteriaF(&m,
+                                          (float (*)(int *, size_t)) getArithmeticMean);
+    int expectedSource[] = {1, 1, 2,
+                            3, 4, 0,
+                            2, 7, 2};
+    matrix expectedM = createMatrixFromArray(expectedSource,
+                                             nRows, nCols);
+    assert(areTwoMatricesEqual(m, expectedM));
+    freeMemMatrix(&m);
+    freeMemMatrix(&expectedM);
+}
+
+void test_selectionSortRowsMatrixByRowCriteriaF_rowsMoreThanCols() {
+    int source[] = {6, 2, 10,
+                    5, 7, 4,
+                    2, 4, 2,
+                    3, 0, 7};
+    size_t nRows = 4;
+    size_t nCols = 3;
+    matrix m = createMatrixFromArray(source,
+                                     nRows, nCols);
+    selectionSortRowsMatrixByRowCriteriaF(&m,
+                                          (float (*)(int *, size_t)) getArithmeticMean);
+    int expectedSource[] = {2, 4, 2,
+                            3, 0, 7,
+                            5, 7, 4,
+                            6, 2, 10};
+    matrix expectedM = createMatrixFromArray(expectedSource,
+                                             nRows, nCols);
+    assert(areTwoMatricesEqual(m, expectedM));
+    freeMemMatrix(&m);
+    freeMemMatrix(&expectedM);
+}
+
+void test_selectionSortRowsMatrixByRowCriteriaF_colsMoreThanRows() {
+    int source[] = {3, 1, 4, 16,
+                    1, 2, 3, 4,
+                    2, 6, 4, 3};
+    size_t nRows = 3;
+    size_t nCols = 4;
+    matrix m = createMatrixFromArray(source,
+                                     nRows, nCols);
+    selectionSortRowsMatrixByRowCriteriaF(&m,
+                                          (float (*)(int *, size_t)) getArithmeticMean);
+    int expectedSource[] = {1, 2, 3, 4,
+                            2, 6, 4, 3,
+                            3, 1, 4, 16};
+    matrix expectedM = createMatrixFromArray(expectedSource,
+                                             nRows, nCols);
+    assert(areTwoMatricesEqual(m, expectedM));
+    freeMemMatrix(&m);
+    freeMemMatrix(&expectedM);
+}
+
+void test_selectionSortRowsMatrixByRowCriteriaF_squareMatrix_someEqualCriteriaValues() {
+    int source[] = {0, 5, 1, 3,
+                    1, 0, 0, 1,
+                    2, 1, 2, 6,
+                    2, 0, 0, 0};
+    size_t nRows = 4;
+    size_t nCols = 4;
+    matrix m = createMatrixFromArray(source,
+                                     nRows, nCols);
+    selectionSortRowsMatrixByRowCriteriaF(&m,
+                                          (float (*)(int *, size_t)) getArithmeticMean);
+    int expectedSource[] = {1, 0, 0, 1,
+                            2, 0, 0, 0,
+                            0, 5, 1, 3,
+                            2, 1, 2, 6};
+    matrix expectedM = createMatrixFromArray(expectedSource,
+                                             nRows, nCols);
+    assert(areTwoMatricesEqual(m, expectedM));
+    freeMemMatrix(&m);
+    freeMemMatrix(&expectedM);
+}
+
+void test_selectionSortRowsMatrixByRowCriteriaF_rowsMoreThanCols_someEqualCriteriaValues() {
+    int source[] = {4, 5, 1,
+                    5, 3, 1,
+                    3, 2, 8,
+                    2, 4, 3};
+    size_t nRows = 4;
+    size_t nCols = 3;
+    matrix m = createMatrixFromArray(source,
+                                     nRows, nCols);
+    selectionSortRowsMatrixByRowCriteriaF(&m,
+                                          (float (*)(int *, size_t)) getArithmeticMean);
+    int expectedSource[] = {5, 3, 1,
+                            2, 4, 3,
+                            4, 5, 1,
+                            3, 2, 8};
+    matrix expectedM = createMatrixFromArray(expectedSource,
+                                             nRows, nCols);
+    assert(areTwoMatricesEqual(m, expectedM));
+    freeMemMatrix(&m);
+    freeMemMatrix(&expectedM);
+}
+
+void test_selectionSortRowsMatrixByRowCriteriaF_colsMoreThanRows_someEqualCriteriaValues() {
+    int source[] = {4, 1, 1, 5, 25,
+                    0, 1, 3, 4, 9,
+                    2, 0, 1, 3, 3,
+                    1, 1, 1, 1, 5};
+    size_t nRows = 4;
+    size_t nCols = 5;
+    matrix m = createMatrixFromArray(source,
+                                     nRows, nCols);
+    selectionSortRowsMatrixByRowCriteriaF(&m,
+                                          (float (*)(int *, size_t)) getArithmeticMean);
+    int expectedSource[] = {2, 0, 1, 3, 3,
+                            1, 1, 1, 1, 5,
+                            0, 1, 3, 4, 9,
+                            4, 1, 1, 5, 25};
+    matrix expectedM = createMatrixFromArray(expectedSource,
+                                             nRows, nCols);
+    assert(areTwoMatricesEqual(m, expectedM));
+    freeMemMatrix(&m);
+    freeMemMatrix(&expectedM);
+}
+
+
+void test_selectionSortRowsMatrixByRowCriteriaF() {
+    test_selectionSortRowsMatrixByRowCriteriaF_squareMatrix();
+    test_selectionSortRowsMatrixByRowCriteriaF_rowsMoreThanCols();
+    test_selectionSortRowsMatrixByRowCriteriaF_colsMoreThanRows();
+    test_selectionSortRowsMatrixByRowCriteriaF_squareMatrix_someEqualCriteriaValues();
+    test_selectionSortRowsMatrixByRowCriteriaF_rowsMoreThanCols_someEqualCriteriaValues();
+    test_selectionSortRowsMatrixByRowCriteriaF_colsMoreThanRows_someEqualCriteriaValues();
+}
+
+void test_sortByDistances_squareMatrix() {
+    int source[] = {2, 1, -8,
+                    -3, 1, 6,
+                    1, 0, 3};
+    size_t nRows = 3;
+    size_t nCols = 3;
+    matrix m = createMatrixFromArray(source,
+                                     nRows, nCols);
+    sortByDistances(&m);
+    int expectedSource[] = {1, 0, 3,
+                            -3, 1, 6,
+                            2, 1, -8};
+    matrix expectedM = createMatrixFromArray(expectedSource,
+                                             nRows, nCols);
+    assert(areTwoMatricesEqual(m, expectedM));
+    freeMemMatrix(&m);
+    freeMemMatrix(&expectedM);
+}
+
+void test_sortByDistances_rowsMoreThanCols() {
+    int source[] = {-1, 2, 5,
+                    3, 0, 6,
+                    4, 3, -4,
+                    1, 1, 0};
+    size_t nRows = 4;
+    size_t nCols = 3;
+    matrix m = createMatrixFromArray(source,
+                                     nRows, nCols);
+    sortByDistances(&m);
+    int expectedSource[] = {1, 1, 0,
+                            -1, 2, 5,
+                            4, 3, -4,
+                            3, 0, 6};
+    matrix expectedM = createMatrixFromArray(expectedSource,
+                                             nRows, nCols);
+    assert(areTwoMatricesEqual(m, expectedM));
+    freeMemMatrix(&m);
+    freeMemMatrix(&expectedM);
+}
+
+void test_sortByDistances_colsMoreThanRows() {
+    int source[] = {-6, 1, 11, 3,
+                    9, 2, -5, 0,
+                    0, 3, 7, 1};
+    size_t nRows = 3;
+    size_t nCols = 4;
+    matrix m = createMatrixFromArray(source,
+                                     nRows, nCols);
+    sortByDistances(&m);
+    int expectedSource[] = {0, 3, 7, 1,
+                            9, 2, -5, 0,
+                            -6, 1, 11, 3};
+    matrix expectedM = createMatrixFromArray(expectedSource,
+                                             nRows, nCols);
+    assert(areTwoMatricesEqual(m, expectedM));
+    freeMemMatrix(&m);
+    freeMemMatrix(&expectedM);
+}
+
+void test_sortByDistances_squareMatrix_someEqualDistances() {
+    int source[] = {0, 5, 24, 2,
+                    1, 4, 4, 5,
+                    4, 2, 0, 6,
+                    2, 2, -5, -5};
+    size_t nRows = 4;
+    size_t nCols = 4;
+    matrix m = createMatrixFromArray(source,
+                                     nRows, nCols);
+    sortByDistances(&m);
+    int expectedSource[] = {4, 2, 0, 6,
+                            1, 4, 4, 5,
+                            2, 2, -5, -5,
+                            0, 5, 24, 2};
+    matrix expectedM = createMatrixFromArray(expectedSource,
+                                             nRows, nCols);
+    assert(areTwoMatricesEqual(m, expectedM));
+    freeMemMatrix(&m);
+    freeMemMatrix(&expectedM);
+}
+
+void test_sortByDistances_rowsMoreThanCols_someEqualDistances() {
+    int source[] = {-3, 0, 1, 2,
+                    1, 9, -7, 6,
+                    2, 1, 3, 0,
+                    5, 3, 1, 2,
+                    0, 0, 0, 1};
+    size_t nRows = 5;
+    size_t nCols = 4;
+    matrix m = createMatrixFromArray(source,
+                                     nRows, nCols);
+    sortByDistances(&m);
+    int expectedSource[] = {0, 0, 0, 1,
+                            2, 1, 3, 0,
+                            -3, 0, 1, 2,
+                            5, 3, 1, 2,
+                            1, 9, -7, 6};
+    matrix expectedM = createMatrixFromArray(expectedSource,
+                                             nRows, nCols);
+    assert(areTwoMatricesEqual(m, expectedM));
+    freeMemMatrix(&m);
+    freeMemMatrix(&expectedM);
+}
+
+void test_sortByDistances_colsMoreThanRows_someEqualDistances() {
+    int source[] = {-3, 0, 4, 3, 0,
+                    -1, 2, 2, 2, 1,
+                    2, 2, 7, 1, -6,
+                    3, -2, -4, 2, 1};
+    size_t nRows = 4;
+    size_t nCols = 5;
+    matrix m = createMatrixFromArray(source,
+                                     nRows, nCols);
+    sortByDistances(&m);
+    int expectedSource[] = {-1, 2, 2, 2, 1,
+                            -3, 0, 4, 3, 0,
+                            3, -2, -4, 2, 1,
+                            2, 2, 7, 1, -6};
+    matrix expectedM = createMatrixFromArray(expectedSource,
+                                             nRows, nCols);
+    assert(areTwoMatricesEqual(m, expectedM));
+    freeMemMatrix(&m);
+    freeMemMatrix(&expectedM);
+}
+
+
+void test_sortByDistances() {
+    test_sortByDistances_squareMatrix();
+    test_sortByDistances_rowsMoreThanCols();
+    test_sortByDistances_colsMoreThanRows();
+    test_sortByDistances_squareMatrix_someEqualDistances();
+    test_sortByDistances_rowsMoreThanCols_someEqualDistances();
+    test_sortByDistances_colsMoreThanRows_someEqualDistances();
 }
 
 void test_tasks_matrix() {
@@ -1743,6 +2014,8 @@ void test_tasks_matrix() {
     test_areMutuallyInverseMatrices();
     test_findSumOfMaxesOfPseudoDiagonal();
     test_minInArea();
+    test_selectionSortRowsMatrixByRowCriteriaF();
+    test_sortByDistances();
 }
 
 int main() {

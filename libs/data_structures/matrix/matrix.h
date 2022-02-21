@@ -74,8 +74,8 @@ void swapRows(matrix *m, size_t i1, size_t i2);
 void swapCols(matrix *m, size_t j1, size_t j2);
 
 // выполняет сортировку вставками строк матрицы m по
-// неубыванию значения функции criteria, применяемой
-// для строк.
+// неубыванию значения функции criteria типа int,
+// применяемой для строк.
 void selectionSortRowsMatrixByRowCriteria(matrix *m,
                                           int (*criteria)(int *, size_t));
 
@@ -87,7 +87,7 @@ void copyElementsOfColToArray(int *dest,
                               size_t sourceColIndex);
 
 // выполняет сортировку вставками столбцов матрицы m
-// по неубыванию значения функции criteria, применяемой
+// по неубыванию значения функции criteria типа int, применяемой
 // для столбцов.
 void selectionSortColsMatrixByColCriteria(matrix *m,
                                           int (*criteria)(int *, size_t));

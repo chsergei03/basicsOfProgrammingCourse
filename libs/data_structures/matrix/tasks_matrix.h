@@ -46,4 +46,25 @@ long long findSumOfMaxesOfPseudoDiagonals(matrix m);
 // является максимальный элемент матрицы
 int getMinInArea(matrix m);
 
+// возвращает расстояние от начала координат до
+// данной точки (массив a - массив координат
+// точки).
+float getDistance(const int *a, size_t n);
+
+// возвращает среднее арифметическое
+// элементов массива a размера n.
+float getArithmeticMean(const int *a,
+                        size_t n);
+
+// выполняет сортировку вставками строк матрицы m по
+// неубыванию значения функции criteria типа float,
+// применяемой для строк.
+void selectionSortRowsMatrixByRowCriteriaF(matrix *m,
+                                           float (*criteria)(int *, size_t));
+
+// сортирует точки по неубыванию их расстояний до
+// начала координат (каждая строка матрицы - массив
+// координаты точки).
+void sortByDistances(matrix *m);
+
 #endif

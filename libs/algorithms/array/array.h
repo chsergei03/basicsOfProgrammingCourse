@@ -72,8 +72,8 @@ int countIf_(const int *a, size_t n, int (*predicate)(int));
 // возвращает сумму элементов массива a размера n.
 long long getSum_(const int *a, size_t n);
 
-// возвращает позицию минимального элемента массива
-// a размера n в области, начинающейся с позиции pos.
+// возвращает позицию минимального элемента массива a размера n типа
+// long long в области, начинающейся с позиции pos.
 size_t getMinPos_longLong_(const long long *a, size_t n, size_t pos);
 
 // возвращает максимальный элемент
@@ -97,5 +97,9 @@ size_t linearSearchFromPos_longLong_(const long long *a,
 // из уникальных элементов, в противном случае
 // - 'ложь'.
 bool isUnique_longLong_(const long long *a, size_t n);
+
+// возвращает позицию минимального элемента массива a размера n типа
+// float в области, начинающейся с позиции pos.
+size_t getMinPos_float_(const float *a, size_t size, size_t pos);
 
 #endif
