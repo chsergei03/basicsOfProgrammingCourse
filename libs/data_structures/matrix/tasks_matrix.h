@@ -94,4 +94,14 @@ position getLeftMin(matrix m);
 // минимальный элемент.
 void swapPenultimateRow(matrix *m);
 
+// возвращает значение 'истина', если
+// все строки матрицы m упорядочены по
+// неубыванию, в противном случае - 'ложь'.
+bool hasAllNonDescendingRows(matrix m);
+
+// возвращает количество матриц в массиве матриц ms.
+// строки которых упорядочены по неубыванию элементов.
+int countNonDescendingRowsMatrices(const matrix *ms,
+                                   size_t nMatrices);
+
 #endif

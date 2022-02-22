@@ -245,3 +245,17 @@ size_t getMinPos_float_(const float *const a,
 
     return minPos;
 }
+
+bool isNonDescendingSortedArray(const int *const a,
+                                const size_t n) {
+    int previousElement = a[0];
+    for (size_t i = 1; i < n; i++) {
+        int currentElement = a[i];
+        if (previousElement > currentElement)
+            return false;
+
+        previousElement = a[i];
+    }
+
+    return true;
+}

@@ -2326,6 +2326,234 @@ void test_swapPenultimateRow() {
     test_swapPenultimateRow_squareMatrixOfFourthOrder();
 }
 
+void test_hasAllNonDescendingRows_squareMatrix() {
+    int source[] = {1, 6,
+                    2, 2};
+    size_t nRows = 2;
+    size_t nCols = 2;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    assert(hasAllNonDescendingRows(m));
+    freeMemMatrix(&m);
+}
+
+void test_hasAllNonDescendingRows_rowsMoreThanCols() {
+    int source[] = {-1, 3,
+                    7, 9,
+                    15, 25};
+    size_t nRows = 3;
+    size_t nCols = 2;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    assert(hasAllNonDescendingRows(m));
+    freeMemMatrix(&m);
+}
+
+void test_hasAllNonDescendingRows_colsMoreThanRows() {
+    int source[] = {3, 6, 9, 12,
+                    1, 1, 2, 2,
+                    2, 5, 7, 13};
+    size_t nRows = 3;
+    size_t nCols = 4;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    assert(hasAllNonDescendingRows(m));
+    freeMemMatrix(&m);
+}
+
+void test_hasAllNonDescendingRows_squareMatrix_someRowsIsNotNonDescending() {
+    int source[] = {1, 8, 8, 19,
+                    15, 12, 16, 16,
+                    1, 1, -7, -9,
+                    15, 6, 5, 4};
+    size_t nRows = 4;
+    size_t nCols = 4;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    assert(!hasAllNonDescendingRows(m));
+    freeMemMatrix(&m);
+}
+
+void test_hasAllNonDescendingRows_rowsMoreThanCols_someRowsIsNotNonDescending() {
+    int source[] = {8, 5, 3,
+                    16, 16, 19,
+                    -3, 7, 11,
+                    31, 29, 27};
+    size_t nRows = 4;
+    size_t nCols = 3;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    assert(!hasAllNonDescendingRows(m));
+    freeMemMatrix(&m);
+}
+
+void test_hasAllNonDescendingRows_colsMoreThanRows_someRowsIsNotNonDescending() {
+    int source[] = {5, 9, 7, 2, 0,
+                    -1, 1, 2, 2, 5,
+                    3, 5, 7, 9, 11,
+                    4, 2, 0, -2, -4};
+    size_t nRows = 4;
+    size_t nCols = 5;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    assert(!hasAllNonDescendingRows(m));
+    freeMemMatrix(&m);
+}
+
+void test_hasAllNonDescendingRows() {
+    test_hasAllNonDescendingRows_squareMatrix();
+    test_hasAllNonDescendingRows_rowsMoreThanCols();
+    test_hasAllNonDescendingRows_colsMoreThanRows();
+    test_hasAllNonDescendingRows_squareMatrix_someRowsIsNotNonDescending();
+    test_hasAllNonDescendingRows_rowsMoreThanCols_someRowsIsNotNonDescending();
+    test_hasAllNonDescendingRows_colsMoreThanRows_someRowsIsNotNonDescending();
+}
+
+void test_countNonDescendingRowsMatrices_squareMatrices_msHasRequestedMatrices() {
+    int source[] = {7, 1,
+                    1, 1,
+
+                    1, 6,
+                    2, 2,
+
+                    5, 4,
+                    2, 3,
+
+                    1, 3,
+                    7, 9};
+    size_t nRows = 2;
+    size_t nCols = 2;
+    size_t nMatrices = 4;
+    matrix *ms = createArrayOfMatrixFromArray(source, nMatrices,
+                                              nRows, nCols);
+    int nNonDescendingRowsMatrices = countNonDescendingRowsMatrices(ms,
+                                                                    nMatrices);
+    int expectedNNonDescendingRowsMatrices = 2;
+    assert(nNonDescendingRowsMatrices ==
+           expectedNNonDescendingRowsMatrices);
+    freeMemMatrices(ms, nMatrices);
+}
+
+void test_countNonDescendingRowsMatrices_rowsMoreThanColsMatrices_msHasRequestedMatrices() {
+    int source[] = {-5, 3,
+                    1, 2,
+                    0, 7,
+
+                    4, 6,
+                    2, 8,
+                    11, 12,
+
+                    9, 2,
+                    5, 5,
+                    6, 3};
+    size_t nRows = 3;
+    size_t nCols = 2;
+    size_t nMatrices = 3;
+    matrix *ms = createArrayOfMatrixFromArray(source, nMatrices,
+                                              nRows, nCols);
+    int nNonDescendingRowsMatrices = countNonDescendingRowsMatrices(ms,
+                                                                    nMatrices);
+    int expectedNNonDescendingRowsMatrices = 2;
+    assert(nNonDescendingRowsMatrices ==
+           expectedNNonDescendingRowsMatrices);
+    freeMemMatrices(ms, nMatrices);
+}
+
+void test_countNonDescendingRowsMatrices_colsMoreThanRowsMatrices_msHasRequestedMatrices() {
+    int source[] = {2, 1, 0,
+                    1, 5, 12,
+
+                    4, 5, 7,
+                    -2, 0, 1,
+
+                    1, 1, 4,
+                    1, 0, 1};
+    size_t nRows = 2;
+    size_t nCols = 3;
+    size_t nMatrices = 3;
+    matrix *ms = createArrayOfMatrixFromArray(source, nMatrices,
+                                              nRows, nCols);
+    int nNonDescendingRowsMatrices = countNonDescendingRowsMatrices(ms,
+                                                                    nMatrices);
+    int expectedNNonDescendingRowsMatrices = 1;
+    assert(nNonDescendingRowsMatrices ==
+           expectedNNonDescendingRowsMatrices);
+    freeMemMatrices(ms, nMatrices);
+}
+
+void test_countNonDescendingRowsMatrices_squareMatrices_msHasNotRequestedMatrices() {
+    int source[] = {11, 8,
+                    3, 3,
+
+                    2, -1,
+                    4, 3,
+
+                    2, 2,
+                    19, 17};
+    size_t nRows = 2;
+    size_t nCols = 2;
+    size_t nMatrices = 3;
+    matrix *ms = createArrayOfMatrixFromArray(source, nMatrices,
+                                              nRows, nCols);
+    int nNonDescendingRowsMatrices = countNonDescendingRowsMatrices(ms,
+                                                                    nMatrices);
+    int expectedNNonDescendingRowsMatrices = 0;
+    assert(nNonDescendingRowsMatrices ==
+           expectedNNonDescendingRowsMatrices);
+    freeMemMatrices(ms, nMatrices);
+}
+
+void test_countNonDescendingRowsMatrices_rowsMoreThanColsMatrices_msHasNotRequestedMatrices() {
+    int source[] = {25, 25,
+                    6, 5,
+                    1, 2,
+
+                    8, 8,
+                    6, 4,
+                    3, 2,
+
+                    0, 0,
+                    7, 9,
+                    2, -3};
+    size_t nRows = 3;
+    size_t nCols = 2;
+    size_t nMatrices = 3;
+    matrix *ms = createArrayOfMatrixFromArray(source, nMatrices,
+                                              nRows, nCols);
+    int nNonDescendingRowsMatrices = countNonDescendingRowsMatrices(ms,
+                                                                    nMatrices);
+    int expectedNNonDescendingRowsMatrices = 0;
+    assert(nNonDescendingRowsMatrices ==
+           expectedNNonDescendingRowsMatrices);
+    freeMemMatrices(ms, nMatrices);
+}
+
+void test_countNonDescendingRowsMatrices_colsMoreThanRowsMatrices_msHasNotRequestedMatrices() {
+    int source[] = {7, 5, 6,
+                    4, 7, 2,
+
+                    1, 1, 0,
+                    5, 6, 7,
+
+                    3, 2, 1,
+                    1, 3, 9};
+    size_t nRows = 2;
+    size_t nCols = 3;
+    size_t nMatrices = 3;
+    matrix *ms = createArrayOfMatrixFromArray(source, nMatrices,
+                                              nRows, nCols);
+    int nNonDescendingRowsMatrices = countNonDescendingRowsMatrices(ms,
+                                                                    nMatrices);
+    int expectedNNonDescendingRowsMatrices = 0;
+    assert(nNonDescendingRowsMatrices ==
+           expectedNNonDescendingRowsMatrices);
+    freeMemMatrices(ms, nMatrices);
+}
+
+
+void test_countNonDescendingRowsMatrices() {
+    test_countNonDescendingRowsMatrices_squareMatrices_msHasRequestedMatrices();
+    test_countNonDescendingRowsMatrices_rowsMoreThanColsMatrices_msHasRequestedMatrices();
+    test_countNonDescendingRowsMatrices_colsMoreThanRowsMatrices_msHasRequestedMatrices();
+    test_countNonDescendingRowsMatrices_squareMatrices_msHasNotRequestedMatrices();
+    test_countNonDescendingRowsMatrices_rowsMoreThanColsMatrices_msHasNotRequestedMatrices();
+    test_countNonDescendingRowsMatrices_colsMoreThanRowsMatrices_msHasNotRequestedMatrices();
+}
+
 void test_tasks_matrix() {
     test_swapRowsWithMaxAndMinValuesOfSquareMatrix();
     test_sortRowsByMaxElement();
@@ -2342,6 +2570,8 @@ void test_tasks_matrix() {
     test_getCountOfSpecialElements();
     test_getLeftMin();
     test_swapPenultimateRow();
+    test_hasAllNonDescendingRows();
+    test_countNonDescendingRowsMatrices();
 }
 
 int main() {

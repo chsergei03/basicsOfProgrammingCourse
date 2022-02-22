@@ -102,4 +102,9 @@ bool isUnique_longLong_(const long long *a, size_t n);
 // float в области, начинающейся с позиции pos.
 size_t getMinPos_float_(const float *a, size_t size, size_t pos);
 
+// возвращает значение 'истина', если массив a размера n
+// типа int является упорядоченным по неубыванию, в противном
+// случае - 'ложь'.
+bool isNonDescendingSortedArray(const int *a, size_t n);
+
 #endif
