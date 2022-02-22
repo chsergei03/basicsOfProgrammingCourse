@@ -2145,6 +2145,95 @@ void test_countOfClassesOfEqRowsByRowSum() {
     test_countOfClassesOfEqRowsByRowSum_colsMoreThanRows_noClassesOfEqRowsByRowsSum();
 }
 
+void test_getCountOfSpecialElements_squareMatrix() {
+    int source[] = {15, 4, -9,
+                    8, -1, 7,
+                    23, 3, 21};
+    size_t nRows = 3;
+    size_t nCols = 3;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    int nSpecialElements = getCountOfSpecialElements(m);
+    int expectedNSpecialElements = 2;
+    assert(nSpecialElements == expectedNSpecialElements);
+    freeMemMatrix(&m);
+}
+
+void test_getCountOfSpecialElements_rowsMoreThanCols() {
+    int source[] = {-2, 29, 10,
+                    11, 0, 7,
+                    5, 15, 1,
+                    3, 4, 1};
+    size_t nRows = 4;
+    size_t nCols = 3;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    int nSpecialElements = getCountOfSpecialElements(m);
+    int expectedNSpecialElements = 3;
+    assert(nSpecialElements == expectedNSpecialElements);
+    freeMemMatrix(&m);
+}
+
+void test_getCountOfSpecialElements_colsMoreThanRows() {
+    int source[] = {3, 1, 17, 10,
+                    9, 5, 10, 6,
+                    1, 4, 7, 30};
+    size_t nRows = 3;
+    size_t nCols = 4;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    int nSpecialElements = getCountOfSpecialElements(m);
+    int expectedNSpecialElements = 2;
+    assert(nSpecialElements == expectedNSpecialElements);
+    freeMemMatrix(&m);
+}
+
+void test_getCountOfSpecialElements_squareMatrix_noSpecialElementsInMatrix() {
+    int source[] = {3, 18, 4,
+                    2, 3, 11,
+                    5, 15, 7};
+    size_t nRows = 3;
+    size_t nCols = 3;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    int nSpecialElements = getCountOfSpecialElements(m);
+    int expectedNSpecialElements = 0;
+    assert(nSpecialElements == expectedNSpecialElements);
+    freeMemMatrix(&m);
+}
+
+void test_getCountOfSpecialElements_rowsMoreThanCols_noSpecialElementsInMatrix() {
+    int source[] = {4, 7, 5,
+                    0, 21, 14,
+                    31, 6, 22,
+                    27, 8, 3};
+    size_t nRows = 4;
+    size_t nCols = 3;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    int nSpecialElements = getCountOfSpecialElements(m);
+    int expectedNSpecialElements = 0;
+    assert(nSpecialElements == expectedNSpecialElements);
+    freeMemMatrix(&m);
+}
+
+void test_getCountOfSpecialElements_colsMoreThanRows_noSpecialElementsInMatrix() {
+    int source[] = {28, 20, 8, 10,
+                    6, 30, 3, 12,
+                    22, 10, 5, 2};
+    size_t nRows = 3;
+    size_t nCols = 4;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    int nSpecialElements = getCountOfSpecialElements(m);
+    int expectedNSpecialElements = 0;
+    assert(nSpecialElements == expectedNSpecialElements);
+    freeMemMatrix(&m);
+}
+
+void test_getCountOfSpecialElements() {
+    test_getCountOfSpecialElements_squareMatrix();
+    test_getCountOfSpecialElements_rowsMoreThanCols();
+    test_getCountOfSpecialElements_colsMoreThanRows();
+    test_getCountOfSpecialElements_squareMatrix_noSpecialElementsInMatrix();
+    test_getCountOfSpecialElements_rowsMoreThanCols_noSpecialElementsInMatrix();
+    test_getCountOfSpecialElements_colsMoreThanRows_noSpecialElementsInMatrix();
+}
+
 void test_tasks_matrix() {
     test_swapRowsWithMaxAndMinValuesOfSquareMatrix();
     test_sortRowsByMaxElement();
@@ -2158,6 +2247,7 @@ void test_tasks_matrix() {
     test_selectionSortRowsMatrixByRowCriteriaF();
     test_sortByDistances();
     test_countOfClassesOfEqRowsByRowSum();
+    test_getCountOfSpecialElements();
 }
 
 int main() {

@@ -77,4 +77,10 @@ int countOfRowsWithUniqueSumOfElements(const long long *a,
 // эквивалентными, если равны суммы их элементов).
 int countOfClassesOfEqRowsByRowSum(matrix m);
 
+// возвращает количество 'особых' элементов
+// матрицы m (элемент считается особым, если
+// он больше суммы остальных элементов своего
+// столбца).
+int getCountOfSpecialElements(matrix m);
+
 #endif

@@ -220,3 +220,22 @@ int countOfClassesOfEqRowsByRowSum(const matrix m) {
 
     return nClasses - nRowsWithUniqueSumOfElements;
 }
+
+int getCountOfSpecialElements(const matrix m) {
+    long long *arrayOfColsSum = (long long *) malloc(m.nRows *
+                                                     sizeof(long long));
+    int *currentCol = (int *) malloc(m.nRows * sizeof(int));
+
+    for (size_t j = 0; j < m.nCols; j++) {
+        copyElementsOfColToArray(currentCol, &m, j);
+        arrayOfColsSum[j] = getSum_(currentCol, m.nRows);
+    }
+
+    int count = 0;
+    for (size_t i = 0; i < m.nRows; i++)
+        for (size_t j = 0; j < m.nCols; j++)
+            if (2 * m.values[i][j] > arrayOfColsSum[j])
+                count += 1;
+
+    return count;
+}
