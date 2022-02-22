@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include <math.h>
+#include <memory.h>
 
 #include "tasks_matrix.h"
 
@@ -56,12 +57,18 @@ void transposeIfMatrixHasNotEqualSumsOfRows(matrix *m) {
 
     if (isUnique_longLong_(sumsOfRowsArray, m->nRows))
         transposeSquareMatrix(m);
+
+    free(sumsOfRowsArray);
 }
 
 bool areMutuallyInverseMatrices(const matrix m1, const matrix m2) {
     matrix mulMatrix = mulMatrices(m1, m2);
 
-    return isEMatrix(mulMatrix);
+    bool isEMatrixFlag = isEMatrix(mulMatrix);
+
+    freeMemMatrix(&mulMatrix);
+
+    return isEMatrixFlag;
 }
 
 bool isSquareMatrixOfFirstOrder(const matrix m) {
@@ -98,7 +105,11 @@ long long findSumOfMaxesOfPseudoDiagonals(const matrix m) {
         iWrite += 1;
     }
 
-    return getSum_(arrayOfMaxes, nOfMaxes);
+    long long sumOfMaxesOfPseudoDiagonals = getSum_(arrayOfMaxes, nOfMaxes);
+
+    free(arrayOfMaxes);
+
+    return sumOfMaxesOfPseudoDiagonals;
 }
 
 int getMinInArea(matrix m) {
@@ -218,6 +229,8 @@ int countOfClassesOfEqRowsByRowSum(const matrix m) {
         }
     }
 
+    free(arrayOfRowsSum);
+
     return nClasses - nRowsWithUniqueSumOfElements;
 }
 
@@ -237,5 +250,38 @@ int getCountOfSpecialElements(const matrix m) {
             if (2 * m.values[i][j] > arrayOfColsSum[j])
                 count += 1;
 
+    free(currentCol);
+    free(arrayOfColsSum);
+
     return count;
+}
+
+position getLeftMin(const matrix m) {
+    size_t leftMinRowIndex = 0;
+    size_t leftMinColIndex = 0;
+    int leftMin = m.values[leftMinRowIndex][leftMinColIndex];
+
+    for (size_t j = 0; j < m.nCols; j++)
+        for (size_t i = 0; i < m.nRows; i++)
+            if (m.values[i][j] < leftMin) {
+                leftMin = m.values[i][j];
+                leftMinRowIndex = i;
+                leftMinColIndex = j;
+            }
+
+    return (position) {leftMinRowIndex, leftMinColIndex};
+}
+
+void swapPenultimateRow(matrix *m) {
+    assert(isSquareMatrix(*m));
+    assert(!isSquareMatrixOfFirstOrder(*m));
+
+    position firstMinPos = getLeftMin(*m);
+
+    int *colWithFirstMin = (int *) malloc(m->nRows * sizeof(int));
+    copyElementsOfColToArray(colWithFirstMin, m, firstMinPos.colIndex);
+
+    memcpy(m->values[m->nRows - 2], colWithFirstMin, m->nCols * sizeof(int));
+
+    free(colWithFirstMin);
 }

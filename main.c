@@ -2234,6 +2234,98 @@ void test_getCountOfSpecialElements() {
     test_getCountOfSpecialElements_colsMoreThanRows_noSpecialElementsInMatrix();
 }
 
+void test_getLeftMin_oneMinValueInMatrix() {
+    int source[] = {14, 7, 4,
+                    -3, 8, 2,
+                    9, -1, 6};
+    size_t nRows = 3;
+    size_t nCols = 3;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    position leftMinPos = getLeftMin(m);
+    position expectedPos = {1, 0};
+    assert(areIdenticalPositions(leftMinPos, expectedPos));
+    freeMemMatrix(&m);
+}
+
+void test_getLeftMin_someMinValuesInMatrix() {
+    int source[] = {3, -5, 6, 1,
+                    13, 9, 7, 11,
+                    2, 4, 8, -5};
+    size_t nRows = 3;
+    size_t nCols = 4;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    position leftMinPos = getLeftMin(m);
+    position expectedPos = {0, 1};
+    assert(areIdenticalPositions(leftMinPos, expectedPos));
+    freeMemMatrix(&m);
+}
+
+void test_getLeftMin() {
+    test_getLeftMin_oneMinValueInMatrix();
+    test_getLeftMin_someMinValuesInMatrix();
+}
+
+void test_swapPenultimateRow_squareMatrixOfSecondOrder() {
+    int source[] = {2, -1,
+                    9, 3};
+    size_t nRows = 2;
+    size_t nCols = 2;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    swapPenultimateRow(&m);
+    int expectedSource[] = {-1, 3,
+                            9, 3};
+    matrix expectedM = createMatrixFromArray(expectedSource,
+                                             nRows, nCols);
+    assert(areTwoMatricesEqual(m, expectedM));
+    freeMemMatrix(&m);
+    freeMemMatrix(&expectedM);
+}
+
+void test_swapPenultimateRow_squareMatrixOfThirdOrder() {
+    int source[] = {1, 2, 3,
+                    4, 5, 6,
+                    7, 8, 1};
+    size_t nRows = 3;
+    size_t nCols = 3;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    swapPenultimateRow(&m);
+    int expectedSource[] = {1, 2, 3,
+                            1, 4, 7,
+                            7, 8, 1};
+    matrix expectedM = createMatrixFromArray(expectedSource,
+                                             nRows, nCols);
+    assert(areTwoMatricesEqual(m, expectedM));
+    freeMemMatrix(&m);
+    freeMemMatrix(&expectedM);
+}
+
+void test_swapPenultimateRow_squareMatrixOfFourthOrder() {
+    int source[] = {0, 2, 3, 5,
+                    7, 3, 1, 4,
+                    -18, 9, 6, 11,
+                    3, 16, 7, 23};
+    size_t nRows = 4;
+    size_t nCols = 4;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    swapPenultimateRow(&m);
+    int expectedSource[] = {0, 2, 3, 5,
+                            7, 3, 1, 4,
+                            0, 7, -18, 3,
+                            3, 16, 7, 23};
+    matrix expectedM = createMatrixFromArray(expectedSource,
+                                             nRows, nCols);
+    assert(areTwoMatricesEqual(m, expectedM));
+    freeMemMatrix(&m);
+    freeMemMatrix(&expectedM);
+}
+
+
+void test_swapPenultimateRow() {
+    test_swapPenultimateRow_squareMatrixOfSecondOrder();
+    test_swapPenultimateRow_squareMatrixOfThirdOrder();
+    test_swapPenultimateRow_squareMatrixOfFourthOrder();
+}
+
 void test_tasks_matrix() {
     test_swapRowsWithMaxAndMinValuesOfSquareMatrix();
     test_sortRowsByMaxElement();
@@ -2248,6 +2340,8 @@ void test_tasks_matrix() {
     test_sortByDistances();
     test_countOfClassesOfEqRowsByRowSum();
     test_getCountOfSpecialElements();
+    test_getLeftMin();
+    test_swapPenultimateRow();
 }
 
 int main() {

@@ -83,4 +83,15 @@ int countOfClassesOfEqRowsByRowSum(matrix m);
 // столбца).
 int getCountOfSpecialElements(matrix m);
 
+// возвращает позицию первого
+// минимума матрицы m относительно
+// столбцов.
+position getLeftMin(matrix m);
+
+// заменяет предпоследнюю строку
+// квадратной матрицы m первым из
+// столбцов, в котором находится
+// минимальный элемент.
+void swapPenultimateRow(matrix *m);
+
 #endif
