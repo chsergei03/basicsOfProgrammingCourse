@@ -15,13 +15,28 @@ void sortRowsByMaxElements(matrix *m);
 // наименьших элементов столбцов.
 void sortColsByMinElements(matrix *m);
 
+// выводит в поток ошибок сообщение о том, что количество строк матрицы m1
+// не равно количеству столбцов матрицы m2, при этом выполнение программы
+// завершается с кодом 1.
+void errorMessageIfNColsOfMatrix1IsNotEqualToNRowsOfMatrix2(matrix m1,
+                                                            matrix m2);
+
 // возвращает матрицу, полученную умножением
 // матрицы m1 на матрицу m2.
 matrix mulMatrices(matrix m1, matrix m2);
 
+// выводит в поток ошибок сообщение о том, что матрица не является
+// симметричной при этом выполнение программы завершается с кодом 1.
+void errorMessageIfMatrixIsNotSymmetric(matrix m);
+
 // заменяет квадратную матрицу m её квадратом,
 // если матрица симметрична.
 void getSquareOfMatrixIfSymmetric(matrix *m);
+
+// выводит в поток ошибок сообщение о том, что массив сумм элементов строк матрицы не
+// содержит лишь уникальные элементы, при этом выполнение программы завершается с кодом 1.
+void errorMessageIfSumsOfRowsArrayIsNotArrayOfUniqueElements(const long long *a,
+                                                             size_t n);
 
 // транспонирует квадратную матрицу m, если среди
 // сумм элементов строк матрицы нет равных.
@@ -56,6 +71,12 @@ float getDistance(const int *a, size_t n);
 float getArithmeticMean(const int *a,
                         size_t n);
 
+// возвращает массив criteriaValuesArray размера m.nRows типа float,
+// заполненный значениями функции criteria типа float, применяемой к строкам
+// матрицы m.
+float *getFilledCriteriaValuesArrayForRows_float(matrix m,
+                                                 float (*criteria)(int *, size_t));
+
 // выполняет сортировку вставками строк матрицы m по
 // неубыванию значения функции criteria типа float,
 // применяемой для строк.
@@ -88,6 +109,11 @@ int getCountOfSpecialElements(matrix m);
 // столбцов.
 position getLeftMin(matrix m);
 
+// выводит в поток ошибок сообщение о том, что матрица
+// m не содержит предпоследней строки, при этом выполнение
+// программы завершается с кодом 1.
+void errorMessageIfMatrixHasNotPenultimateRow(matrix m);
+
 // заменяет предпоследнюю строку
 // квадратной матрицы m первым из
 // столбцов, в котором находится
@@ -108,6 +134,13 @@ int countNonDescendingRowsMatrices(const matrix *ms,
 // строк в матрице m.
 int countZeroRows(matrix m);
 
+// возвращает массив criteriaValuesArray размера nMatrices типа int,
+// заполненный значениями функции criteria типа int, применяемой к
+// матрицам из массива матриц ms.
+int *getFilledCriteriaValuesArrayForMatrices(const matrix *ms,
+                                             size_t nMatrices,
+                                             int (*criteria)(matrix));
+
 // выводит матрицы из массива матриц ms размера nMatrices,
 // имеющие наибольшее число нулевых строк.
 void printMatricesWithMaxValueOfZeroRows(const matrix *ms,
@@ -119,8 +152,19 @@ void printMatricesWithMaxValueOfZeroRows(const matrix *ms,
 bool isMatrixArrayOfSquareMatrices(const matrix *ms);
 
 // возвращает норму квадратной матрицы
-// m (нормой является максимум абсолютных
+// m (нормой называется максимум абсолютных
 // величин элементов матрицы).
 int getMatrixNorm(matrix m);
+
+// выводит в поток ошибок сообщение о том, что массив матриц ms не
+// представляет из себя массив квадратных матриц, при этом выполнение
+// программы завершается с кодом 1.
+void errorMessageIfMatricesInMatrixArrayAreNotSquare(const matrix *ms);
+
+// выводит матрицы из массива матриц ms размера nMatrices,
+// с минимальной нормой (нормой называется максимум абсолютных
+// величин элементов матрицы).
+void printMatricesWithMinNorm(const matrix *ms,
+                              size_t nMatrices);
 
 #endif

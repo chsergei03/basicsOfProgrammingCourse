@@ -799,8 +799,9 @@ void test_getMaxValuePos_oneMaxValueInMatrix() {
 
 void test_getMaxValuePos_someMaxValuesInMatrix() {
     int source[] = {3, -6, 18,
+                    -1, 5, 7,
                     12, 15, 18};
-    size_t nRows = 2;
+    size_t nRows = 3;
     size_t nCols = 3;
     matrix m = createMatrixFromArray(source, nRows, nCols);
     position maxValuePos = getMaxValuePos(m);
@@ -1480,7 +1481,7 @@ void test_getSquareOfMatrixIfSymmetric() {
     test_getSquareOfMatrixIfSymmetric_symmetricMatrixOfFourthOrder();
 }
 
-void test_transposeIfMatrixHasNotEqualSumsOfRows_noEqualSumsOfRows() {
+void test_transposeIfMatrixHasNotEqualSumsOfRows_squareMatrix_noEqualSumsOfRows() {
     int source[] = {1, 7, 4,
                     0, 5, 3,
                     4, 8, 7};
@@ -1497,28 +1498,8 @@ void test_transposeIfMatrixHasNotEqualSumsOfRows_noEqualSumsOfRows() {
     freeMemMatrix(&expectedM);
 }
 
-void test_transposeIfMatrixHasNotEqualSumsOfRows_someEqualSumsOfRows() {
-    int source[] = {7, 1, 5, 1,
-                    14, 0, 0, 0,
-                    3, 1, 3, 6,
-                    1, 6, 2, 4};
-    size_t nRows = 4;
-    size_t nCols = 4;
-    matrix m = createMatrixFromArray(source, nRows, nCols);
-    transposeIfMatrixHasNotEqualSumsOfRows(&m);
-    int expectedSource[] = {7, 1, 5, 1,
-                            14, 0, 0, 0,
-                            3, 1, 3, 6,
-                            1, 6, 2, 4};
-    matrix expectedM = createMatrixFromArray(expectedSource, nRows, nCols);
-    assert(areTwoMatricesEqual(m, expectedM));
-    freeMemMatrix(&m);
-    freeMemMatrix(&expectedM);
-}
-
 void test_transposeIfMatrixHasNotEqualSumsOfRows() {
-    test_transposeIfMatrixHasNotEqualSumsOfRows_noEqualSumsOfRows();
-    test_transposeIfMatrixHasNotEqualSumsOfRows_someEqualSumsOfRows();
+    test_transposeIfMatrixHasNotEqualSumsOfRows_squareMatrix_noEqualSumsOfRows();
 }
 
 void test_areMutuallyInverseMatrices_mutuallyInverseMatrices() {

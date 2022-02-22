@@ -73,22 +73,33 @@ void swapRows(matrix *m, size_t i1, size_t i2);
 // j1 и j2 в матрице m.
 void swapCols(matrix *m, size_t j1, size_t j2);
 
+// возвращает массив criteriaValuesArray размера m.nRows типа long long,
+// заполненный значениями функции criteria типа int, применяемой к строкам
+// матрицы m.
+long long *getFilledCriteriaValuesArrayForRows(matrix m,
+                                               int (*criteria)(int *, size_t));
+
 // выполняет сортировку вставками строк матрицы m по
 // неубыванию значения функции criteria типа int,
-// применяемой для строк.
+// применяемой к строкам матрицы m.
 void selectionSortRowsMatrixByRowCriteria(matrix *m,
                                           int (*criteria)(int *, size_t));
 
 // копирует элементы столбца с индексом
-// sourceColIndex матрицы m в целочисленный
-// массив dest.
+// sourceColIndex матрицы m в массив dest
+// типа int.
 void copyElementsOfColToArray(int *dest,
                               const matrix *m,
                               size_t sourceColIndex);
 
-// выполняет сортировку вставками столбцов матрицы m
-// по неубыванию значения функции criteria типа int, применяемой
-// для столбцов.
+// возвращает массив criteriaValuesArray размера m.nCols типа long long,
+// заполненный значениями функции criteria, применяемой к столбцам
+// матрицы m.
+long long *getFilledCriteriaValuesArrayForCols(matrix m,
+                                               int (*criteria)(int *, size_t));
+
+// выполняет сортировку вставками столбцов матрицы m по неубыванию значения
+// функции criteria типа int, применяемой к столбцам.
 void selectionSortColsMatrixByColCriteria(matrix *m,
                                           int (*criteria)(int *, size_t));
 
@@ -111,6 +122,11 @@ bool isEMatrix(matrix m);
 // противном случае - 'ложь'.
 bool isSymmetricMatrix(matrix m);
 
+// выводит в поток ошибок сообщение о том, что
+// матрица не является квадратной, при этом
+// выполнение программы завершается с кодом 1.
+void errorMessageIfMatrixIsNotSquare(matrix m);
+
 // транспонирует квадратную матрицу m.
 void transposeSquareMatrix(matrix *m);
 
@@ -124,8 +140,9 @@ bool minValueCriteria(int value, int currentMin);
 // случае - 'ложь'.
 bool maxValueCriteria(int value, int currentMax);
 
-// возвращает позицию последнего элемента
+// возвращает позицию первого элемента
 // в матрице m, удовлетворящего функции criteria.
+// (поиск осуществляется по строкам матрицы).
 position getPosByValueCriteria(matrix m,
                                int (*valueCriteria)(int, int));
 

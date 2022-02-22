@@ -4,10 +4,10 @@
 #include <stddef.h>
 #include <stdbool.h>
 
-// вводит массив a размера n.
+// вводит массив a размера n типа int.
 void inputArray_(int *a, size_t n);
 
-// выводит массив a размера n.
+// выводит массив a размера n типа int.
 void outputArray_(const int *a, size_t n);
 
 // возвращает позицию первого вхождения элемента x
@@ -15,61 +15,64 @@ void outputArray_(const int *a, size_t n);
 size_t linearSearch_(const int *a, size_t n, int x);
 
 // возвращает позицию вхождения элемента x в отсортированном
-// массиве a размера n при его наличии, иначе - возвращает n.
+// массиве a размера n типа int при его наличии, иначе - возвращает n.
 size_t binarySearch_(const int *a, size_t n, int x);
 
 // возвращает позицию вхождения элемента x в отсортированном
-// массиве a размера n (массив хранит значения упорядоченного
+// массиве a размера n типа int (массив хранит значения упорядоченного
 // множества) при наличии этого элемента, иначе - возвращает n.
-size_t binarySearchOrderedSet_(const int *a, size_t n, int x);
+size_t binarySearch_orderedSet_(const int *a, size_t n, int x);
 
 // возвращает позицию первого элемента равного или большего x
-// в отсортированном массиве a размера n при отсутствии такого
-// элемента возвращает n.
+// в отсортированном массиве a размера n типа int, при отсутствии
+// такого элемента возвращает n.
 size_t binarySearchMoreOrEqual_(const int *a, size_t n, int x);
 
 // вставляет элемент со значением value в массив a размера
-// n на позицию pos.
+// n типа int на позицию pos.
 void insert_(int *a, size_t *n, size_t pos, int value);
 
-// добавляет элемент value в конец массива a размера n.
+// добавляет элемент value в конец массива a
+// размера n типа int.
 void append_(int *a, size_t *n, int value);
 
-// удаляет из массива a размера n элемент, находящийся на
-// позиции pos, с сохранением порядка оставшихся элементов,
+// удаляет из массива a размера n типа int элемент, находящийся
+// на позиции pos, с сохранением порядка оставшихся элементов,
 // при этом размер массива уменьшается на единицу.
 void deleteByPosSaveOrder_(int *a, size_t *n, size_t pos);
 
-// удаляет из массива a размера n элемент, находящийся на
-// позиции pos, без сохранения порядка оставшихся элементов,
+// удаляет из массива a размера n типа int элемент, находящийся
+// на позиции pos, без сохранения порядка оставшихся элементов,
 // при этом размер массива уменьшается на единицу.
 void deleteByPosUnsaveOrder_(int *a, size_t *n, size_t pos);
 
 // возвращает значение ’истина’, если все элементы массива a
-// размера n соответствует функции-предикату predicate,
+// размера n типа int соответствует функции-предикату predicate,
 // иначе - ’ложь’.
 int all_(const int *a, size_t n, int (*predicate)(int));
 
 // возвращает значение ’истина’, если хотя бы один элемент
-// массива a размера n соответствует функции-предикату
+// массива a размера n типа int соответствует функции-предикату
 // predicate, иначе - ’ложь’.
 int any_(const int *a, size_t n, int (*predicate)(int));
 
 // применяет функцию predicate ко всем элементам массива source
-// размера n и сохраняет результат в массиве dest размера n.
+// размера n типа int и сохраняет результат в массиве dest размера
+// n типа int.
 void forEach_(const int *source, int *dest,
               size_t n, const int (*predicate)(int));
 
-// удаляет из массива a размера n все элементы, удовлетворяющие
+// удаляет из массива a размера n типа int все элементы, удовлетворяющие
 // функции-предикату deletePredicate, записывает в n новый размер
 // массива.
 void deleteIf_(int *a, size_t *n, int(*deletePredicate)(int));
 
-// возвращает количество элементов массива a размера n
+// возвращает количество элементов массива a размера n типа int,
 // удовлетворяющих функции-предикату predicate.
 int countIf_(const int *a, size_t n, int (*predicate)(int));
 
-// возвращает сумму элементов массива a размера n.
+// возвращает сумму элементов массива a
+// размера n типа int.
 long long getSum_(const int *a, size_t n);
 
 // возвращает позицию минимального элемента массива a размера n типа
@@ -77,11 +80,11 @@ long long getSum_(const int *a, size_t n);
 size_t getMinPos_longLong_(const long long *a, size_t n, size_t pos);
 
 // возвращает максимальный элемент
-// массива a размера n.
+// массива a размера n типа int.
 int getMax_(const int *a, size_t n);
 
 // возвращает минимальный элемент
-// массива a размера n.
+// массива a размера n типа int.
 int getMin_(const int *a, size_t n);
 
 // возвращает позицию первого вхождения элемента x в массиве
@@ -100,12 +103,12 @@ bool isUnique_longLong_(const long long *a, size_t n);
 
 // возвращает позицию минимального элемента массива a размера n типа
 // float в области, начинающейся с позиции pos.
-size_t getMinPos_float_(const float *a, size_t size, size_t pos);
+size_t getMinPos_float_(const float *a, size_t n, size_t pos);
 
 // возвращает значение 'истина', если массив a размера n
 // типа int является упорядоченным по неубыванию, в противном
 // случае - 'ложь'.
-bool isNonDescendingSortedArray(const int *a, size_t n);
+bool isNonDescendingSortedArray_(const int *a, size_t n);
 
 // возвращает количество раз наличия значения value
 // в массиве a размера n типа int.

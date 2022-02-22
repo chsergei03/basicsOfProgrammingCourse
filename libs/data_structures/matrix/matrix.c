@@ -106,22 +106,32 @@ void swapCols(matrix *m, const size_t j1, const size_t j2) {
                   sizeof(int));
 }
 
+long long *getFilledCriteriaValuesArrayForRows(const matrix m,
+                                               int (*criteria)(int *, size_t)) {
+    long long *criteriaValuesArray = (long long *) malloc(m.nRows *
+                                                          sizeof(long long));
+    for (size_t i = 0; i < m.nRows; i++)
+        criteriaValuesArray[i] = criteria(m.values[i], m.nCols);
+
+    return criteriaValuesArray;
+}
+
 void selectionSortRowsMatrixByRowCriteria(matrix *m,
                                           int (*criteria)(int *, size_t)) {
-    long long *criteriaValueArray = (long long *) malloc(m->nRows *
-                                                         sizeof(long long));
-    for (size_t i = 0; i < m->nRows; i++)
-        criteriaValueArray[i] = criteria(m->values[i], m->nCols);
+    long long *criteriaValuesArray = getFilledCriteriaValuesArrayForRows(*m,
+                                                                         criteria);
 
     for (size_t i = 0; i < m->nRows; i++) {
-        size_t minPos = getMinPos_longLong_(criteriaValueArray, m->nRows, i);
-        void_swap(&criteriaValueArray[i],
-                  &criteriaValueArray[minPos],
+        size_t minPos = getMinPos_longLong_(criteriaValuesArray,
+                                            m->nRows,
+                                            i);
+        void_swap(&criteriaValuesArray[i],
+                  &criteriaValuesArray[minPos],
                   sizeof(long long));
         swapRows(m, i, minPos);
     }
 
-    free(criteriaValueArray);
+    free(criteriaValuesArray);
 }
 
 void copyElementsOfColToArray(int *dest,
@@ -131,35 +141,48 @@ void copyElementsOfColToArray(int *dest,
         dest[i] = m->values[i][sourceColIndex];
 }
 
-void selectionSortColsMatrixByColCriteria(matrix *m,
-                                          int (*criteria)(int *, size_t)) {
-    long long *criteriaValueArray = (long long *) malloc(m->nCols *
-                                                         sizeof(long long));
-    int *currentCol = (int *) malloc(m->nRows * sizeof(int));
+long long *getFilledCriteriaValuesArrayForCols(const matrix m,
+                                               int (*criteria)(int *, size_t)) {
+    long long *criteriaValuesArray = (long long *) malloc(m.nCols *
+                                                          sizeof(long long));
+    int *currentCol = (int *) malloc(m.nRows * sizeof(int));
 
-    for (size_t i = 0; i < m->nCols; i++) {
-        copyElementsOfColToArray(currentCol, m, i);
-        criteriaValueArray[i] = criteria(currentCol, m->nRows);
+    for (size_t i = 0; i < m.nCols; i++) {
+        copyElementsOfColToArray(currentCol, &m, i);
+        criteriaValuesArray[i] = criteria(currentCol, m.nRows);
     }
 
+    free(currentCol);
+
+    return criteriaValuesArray;
+}
+
+void selectionSortColsMatrixByColCriteria(matrix *m,
+                                          int (*criteria)(int *, size_t)) {
+    long long *criteriaValuesArray = getFilledCriteriaValuesArrayForCols(*m,
+                                                                         criteria);
+
     for (size_t i = 0; i < m->nCols; i++) {
-        size_t minPos = getMinPos_longLong_(criteriaValueArray, m->nCols, i);
-        void_swap(&criteriaValueArray[i],
-                  &criteriaValueArray[minPos],
+        size_t minPos = getMinPos_longLong_(criteriaValuesArray,
+                                            m->nCols,
+                                            i);
+        void_swap(&criteriaValuesArray[i],
+                  &criteriaValuesArray[minPos],
                   sizeof(long long));
         swapCols(m, i, minPos);
     }
 
-    free(currentCol);
-    free(criteriaValueArray);
+    free(criteriaValuesArray);
 }
 
 bool isSquareMatrix(const matrix m) {
     return m.nRows == m.nCols;
 }
 
-bool areTwoMatricesEqual(const matrix m1, const matrix m2) {
-    bool areEqualDimensions = m1.nRows == m2.nRows && m1.nCols == m2.nCols;
+bool areTwoMatricesEqual(const matrix m1,
+                         const matrix m2) {
+    bool areEqualDimensions = m1.nRows == m2.nRows &&
+                              m1.nCols == m2.nCols;
     if (!areEqualDimensions)
         return false;
 
@@ -196,8 +219,15 @@ bool isSymmetricMatrix(const matrix m) {
     return true;
 }
 
+void errorMessageIfMatrixIsNotSquare(const matrix m) {
+    if (!isSquareMatrix(m)) {
+        fprintf(stderr, "matrix is not square");
+        exit(1);
+    }
+}
+
 void transposeSquareMatrix(matrix *m) {
-    assert(isSquareMatrix(*m));
+    errorMessageIfMatrixIsNotSquare(*m);
 
     for (size_t i = 1, j = 0; i < m->nRows; i++, j++)
         for (size_t k = i; k < m->nRows; k++)
@@ -207,11 +237,15 @@ void transposeSquareMatrix(matrix *m) {
 }
 
 bool minValueCriteria(const int value, const int currentMin) {
-    return value < currentMin;
+    bool isValueLessThanCurrentMin = value < currentMin;
+
+    return isValueLessThanCurrentMin;
 }
 
 bool maxValueCriteria(const int value, const int currentMax) {
-    return value > currentMax;
+    bool isValueMoreThanCurrentMin = value > currentMax;
+
+    return isValueMoreThanCurrentMin;
 }
 
 position getPosByValueCriteria(const matrix m,

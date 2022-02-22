@@ -128,9 +128,9 @@ size_t binarySearch_(const int *const a,
     return n;
 }
 
-size_t binarySearchOrderedSet_(const int *const a,
-                               const size_t n,
-                               const int x) {
+size_t binarySearch_orderedSet_(const int *const a,
+                                const size_t n,
+                                const int x) {
     if (n == 0)
         return n;
     size_t left = 0;
@@ -179,11 +179,11 @@ long long getSum_(const int *const a,
 }
 
 size_t getMinPos_longLong_(const long long *const a,
-                           const size_t size,
+                           const size_t n,
                            const size_t pos) {
     long long min = a[pos];
     size_t minPos = pos;
-    for (size_t i = pos; i < size; i++)
+    for (size_t i = pos; i < n; i++)
         if (a[i] < min) {
             min = a[i];
             minPos = i;
@@ -233,11 +233,11 @@ bool isUnique_longLong_(const long long *const a,
 }
 
 size_t getMinPos_float_(const float *const a,
-                        const size_t size,
+                        const size_t n,
                         const size_t pos) {
     float min = a[pos];
     size_t minPos = pos;
-    for (size_t i = pos; i < size; i++)
+    for (size_t i = pos; i < n; i++)
         if (a[i] < min) {
             min = a[i];
             minPos = i;
@@ -246,8 +246,8 @@ size_t getMinPos_float_(const float *const a,
     return minPos;
 }
 
-bool isNonDescendingSortedArray(const int *const a,
-                                const size_t n) {
+bool isNonDescendingSortedArray_(const int *const a,
+                                 const size_t n) {
     int previousElement = a[0];
     for (size_t i = 1; i < n; i++) {
         int currentElement = a[i];
@@ -261,7 +261,7 @@ bool isNonDescendingSortedArray(const int *const a,
 }
 
 int countValues_(const int *const a,
-                 size_t n,
+                 const size_t n,
                  const int value) {
     int count = 0;
     for (size_t i = 0; i < n; i++)

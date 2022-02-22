@@ -5,28 +5,43 @@
 
 #include "tasks_matrix.h"
 
-void swapRowsWithMaxAndMinValuesOfSquareMatrix(matrix *m) {
-    matrix m2 = *m;
-    assert(isSquareMatrix(m2));
+// задача 1.
 
-    position minValuePos = getMinValuePos(m2);
-    position maxValuePos = getMaxValuePos(m2);
+void swapRowsWithMaxAndMinValuesOfSquareMatrix(matrix *m) {
+    errorMessageIfMatrixIsNotSquare(*m);
+
+    position minValuePos = getMinValuePos(*m);
+    position maxValuePos = getMaxValuePos(*m);
 
     swapRows(m, minValuePos.rowIndex, maxValuePos.rowIndex);
 }
+
+// задача 2.
 
 void sortRowsByMaxElements(matrix *m) {
     selectionSortRowsMatrixByRowCriteria(m,
                                          (int (*)(int *, size_t)) getMax_);
 }
 
+// задача 3.
+
 void sortColsByMinElements(matrix *m) {
     selectionSortColsMatrixByColCriteria(m,
                                          (int (*)(int *, size_t)) getMin_);
 }
 
+// задача 4.
+
+void errorMessageIfNColsOfMatrix1IsNotEqualToNRowsOfMatrix2(const matrix m1,
+                                                            const matrix m2) {
+    if (m1.nCols != m2.nRows) {
+        fprintf(stderr, "nCols of first matrix is not equal to nRows of second matrix");
+        exit(1);
+    }
+}
+
 matrix mulMatrices(const matrix m1, const matrix m2) {
-    assert(m1.nCols == m2.nRows);
+    errorMessageIfNColsOfMatrix1IsNotEqualToNRowsOfMatrix2(m1, m2);
 
     matrix mulMatrix = getMemMatrix(m1.nRows, m2.nCols);
     for (size_t i = 0; i < m1.nRows; i++)
@@ -40,26 +55,48 @@ matrix mulMatrices(const matrix m1, const matrix m2) {
     return mulMatrix;
 }
 
-void getSquareOfMatrixIfSymmetric(matrix *m) {
-    assert(isSymmetricMatrix(*m));
+void errorMessageIfMatrixIsNotSymmetric(const matrix m) {
+    if (!isSymmetricMatrix(m)) {
+        fprintf(stderr, "matrix is not symmetric");
+    }
+}
 
-    *m = mulMatrices(*m, *m);
+void getSquareOfMatrixIfSymmetric(matrix *m) {
+    errorMessageIfMatrixIsNotSymmetric(*m);
+
+    if (isSymmetricMatrix(*m))
+        *m = mulMatrices(*m, *m);
+}
+
+// задача 5.
+
+void errorMessageIfSumsOfRowsArrayIsNotArrayOfUniqueElements(const long long *const a,
+                                                             const size_t n) {
+    if (!isUnique_longLong_(a, n)) {
+        fprintf(stderr,
+                "array of sums of rows is not array of unique elements");
+        exit(1);
+    }
 }
 
 void transposeIfMatrixHasNotEqualSumsOfRows(matrix *m) {
-    assert(isSquareMatrix(*m));
+    errorMessageIfMatrixIsNotSquare(*m);
 
-    long long *sumsOfRowsArray = (long long *) malloc(m->nRows *
-                                                      sizeof(long long));
+    long long *rowSumsArray = (long long *) malloc(m->nRows *
+                                                   sizeof(long long));
     for (size_t i = 0; i < m->nRows; i++) {
-        sumsOfRowsArray[i] = getSum_(m->values[i], m->nCols);
+        rowSumsArray[i] = getSum_(m->values[i], m->nCols);
     }
 
-    if (isUnique_longLong_(sumsOfRowsArray, m->nRows))
-        transposeSquareMatrix(m);
+    errorMessageIfSumsOfRowsArrayIsNotArrayOfUniqueElements(rowSumsArray,
+                                                            m->nRows);
 
-    free(sumsOfRowsArray);
+    transposeSquareMatrix(m);
+
+    free(rowSumsArray);
 }
+
+// задача 6.
 
 bool areMutuallyInverseMatrices(const matrix m1, const matrix m2) {
     matrix mulMatrix = mulMatrices(m1, m2);
@@ -70,6 +107,8 @@ bool areMutuallyInverseMatrices(const matrix m1, const matrix m2) {
 
     return isEMatrixFlag;
 }
+
+// задача 7.
 
 bool isSquareMatrixOfFirstOrder(const matrix m) {
     return m.nRows * m.nCols == 1;
@@ -112,7 +151,9 @@ long long findSumOfMaxesOfPseudoDiagonals(const matrix m) {
     return sumOfMaxesOfPseudoDiagonals;
 }
 
-int getMinInArea(matrix m) {
+// задача 8.
+
+int getMinInArea(const matrix m) {
     position maxPos = getMaxValuePos(m);
 
     int min = m.values[maxPos.rowIndex][maxPos.colIndex];
@@ -129,27 +170,22 @@ int getMinInArea(matrix m) {
             if (m.values[i][k] < min)
                 min = m.values[i][k];
 
-        if (i > 0)
-            i -= 1;
-        else
-            i = m.nRows;
-
-        if (j > 0)
-            j -= 1;
-        else
-            j = m.nCols;
+        i += i > 0 ? -1 : m.nRows;
+        j += j > 0 ? -1 : m.nCols;
     }
 
     return min;
 }
 
+// задача 9.
+
 float getDistance(const int *const a,
                   const size_t n) {
-    int sumOfSquares = 0;
+    int squaresSum = 0;
     for (size_t i = 0; i < n; i++)
-        sumOfSquares += a[i] * a[i];
+        squaresSum += a[i] * a[i];
 
-    return sqrtf((float) sumOfSquares);
+    return sqrtf((float) squaresSum);
 }
 
 float getArithmeticMean(const int *const a,
@@ -159,30 +195,38 @@ float getArithmeticMean(const int *const a,
     return (float) sum / (float) n;
 }
 
+float *getFilledCriteriaValuesArrayForRows_float(const matrix m,
+                                                 float (*criteria)(int *, size_t)) {
+    float *criteriaValueArray = (float *) malloc(m.nRows *
+                                                 sizeof(float));
+    for (size_t i = 0; i < m.nRows; i++)
+        criteriaValueArray[i] = criteria(m.values[i], m.nCols);
+
+    return criteriaValueArray;
+}
+
 void selectionSortRowsMatrixByRowCriteriaF(matrix *m,
                                            float (*criteria)(int *, size_t)) {
-    float *criteriaValueArray = (float *) malloc(m->nRows *
-                                                 sizeof(float));
+    float *criteriaValuesArray = getFilledCriteriaValuesArrayForRows_float(*m,
+                                                                           criteria);
 
     for (size_t i = 0; i < m->nRows; i++) {
-        criteriaValueArray[i] = criteria(m->values[i], m->nCols);
-    }
-
-    for (size_t i = 0; i < m->nRows; i++) {
-        size_t minPos = getMinPos_float_(criteriaValueArray, m->nRows, i);
-        void_swap(&criteriaValueArray[i],
-                  &criteriaValueArray[minPos],
+        size_t minPos = getMinPos_float_(criteriaValuesArray, m->nRows, i);
+        void_swap(&criteriaValuesArray[i],
+                  &criteriaValuesArray[minPos],
                   sizeof(float));
         swapRows(m, i, minPos);
     }
 
-    free(criteriaValueArray);
+    free(criteriaValuesArray);
 }
 
 void sortByDistances(matrix *m) {
     selectionSortRowsMatrixByRowCriteriaF(m,
                                           (float (*)(int *, size_t)) getDistance);
 }
+
+// задача 10.
 
 int countOfRowsWithUniqueSumOfElements(const long long *const a,
                                        const size_t n) {
@@ -208,53 +252,47 @@ int countOfRowsWithUniqueSumOfElements(const long long *const a,
 }
 
 int countOfClassesOfEqRowsByRowSum(const matrix m) {
-    long long *arrayOfRowsSum = (long long *) malloc(m.nRows *
-                                                     sizeof(long long));
+    long long *rowSumsArray = getFilledCriteriaValuesArrayForRows(m,
+                                                                  (int (*)(int *, size_t)) getSum_);
 
-    for (size_t i = 0; i < m.nRows; i++)
-        arrayOfRowsSum[i] = getSum_(m.values[i], m.nCols);
-
-    qsort(arrayOfRowsSum, m.nRows,
+    qsort(rowSumsArray, m.nRows,
           sizeof(long long), compare_longLong);
 
-    int nRowsWithUniqueSumOfElements = countOfRowsWithUniqueSumOfElements(arrayOfRowsSum,
+    int nRowsWithUniqueSumOfElements = countOfRowsWithUniqueSumOfElements(rowSumsArray,
                                                                           m.nRows);
 
-    long long currentRowSum = arrayOfRowsSum[0];
+    long long currentRowSum = rowSumsArray[0];
     int nClasses = 1;
     for (size_t i = 1; i < m.nRows; i++) {
-        if (arrayOfRowsSum[i] > currentRowSum) {
-            currentRowSum = arrayOfRowsSum[i];
+        if (rowSumsArray[i] > currentRowSum) {
+            currentRowSum = rowSumsArray[i];
             nClasses += 1;
         }
     }
 
-    free(arrayOfRowsSum);
+    free(rowSumsArray);
 
     return nClasses - nRowsWithUniqueSumOfElements;
 }
 
-int getCountOfSpecialElements(const matrix m) {
-    long long *arrayOfColsSum = (long long *) malloc(m.nRows *
-                                                     sizeof(long long));
-    int *currentCol = (int *) malloc(m.nRows * sizeof(int));
+// задача 11.
 
-    for (size_t j = 0; j < m.nCols; j++) {
-        copyElementsOfColToArray(currentCol, &m, j);
-        arrayOfColsSum[j] = getSum_(currentCol, m.nRows);
-    }
+int getCountOfSpecialElements(const matrix m) {
+    long long *colSumsArray = getFilledCriteriaValuesArrayForCols(m,
+                                                                  (int (*)(int *, size_t)) getSum_);
 
     int count = 0;
     for (size_t i = 0; i < m.nRows; i++)
         for (size_t j = 0; j < m.nCols; j++)
-            if (2 * m.values[i][j] > arrayOfColsSum[j])
+            if (2 * m.values[i][j] > colSumsArray[j])
                 count += 1;
 
-    free(currentCol);
-    free(arrayOfColsSum);
+    free(colSumsArray);
 
     return count;
 }
+
+// задача 12.
 
 position getLeftMin(const matrix m) {
     size_t leftMinRowIndex = 0;
@@ -272,9 +310,16 @@ position getLeftMin(const matrix m) {
     return (position) {leftMinRowIndex, leftMinColIndex};
 }
 
+void errorMessageIfMatrixHasNotPenultimateRow(const matrix m) {
+    if (m.nRows < 2) {
+        fprintf(stderr, "matrix has not penultimate row");
+        exit(1);
+    }
+}
+
 void swapPenultimateRow(matrix *m) {
-    assert(isSquareMatrix(*m));
-    assert(!isSquareMatrixOfFirstOrder(*m));
+    errorMessageIfMatrixIsNotSquare(*m);
+    errorMessageIfMatrixHasNotPenultimateRow(*m);
 
     position firstMinPos = getLeftMin(*m);
 
@@ -286,9 +331,11 @@ void swapPenultimateRow(matrix *m) {
     free(colWithFirstMin);
 }
 
+// задача 13.
+
 bool hasAllNonDescendingRows(const matrix m) {
     for (size_t i = 0; i < m.nRows; i++)
-        if (!isNonDescendingSortedArray(m.values[i], m.nCols))
+        if (!isNonDescendingSortedArray_(m.values[i], m.nCols))
             return false;
 
     return true;
@@ -303,6 +350,8 @@ int countNonDescendingRowsMatrices(const matrix *ms,
     return count;
 }
 
+// задача 14.
+
 int countZeroRows(const matrix m) {
     int nZeroRows = 0;
     for (size_t i = 0; i < m.nRows; i++)
@@ -311,12 +360,21 @@ int countZeroRows(const matrix m) {
     return nZeroRows;
 }
 
-void printMatricesWithMaxValueOfZeroRows(const matrix *ms,
-                                         const size_t nMatrices) {
-    int *nZeroRowsArray = (int *) malloc(nMatrices * sizeof(int));
+int *getFilledCriteriaValuesArrayForMatrices(const matrix *ms,
+                                             const size_t nMatrices,
+                                             int (*criteria)(matrix)) {
+    int *criteriaValuesArray = (int *) malloc(nMatrices * sizeof(int));
 
     for (size_t i = 0; i < nMatrices; i++)
-        nZeroRowsArray[i] = countZeroRows(ms[i]);
+        criteriaValuesArray[i] = criteria(ms[i]);
+
+    return criteriaValuesArray;
+}
+
+void printMatricesWithMaxValueOfZeroRows(const matrix *ms,
+                                         const size_t nMatrices) {
+    int *nZeroRowsArray = getFilledCriteriaValuesArrayForMatrices(ms, nMatrices,
+                                                                  countZeroRows);
 
     int nZeroRowsMaxValue = getMax_(nZeroRowsArray, nMatrices);
 
@@ -324,6 +382,8 @@ void printMatricesWithMaxValueOfZeroRows(const matrix *ms,
         if (countZeroRows(ms[matrixIndex]) == nZeroRowsMaxValue)
             outputMatrix(ms[matrixIndex]);
 }
+
+// задача 15.
 
 bool isMatrixArrayOfSquareMatrices(const matrix *ms) {
     return isSquareMatrix(ms[0]);
@@ -339,15 +399,21 @@ int getMatrixNorm(const matrix m) {
     return norm;
 }
 
+void errorMessageIfMatricesInMatrixArrayAreNotSquare(const matrix *ms) {
+    if (!isMatrixArrayOfSquareMatrices(ms)) {
+        fprintf(stderr, "ms is not matrix array of square matrices");
+        exit(1);
+    }
+}
+
 void printMatricesWithMinNorm(const matrix *ms,
                               const size_t nMatrices) {
-    int *arrayOfMatricesNorms = (int *) malloc(nMatrices *
-                                               sizeof(int));
+    errorMessageIfMatricesInMatrixArrayAreNotSquare(ms);
 
-    for (size_t i = 0; i < nMatrices; i++)
-        arrayOfMatricesNorms[i] = getMatrixNorm(ms[i]);
+    int *matricesNormsArray = getFilledCriteriaValuesArrayForMatrices(ms, nMatrices,
+                                                                      getMatrixNorm);
 
-    int normMinValue = getMin_(arrayOfMatricesNorms, nMatrices);
+    int normMinValue = getMin_(matricesNormsArray, nMatrices);
 
     for (size_t matrixIndex = 0; matrixIndex < nMatrices; matrixIndex++)
         if (getMatrixNorm(ms[matrixIndex]) == normMinValue)

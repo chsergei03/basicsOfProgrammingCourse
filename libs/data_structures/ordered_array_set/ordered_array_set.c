@@ -32,7 +32,7 @@ ordered_array_set ordered_array_set_create_from_array(const int *a,
 
 size_t ordered_array_set_in(const ordered_array_set *set,
                             const int value) {
-    return binarySearchOrderedSet_(set->data, set->size, value);
+    return binarySearch_orderedSet_(set->data, set->size, value);
 }
 
 size_t ordered_array_set_isValueInSet(const ordered_array_set *set,
