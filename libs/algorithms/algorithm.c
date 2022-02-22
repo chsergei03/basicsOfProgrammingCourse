@@ -5,6 +5,7 @@ int compare_ints(const void *a, const void *b) {
     int arg2 = *(const int *) b;
     if (arg1 < arg2) return -1;
     if (arg1 > arg2) return 1;
+
     return 0;
 }
 
@@ -26,4 +27,13 @@ void void_swap(void *a, void *b, const size_t baseTypeSize) {
 
 int max2_int(const int a, const int b) {
     return a > b ? a : b;
+}
+
+int compare_longLong(const void *a, const void *b) {
+    long long arg1 = *(const long long *) a;
+    long long arg2 = *(const long long *) b;
+    if (arg1 < arg2) return -1;
+    if (arg1 > arg2) return 1;
+
+    return 0;
 }

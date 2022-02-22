@@ -1,4 +1,5 @@
 #include <assert.h>
+#include <stdio.h>
 
 #include "libs/data_structures/matrix/matrix.h"
 #include "libs/data_structures/matrix/tasks_matrix.h"
@@ -2004,6 +2005,146 @@ void test_sortByDistances() {
     test_sortByDistances_colsMoreThanRows_someEqualDistances();
 }
 
+void test_countOfClassesOfEqRowsByRowSum_squareMatrix() {
+    int source[] = {6, 2, 4, 0,
+                    2, 9, 5, 4,
+                    15, 2, 2, 1,
+                    8, 2, 1, 1};
+    size_t nRows = 4;
+    size_t nCols = 4;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    int nClasses = countOfClassesOfEqRowsByRowSum(m);
+    int expectedNClasses = 2;
+    assert(nClasses == expectedNClasses);
+    freeMemMatrix(&m);
+}
+
+void test_countOfClassesOfEqRowsByRowSum_rowsMoreThanCols() {
+    int source[] = {7, 1,
+                    2, 7,
+                    5, 4,
+                    4, 3,
+                    1, 6,
+                    8, 0};
+    size_t nRows = 6;
+    size_t nCols = 2;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    int nClasses = countOfClassesOfEqRowsByRowSum(m);
+    int expectedNClasses = 3;
+    assert(nClasses == expectedNClasses);
+    freeMemMatrix(&m);
+}
+
+
+void test_countOfClassesOfEqRowsByRowSum_colsMoreThanRows() {
+    int source[] = {3, 3, 1, 0, 2,
+                    6, 8, 1, -1, 1,
+                    5, 5, 5, 5, 5,
+                    4, 2, 3, 0, 0};
+    size_t nRows = 4;
+    size_t nCols = 5;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    int nClasses = countOfClassesOfEqRowsByRowSum(m);
+    int expectedNClasses = 2;
+    assert(nClasses == expectedNClasses);
+    freeMemMatrix(&m);
+}
+
+void test_countOfClassesOfEqRowsByRowSum_squareMatrix_matrixHasRowWithUniqueSumOfElements() {
+    int source[] = {19, 2, 2, 0, 2,
+                    6, 15, -6, -5, 1,
+                    2, -2, 11, 7, 7,
+                    1, 1, 3, 4, 2,
+                    1, 2, 0, -3, 0};
+    size_t nRows = 5;
+    size_t nCols = 5;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    int nClasses = countOfClassesOfEqRowsByRowSum(m);
+    int expectedNClasses = 2;
+    assert(nClasses == expectedNClasses);
+    freeMemMatrix(&m);
+}
+
+void test_countOfClassesOfEqRowsByRowSum_rowsMoreThanCols_matrixHasRowWithUniqueSumOfElements() {
+    int source[] = {4, 1, 1,
+                    0, 0, 1,
+                    2, 3, 2,
+                    5, 1, 1,
+                    0, 3, 3};
+    size_t nRows = 5;
+    size_t nCols = 3;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    int nClasses = countOfClassesOfEqRowsByRowSum(m);
+    int expectedNClasses = 2;
+    assert(nClasses == expectedNClasses);
+    freeMemMatrix(&m);
+}
+
+void test_countOfClassesOfEqRowsByRowSum_colsMoreThanRows_matrixHasRowWithUniqueSumOfElements() {
+    int source[] = {4, 6, 3, 1, 6, 5,
+                    3, 4, 4, 1, 0, 0,
+                    5, 10, 10, -20, 20, 0,
+                    7, 6, 8, 1, 2, 3,
+                    3, 9, 7, 8, 0, 0};
+    size_t nRows = 5;
+    size_t nCols = 6;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    int nClasses = countOfClassesOfEqRowsByRowSum(m);
+    int expectedNClasses = 2;
+    assert(nClasses == expectedNClasses);
+    freeMemMatrix(&m);
+}
+
+void test_countOfClassesOfEqRowsByRowSum_squareMatrix_noClassesOfEqRowsByRowsSum() {
+    int source[] = {3, -2, 9,
+                    8, 5, 4,
+                    2, 0, 1};
+    size_t nRows = 3;
+    size_t nCols = 3;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    int nClasses = countOfClassesOfEqRowsByRowSum(m);
+    int expectedNClasses = 0;
+    assert(nClasses == expectedNClasses);
+    freeMemMatrix(&m);
+}
+
+void test_countOfClassesOfEqRowsByRowSum_rowsMoreThanCols_noClassesOfEqRowsByRowsSum() {
+    int source[] = {2, 4,
+                    1, 3,
+                    9, 8};
+    size_t nRows = 3;
+    size_t nCols = 2;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    int nClasses = countOfClassesOfEqRowsByRowSum(m);
+    int expectedNClasses = 0;
+    assert(nClasses == expectedNClasses);
+    freeMemMatrix(&m);
+}
+
+void test_countOfClassesOfEqRowsByRowSum_colsMoreThanRows_noClassesOfEqRowsByRowsSum() {
+    int source[] = {5, 6, 2,
+                    1, 3, 7};
+    size_t nRows = 2;
+    size_t nCols = 3;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    int nClasses = countOfClassesOfEqRowsByRowSum(m);
+    int expectedNClasses = 0;
+    assert(nClasses == expectedNClasses);
+    freeMemMatrix(&m);
+}
+
+void test_countOfClassesOfEqRowsByRowSum() {
+    test_countOfClassesOfEqRowsByRowSum_squareMatrix();
+    test_countOfClassesOfEqRowsByRowSum_rowsMoreThanCols();
+    test_countOfClassesOfEqRowsByRowSum_colsMoreThanRows();
+    test_countOfClassesOfEqRowsByRowSum_squareMatrix_matrixHasRowWithUniqueSumOfElements();
+    test_countOfClassesOfEqRowsByRowSum_rowsMoreThanCols_matrixHasRowWithUniqueSumOfElements();
+    test_countOfClassesOfEqRowsByRowSum_colsMoreThanRows_matrixHasRowWithUniqueSumOfElements();
+    test_countOfClassesOfEqRowsByRowSum_squareMatrix_noClassesOfEqRowsByRowsSum();
+    test_countOfClassesOfEqRowsByRowSum_rowsMoreThanCols_noClassesOfEqRowsByRowsSum();
+    test_countOfClassesOfEqRowsByRowSum_colsMoreThanRows_noClassesOfEqRowsByRowsSum();
+}
+
 void test_tasks_matrix() {
     test_swapRowsWithMaxAndMinValuesOfSquareMatrix();
     test_sortRowsByMaxElement();
@@ -2016,6 +2157,7 @@ void test_tasks_matrix() {
     test_minInArea();
     test_selectionSortRowsMatrixByRowCriteriaF();
     test_sortByDistances();
+    test_countOfClassesOfEqRowsByRowSum();
 }
 
 int main() {

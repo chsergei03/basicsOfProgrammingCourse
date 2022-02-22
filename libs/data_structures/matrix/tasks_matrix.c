@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <assert.h>
 #include <math.h>
 
@@ -170,4 +171,52 @@ void selectionSortRowsMatrixByRowCriteriaF(matrix *m,
 void sortByDistances(matrix *m) {
     selectionSortRowsMatrixByRowCriteriaF(m,
                                           (float (*)(int *, size_t)) getDistance);
+}
+
+int countOfRowsWithUniqueSumOfElements(const long long *const a,
+                                       const size_t n) {
+    int count = 0;
+    long long currentSum = a[0];
+    int basicLen = 1;
+    int lenOfEqualValuesSequence = basicLen;
+    int lenOfRowsWithUniqueRowSumSequence = 1;
+    for (size_t i = 1; i < n; i++) {
+        if (a[i] != currentSum) {
+            currentSum = a[i];
+            count += lenOfEqualValuesSequence == basicLen;
+            lenOfEqualValuesSequence = basicLen;
+            lenOfRowsWithUniqueRowSumSequence += 1;
+        } else {
+            lenOfEqualValuesSequence += 1;
+            lenOfRowsWithUniqueRowSumSequence -= lenOfRowsWithUniqueRowSumSequence > 0;
+        }
+
+    }
+
+    return lenOfRowsWithUniqueRowSumSequence == n ? (int) n : count;
+}
+
+int countOfClassesOfEqRowsByRowSum(const matrix m) {
+    long long *arrayOfRowsSum = (long long *) malloc(m.nRows *
+                                                     sizeof(long long));
+
+    for (size_t i = 0; i < m.nRows; i++)
+        arrayOfRowsSum[i] = getSum_(m.values[i], m.nCols);
+
+    qsort(arrayOfRowsSum, m.nRows,
+          sizeof(long long), compare_longLong);
+
+    int nRowsWithUniqueSumOfElements = countOfRowsWithUniqueSumOfElements(arrayOfRowsSum,
+                                                                          m.nRows);
+
+    long long currentRowSum = arrayOfRowsSum[0];
+    int nClasses = 1;
+    for (size_t i = 1; i < m.nRows; i++) {
+        if (arrayOfRowsSum[i] > currentRowSum) {
+            currentRowSum = arrayOfRowsSum[i];
+            nClasses += 1;
+        }
+    }
+
+    return nClasses - nRowsWithUniqueSumOfElements;
 }

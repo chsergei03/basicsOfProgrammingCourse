@@ -67,4 +67,14 @@ void selectionSortRowsMatrixByRowCriteriaF(matrix *m,
 // координаты точки).
 void sortByDistances(matrix *m);
 
+// возвращает количество строк матрицы m, имеющих уникальные
+// значения сумм элементов.
+int countOfRowsWithUniqueSumOfElements(const long long *a,
+                                       size_t n);
+
+// возвращает количество классов эквивалентных
+// строк прямоугольной матрицы m (строки считаются
+// эквивалентными, если равны суммы их элементов).
+int countOfClassesOfEqRowsByRowSum(matrix m);
+
 #endif

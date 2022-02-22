@@ -20,4 +20,9 @@ void void_swap(void *a, void *b, size_t baseTypeSize);
 // типа int.
 int max2_int(int a, int b);
 
+// применяется в качестве функции-компаратора
+// целочисленных значений типа long long для быстрой
+// сортировки массива qsort.
+int compare_longLong(const void *a, const void *b);
+
 #endif
