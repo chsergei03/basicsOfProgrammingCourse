@@ -113,4 +113,14 @@ int countZeroRows(matrix m);
 void printMatricesWithMaxValueOfZeroRows(const matrix *ms,
                                          size_t nMatrices);
 
+// возвращает значение 'истина', если элементы массива
+// матриц ms представляют из себя квадратные матрицы,
+// в противном случае - 'ложь'.
+bool isMatrixArrayOfSquareMatrices(const matrix *ms);
+
+// возвращает норму квадратной матрицы
+// m (нормой является максимум абсолютных
+// величин элементов матрицы).
+int getMatrixNorm(matrix m);
+
 #endif

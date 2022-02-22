@@ -25,4 +25,9 @@ int max2_int(int a, int b);
 // сортировки массива qsort.
 int compare_longLong(const void *a, const void *b);
 
+// возвращает модуль
+// целого числа a типа
+// int.
+int abs_int(int a);
+
 #endif

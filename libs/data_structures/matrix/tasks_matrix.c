@@ -324,3 +324,32 @@ void printMatricesWithMaxValueOfZeroRows(const matrix *ms,
         if (countZeroRows(ms[matrixIndex]) == nZeroRowsMaxValue)
             outputMatrix(ms[matrixIndex]);
 }
+
+bool isMatrixArrayOfSquareMatrices(const matrix *ms) {
+    return isSquareMatrix(ms[0]);
+}
+
+int getMatrixNorm(const matrix m) {
+    int norm = abs_int(m.values[0][0]);
+
+    for (size_t i = 0; i < m.nRows; i++)
+        for (size_t j = 0; j < m.nCols; j++)
+            norm = max2_int(abs_int(m.values[i][j]), norm);
+
+    return norm;
+}
+
+void printMatricesWithMinNorm(const matrix *ms,
+                              const size_t nMatrices) {
+    int *arrayOfMatricesNorms = (int *) malloc(nMatrices *
+                                               sizeof(int));
+
+    for (size_t i = 0; i < nMatrices; i++)
+        arrayOfMatricesNorms[i] = getMatrixNorm(ms[i]);
+
+    int normMinValue = getMin_(arrayOfMatricesNorms, nMatrices);
+
+    for (size_t matrixIndex = 0; matrixIndex < nMatrices; matrixIndex++)
+        if (getMatrixNorm(ms[matrixIndex]) == normMinValue)
+            outputMatrix(ms[matrixIndex]);
+}

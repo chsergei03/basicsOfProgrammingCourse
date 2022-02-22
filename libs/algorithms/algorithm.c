@@ -37,3 +37,7 @@ int compare_longLong(const void *a, const void *b) {
 
     return 0;
 }
+
+int abs_int(const int a) {
+    return a < 0 ? -a : a;
+}

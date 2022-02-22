@@ -2641,6 +2641,115 @@ void test_countZeroRows() {
     test_countZeroRows_colsMoreThanRows_matrixHasNotZeroRows();
 }
 
+void test_isMatrixArrayOfSquareMatrices_matrixArrayOfSquareMatrices() {
+    int source[] = {2, 3,
+                    6, 0,
+
+                    -12, 12,
+                    3, 2,
+
+                    5, -4,
+                    8, 12};
+    size_t nRows = 2;
+    size_t nCols = 2;
+    size_t nMatrices = 3;
+    matrix *ms = createArrayOfMatrixFromArray(source, nMatrices,
+                                              nRows, nCols);
+    assert(isMatrixArrayOfSquareMatrices(ms));
+    freeMemMatrices(ms, nMatrices);
+}
+
+void test_isMatrixArrayOfSquareMatrices_matrixArrayOfRowsMoreThanColsMatrices() {
+    int source[] = {1, 7,
+                    7, -2,
+                    5, 4,
+
+                    3, 4,
+                    -6, 1,
+                    8, 95,
+
+                    3, 5,
+                    0, 4,
+                    -2, 3};
+    size_t nRows = 3;
+    size_t nCols = 2;
+    size_t nMatrices = 3;
+    matrix *ms = createArrayOfMatrixFromArray(source, nMatrices,
+                                              nRows, nCols);
+    assert(!isMatrixArrayOfSquareMatrices(ms));
+    freeMemMatrices(ms, nMatrices);
+}
+
+void test_isMatrixArrayOfSquareMatrices_matrixArrayOfColsMoreThanRowsMatrices() {
+    int source[] = {1, -4, 7,
+                    7, 8, 1,
+
+                    1, 0, 2,
+                    0, 0, -1,
+
+                    25, 35, 45,
+                    3, 7, -9};
+    size_t nRows = 2;
+    size_t nCols = 3;
+    size_t nMatrices = 3;
+    matrix *ms = createArrayOfMatrixFromArray(source, nMatrices,
+                                              nRows, nCols);
+    assert(!isMatrixArrayOfSquareMatrices(ms));
+    freeMemMatrices(ms, nMatrices);
+}
+
+void test_isMatrixArrayOfSquareMatrices() {
+    test_isMatrixArrayOfSquareMatrices_matrixArrayOfSquareMatrices();
+    test_isMatrixArrayOfSquareMatrices_matrixArrayOfRowsMoreThanColsMatrices();
+    test_isMatrixArrayOfSquareMatrices_matrixArrayOfColsMoreThanRowsMatrices();
+}
+
+void test_getMatrixNorm_squareMatrix() {
+    int source[] = {3, 5, 1,
+                    -35, 6, 7,
+                    2, 4, 6};
+    size_t nRows = 3;
+    size_t nCols = 3;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    int norm = getMatrixNorm(m);
+    int expectedNorm = 35;
+    assert(norm == expectedNorm);
+    freeMemMatrix(&m);
+}
+
+void test_getMatrixNorm_rowsMoreThanCols() {
+    int source[] = {-5, 1, 5,
+                    2, 18, 2,
+                    3, 1, -3,
+                    4, 6, 1};
+    size_t nRows = 4;
+    size_t nCols = 3;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    int norm = getMatrixNorm(m);
+    int expectedNorm = 18;
+    assert(norm == expectedNorm);
+    freeMemMatrix(&m);
+}
+
+void test_getMatrixNorm_colsMoreThanRows() {
+    int source[] = {3, 2, 0, 5,
+                    4, -3, 5, 0,
+                    1, 0, -2, 3};
+    size_t nRows = 3;
+    size_t nCols = 4;
+    matrix m = createMatrixFromArray(source, nRows, nCols);
+    int norm = getMatrixNorm(m);
+    int expectedNorm = 5;
+    assert(norm == expectedNorm);
+    freeMemMatrix(&m);
+}
+
+void test_getMatrixNorm() {
+    test_getMatrixNorm_squareMatrix();
+    test_getMatrixNorm_rowsMoreThanCols();
+    test_getMatrixNorm_colsMoreThanRows();
+}
+
 void test_tasks_matrix() {
     test_swapRowsWithMaxAndMinValuesOfSquareMatrix();
     test_sortRowsByMaxElement();
@@ -2660,6 +2769,8 @@ void test_tasks_matrix() {
     test_hasAllNonDescendingRows();
     test_countNonDescendingRowsMatrices();
     test_countZeroRows();
+    test_isMatrixArrayOfSquareMatrices();
+    test_getMatrixNorm();
 }
 
 int main() {
