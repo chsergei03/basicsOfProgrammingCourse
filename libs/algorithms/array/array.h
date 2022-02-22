@@ -107,4 +107,8 @@ size_t getMinPos_float_(const float *a, size_t size, size_t pos);
 // случае - 'ложь'.
 bool isNonDescendingSortedArray(const int *a, size_t n);
 
+// возвращает количество раз наличия значения value
+// в массиве a размера n типа int.
+int countValues_(const int *a, size_t n, int value);
+
 #endif

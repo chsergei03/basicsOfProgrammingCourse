@@ -104,4 +104,13 @@ bool hasAllNonDescendingRows(matrix m);
 int countNonDescendingRowsMatrices(const matrix *ms,
                                    size_t nMatrices);
 
+// возвращает количество нулевых
+// строк в матрице m.
+int countZeroRows(matrix m);
+
+// выводит матрицы из массива матриц ms размера nMatrices,
+// имеющие наибольшее число нулевых строк.
+void printMatricesWithMaxValueOfZeroRows(const matrix *ms,
+                                         size_t nMatrices);
+
 #endif

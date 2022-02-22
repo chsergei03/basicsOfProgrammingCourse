@@ -259,3 +259,13 @@ bool isNonDescendingSortedArray(const int *const a,
 
     return true;
 }
+
+int countValues_(const int *const a,
+                 size_t n,
+                 const int value) {
+    int count = 0;
+    for (size_t i = 0; i < n; i++)
+        count += a[i] == value;
+
+    return count;
+}
