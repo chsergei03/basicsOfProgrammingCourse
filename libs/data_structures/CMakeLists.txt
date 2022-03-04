@@ -7,5 +7,6 @@ add_library(data_structures
         void_vector/void_vector.c
         tests/test_vector.c
         matrix/matrix.c
-        matrix/tasks_matrix.c
+        matrix/tasks/tasks_matrix.c
+        tests/test_matrix.c
 )

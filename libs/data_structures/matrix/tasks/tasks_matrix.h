@@ -1,7 +1,7 @@
 #ifndef INC_TASKS_MATRIX_H
 #define INC_TASKS_MATRIX_H
 
-#include "matrix.h"
+#include "../matrix.h"
 
 // меняет местами строки матрицы m, в которых находятся
 // максимальный и минимальный элементы.
@@ -18,8 +18,8 @@ void sortColsByMinElements(matrix *m);
 // выводит в поток ошибок сообщение о том, что количество строк матрицы m1
 // не равно количеству столбцов матрицы m2, при этом выполнение программы
 // завершается с кодом 1.
-void errorMessageIfNColsOfMatrix1IsNotEqualToNRowsOfMatrix2(matrix m1,
-                                                            matrix m2);
+void printErrorMessageIfNColsOfMatrix1IsNotEqualToNRowsOfMatrix2(matrix m1,
+                                                                 matrix m2);
 
 // возвращает матрицу, полученную умножением
 // матрицы m1 на матрицу m2.
@@ -27,7 +27,7 @@ matrix mulMatrices(matrix m1, matrix m2);
 
 // выводит в поток ошибок сообщение о том, что матрица не является
 // симметричной при этом выполнение программы завершается с кодом 1.
-void errorMessageIfMatrixIsNotSymmetric(matrix m);
+void printErrorMessageIfMatrixIsNotSymmetric(matrix m);
 
 // заменяет квадратную матрицу m её квадратом,
 // если матрица симметрична.
@@ -35,8 +35,8 @@ void getSquareOfMatrixIfSymmetric(matrix *m);
 
 // выводит в поток ошибок сообщение о том, что массив сумм элементов строк матрицы не
 // содержит лишь уникальные элементы, при этом выполнение программы завершается с кодом 1.
-void errorMessageIfSumsOfRowsArrayIsNotArrayOfUniqueElements(const long long *a,
-                                                             size_t n);
+void printErrorMessageIfSumsOfRowsArrayIsNotArrayOfUniqueElements(const long long *a,
+                                                                  size_t n);
 
 // транспонирует квадратную матрицу m, если среди
 // сумм элементов строк матрицы нет равных.
@@ -112,7 +112,7 @@ position getLeftMin(matrix m);
 // выводит в поток ошибок сообщение о том, что матрица
 // m не содержит предпоследней строки, при этом выполнение
 // программы завершается с кодом 1.
-void errorMessageIfMatrixHasNotPenultimateRow(matrix m);
+void printErrorMessageIfMatrixHasNotPenultimateRow(matrix m);
 
 // заменяет предпоследнюю строку
 // квадратной матрицы m первым из
@@ -159,7 +159,7 @@ int getMatrixNorm(matrix m);
 // выводит в поток ошибок сообщение о том, что массив матриц ms не
 // представляет из себя массив квадратных матриц, при этом выполнение
 // программы завершается с кодом 1.
-void errorMessageIfMatricesInMatrixArrayAreNotSquare(const matrix *ms);
+void printErrorMessageIfMatricesInMatrixArrayAreNotSquare(const matrix *ms);
 
 // выводит матрицы из массива матриц ms размера nMatrices,
 // с минимальной нормой (нормой называется максимум абсолютных

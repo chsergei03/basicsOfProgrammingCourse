@@ -8,7 +8,7 @@
 // задача 1.
 
 void swapRowsWithMaxAndMinValuesOfSquareMatrix(matrix *m) {
-    errorMessageIfMatrixIsNotSquare(*m);
+    printErrorMessageIfMatrixIsNotSquare(*m);
 
     position minValuePos = getMinValuePos(*m);
     position maxValuePos = getMaxValuePos(*m);
@@ -32,8 +32,8 @@ void sortColsByMinElements(matrix *m) {
 
 // задача 4.
 
-void errorMessageIfNColsOfMatrix1IsNotEqualToNRowsOfMatrix2(const matrix m1,
-                                                            const matrix m2) {
+void printErrorMessageIfNColsOfMatrix1IsNotEqualToNRowsOfMatrix2(const matrix m1,
+                                                                 const matrix m2) {
     if (m1.nCols != m2.nRows) {
         fprintf(stderr, "nCols of first matrix is not equal to nRows of second matrix");
         exit(1);
@@ -41,7 +41,7 @@ void errorMessageIfNColsOfMatrix1IsNotEqualToNRowsOfMatrix2(const matrix m1,
 }
 
 matrix mulMatrices(const matrix m1, const matrix m2) {
-    errorMessageIfNColsOfMatrix1IsNotEqualToNRowsOfMatrix2(m1, m2);
+    printErrorMessageIfNColsOfMatrix1IsNotEqualToNRowsOfMatrix2(m1, m2);
 
     matrix mulMatrix = getMemMatrix(m1.nRows, m2.nCols);
     for (size_t i = 0; i < m1.nRows; i++)
@@ -55,14 +55,14 @@ matrix mulMatrices(const matrix m1, const matrix m2) {
     return mulMatrix;
 }
 
-void errorMessageIfMatrixIsNotSymmetric(const matrix m) {
+void printErrorMessageIfMatrixIsNotSymmetric(const matrix m) {
     if (!isSymmetricMatrix(m)) {
         fprintf(stderr, "matrix is not symmetric");
     }
 }
 
 void getSquareOfMatrixIfSymmetric(matrix *m) {
-    errorMessageIfMatrixIsNotSymmetric(*m);
+    printErrorMessageIfMatrixIsNotSymmetric(*m);
 
     if (isSymmetricMatrix(*m))
         *m = mulMatrices(*m, *m);
@@ -70,8 +70,8 @@ void getSquareOfMatrixIfSymmetric(matrix *m) {
 
 // задача 5.
 
-void errorMessageIfSumsOfRowsArrayIsNotArrayOfUniqueElements(const long long *const a,
-                                                             const size_t n) {
+void printErrorMessageIfSumsOfRowsArrayIsNotArrayOfUniqueElements(const long long *const a,
+                                                                  const size_t n) {
     if (!isUnique_longLong_(a, n)) {
         fprintf(stderr,
                 "array of sums of rows is not array of unique elements");
@@ -80,7 +80,7 @@ void errorMessageIfSumsOfRowsArrayIsNotArrayOfUniqueElements(const long long *co
 }
 
 void transposeIfMatrixHasNotEqualSumsOfRows(matrix *m) {
-    errorMessageIfMatrixIsNotSquare(*m);
+    printErrorMessageIfMatrixIsNotSquare(*m);
 
     long long *rowSumsArray = (long long *) malloc(m->nRows *
                                                    sizeof(long long));
@@ -88,8 +88,8 @@ void transposeIfMatrixHasNotEqualSumsOfRows(matrix *m) {
         rowSumsArray[i] = getSum_(m->values[i], m->nCols);
     }
 
-    errorMessageIfSumsOfRowsArrayIsNotArrayOfUniqueElements(rowSumsArray,
-                                                            m->nRows);
+    printErrorMessageIfSumsOfRowsArrayIsNotArrayOfUniqueElements(rowSumsArray,
+                                                                 m->nRows);
 
     transposeSquareMatrix(m);
 
@@ -310,7 +310,7 @@ position getLeftMin(const matrix m) {
     return (position) {leftMinRowIndex, leftMinColIndex};
 }
 
-void errorMessageIfMatrixHasNotPenultimateRow(const matrix m) {
+void printErrorMessageIfMatrixHasNotPenultimateRow(const matrix m) {
     if (m.nRows < 2) {
         fprintf(stderr, "matrix has not penultimate row");
         exit(1);
@@ -318,8 +318,8 @@ void errorMessageIfMatrixHasNotPenultimateRow(const matrix m) {
 }
 
 void swapPenultimateRow(matrix *m) {
-    errorMessageIfMatrixIsNotSquare(*m);
-    errorMessageIfMatrixHasNotPenultimateRow(*m);
+    printErrorMessageIfMatrixIsNotSquare(*m);
+    printErrorMessageIfMatrixHasNotPenultimateRow(*m);
 
     position firstMinPos = getLeftMin(*m);
 
@@ -399,7 +399,7 @@ int getMatrixNorm(const matrix m) {
     return norm;
 }
 
-void errorMessageIfMatricesInMatrixArrayAreNotSquare(const matrix *ms) {
+void printErrorMessageIfMatricesInMatrixArrayAreNotSquare(const matrix *ms) {
     if (!isMatrixArrayOfSquareMatrices(ms)) {
         fprintf(stderr, "ms is not matrix array of square matrices");
         exit(1);
@@ -408,7 +408,7 @@ void errorMessageIfMatricesInMatrixArrayAreNotSquare(const matrix *ms) {
 
 void printMatricesWithMinNorm(const matrix *ms,
                               const size_t nMatrices) {
-    errorMessageIfMatricesInMatrixArrayAreNotSquare(ms);
+    printErrorMessageIfMatricesInMatrixArrayAreNotSquare(ms);
 
     int *matricesNormsArray = getFilledCriteriaValuesArrayForMatrices(ms, nMatrices,
                                                                       getMatrixNorm);

@@ -125,7 +125,7 @@ bool isSymmetricMatrix(matrix m);
 // выводит в поток ошибок сообщение о том, что
 // матрица не является квадратной, при этом
 // выполнение программы завершается с кодом 1.
-void errorMessageIfMatrixIsNotSquare(matrix m);
+void printErrorMessageIfMatrixIsNotSquare(matrix m);
 
 // транспонирует квадратную матрицу m.
 void transposeSquareMatrix(matrix *m);

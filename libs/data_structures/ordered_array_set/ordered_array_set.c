@@ -75,7 +75,7 @@ void ordered_array_set_insert(ordered_array_set *set,
 
 void ordered_array_set_deleteElement(ordered_array_set *set,
                                      const int value) {
-    size_t pos = binarySearchOrderedSet_(set->data, set->size, value);
+    size_t pos = binarySearch_orderedSet_(set->data, set->size, value);
     if (pos < set->size)
         deleteByPosSaveOrder_(set->data, &set->size, pos);
 }

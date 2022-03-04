@@ -219,7 +219,7 @@ bool isSymmetricMatrix(const matrix m) {
     return true;
 }
 
-void errorMessageIfMatrixIsNotSquare(const matrix m) {
+void printErrorMessageIfMatrixIsNotSquare(const matrix m) {
     if (!isSquareMatrix(m)) {
         fprintf(stderr, "matrix is not square");
         exit(1);
@@ -227,7 +227,7 @@ void errorMessageIfMatrixIsNotSquare(const matrix m) {
 }
 
 void transposeSquareMatrix(matrix *m) {
-    errorMessageIfMatrixIsNotSquare(*m);
+    printErrorMessageIfMatrixIsNotSquare(*m);
 
     for (size_t i = 1, j = 0; i < m->nRows; i++, j++)
         for (size_t k = i; k < m->nRows; k++)
