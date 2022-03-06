@@ -42,6 +42,12 @@
 				"file" : 0,
 				"line" : 11,
 				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 12,
+				"parent" : 0
 			}
 		]
 	},
@@ -81,6 +87,10 @@
 		{
 			"backtrace" : 2,
 			"id" : "data_structures::@396ab3a44f37844d7cdb"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "string::@3f2b1fb9d1440f41f43e"
 		}
 	],
 	"id" : "course::@6890427a1f51a3e7e1df",
@@ -104,6 +114,11 @@
 			{
 				"backtrace" : 3,
 				"fragment" : "libs\\algorithms\\libalgorithms.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "libs\\string\\libstring.a",
 				"role" : "libraries"
 			},
 			{

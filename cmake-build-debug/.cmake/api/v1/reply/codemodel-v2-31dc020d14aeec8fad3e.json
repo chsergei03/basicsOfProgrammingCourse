@@ -27,7 +27,8 @@
 					"childIndexes" : 
 					[
 						2,
-						3
+						3,
+						4
 					],
 					"jsonFile" : "directory-libs-Debug-dd7a5ca29a7a50124f40.json",
 					"minimumCMakeVersion" : 
@@ -67,6 +68,21 @@
 					[
 						2
 					]
+				},
+				{
+					"build" : "libs/string",
+					"jsonFile" : "directory-libs.string-Debug-ab1e794c0732bc70e943.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.21"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "libs/string",
+					"targetIndexes" : 
+					[
+						3
+					]
 				}
 			],
 			"name" : "Debug",
@@ -78,14 +94,16 @@
 						0,
 						1,
 						2,
-						3
+						3,
+						4
 					],
 					"name" : "course",
 					"targetIndexes" : 
 					[
 						0,
 						1,
-						2
+						2,
+						3
 					]
 				}
 			],
@@ -101,7 +119,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "course::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-course-Debug-c865d98218aed2ce9189.json",
+					"jsonFile" : "target-course-Debug-3f48727586f76754375d.json",
 					"name" : "course",
 					"projectIndex" : 0
 				},
@@ -110,6 +128,13 @@
 					"id" : "data_structures::@396ab3a44f37844d7cdb",
 					"jsonFile" : "target-data_structures-Debug-f1afe2cc9d69cfd0f91d.json",
 					"name" : "data_structures",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "string::@3f2b1fb9d1440f41f43e",
+					"jsonFile" : "target-string-Debug-f7576f7fbeb8bde2adf3.json",
+					"name" : "string",
 					"projectIndex" : 0
 				}
 			]
