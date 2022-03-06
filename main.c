@@ -3,6 +3,7 @@
 
 #include "libs/string/string_.h"
 #include "libs/string/tasks/removeNonLetters.h"
+#include "libs/string/tasks/removeExtraSpaces.h"
 
 #define ASSERT_STRING(expected, got) assertString(expected, got, __FILE__, __FUNCTION__, __LINE__)
 
@@ -598,8 +599,76 @@ void test_removeNonLetters() {
     test_removeNonLetters_fullString_withoutSpaceSymbols();
 }
 
+void test_removeExtraSpaces_emptyString() {
+    char s[] = "";
+    removeExtraSpaces(s);
+    char expectedS[] = "";
+    ASSERT_STRING(expectedS, s);
+}
+
+void test_removeExtraSpaces_filledString_withoutWords_withExtraSpaces() {
+    char s[] = "     ";
+    removeExtraSpaces(s);
+    char expectedS[] = "     ";
+    ASSERT_STRING(expectedS, s);
+}
+
+void test_removeExtraSpaces_filledString_withoutWords_withoutExtraSpaces() {
+    char s[] = " ";
+    removeExtraSpaces(s);
+    char expectedS[] = " ";
+    ASSERT_STRING(expectedS, s);
+}
+
+void test_removeExtraSpaces_filledString_withWords_withExtraAndBasicSpaces() {
+    char s[35] = "  dawn  \t  FM after  hours 2   ";
+    removeExtraSpaces(s);
+    char expectedS[] = "  dawn FM after hours 2   ";
+    ASSERT_STRING(expectedS, s);
+}
+
+void test_removeExtraSpaces_filledString_withWords_withoutSpaces() {
+    char s[20] = "windows11";
+    removeExtraSpaces(s);
+    char expectedS[] = "windows11";
+    ASSERT_STRING(expectedS, s);
+}
+
+void test_removeExtraSpaces_fullString_withoutWords_withExtraSpaces() {
+    char s[] = "  \t horizons   / east  ";
+    removeExtraSpaces(s);
+    char expectedS[] = "  \t horizons / east  ";
+    ASSERT_STRING(expectedS, s);
+}
+
+void test_removeExtraSpaces_fullString_withWords_withExtraAndBasicSpaces() {
+    char s[] = "flashes moments \t  memories";
+    removeExtraSpaces(s);
+    char expectedS[] = "flashes moments memories";
+    ASSERT_STRING(expectedS, s);
+}
+
+void test_removeExtraSpaces_fullString_withWords_withoutSpaces() {
+    char s[] = "voyager1";
+    removeExtraSpaces(s);
+    char expectedS[] = "voyager1";
+    ASSERT_STRING(expectedS, s);
+}
+
+void test_removeExtraSpaces() {
+    test_removeExtraSpaces_emptyString();
+    test_removeExtraSpaces_filledString_withoutWords_withExtraSpaces();
+    test_removeExtraSpaces_filledString_withoutWords_withoutExtraSpaces();
+    test_removeExtraSpaces_filledString_withWords_withExtraAndBasicSpaces();
+    test_removeExtraSpaces_filledString_withWords_withoutSpaces();
+    test_removeExtraSpaces_fullString_withoutWords_withExtraSpaces();
+    test_removeExtraSpaces_fullString_withWords_withExtraAndBasicSpaces();
+    test_removeExtraSpaces_fullString_withWords_withoutSpaces();
+}
+
 void test_string_tasks() {
     test_removeNonLetters();
+    test_removeExtraSpaces();
 }
 
 int main() {

@@ -1,5 +1,5 @@
 # ninja log v5
-17	712	6682907050326577	CMakeFiles/course.dir/main.c.obj	3c54e443c0d81610
+15	589	6682913857775065	CMakeFiles/course.dir/main.c.obj	3c54e443c0d81610
 12	294	6677295798788328	libs/data_structures/CMakeFiles/data_structures.dir/ordered_array_set/ordered_array_set.c.obj	15dcb19ebe0e7887
 56	1402	6677295526070325	libs/algorithms/CMakeFiles/algorithms.dir/array/array.c.obj	1f13ee63719282b5
 50	566	6669171885924040	libs/data_structures/CMakeFiles/data_structures.dir/bitset/bitset.c.obj	a095d95a305aa2e8
@@ -9,9 +9,9 @@
 122	1360	6677295526120292	libs/data_structures/CMakeFiles/data_structures.dir/unordered_array_set/unordered_array_set.c.obj	cebbe54d66d9da5
 1218	1501	6681106094678911	libs/data_structures/libdata_structures.a	3d0c08d8f40bb732
 22	302	6660394795400088	libs/data_structures/CMakeFiles/data_structures.dir/vector/void_vector.c.obj	2baca635d82e23c2
-987	1763	6682907060670211	course.exe	e256210e3180b5c
-4	504	6682908385296796	build.ninja	6ac4971318b7d922
-32	359	6682907046758790	libs/string/CMakeFiles/string.dir/string_.c.obj	27923b33f3e6aee0
+661	1020	6682913862122423	course.exe	e256210e3180b5c
+4	504	6682930882197073	build.ninja	6ac4971318b7d922
+30	338	6682913855396546	libs/string/CMakeFiles/string.dir/string_.c.obj	27923b33f3e6aee0
 132	5550	6672285281160573	libs/data_structures/CMakeFiles/data_structures.dir/vector/vector.c.obj	ff72822fd1d71f72
 223	533	6654833872141665	course2.exe	f0cf30a29b33ee34
 882	1655	6669123185155222	libs/data_structures/CMakeFiles/data_structures.dir/void_vector/void_vector.c.obj	bf17d31409e7ad22
@@ -21,9 +21,13 @@
 9	327	6672579978128002	libs/data_structures/CMakeFiles/data_structures.dir/matrix/tasks_matrix.c.obj	8fc024516ecd7f4c
 27	497	6677689900769316	libs/string/CMakeFiles/string.dir/tests/test_string.c.obj	a4df9e0d97a20361
 37	729	6681106086554134	libs/data_structures/CMakeFiles/data_structures.dir/matrix/tasks/tasks_matrix.c.obj	b3cbed25799e50ce
-360	986	6682907053204812	libs/string/libstring.a	ebc04caa6c950e9
-44	320	6682913855206660	libs/string/CMakeFiles/string.dir/tasks/removeNonLetters.c.obj	1314ba194f53f923
-30	338	6682913855396546	libs/string/CMakeFiles/string.dir/string_.c.obj	27923b33f3e6aee0
-15	589	6682913857775065	CMakeFiles/course.dir/main.c.obj	3c54e443c0d81610
 338	660	6682913858654528	libs/string/libstring.a	d992aecdcec909d3
-661	1020	6682913862122423	course.exe	e256210e3180b5c
+44	320	6682913855206660	libs/string/CMakeFiles/string.dir/tasks/removeNonLetters.c.obj	1314ba194f53f923
+36	1118	6682932979515719	libs/string/CMakeFiles/string.dir/tasks/removeExtraSpaces.c.obj	ce168b2984cf528
+15	1409	6682932981694393	CMakeFiles/course.dir/main.c.obj	3c54e443c0d81610
+1125	2827	6682932997014973	libs/string/libstring.a	56e197e8f159776c
+2827	6851	6682933037090271	course.exe	e256210e3180b5c
+39	406	6682940913946082	libs/string/CMakeFiles/string.dir/tasks/removeExtraSpaces.c.obj	ce168b2984cf528
+15	639	6682940916274629	CMakeFiles/course.dir/main.c.obj	3c54e443c0d81610
+407	714	6682940917084124	libs/string/libstring.a	56e197e8f159776c
+715	1041	6682940920251087	course.exe	e256210e3180b5c
