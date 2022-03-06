@@ -99,3 +99,7 @@ char *copyIfReverse(const char *rbeginSource, const char *rendSource,
 
     return beginDestination;
 }
+
+char *getEndOfString(char *begin) {
+    return begin + strlen_(begin);
+}

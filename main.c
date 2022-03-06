@@ -1,6 +1,10 @@
+#include <stdio.h>
 #include <assert.h>
 
 #include "libs/string/string_.h"
+#include "libs/string/tasks/removeNonLetters.h"
+
+#define ASSERT_STRING(expected, got) assertString(expected, got, __FILE__, __FUNCTION__, __LINE__)
 
 void test_strlen_emptyString() {
     char s[] = "";
@@ -480,6 +484,51 @@ void test_copyIfReverse() {
     test_copyIfReverse_stringToCopyWithoutRequestedSymbols_fullString();
 }
 
+void test_getEndOfString_emptyString() {
+    char s[] = "";
+    char *endS = getEndOfString(s);
+    assert(s == endS);
+}
+
+void test_getEndOfString_stringWithOneSymbol() {
+    char s[] = "%";
+    char *endS = getEndOfString(s);
+    assert(endS - s == strlen_(s));
+}
+
+void test_getEndOfString_filledString() {
+    char s[10] = "desert";
+    char *endS = getEndOfString(s);
+    assert(endS - s == strlen_(s));
+}
+
+void test_getEndOfString_fullString() {
+    char s[10] = "desert";
+    char *endS = getEndOfString(s);
+    assert(endS - s == strlen_(s));
+}
+
+void test_getEndOfString_stringWithNullSymbol_beforeOtherSymbols() {
+    char s[] = "\0 translation";
+    char *endS = getEndOfString(s);
+    assert(endS == s);
+}
+
+void test_getEndOfString_stringWithNullSymbol_betweenOtherSymbols() {
+    char s[] = "str\0uct";
+    char *endS = getEndOfString(s);
+    assert(endS - s == strlen_(s));
+}
+
+void test_getEndOfString() {
+    test_getEndOfString_emptyString();
+    test_getEndOfString_stringWithOneSymbol();
+    test_getEndOfString_filledString();
+    test_getEndOfString_fullString();
+    test_getEndOfString_stringWithNullSymbol_beforeOtherSymbols();
+    test_getEndOfString_stringWithNullSymbol_betweenOtherSymbols();
+}
+
 void test_string_lib() {
     test_strlen_();
     test_find();
@@ -491,10 +540,71 @@ void test_string_lib() {
     test_copy();
     test_copyIf();
     test_copyIfReverse();
+    test_getEndOfString();
+}
+
+void assertString(const char *expected, const char *got,
+                  const char *fileName, const char *funcName,
+                  const int line) {
+    if (strcmp_(expected, got) != 0) {
+        fprintf(stderr, "file %s\n", fileName);
+        fprintf(stderr, "%s - failed on line %d\n", funcName, line);
+        fprintf(stderr, "expected: \"%s\"\n", expected);
+        fprintf(stderr, "got: \"%s\"\n", got);
+    } else
+        fprintf(stderr, "%s - OK\n", funcName);
+}
+
+void test_removeNonLetters_emptyString() {
+    char s[] = "";
+    char expectedS[] = "";
+    removeNonLetters(s);
+    ASSERT_STRING(expectedS, s);
+}
+
+void test_removeNonLetters_filledString_withSpaceSymbols() {
+    char s[10] = "a B  1\t23";
+    char expectedS[] = "aB123";
+    removeNonLetters(s);
+    ASSERT_STRING(expectedS, s);
+}
+
+void test_removeNonLetters_filledString_withoutSpaceSymbols() {
+    char s[10] = "check";
+    removeNonLetters(s);
+    char expectedS[] = "check";
+    ASSERT_STRING(expectedS, s);
+}
+
+void test_removeNonLetters_fullString_withSpaceSymbols() {
+    char s[] = "cut\t  THE  \vrope";
+    removeNonLetters(s);
+    char expectedS[] = "cutTHErope";
+    ASSERT_STRING(expectedS, s);
+}
+
+void test_removeNonLetters_fullString_withoutSpaceSymbols() {
+    char s[] = "okloqi";
+    removeNonLetters(s);
+    char expectedS[] = "okloqi";
+    ASSERT_STRING(expectedS, s);
+}
+
+void test_removeNonLetters() {
+    test_removeNonLetters_emptyString();
+    test_removeNonLetters_filledString_withSpaceSymbols();
+    test_removeNonLetters_filledString_withoutSpaceSymbols();
+    test_removeNonLetters_fullString_withSpaceSymbols();
+    test_removeNonLetters_fullString_withoutSpaceSymbols();
+}
+
+void test_string_tasks() {
+    test_removeNonLetters();
 }
 
 int main() {
     test_string_lib();
+    test_string_tasks();
 
     return 0;
 }

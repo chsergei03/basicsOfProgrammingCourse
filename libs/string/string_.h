@@ -68,4 +68,7 @@ char *copyIf(const char *beginSource, const char *endSource,
 char *copyIfReverse(const char *rbeginSource, const char *rendSource,
                     char *beginDestination, int (*f)(int));
 
+// возвращает указатель на первый нуль-символ в строке.
+char *getEndOfString(char *begin);
+
 #endif
