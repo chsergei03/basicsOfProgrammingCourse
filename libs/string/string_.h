@@ -1,8 +1,22 @@
 #ifndef INC_STRING_H
 #define INC_STRING_H
 
+#include <stdbool.h>
 #include <stddef.h>
 #include <ctype.h>
+
+#define MAX_STRING_SIZE 100
+#define MAX_N_WORDS_IN_STRING 100
+#define MAX_WORD_SIZE 20
+
+char _stringBuffer[MAX_STRING_SIZE + 1];
+
+typedef struct wordDescriptor {
+    char *begin; // позиция начала слова.
+    char *end;
+    // позиция первого символа после
+    // последнего символа слова.
+} wordDescriptor;
 
 // возвращает количество символов в строке
 // до первого нуль-символа.
@@ -42,21 +56,19 @@ char *findSpaceReverse(char *rbegin, const char *rend);
 // если lhs распологается после rhs в лексикографическом порядке.
 int strcmp_(const char *lhs, const char *rhs);
 
-// записывает по адресу beginDestination фрагмент памяти
-// начиная с адреса beginSource до endSource, возвращает
-// указатель на следующий свободный фрагмент памяти в destination.
+// записывает по адресу beginDestination фрагмент памяти начиная с адреса beginSource
+// до endSource, возвращает указатель на следующий свободный фрагмент памяти в destination.
 char *copy(const char *beginSource,
            const char *endSource,
            char *beginDestination);
 
-// возвращает значение 'истина', если символ с кодом ch
-// является цифрой, в противном случае - 'ложь'.
+// возвращает значение 'истина', если символ с кодом ch является цифрой, в противном
+// случае - 'ложь'.
 int isDigit(int ch);
 
-// записывает по адресу beginDestination элементы фрагмента памяти,
-// удовлетворяющие функции-предикату f, начиная с адреса beginSource
-// до адреса endSource, возвращает указатель на следующий свободный
-// фрагмент памяти в beginDestination.
+// записывает по адресу beginDestination элементы фрагмента памяти, удовлетворяющие
+// функции-предикату f, начиная с адреса beginSource до адреса endSource, возвращает
+// указатель на следующий свободный фрагмент памяти в beginDestination.
 char *copyIf(const char *beginSource, const char *endSource,
              char *beginDestination, int (*f)(int));
 
@@ -70,5 +82,22 @@ char *copyIfReverse(const char *rbeginSource, const char *rendSource,
 
 // возвращает указатель на первый нуль-символ в строке.
 char *getEndOfString(char *begin);
+
+// возвращает значение 0, если слово в строке beginSearch не было считано,
+// в противном случае - значение 1; в переменную word типа wordDescriptor
+// записывает позицию начала слова и позицию первого символа после конца слова.
+int getWord(char *beginSearch, wordDescriptor *word);
+
+// возвращает значение 'истина', если указатели на начала и указатели
+// на концы слов w1 и w2 равны, в противном случае - 'ложь'.
+bool areEqualWordsDescriptors(wordDescriptor w1,
+                              wordDescriptor w2);
+
+// возвращает значение 0, если слово не было считано с конца строки
+// (rbegin - указатель на начало поиска (конец строки), rend - указатель
+// на конец поиска (начала строки), в противном случае - значение 1; в
+// переменную word типа wordDescriptor записывает позицию начала слова и
+// позицию первого символа после конца слова.
+int getWordReverse(char *rbegin, const char *rend, wordDescriptor *word);
 
 #endif

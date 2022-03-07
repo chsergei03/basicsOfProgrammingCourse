@@ -103,3 +103,31 @@ char *copyIfReverse(const char *rbeginSource, const char *rendSource,
 char *getEndOfString(char *begin) {
     return begin + strlen_(begin);
 }
+
+int getWord(char *beginSearch, wordDescriptor *word) {
+    word->begin = findNonSpace(beginSearch);
+    if (*word->begin == '\0')
+        return 0;
+
+    word->end = findSpace(word->begin);
+
+    return 1;
+}
+
+bool areEqualWordsDescriptors(const wordDescriptor w1,
+                              const wordDescriptor w2) {
+    return w1.begin == w2.begin && w1.end == w2.end;
+}
+
+int getWordReverse(char *rbegin, const char *rend, wordDescriptor *word) {
+    word->end = findNonSpaceReverse(rbegin, rend);
+    if (word->end == rend) {
+        return 0;
+    }
+
+    word->end++;
+
+    word->begin = findSpaceReverse(word->end, rend) + 1;
+
+    return 1;
+}
