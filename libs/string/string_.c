@@ -212,3 +212,7 @@ int getWordByDivider(char *beginSearch, wordDescriptor *word,
 void freeBuffer() {
     memset(_stringBuffer, NULL_SYMBOL, MAX_STRING_SIZE + 1);
 }
+
+void wordDescriptorToString(wordDescriptor word, char *destination) {
+    memcpy(destination, word.begin, wordlen_(word));
+}

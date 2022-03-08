@@ -12,4 +12,5 @@ add_library(string
         tasks/fillStringWithAlternatingWordsOfTwoOtherStrings.c
         tasks/reverseWordOrderInString.c
         tasks/getWordBeforeFirstWordWithA.c
+        tasks/lastWordInFirstStringInSecondString.c
 )

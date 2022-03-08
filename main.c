@@ -13,6 +13,7 @@
 #include "libs/string/tasks/fillStringWithAlternatingWordsOfTwoOtherStrings.h"
 #include "libs/string/tasks/reverseWordOrderInString.h"
 #include "libs/string/tasks/getWordBeforeFirstWordWithA.h"
+#include "libs/string/tasks/lastWordInFirstStringInSecondString.h"
 
 #define ASSERT_STRING(expected, got) assertString(expected, got, __FILE__, __FUNCTION__, __LINE__)
 
@@ -1316,6 +1317,75 @@ void testAll_getWordBeforeFirstWordWithA() {
                                        &endWord) == NOT_FOUND_A_WORD_WITH_A);
 }
 
+void test_lastWordInFirstStringInSecondString_twoEmptyStrings() {
+    char s1[] = "";
+    char s2[] = "";
+    wordDescriptor w = lastWordInFirstStringInSecondString(s1, s2);
+    char word[MAX_WORD_SIZE] = "";
+    wordDescriptorToString(w, word);
+    char expectedWord[] = "";
+    ASSERT_STRING(expectedWord, word);
+}
+
+void test_lastWordInFirstStringInSecondString_emptyS1AndNonEmptyS2() {
+    char s1[] = "";
+    char s2[] = " airports decadance";
+    wordDescriptor w = lastWordInFirstStringInSecondString(s1, s2);
+    char word[MAX_WORD_SIZE] = "";
+    wordDescriptorToString(w, word);
+    char expectedWord[] = "";
+    ASSERT_STRING(expectedWord, word);
+}
+
+void test_lastWordInFirstStringInSecondString_nonEmptyS1AndEmptyS1() {
+    char s1[] = " kino 2 yasumi";
+    char s2[] = " ";
+    wordDescriptor w = lastWordInFirstStringInSecondString(s1, s2);
+    char word[MAX_WORD_SIZE] = "";
+    wordDescriptorToString(w, word);
+    char expectedWord[] = "";
+    ASSERT_STRING(expectedWord, word);
+}
+
+void test_lastWordInFirstStringInSecondString_twoNonEmptyStrings_1() {
+    char s1[] = "la moscow paris";
+    char s2[] = "moscow la kaliningrad";
+    wordDescriptor w = lastWordInFirstStringInSecondString(s1, s2);
+    char word[MAX_WORD_SIZE] = "";
+    wordDescriptorToString(w, word);
+    char expectedWord[] = "moscow";
+    ASSERT_STRING(expectedWord, word);
+}
+
+void test_lastWordInFirstStringInSecondString_twoNonEmptyStrings_2() {
+    char s1[] = " sony mdr zx 770 bn";
+    char s2[] = " apple mdr airpods 3 zx";
+    wordDescriptor w = lastWordInFirstStringInSecondString(s1, s2);
+    char word[MAX_WORD_SIZE] = "";
+    wordDescriptorToString(w, word);
+    char expectedWord[] = "zx";
+    ASSERT_STRING(expectedWord, word);
+}
+
+void test_lastWordInFirstStringInSecondString_twoNonEmptyStrings_3() {
+    char s1[] = " leica hasselblad nikon sony";
+    char s2[] = " nikon sharp hasselblad";
+    wordDescriptor w = lastWordInFirstStringInSecondString(s1, s2);
+    char word[MAX_WORD_SIZE] = "";
+    wordDescriptorToString(w, word);
+    char expectedWord[] = "nikon";
+    ASSERT_STRING(expectedWord, word);
+}
+
+void test_lastWordInFirstStringInSecondString() {
+    test_lastWordInFirstStringInSecondString_twoEmptyStrings();
+    test_lastWordInFirstStringInSecondString_emptyS1AndNonEmptyS2();
+    test_lastWordInFirstStringInSecondString_nonEmptyS1AndEmptyS1();
+    test_lastWordInFirstStringInSecondString_twoNonEmptyStrings_1();
+    test_lastWordInFirstStringInSecondString_twoNonEmptyStrings_2();
+    test_lastWordInFirstStringInSecondString_twoNonEmptyStrings_3();
+}
+
 void test_string_tasks() {
     test_removeNonLetters();
     test_removeExtraSpaces();
@@ -1330,6 +1400,7 @@ void test_string_tasks() {
     test_fillStringWithAlternatingWordsOfTwoOtherStrings();
     test_reverseWordOrderInString();
     testAll_getWordBeforeFirstWordWithA();
+    test_lastWordInFirstStringInSecondString();
 }
 
 int main() {

@@ -146,4 +146,8 @@ int getWordByDivider(char *beginSearch, wordDescriptor *word,
 // освобождает буфер _stringBuffer.
 void freeBuffer();
 
+// переводит слово word, являющееся переменной типа wordDescriptor, в строку,
+// записывая в адрес destination.
+void wordDescriptorToString(wordDescriptor word, char *destination);
+
 #endif
