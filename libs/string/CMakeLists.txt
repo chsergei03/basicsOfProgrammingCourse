@@ -6,4 +6,5 @@ add_library(string
         tasks/digitToEndTransform.c
         tasks/replaceDigitsBySpaces.c
         tasks/replace.c
+        tasks/areWordsLexicographicallyOrdered.c
 )

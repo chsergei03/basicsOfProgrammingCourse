@@ -369,6 +369,12 @@ build libs/string/CMakeFiles/string.dir/tasks/replace.c.obj: C_COMPILER__string_
   OBJECT_DIR = libs\string\CMakeFiles\string.dir
   OBJECT_FILE_DIR = libs\string\CMakeFiles\string.dir\tasks
 
+build libs/string/CMakeFiles/string.dir/tasks/areWordsLexicographicallyOrdered.c.obj: C_COMPILER__string_Debug D$:/university/op/course/libs/string/tasks/areWordsLexicographicallyOrdered.c || cmake_object_order_depends_target_string
+  DEP_FILE = libs\string\CMakeFiles\string.dir\tasks\areWordsLexicographicallyOrdered.c.obj.d
+  FLAGS = -g -std=gnu11
+  OBJECT_DIR = libs\string\CMakeFiles\string.dir
+  OBJECT_FILE_DIR = libs\string\CMakeFiles\string.dir\tasks
+
 
 # =============================================================================
 # Link build statements for STATIC_LIBRARY target string
@@ -377,7 +383,7 @@ build libs/string/CMakeFiles/string.dir/tasks/replace.c.obj: C_COMPILER__string_
 #############################################
 # Link the static library libs\string\libstring.a
 
-build libs/string/libstring.a: C_STATIC_LIBRARY_LINKER__string_Debug libs/string/CMakeFiles/string.dir/string_.c.obj libs/string/CMakeFiles/string.dir/tasks/removeNonLetters.c.obj libs/string/CMakeFiles/string.dir/tasks/removeExtraSpaces.c.obj libs/string/CMakeFiles/string.dir/tasks/digitToStartReverseTransform.c.obj libs/string/CMakeFiles/string.dir/tasks/digitToEndTransform.c.obj libs/string/CMakeFiles/string.dir/tasks/replaceDigitsBySpaces.c.obj libs/string/CMakeFiles/string.dir/tasks/replace.c.obj
+build libs/string/libstring.a: C_STATIC_LIBRARY_LINKER__string_Debug libs/string/CMakeFiles/string.dir/string_.c.obj libs/string/CMakeFiles/string.dir/tasks/removeNonLetters.c.obj libs/string/CMakeFiles/string.dir/tasks/removeExtraSpaces.c.obj libs/string/CMakeFiles/string.dir/tasks/digitToStartReverseTransform.c.obj libs/string/CMakeFiles/string.dir/tasks/digitToEndTransform.c.obj libs/string/CMakeFiles/string.dir/tasks/replaceDigitsBySpaces.c.obj libs/string/CMakeFiles/string.dir/tasks/replace.c.obj libs/string/CMakeFiles/string.dir/tasks/areWordsLexicographicallyOrdered.c.obj
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = libs\string\CMakeFiles\string.dir
   POST_BUILD = cd .

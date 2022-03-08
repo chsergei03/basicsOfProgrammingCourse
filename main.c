@@ -8,6 +8,7 @@
 #include "libs/string/tasks/digitToEndTransform.h"
 #include "libs/string/tasks/replaceDigitsBySpaces.h"
 #include "libs/string/tasks/replace.h"
+#include "libs/string/tasks/areWordsLexicographicallyOrdered.h"
 
 #define ASSERT_STRING(expected, got) assertString(expected, got, __FILE__, __FUNCTION__, __LINE__)
 
@@ -552,8 +553,8 @@ void test_getWord_filledString_withWords() {
     char s[30] = "   cmake build debug";
     wordDescriptor word;
     int isWordInString = getWord(s, &word);
-    char expectedW[] = "cmake";
-    wordDescriptor expectedWord = {expectedW, expectedW + strlen_(expectedW)};
+    char expectedW[] = "cmake ";
+    wordDescriptor expectedWord = {expectedW, expectedW + strlen_(expectedW) - 1};
     assert(isWordInString && areWordsEqual(word, expectedWord));
 }
 
@@ -568,8 +569,8 @@ void test_getWord_fullString_withWords() {
     char s[] = "\t backspace key";
     wordDescriptor word;
     int isWordInString = getWord(s, &word);
-    char expectedW[] = "backspace";
-    wordDescriptor expectedWord = {expectedW, expectedW + strlen_(expectedW)};
+    char expectedW[] = "backspace ";
+    wordDescriptor expectedWord = {expectedW, expectedW + strlen_(expectedW) - 1};
     assert(isWordInString && areWordsEqual(word, expectedWord));
 }
 
@@ -602,8 +603,8 @@ void test_getWordReverse_filledString_withWords() {
     wordDescriptor word;
     char *endStr = getEndOfString(s);
     int isWordInString = getWordReverse(endStr, s, &word);
-    char expectedW[] = "debug";
-    wordDescriptor expectedWord = {expectedW, expectedW + strlen_(expectedW)};
+    char expectedW[] = "debug ";
+    wordDescriptor expectedWord = {expectedW, expectedW + strlen_(expectedW) - 1};
     assert(isWordInString && areWordsEqual(word, expectedWord));
 }
 
@@ -620,8 +621,8 @@ void test_getWordReverse_fullString_withWords() {
     wordDescriptor word;
     char *endStr = getEndOfString(s);
     int isWordInString = getWordReverse(endStr, s, &word);
-    char expectedW[] = "key";
-    wordDescriptor expectedWord = {expectedW, expectedW + strlen_(expectedW)};
+    char expectedW[] = "key ";
+    wordDescriptor expectedWord = {expectedW, expectedW + strlen_(expectedW) - 1};
     assert(isWordInString && areWordsEqual(word, expectedWord));
 }
 
@@ -951,6 +952,51 @@ void test_replace() {
     test_replace_filledString_w1LenLessThanW2Len();
 }
 
+void test_areWordsLexicographicallyOrdered_emptyString() {
+    char s[] = "";
+    assert(areWordsLexicographicallyOrdered(s));
+}
+
+void test_areWordsLexicographicallyOrdered_filledString_withoutWords() {
+    char s[] = " \t   \v";
+    assert(areWordsLexicographicallyOrdered(s));
+}
+
+void test_areWordsLexicographicallyOrdered_filledString_wordsAreOrdered() {
+    char s[30] = " app blog tablet ";
+    assert(areWordsLexicographicallyOrdered(s));
+}
+
+void test_areWordsLexicographicallyOrdered_filledString_wordsAreNotOrdered() {
+    char s[30] = "monument valley game";
+    assert(!areWordsLexicographicallyOrdered(s));
+}
+
+void test_areWordsLexicographicallyOrdered_fulltring_withoutWords() {
+    char s[] = "     ";
+    assert(areWordsLexicographicallyOrdered(s));
+}
+
+void test_areWordsLexicographicallyOrdered_fullString_wordsAreOrdered() {
+    char s[] = " new nvidia rtx videocard";
+    assert(areWordsLexicographicallyOrdered(s));
+}
+
+void test_areWordsLexicographicallyOrdered_fullString_wordsAreNotOrdered() {
+    char s[] = " break poco phone ";
+    int flag = areWordsLexicographicallyOrdered(s);
+}
+
+void test_areWordsLexicographicallyOrdered() {
+    test_areWordsLexicographicallyOrdered_emptyString();
+    test_areWordsLexicographicallyOrdered_filledString_withoutWords();
+    test_areWordsLexicographicallyOrdered_filledString_wordsAreOrdered();
+    test_areWordsLexicographicallyOrdered_fullString_wordsAreNotOrdered();
+    test_areWordsLexicographicallyOrdered_fulltring_withoutWords();
+    test_areWordsLexicographicallyOrdered_fullString_wordsAreOrdered();
+    test_areWordsLexicographicallyOrdered_fullString_wordsAreNotOrdered();
+}
+
 void test_string_tasks() {
     test_removeNonLetters();
     test_removeExtraSpaces();
@@ -960,6 +1006,7 @@ void test_string_tasks() {
     test_digitToEndTransform();
     test_replaceDigitsBySpaces();
     test_replace();
+    test_areWordsLexicographicallyOrdered();
 }
 
 int main() {

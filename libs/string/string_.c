@@ -133,7 +133,7 @@ size_t wordlen_(const wordDescriptor word) {
 }
 
 int wordcmp_(wordDescriptor w1, wordDescriptor w2) {
-    while (w1.begin != w1.end && w1.begin == w2.begin) {
+    while (w1.begin != w1.end && *w1.begin == *w2.begin) {
         w1.begin++;
         w2.begin++;
     }
