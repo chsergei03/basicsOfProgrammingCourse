@@ -8,6 +8,9 @@
 #define MAX_STRING_SIZE 100
 #define MAX_N_WORDS_IN_STRING 100
 #define MAX_WORD_SIZE 20
+#define NULL_SYMBOL '\0'
+#define SPACE_CHAR ' '
+#define NULL_CHAR '0'
 
 char _stringBuffer[MAX_STRING_SIZE + 1];
 
@@ -88,16 +91,22 @@ char *getEndOfString(char *begin);
 // записывает позицию начала слова и позицию первого символа после конца слова.
 int getWord(char *beginSearch, wordDescriptor *word);
 
-// возвращает значение 'истина', если указатели на начала и указатели
-// на концы слов w1 и w2 равны, в противном случае - 'ложь'.
-bool areEqualWordsDescriptors(wordDescriptor w1,
-                              wordDescriptor w2);
-
 // возвращает значение 0, если слово не было считано с конца строки
 // (rbegin - указатель на начало поиска (конец строки), rend - указатель
 // на конец поиска (начала строки), в противном случае - значение 1; в
 // переменную word типа wordDescriptor записывает позицию начала слова и
 // позицию первого символа после конца слова.
-int getWordReverse(char *rbegin, const char *rend, wordDescriptor *word);
+int getWordReverse(char *rbegin, char *rend, wordDescriptor *word);
+
+// возвращает количество символов в слове word.
+size_t wordlen_(wordDescriptor word);
+
+// возвращает отрицательное значение, если w1 располагается до w2 в
+// лексикографическом порядке; значение 0, если w1 и w2 равны; значение 1,
+// если w1 распологается после w2 в лексикографическом порядке.
+int wordcmp_(wordDescriptor w1, wordDescriptor w2);
+
+// возвращает значение 1, если слова w1 и w2 идентичны, в противном случае - 'ложь'.
+int areWordsEqual(wordDescriptor w1, wordDescriptor w2);
 
 #endif

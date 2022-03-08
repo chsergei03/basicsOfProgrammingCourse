@@ -2,10 +2,6 @@
 
 #include "replaceDigitsBySpaces.h"
 
-#define SPACE_CHAR ' '
-#define NULL_CHAR '0'
-#define NULL_SYMBOL '\0'
-
 // задача 4. преобразовать строку, заменив каждую цифру
 // соответствующим ей числом пробелов.
 

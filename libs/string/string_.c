@@ -114,20 +114,37 @@ int getWord(char *beginSearch, wordDescriptor *word) {
     return 1;
 }
 
-bool areEqualWordsDescriptors(const wordDescriptor w1,
-                              const wordDescriptor w2) {
-    return w1.begin == w2.begin && w1.end == w2.end;
-}
-
-int getWordReverse(char *rbegin, const char *rend, wordDescriptor *word) {
+int getWordReverse(char *rbegin, char *rend, wordDescriptor *word) {
     word->end = findNonSpaceReverse(rbegin, rend);
     if (word->end == rend) {
         return 0;
     }
 
+    size_t wordEndIndex = word->end - rend;
     word->end++;
 
-    word->begin = findSpaceReverse(word->end, rend) + 1;
+    word->begin = findSpaceReverse(rend + wordEndIndex, rend) + 1;
 
     return 1;
+}
+
+size_t wordlen_(const wordDescriptor word) {
+    return word.begin - word.end;
+}
+
+int wordcmp_(wordDescriptor w1, wordDescriptor w2) {
+    while (w1.begin != w1.end && w1.begin == w2.begin) {
+        w1.begin++;
+        w2.begin++;
+    }
+
+    return *w1.begin - *w2.begin;
+}
+
+int areWordsEqual(const wordDescriptor w1,
+                  const wordDescriptor w2) {
+    if (wordlen_(w1) != wordlen_(w2))
+        return 0;
+
+    return wordcmp_(w1, w2) == 0;
 }

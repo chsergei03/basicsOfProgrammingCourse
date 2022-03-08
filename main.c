@@ -7,6 +7,7 @@
 #include "libs/string/tasks/digitToStartReverseTransform.h"
 #include "libs/string/tasks/digitToEndTransform.h"
 #include "libs/string/tasks/replaceDigitsBySpaces.h"
+#include "libs/string/tasks/replace.h"
 
 #define ASSERT_STRING(expected, got) assertString(expected, got, __FILE__, __FUNCTION__, __LINE__)
 
@@ -534,44 +535,42 @@ void test_getEndOfString() {
 }
 
 void test_getWord_emptyString() {
-    char w[] = "";
-    wordDescriptor word = {};
-    int isWordInString = getWord(w, &word);
+    char s[] = "";
+    wordDescriptor word;
+    int isWordInString = getWord(s, &word);
     assert(!isWordInString);
 }
 
 void test_getWord_filledString_withoutWords() {
-    char w[10] = " \t   \n";
-    wordDescriptor word = {};
-    int isWordInString = getWord(w, &word);
+    char s[10] = " \t   \n";
+    wordDescriptor word;
+    int isWordInString = getWord(s, &word);
     assert(!isWordInString);
 }
 
 void test_getWord_filledString_withWords() {
-    char w[30] = "   cmake build debug";
-    wordDescriptor word = {};
-    int isWordInString = getWord(w, &word);
-    char *expectedBeginWord = findNonSpace(w);
-    char *expectedEndWord = findSpace(expectedBeginWord);
-    wordDescriptor expectedWord = {expectedBeginWord, expectedEndWord};
-    assert(isWordInString && areEqualWordsDescriptors(word, expectedWord));
+    char s[30] = "   cmake build debug";
+    wordDescriptor word;
+    int isWordInString = getWord(s, &word);
+    char expectedW[] = "cmake";
+    wordDescriptor expectedWord = {expectedW, expectedW + strlen_(expectedW)};
+    assert(isWordInString && areWordsEqual(word, expectedWord));
 }
 
 void test_getWord_fullString_withoutWords() {
-    char w[] = " \n    \v";
-    wordDescriptor word = {};
-    int isWordInString = getWord(w, &word);
+    char s[] = " \n    \v";
+    wordDescriptor word;
+    int isWordInString = getWord(s, &word);
     assert(!isWordInString);
 }
 
 void test_getWord_fullString_withWords() {
-    char w[] = "\t backspace key";
-    wordDescriptor word = {};
-    int isWordInString = getWord(w, &word);
-    char *expectedBeginWord = findNonSpace(w);
-    char *expectedEndWord = findSpace(expectedBeginWord);
-    wordDescriptor expectedWord = {expectedBeginWord, expectedEndWord};
-    assert(isWordInString && areEqualWordsDescriptors(word, expectedWord));
+    char s[] = "\t backspace key";
+    wordDescriptor word;
+    int isWordInString = getWord(s, &word);
+    char expectedW[] = "backspace";
+    wordDescriptor expectedWord = {expectedW, expectedW + strlen_(expectedW)};
+    assert(isWordInString && areWordsEqual(word, expectedWord));
 }
 
 void test_getWord() {
@@ -583,49 +582,47 @@ void test_getWord() {
 }
 
 void test_getWordReverse_emptyString() {
-    char w[] = "";
-    wordDescriptor word = {};
-    char *endStr = getEndOfString(w);
-    int isWordInString = getWordReverse(endStr, w, &word);
+    char s[] = "";
+    wordDescriptor word;
+    char *endStr = getEndOfString(s);
+    int isWordInString = getWordReverse(endStr, s, &word);
     assert(!isWordInString);
 }
 
 void test_getWordReverse_filledString_withoutWords() {
-    char w[10] = " \t   \n";
-    wordDescriptor word = {};
-    char *endStr = getEndOfString(w);
-    int isWordInString = getWordReverse(endStr, w, &word);
+    char s[10] = " \t   \n";
+    wordDescriptor word;
+    char *endStr = getEndOfString(s);
+    int isWordInString = getWordReverse(endStr, s, &word);
     assert(!isWordInString);
 }
 
 void test_getWordReverse_filledString_withWords() {
-    char w[30] = "   cmake build debug";
-    wordDescriptor word = {};
-    char *endStr = getEndOfString(w);
-    int isWordInString = getWordReverse(endStr, w, &word);
-    char *expectedEndWord = findNonSpaceReverse(endStr, w) + 1;
-    char *expectedBeginWord = findSpaceReverse(expectedEndWord, w) + 1;
-    wordDescriptor expectedWord = {expectedBeginWord, expectedEndWord};
-    assert(isWordInString && areEqualWordsDescriptors(word, expectedWord));
+    char s[30] = "   cmake build debug   \t";
+    wordDescriptor word;
+    char *endStr = getEndOfString(s);
+    int isWordInString = getWordReverse(endStr, s, &word);
+    char expectedW[] = "debug";
+    wordDescriptor expectedWord = {expectedW, expectedW + strlen_(expectedW)};
+    assert(isWordInString && areWordsEqual(word, expectedWord));
 }
 
 void test_getWordReverse_fullString_withoutWords() {
-    char w[] = " \n    \v";
-    wordDescriptor word = {};
-    char *endStr = getEndOfString(w);
-    int isWordInString = getWordReverse(endStr, w, &word);
+    char s[] = " \n    \v";
+    wordDescriptor word;
+    char *endStr = getEndOfString(s);
+    int isWordInString = getWordReverse(endStr, s, &word);
     assert(!isWordInString);
 }
 
 void test_getWordReverse_fullString_withWords() {
-    char w[] = "\t backspace key";
-    wordDescriptor word = {};
-    char *endStr = getEndOfString(w);
-    int isWordInString = getWordReverse(endStr, w, &word);
-    char *expectedEndWord = findNonSpaceReverse(endStr, w) + 1;
-    char *expectedBeginWord = findSpaceReverse(expectedEndWord, w) + 1;
-    wordDescriptor expectedWord = {expectedBeginWord, expectedEndWord};
-    assert(isWordInString && areEqualWordsDescriptors(word, expectedWord));
+    char s[] = "\t backspace key ";
+    wordDescriptor word;
+    char *endStr = getEndOfString(s);
+    int isWordInString = getWordReverse(endStr, s, &word);
+    char expectedW[] = "key";
+    wordDescriptor expectedWord = {expectedW, expectedW + strlen_(expectedW)};
+    assert(isWordInString && areWordsEqual(word, expectedWord));
 }
 
 void test_getWordReverse() {
@@ -921,6 +918,39 @@ void test_replaceDigitsBySpaces() {
     test_replaceDigitsBySpaces_filledString_withoutDigits();
 }
 
+void test_replace_filledString_equalLensOfW1AndW2() {
+    char s[MAX_STRING_SIZE + 1] = "Lens are used in glasses. Lens are used in cameras";
+    char w1[] = "used";
+    char w2[] = "auto";
+    replace(s, w1, w2);
+    char expectedS[] = "Lens are auto in glasses. Lens are auto in cameras";
+    ASSERT_STRING(expectedS, s);
+}
+
+void test_replace_filledString_w1LenMoreThanW2Len() {
+    char s[MAX_STRING_SIZE + 1] = "I bought notebook last year. I use notebook for labs";
+    char w1[] = "notebook";
+    char w2[] = "laptop";
+    replace(s, w1, w2);
+    char expectedS[] = "I bought laptop last year. I use laptop for labs";
+    ASSERT_STRING(expectedS, s);
+}
+
+void test_replace_filledString_w1LenLessThanW2Len() {
+    char s[MAX_STRING_SIZE + 1] = "We work in autoCAD app during drafting lesson. autoCAD is powerful tool.";
+    char w1[] = "autoCAD";
+    char w2[] = "autodesk";
+    replace(s, w1, w2);
+    char expectedS[] = "We work in autodesk app during drafting lesson. autodesk is powerful tool.";
+    ASSERT_STRING(expectedS, s);
+}
+
+void test_replace() {
+    test_replace_filledString_equalLensOfW1AndW2();
+    test_replace_filledString_w1LenMoreThanW2Len();
+    test_replace_filledString_w1LenLessThanW2Len();
+}
+
 void test_string_tasks() {
     test_removeNonLetters();
     test_removeExtraSpaces();
@@ -929,6 +959,7 @@ void test_string_tasks() {
     test_digitToEnd();
     test_digitToEndTransform();
     test_replaceDigitsBySpaces();
+    test_replace();
 }
 
 int main() {
