@@ -4,4 +4,5 @@ add_library(string
         tasks/removeExtraSpaces.c
         tasks/digitToStartReverseTransform.c
         tasks/digitToEndTransform.c
+        tasks/replaceDigitsBySpaces.c
 )

@@ -6,6 +6,7 @@
 #include "libs/string/tasks/removeExtraSpaces.h"
 #include "libs/string/tasks/digitToStartReverseTransform.h"
 #include "libs/string/tasks/digitToEndTransform.h"
+#include "libs/string/tasks/replaceDigitsBySpaces.h"
 
 #define ASSERT_STRING(expected, got) assertString(expected, got, __FILE__, __FUNCTION__, __LINE__)
 
@@ -533,41 +534,41 @@ void test_getEndOfString() {
 }
 
 void test_getWord_emptyString() {
-    char s[] = "";
+    char w[] = "";
     wordDescriptor word = {};
-    int isWordInString = getWord(s, &word);
+    int isWordInString = getWord(w, &word);
     assert(!isWordInString);
 }
 
 void test_getWord_filledString_withoutWords() {
-    char s[10] = " \t   \n";
+    char w[10] = " \t   \n";
     wordDescriptor word = {};
-    int isWordInString = getWord(s, &word);
+    int isWordInString = getWord(w, &word);
     assert(!isWordInString);
 }
 
 void test_getWord_filledString_withWords() {
-    char s[30] = "   cmake build debug";
+    char w[30] = "   cmake build debug";
     wordDescriptor word = {};
-    int isWordInString = getWord(s, &word);
-    char *expectedBeginWord = findNonSpace(s);
+    int isWordInString = getWord(w, &word);
+    char *expectedBeginWord = findNonSpace(w);
     char *expectedEndWord = findSpace(expectedBeginWord);
     wordDescriptor expectedWord = {expectedBeginWord, expectedEndWord};
     assert(isWordInString && areEqualWordsDescriptors(word, expectedWord));
 }
 
 void test_getWord_fullString_withoutWords() {
-    char s[] = " \n    \v";
+    char w[] = " \n    \v";
     wordDescriptor word = {};
-    int isWordInString = getWord(s, &word);
+    int isWordInString = getWord(w, &word);
     assert(!isWordInString);
 }
 
 void test_getWord_fullString_withWords() {
-    char s[] = "\t backspace key";
+    char w[] = "\t backspace key";
     wordDescriptor word = {};
-    int isWordInString = getWord(s, &word);
-    char *expectedBeginWord = findNonSpace(s);
+    int isWordInString = getWord(w, &word);
+    char *expectedBeginWord = findNonSpace(w);
     char *expectedEndWord = findSpace(expectedBeginWord);
     wordDescriptor expectedWord = {expectedBeginWord, expectedEndWord};
     assert(isWordInString && areEqualWordsDescriptors(word, expectedWord));
@@ -582,47 +583,47 @@ void test_getWord() {
 }
 
 void test_getWordReverse_emptyString() {
-    char s[] = "";
+    char w[] = "";
     wordDescriptor word = {};
-    char *endStr = getEndOfString(s);
-    int isWordInString = getWordReverse(endStr, s, &word);
+    char *endStr = getEndOfString(w);
+    int isWordInString = getWordReverse(endStr, w, &word);
     assert(!isWordInString);
 }
 
 void test_getWordReverse_filledString_withoutWords() {
-    char s[10] = " \t   \n";
+    char w[10] = " \t   \n";
     wordDescriptor word = {};
-    char *endStr = getEndOfString(s);
-    int isWordInString = getWordReverse(endStr, s, &word);
+    char *endStr = getEndOfString(w);
+    int isWordInString = getWordReverse(endStr, w, &word);
     assert(!isWordInString);
 }
 
 void test_getWordReverse_filledString_withWords() {
-    char s[30] = "   cmake build debug";
+    char w[30] = "   cmake build debug";
     wordDescriptor word = {};
-    char *endStr = getEndOfString(s);
-    int isWordInString = getWordReverse(endStr, s, &word);
-    char *expectedEndWord = findNonSpaceReverse(endStr, s) + 1;
-    char *expectedBeginWord = findSpaceReverse(expectedEndWord, s) + 1;
+    char *endStr = getEndOfString(w);
+    int isWordInString = getWordReverse(endStr, w, &word);
+    char *expectedEndWord = findNonSpaceReverse(endStr, w) + 1;
+    char *expectedBeginWord = findSpaceReverse(expectedEndWord, w) + 1;
     wordDescriptor expectedWord = {expectedBeginWord, expectedEndWord};
     assert(isWordInString && areEqualWordsDescriptors(word, expectedWord));
 }
 
 void test_getWordReverse_fullString_withoutWords() {
-    char s[] = " \n    \v";
+    char w[] = " \n    \v";
     wordDescriptor word = {};
-    char *endStr = getEndOfString(s);
-    int isWordInString = getWordReverse(endStr, s, &word);
+    char *endStr = getEndOfString(w);
+    int isWordInString = getWordReverse(endStr, w, &word);
     assert(!isWordInString);
 }
 
 void test_getWordReverse_fullString_withWords() {
-    char s[] = "\t backspace key";
+    char w[] = "\t backspace key";
     wordDescriptor word = {};
-    char *endStr = getEndOfString(s);
-    int isWordInString = getWordReverse(endStr, s, &word);
-    char *expectedEndWord = findNonSpaceReverse(endStr, s) + 1;
-    char *expectedBeginWord = findSpaceReverse(expectedEndWord, s) + 1;
+    char *endStr = getEndOfString(w);
+    int isWordInString = getWordReverse(endStr, w, &word);
+    char *expectedEndWord = findNonSpaceReverse(endStr, w) + 1;
+    char *expectedBeginWord = findSpaceReverse(expectedEndWord, w) + 1;
     wordDescriptor expectedWord = {expectedBeginWord, expectedEndWord};
     assert(isWordInString && areEqualWordsDescriptors(word, expectedWord));
 }
@@ -774,30 +775,30 @@ void test_removeExtraSpaces() {
 }
 
 void test_digitToStartReverse_withDigits_withLetters() {
-    char s[] = "0wallpap3r321";
+    char w[] = "0wallpap3r321";
     wordDescriptor word = {};
-    int wordFlag = getWord(s, &word);
+    int wordFlag = getWord(w, &word);
     digitToStartReverse(word);
-    char expectedWord[] = "12330wallpapr";
-    ASSERT_STRING(expectedWord, s);
+    char expectedW[] = "12330wallpapr";
+    ASSERT_STRING(expectedW, w);
 }
 
 void test_digitToStartReverse_withoutDigits_withLetters() {
-    char s[] = "capital";
+    char w[] = "capital";
     wordDescriptor word = {};
-    int wordFlag = getWord(s, &word);
+    int wordFlag = getWord(w, &word);
     digitToStartReverse(word);
-    char expectedWord[] = "capital";
-    ASSERT_STRING(expectedWord, s);
+    char expectedW[] = "capital";
+    ASSERT_STRING(expectedW, w);
 }
 
 void test_digitToStartReverse_withDigits_withoutLetters() {
-    char s[] = "34502";
+    char w[] = "34502";
     wordDescriptor word = {};
-    int wordFlag = getWord(s, &word);
+    int wordFlag = getWord(w, &word);
     digitToStartReverse(word);
-    char expectedWord[] = "20543";
-    ASSERT_STRING(expectedWord, s);
+    char expectedW[] = "20543";
+    ASSERT_STRING(expectedW, w);
 }
 
 void test_digitToStartReverse() {
@@ -809,22 +810,22 @@ void test_digitToStartReverse() {
 void test_digitToStartReverseTransform_emptyString() {
     char s[] = "";
     digitToStartReverseTransform(s);
-    char expectedWord[] = "";
-    ASSERT_STRING(expectedWord, s);
+    char expectedS[] = "";
+    ASSERT_STRING(expectedS, s);
 }
 
 void test_digitToStartReverseTransform_filledString() {
     char s[25] = "  hi321 b1g update  \t";
     digitToStartReverseTransform(s);
-    char expectedWord[] = "  123hi 1bg update  \t";
-    ASSERT_STRING(expectedWord, s);
+    char expectedS[] = "  123hi 1bg update  \t";
+    ASSERT_STRING(expectedS, s);
 }
 
 void test_digitToStartReverseTransform_fullString() {
     char s[] = " Moscow 1s th3 c4pital of Russia\t";
     digitToStartReverseTransform(s);
-    char expectedWord[] = " Moscow 1s 3th 4cpital of Russia\t";
-    ASSERT_STRING(expectedWord, s);
+    char expectedS[] = " Moscow 1s 3th 4cpital of Russia\t";
+    ASSERT_STRING(expectedS, s);
 }
 
 void test_digitToStartReverseTransform() {
@@ -834,30 +835,30 @@ void test_digitToStartReverseTransform() {
 }
 
 void test_digitToEnd_withDigits_withLetters() {
-    char s[] = " 0s4msungS22 ";
+    char w[] = " 0s4msungS22 ";
     wordDescriptor word = {};
-    int wordFlag = getWord(s, &word);
+    int wordFlag = getWord(w, &word);
     digitToEnd(word);
-    char expectedWord[] = " smsungS0422 ";
-    ASSERT_STRING(expectedWord, s);
+    char expectedW[] = " smsungS0422 ";
+    ASSERT_STRING(expectedW, w);
 }
 
 void test_digitToEnd_withoutDigits_withLetters() {
-    char s[] = "odyssey";
+    char w[] = "odyssey";
     wordDescriptor word = {};
-    int wordFlag = getWord(s, &word);
+    int wordFlag = getWord(w, &word);
     digitToEnd(word);
-    char expectedWord[] = "odyssey";
-    ASSERT_STRING(expectedWord, s);
+    char expectedW[] = "odyssey";
+    ASSERT_STRING(expectedW, w);
 }
 
 void test_digitToEnd_withDigits_withoutLetters() {
-    char s[] = "3000";
+    char w[] = "3000";
     wordDescriptor word = {};
-    int wordFlag = getWord(s, &word);
+    int wordFlag = getWord(w, &word);
     digitToEnd(word);
-    char expectedWord[] = "3000";
-    ASSERT_STRING(expectedWord, s);
+    char expectedW[] = "3000";
+    ASSERT_STRING(expectedW, w);
 }
 
 void test_digitToEnd() {
@@ -869,28 +870,55 @@ void test_digitToEnd() {
 void test_digitToEndTransform_emptyString() {
     char s[] = "";
     digitToEndTransform(s);
-    char expectedWord[] = "";
-    ASSERT_STRING(expectedWord, s);
+    char expectedS[] = "";
+    ASSERT_STRING(expectedS, s);
 }
 
 void test_digitToEndTransform_filledString() {
     char s[] = " wa1ts wait8 0ldma  ";
     digitToEndTransform(s);
-    char expectedWord[] = " wats1 wait8 ldma0  ";
-    ASSERT_STRING(expectedWord, s);
+    char expectedS[] = " wats1 wait8 ldma0  ";
+    ASSERT_STRING(expectedS, s);
 }
 
 void test_digitToEndTransform_fullString() {
     char s[] = "g1t remote c010mmit";
     digitToEndTransform(s);
-    char expectedWord[] = "gt1 remote cmmit010";
-    ASSERT_STRING(expectedWord, s);
+    char expectedS[] = "gt1 remote cmmit010";
+    ASSERT_STRING(expectedS, s);
 }
 
 void test_digitToEndTransform() {
     test_digitToEndTransform_emptyString();
     test_digitToEndTransform_filledString();
     test_digitToEndTransform_fullString();
+}
+
+void test_replaceDigitsBySpaces_emptyString() {
+    char s[MAX_STRING_SIZE + 1] = "";
+    replaceDigitsBySpaces(s);
+    char expectedS[] = "";
+    ASSERT_STRING(expectedS, s);
+}
+
+void test_replaceDigitsBySpaces_filledString_withDigits() {
+    char s[MAX_STRING_SIZE + 1] = "0I4,3robot";
+    replaceDigitsBySpaces(s);
+    char expectedS[] = "I    ,   robot";
+    ASSERT_STRING(expectedS, s);
+}
+
+void test_replaceDigitsBySpaces_filledString_withoutDigits() {
+    char s[MAX_STRING_SIZE + 1] = "team";
+    replaceDigitsBySpaces(s);
+    char expectedS[] = "team";
+    ASSERT_STRING(expectedS, s);
+}
+
+void test_replaceDigitsBySpaces() {
+    test_replaceDigitsBySpaces_emptyString();
+    test_replaceDigitsBySpaces_filledString_withDigits();
+    test_replaceDigitsBySpaces_filledString_withoutDigits();
 }
 
 void test_string_tasks() {
@@ -900,6 +928,7 @@ void test_string_tasks() {
     test_digitToStartReverseTransform();
     test_digitToEnd();
     test_digitToEndTransform();
+    test_replaceDigitsBySpaces();
 }
 
 int main() {
