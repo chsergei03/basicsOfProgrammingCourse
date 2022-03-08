@@ -11,4 +11,5 @@ add_library(string
         tasks/getPalindromesCount.c
         tasks/fillStringWithAlternatingWordsOfTwoOtherStrings.c
         tasks/reverseWordOrderInString.c
+        tasks/getWordBeforeFirstWordWithA.c
 )

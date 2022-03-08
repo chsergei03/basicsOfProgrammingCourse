@@ -64,7 +64,8 @@
 				8,
 				9,
 				10,
-				11
+				11,
+				12
 			]
 		}
 	],
@@ -93,7 +94,8 @@
 				8,
 				9,
 				10,
-				11
+				11,
+				12
 			]
 		}
 	],
@@ -169,6 +171,12 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "libs/string/tasks/reverseWordOrderInString.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "libs/string/tasks/getWordBeforeFirstWordWithA.c",
 			"sourceGroupIndex" : 0
 		}
 	],

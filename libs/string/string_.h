@@ -30,6 +30,13 @@ typedef struct bagOfWords {
 bagOfWords _bag;
 bagOfWords _bag2;
 
+typedef enum wordBeforeFirstWordWithAReturnCode {
+    FIRST_WORD_WITH_A,
+    NOT_FOUND_A_WORD_WITH_A,
+    WORD_FOUND,
+    EMPTY_STRING
+} wordBeforeFirstWordWithAReturnCode;
+
 // возвращает количество символов в строке
 // до первого нуль-символа.
 size_t strlen_(const char *begin);
