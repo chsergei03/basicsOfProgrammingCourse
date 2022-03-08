@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <assert.h>
 #include <memory.h>
 
@@ -129,7 +130,7 @@ int getWordReverse(char *rbegin, char *rend, wordDescriptor *word) {
 }
 
 size_t wordlen_(const wordDescriptor word) {
-    return word.begin - word.end;
+    return word.end - word.begin;
 }
 
 int wordcmp_(wordDescriptor w1, wordDescriptor w2) {
@@ -137,14 +138,47 @@ int wordcmp_(wordDescriptor w1, wordDescriptor w2) {
         w1.begin++;
         w2.begin++;
     }
-
     return *w1.begin - *w2.begin;
 }
 
-int areWordsEqual(const wordDescriptor w1,
-                  const wordDescriptor w2) {
+int areWordsEqual(wordDescriptor w1,
+                  wordDescriptor w2) {
     if (wordlen_(w1) != wordlen_(w2))
         return 0;
 
+    w1.end -= 1;
+    w2.end -= 1;
+
     return wordcmp_(w1, w2) == 0;
+}
+
+void getBagOfWords(bagOfWords *bag, char *s) {
+    bag->size = 0;
+    wordDescriptor word;
+    int isWordInString = getWord(s, &word);
+    while (isWordInString) {
+        bag->words[bag->size] = word;
+        bag->size += 1;
+
+        s = word.end;
+        isWordInString = getWord(s, &word);
+    }
+}
+
+int areEqualBagsOfWords(const bagOfWords bag1,
+                        const bagOfWords bag2) {
+    if (bag1.size != bag2.size)
+        return 0;
+
+    for (size_t i = 0; i < bag1.size; i++)
+        if (!areWordsEqual(bag1.words[i], bag2.words[i]))
+            return 0;
+
+    return 1;
+}
+
+void printWord(wordDescriptor word) {
+    *word.end = NULL_SYMBOL;
+
+    puts(word.begin);
 }

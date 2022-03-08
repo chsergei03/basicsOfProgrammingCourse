@@ -21,6 +21,14 @@ typedef struct wordDescriptor {
     // последнего символа слова.
 } wordDescriptor;
 
+typedef struct bagOfWords {
+    wordDescriptor words[MAX_N_WORDS_IN_STRING]; // массив слов.
+    size_t size;                                 // размер массива слов.
+} bagOfWords;
+
+bagOfWords _bag;
+bagOfWords _bag2;
+
 // возвращает количество символов в строке
 // до первого нуль-символа.
 size_t strlen_(const char *begin);
@@ -108,5 +116,16 @@ int wordcmp_(wordDescriptor w1, wordDescriptor w2);
 
 // возвращает значение 1, если слова w1 и w2 идентичны, в противном случае - 'ложь'.
 int areWordsEqual(wordDescriptor w1, wordDescriptor w2);
+
+// получает позиции начала и конца каждого слова строки s,
+// записывает их в массив слов bag типа bagOfWords.
+void getBagOfWords(bagOfWords *bag, char *s);
+
+// возвращает значение истина, если массивы слов bag1 и bag2 равны,
+// в противном случае - 'ложь'.
+int areEqualBagsOfWords(const bagOfWords bag1, const bagOfWords bag2);
+
+// выводит слово word.
+void printWord(wordDescriptor word);
 
 #endif

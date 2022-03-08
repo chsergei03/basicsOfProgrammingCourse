@@ -7,4 +7,5 @@ add_library(string
         tasks/replaceDigitsBySpaces.c
         tasks/replace.c
         tasks/areWordsLexicographicallyOrdered.c
+        tasks/printWordsReverse.c
 )
