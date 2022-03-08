@@ -10,6 +10,7 @@
 #include "libs/string/tasks/replace.h"
 #include "libs/string/tasks/areWordsLexicographicallyOrdered.h"
 #include "libs/string/tasks/getPalindromesCount.h"
+#include "libs/string/tasks/fillStringWithAlternatingWordsOfTwoOtherStrings.h"
 
 #define ASSERT_STRING(expected, got) assertString(expected, got, __FILE__, __FUNCTION__, __LINE__)
 
@@ -1184,6 +1185,59 @@ void test_getPalindromesCount() {
     test_getPalindromesCount_fullString();
 }
 
+void test_fillStringWithAlternatingWordsOfTwoOtherStrings_twoEmptyStrings() {
+    char s1[] = "";
+    char s2[] = "";
+    char res[MAX_STRING_SIZE + 1] = "";
+    fillStringWithAlternatingWordsOfTwoOtherStrings(res, s1, s2);
+    char expectedRes[] = "";
+    ASSERT_STRING(expectedRes, res);
+}
+
+void test_fillStringWithAlternatingWordsOfTwoOtherStrings_emptyAndNonEmptyString() {
+    char s1[] = "";
+    char s2[] = " make contribution";
+    char res[MAX_STRING_SIZE + 1] = "";
+    fillStringWithAlternatingWordsOfTwoOtherStrings(res, s1, s2);
+    char expectedRes[] = "make contribution";
+    ASSERT_STRING(expectedRes, res);
+}
+
+void test_fillStringWithAlternatingWordsOfTwoOtherStrings_twoNonEmptyString_equalWordsCounts() {
+    char s1[] = "  oneplus 10 pro  ";
+    char s2[] = " iphone 13 mini";
+    char res[MAX_STRING_SIZE + 1] = "";
+    fillStringWithAlternatingWordsOfTwoOtherStrings(res, s1, s2);
+    char expectedRes[] = "oneplus iphone 10 13 pro mini";
+    ASSERT_STRING(expectedRes, res);
+}
+
+void test_fillStringWithAlternatingWordsOfTwoOtherStrings_twoNonEmptyString_s1LenMoreThanS2Len() {
+    char s1[] = " super mario bros";
+    char s2[] = " external libraries";
+    char res[MAX_STRING_SIZE + 1] = "";
+    fillStringWithAlternatingWordsOfTwoOtherStrings(res, s1, s2);
+    char expectedRes[] = "super external mario libraries bros";
+    ASSERT_STRING(expectedRes, res);
+}
+
+void test_fillStringWithAlternatingWordsOfTwoOtherStrings_twoNonEmptyString_s1LenLessThanS2Len() {
+    char s1[] = " quok imago";
+    char s2[] = " archy brown untitled 250";
+    char res[MAX_STRING_SIZE + 1] = "";
+    fillStringWithAlternatingWordsOfTwoOtherStrings(res, s1, s2);
+    char expectedRes[] = "quok archy imago brown untitled 250";
+    ASSERT_STRING(expectedRes, res);
+}
+
+void test_fillStringWithAlternatingWordsOfTwoOtherStrings() {
+    test_fillStringWithAlternatingWordsOfTwoOtherStrings_twoEmptyStrings();
+    test_fillStringWithAlternatingWordsOfTwoOtherStrings_emptyAndNonEmptyString();
+    test_fillStringWithAlternatingWordsOfTwoOtherStrings_twoNonEmptyString_equalWordsCounts();
+    test_fillStringWithAlternatingWordsOfTwoOtherStrings_twoNonEmptyString_s1LenMoreThanS2Len();
+    test_fillStringWithAlternatingWordsOfTwoOtherStrings_twoNonEmptyString_s1LenLessThanS2Len();
+}
+
 void test_string_tasks() {
     test_removeNonLetters();
     test_removeExtraSpaces();
@@ -1195,6 +1249,7 @@ void test_string_tasks() {
     test_replace();
     test_areWordsLexicographicallyOrdered();
     test_getPalindromesCount();
+    test_fillStringWithAlternatingWordsOfTwoOtherStrings();
 }
 
 int main() {

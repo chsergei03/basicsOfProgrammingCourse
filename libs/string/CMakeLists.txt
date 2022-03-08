@@ -9,4 +9,5 @@ add_library(string
         tasks/areWordsLexicographicallyOrdered.c
         tasks/printWordsReverse.c
         tasks/getPalindromesCount.c
+        tasks/fillStringWithAlternatingWordsOfTwoOtherStrings.c
 )
