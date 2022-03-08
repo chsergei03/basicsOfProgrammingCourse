@@ -25,4 +25,6 @@ void replaceDigitsBySpaces(char *s) {
     }
 
     *writePtr = NULL_SYMBOL;
+
+    freeBuffer();
 }

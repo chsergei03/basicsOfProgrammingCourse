@@ -1,3 +1,5 @@
+#include <malloc.h>
+
 #include "digitToEndTransform.h"
 
 // задача 3 (дополнительная задача для закрепления). преобразовать строку
@@ -14,6 +16,8 @@ void digitToEnd(wordDescriptor word) {
                                word.begin, isalpha);
 
     copyIf(_stringBuffer, endStringBuffer, recPosition, isdigit);
+
+    freeBuffer();
 }
 
 void digitToEndTransform(char *s) {

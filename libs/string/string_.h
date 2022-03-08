@@ -4,6 +4,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <ctype.h>
+#include <memory.h>
 
 #define MAX_STRING_SIZE 100
 #define MAX_N_WORDS_IN_STRING 100
@@ -134,5 +135,8 @@ void printWord(wordDescriptor word);
 // записывает позицию начала слова и позицию первого символа после конца слова.
 int getWordByDivider(char *beginSearch, wordDescriptor *word,
                      const int divider);
+
+// освобождает буфер _stringBuffer.
+void freeBuffer();
 
 #endif

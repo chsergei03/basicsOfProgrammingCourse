@@ -40,4 +40,6 @@ void replace(char *source, char *w1, char *w2) {
     }
 
     *writePtr = NULL_SYMBOL;
+
+    freeBuffer();
 }

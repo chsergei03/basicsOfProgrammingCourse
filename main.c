@@ -11,6 +11,7 @@
 #include "libs/string/tasks/areWordsLexicographicallyOrdered.h"
 #include "libs/string/tasks/getPalindromesCount.h"
 #include "libs/string/tasks/fillStringWithAlternatingWordsOfTwoOtherStrings.h"
+#include "libs/string/tasks/reverseWordOrderInString.h"
 
 #define ASSERT_STRING(expected, got) assertString(expected, got, __FILE__, __FUNCTION__, __LINE__)
 
@@ -1238,6 +1239,49 @@ void test_fillStringWithAlternatingWordsOfTwoOtherStrings() {
     test_fillStringWithAlternatingWordsOfTwoOtherStrings_twoNonEmptyString_s1LenLessThanS2Len();
 }
 
+void test_reverseWordOrderInString_emptyString() {
+    char s[] = "";
+    reverseWordOrderInString(s);
+    char expectedS[] = "";
+    ASSERT_STRING(expectedS, s);
+}
+
+void test_reverseWordOrderInString_filledString_oneWordInString() {
+    char s[10] = "  jedi";
+    reverseWordOrderInString(s);
+    char expectedS[] = "jedi";
+    ASSERT_STRING(expectedS, s);
+}
+
+void test_reverseWordOrderInString_filledString() {
+    char s[40] = "may the force come with you";
+    reverseWordOrderInString(s);
+    char expectedS[] = "you with come force the may";
+    ASSERT_STRING(expectedS, s);
+}
+
+void test_reverseWordOrderInString_fullString_oneWordInString() {
+    char s[] = "Yoda  ";
+    reverseWordOrderInString(s);
+    char expectedS[] = "Yoda";
+    ASSERT_STRING(expectedS, s);
+}
+
+void test_reverseWordOrderInString_fullString() {
+    char s[] = "do or do not there is no try";
+    reverseWordOrderInString(s);
+    char expectedS[] = "try no is there not do or do";
+    ASSERT_STRING(expectedS, s);
+}
+
+void test_reverseWordOrderInString() {
+    test_reverseWordOrderInString_emptyString();
+    test_reverseWordOrderInString_filledString_oneWordInString();
+    test_reverseWordOrderInString_filledString();
+    test_reverseWordOrderInString_fullString_oneWordInString();
+    test_reverseWordOrderInString_fullString();
+}
+
 void test_string_tasks() {
     test_removeNonLetters();
     test_removeExtraSpaces();
@@ -1250,6 +1294,7 @@ void test_string_tasks() {
     test_areWordsLexicographicallyOrdered();
     test_getPalindromesCount();
     test_fillStringWithAlternatingWordsOfTwoOtherStrings();
+    test_reverseWordOrderInString();
 }
 
 int main() {

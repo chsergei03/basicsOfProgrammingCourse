@@ -14,6 +14,8 @@ void digitToStartReverse(wordDescriptor word) {
                                       word.begin, isdigit);
 
     copyIf(_stringBuffer, endStringBuffer, recPosition, isalpha);
+
+    freeBuffer();
 }
 
 void digitToStartReverseTransform(char *s) {

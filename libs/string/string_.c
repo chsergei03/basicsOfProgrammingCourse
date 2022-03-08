@@ -61,6 +61,11 @@ char *copy(const char *beginSource, const char *endSource,
            char *beginDestination) {
     size_t fragmentToCopyLen = endSource - beginSource;
 
+    if (fragmentToCopyLen == 0) {
+        *beginDestination = NULL_SYMBOL;
+        return beginDestination;
+    }
+
     memcpy(beginDestination, beginSource,
            fragmentToCopyLen * sizeof(char));
 
@@ -121,10 +126,9 @@ int getWordReverse(char *rbegin, char *rend, wordDescriptor *word) {
         return 0;
     }
 
-    size_t wordEndIndex = word->end - rend;
+    word->begin = findSpaceReverse(word->end, rend);
+    word->begin += word->begin > rend;
     word->end++;
-
-    word->begin = findSpaceReverse(rend + wordEndIndex, rend) + 1;
 
     return 1;
 }
@@ -203,4 +207,8 @@ int getWordByDivider(char *beginSearch, wordDescriptor *word,
     word->end = dividerPtr;
 
     return 1;
+}
+
+void freeBuffer() {
+    memset(_stringBuffer, NULL_SYMBOL, MAX_STRING_SIZE + 1);
 }

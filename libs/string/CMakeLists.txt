@@ -10,4 +10,5 @@ add_library(string
         tasks/printWordsReverse.c
         tasks/getPalindromesCount.c
         tasks/fillStringWithAlternatingWordsOfTwoOtherStrings.c
+        tasks/reverseWordOrderInString.c
 )
