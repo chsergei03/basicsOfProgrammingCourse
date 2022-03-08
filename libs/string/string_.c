@@ -182,3 +182,25 @@ void printWord(wordDescriptor word) {
 
     puts(word.begin);
 }
+
+int getWordByDivider(char *beginSearch, wordDescriptor *word,
+                     const int divider) {
+    word->begin = findNonSpace(beginSearch);
+    if (*word->begin == '\0')
+        return 0;
+
+    char *endStr = getEndOfString(beginSearch);
+    char *dividerPtr = find(word->begin, endStr, divider);
+    char *nearestSpace = findSpace(word->begin);
+
+
+    if (*dividerPtr != divider) {
+        if (findNonSpace(nearestSpace) != endStr)
+            return 0;
+        dividerPtr = nearestSpace;
+    }
+
+    word->end = dividerPtr;
+
+    return 1;
+}

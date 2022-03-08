@@ -9,6 +9,7 @@
 #include "libs/string/tasks/replaceDigitsBySpaces.h"
 #include "libs/string/tasks/replace.h"
 #include "libs/string/tasks/areWordsLexicographicallyOrdered.h"
+#include "libs/string/tasks/getPalindromesCount.h"
 
 #define ASSERT_STRING(expected, got) assertString(expected, got, __FILE__, __FUNCTION__, __LINE__)
 
@@ -706,6 +707,89 @@ void test_getBagOfWords() {
     test_getBagOfWords_fullString_withWords();
 }
 
+void test_getWordByDivider_emptyString() {
+    char s[] = "";
+    wordDescriptor word;
+    int isWordInString = getWordByDivider(s, &word, ',');
+    assert(!isWordInString);
+}
+
+void test_getWordByDivider_filledString_withoutWords() {
+    char s[15] = "  \n \t";
+    wordDescriptor word;
+    int isWordInString = getWordByDivider(s, &word, ',');
+    assert(!isWordInString);
+}
+
+void test_getWordByDivider_filledString_oneWord() {
+    char s[15] = " yellow    ";
+    wordDescriptor word;
+    int isWordInString = getWordByDivider(s, &word, ',');
+    char expectedW[] = "yellow ";
+    wordDescriptor expectedWord = {expectedW, expectedW + strlen_(expectedW) - 1};
+    assert(isWordInString && areWordsEqual(word, expectedWord));
+}
+
+void test_getWordByDivider_filledString_withNecessaryDivider() {
+    char s[30] = " new,lamborghini,countach";
+    wordDescriptor word;
+    int isWordInString = getWordByDivider(s, &word, ',');
+    char expectedW[] = "new,";
+    wordDescriptor expectedWord = {expectedW, expectedW + strlen_(expectedW) - 1};
+    assert(isWordInString && areWordsEqual(word, expectedWord));
+}
+
+void test_getWordByDivider_filledString_withoutNecessaryDivider() {
+    char s[15] = " galaxy s 22";
+    wordDescriptor word;
+    int isWordInString = getWordByDivider(s, &word, ',');
+    assert(!isWordInString);
+}
+
+void test_getWordByDivider_fullString_withoutWords() {
+    char s[] = " \t   ";
+    wordDescriptor word;
+    int isWordInString = getWordByDivider(s, &word, ',');
+    assert(!isWordInString);
+}
+
+void test_getWordByDivider_fullString_oneWord() {
+    char s[] = " red   ";
+    wordDescriptor word;
+    int isWordInString = getWordByDivider(s, &word, ',');
+    char expectedW[] = "red ";
+    wordDescriptor expectedWord = {expectedW, expectedW + strlen_(expectedW) - 1};
+    assert(isWordInString && areWordsEqual(word, expectedWord));
+}
+
+void test_getWordByDivider_fullString_withNecessaryDivider() {
+    char s[] = " just,do,it   ";
+    wordDescriptor word;
+    int isWordInString = getWordByDivider(s, &word, ',');
+    char expectedW[] = "just,";
+    wordDescriptor expectedWord = {expectedW, expectedW + strlen_(expectedW) - 1};
+    assert(isWordInString && areWordsEqual(word, expectedWord));
+}
+
+void test_getWordByDivider_fullString_withoutNecessaryDivider() {
+    char s[] = " i listen to music every day";
+    wordDescriptor word;
+    int isWordInString = getWordByDivider(s, &word, ',');
+    assert(!isWordInString);
+}
+
+void test_getWordByDivider() {
+    test_getWordByDivider_emptyString();
+    test_getWordByDivider_filledString_withoutWords();
+    test_getWordByDivider_filledString_oneWord();
+    test_getWordByDivider_filledString_withNecessaryDivider();
+    test_getWordByDivider_filledString_withoutNecessaryDivider();
+    test_getWordByDivider_fullString_withoutWords();
+    test_getWordByDivider_fullString_oneWord();
+    test_getWordByDivider_fullString_withNecessaryDivider();
+    test_getWordByDivider_fullString_withoutNecessaryDivider();
+}
+
 void test_string_lib() {
     test_strlen_();
     test_find();
@@ -721,6 +805,7 @@ void test_string_lib() {
     test_getWord();
     test_getWordReverse();
     test_getBagOfWords();
+    test_getWordByDivider();
 }
 
 void assertString(const char *expected, const char *got,
@@ -1021,8 +1106,8 @@ void test_replace_filledString_w1LenLessThanW2Len() {
 
 void test_replace() {
     test_replace_filledString_equalLensOfW1AndW2();
-    //test_replace_filledString_w1LenMoreThanW2Len();
-    //test_replace_filledString_w1LenLessThanW2Len();
+    test_replace_filledString_w1LenMoreThanW2Len();
+    test_replace_filledString_w1LenLessThanW2Len();
 }
 
 void test_areWordsLexicographicallyOrdered_emptyString() {
@@ -1058,16 +1143,45 @@ void test_areWordsLexicographicallyOrdered_fullString_wordsAreOrdered() {
 void test_areWordsLexicographicallyOrdered_fullString_wordsAreNotOrdered() {
     char s[] = " break poco phone ";
     int flag = areWordsLexicographicallyOrdered(s);
+    assert(!areWordsLexicographicallyOrdered(s));
 }
 
 void test_areWordsLexicographicallyOrdered() {
     test_areWordsLexicographicallyOrdered_emptyString();
     test_areWordsLexicographicallyOrdered_filledString_withoutWords();
     test_areWordsLexicographicallyOrdered_filledString_wordsAreOrdered();
+    test_areWordsLexicographicallyOrdered_filledString_wordsAreNotOrdered();
     test_areWordsLexicographicallyOrdered_fullString_wordsAreNotOrdered();
     test_areWordsLexicographicallyOrdered_fulltring_withoutWords();
     test_areWordsLexicographicallyOrdered_fullString_wordsAreOrdered();
     test_areWordsLexicographicallyOrdered_fullString_wordsAreNotOrdered();
+}
+
+void test_getPalindromesCount_emptyString() {
+    char s[] = "";
+    int palindromesCount = getPalindromesCount(s);
+    int expectedPalindromesCount = 0;
+    assert(palindromesCount == expectedPalindromesCount);
+}
+
+void test_getPalindromesCount_filledString() {
+    char s[30] = "    tenet,rotor,stat8,25  ";
+    int palindromesCount = getPalindromesCount(s);
+    int expectedPalindromesCount = 2;
+    assert(palindromesCount == expectedPalindromesCount);
+}
+
+void test_getPalindromesCount_fullString() {
+    char s[] = " racecar,radar,pop,ref3r   ";
+    int palindromesCount = getPalindromesCount(s);
+    int expectedPalindromesCount = 3;
+    assert(palindromesCount == expectedPalindromesCount);
+}
+
+void test_getPalindromesCount() {
+    test_getPalindromesCount_emptyString();
+    test_getPalindromesCount_filledString();
+    test_getPalindromesCount_fullString();
 }
 
 void test_string_tasks() {
@@ -1080,7 +1194,7 @@ void test_string_tasks() {
     test_replaceDigitsBySpaces();
     test_replace();
     test_areWordsLexicographicallyOrdered();
-
+    test_getPalindromesCount();
 }
 
 int main() {

@@ -128,4 +128,11 @@ int areEqualBagsOfWords(const bagOfWords bag1, const bagOfWords bag2);
 // выводит слово word.
 void printWord(wordDescriptor word);
 
+// возвращает значение 0, если слово в строке beginSearch не было считано
+// (divider - код символа, выступающего в роли разделителя между словами),
+// в противном случае - значение 1; в переменную word типа wordDescriptor
+// записывает позицию начала слова и позицию первого символа после конца слова.
+int getWordByDivider(char *beginSearch, wordDescriptor *word,
+                     const int divider);
+
 #endif

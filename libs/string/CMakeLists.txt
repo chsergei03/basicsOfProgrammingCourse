@@ -8,4 +8,5 @@ add_library(string
         tasks/replace.c
         tasks/areWordsLexicographicallyOrdered.c
         tasks/printWordsReverse.c
+        tasks/getPalindromesCount.c
 )
