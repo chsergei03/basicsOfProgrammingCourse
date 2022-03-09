@@ -20,6 +20,7 @@
 #include "libs/string/tasks/getWordBeforeFirstWWord.h"
 #include "libs/string/tasks/deleteWordsWhichAreEqualToLastWord.h"
 #include "libs/string/tasks/complementS2.h"
+#include "libs/string/tasks/hasStringEveryCharOfWord.h"
 
 #define ASSERT_STRING(expected, got) assertString(expected, got, __FILE__, __FUNCTION__, __LINE__)
 
@@ -1680,6 +1681,49 @@ void test_complementS2() {
     test_complementS2_twoNonEmptyStrings_n1LessThanN2();
 }
 
+void test_hasStringEveryCharOfWord_emptyString() {
+    char s[] = "";
+    char word[] = "iphone";
+    int areAllCharsOfWordInString = hasStringEveryCharOfWord(s, word);
+    assert(!areAllCharsOfWordInString);
+}
+
+void test_hasStringEveryCharOfWord_filledString_allCharsOfWordInString() {
+    char s[30] = "frank   ocean blonde ";
+    char word[] = "book";
+    int areAllCharsOfWordInString = hasStringEveryCharOfWord(s, word);
+    assert(areAllCharsOfWordInString);
+}
+
+void test_hasStringEveryCharOfWord_filledString_notAllCharsOfWordInString() {
+    char s[40] = "  krov intervals   ";
+    char word[] = "life";
+    int areAllCharsOfWordInString = hasStringEveryCharOfWord(s, word);
+    assert(!areAllCharsOfWordInString);
+}
+
+void test_hasStringEveryCharOfWord_fullString_allCharsOfWordInString() {
+    char s[] = " drake certified lover boy      ";
+    char word[] = "race";
+    int areAllCharsOfWordInString = hasStringEveryCharOfWord(s, word);
+    assert(areAllCharsOfWordInString);
+}
+
+void test_hasStringEveryCharOfWord_fullString_notAllCharsOfWordInString() {
+    char s[] = "   ye sense of human";
+    char word[] = "master";
+    int areAllCharsOfWordInString = hasStringEveryCharOfWord(s, word);
+    assert(!areAllCharsOfWordInString);
+}
+
+void test_hasStringEveryCharOfWord() {
+    test_hasStringEveryCharOfWord_emptyString();
+    test_hasStringEveryCharOfWord_filledString_allCharsOfWordInString();
+    test_hasStringEveryCharOfWord_filledString_notAllCharsOfWordInString();
+    test_hasStringEveryCharOfWord_fullString_allCharsOfWordInString();
+    test_hasStringEveryCharOfWord_fullString_notAllCharsOfWordInString();
+}
+
 void test_string_tasks() {
     test_removeNonLetters();
     test_removeExtraSpaces();
@@ -1701,6 +1745,7 @@ void test_string_tasks() {
     testAll_getWordBeforeFirstWWord();
     test_deleteWordsWhichAreEqualToLastWord();
     test_complementS2();
+    test_hasStringEveryCharOfWord();
 }
 
 int main() {

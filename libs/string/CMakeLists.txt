@@ -19,6 +19,7 @@ add_library(string
         tasks/getWordBeforeFirstWWord.c
         tasks/deleteWordsWhichAreEqualToLastWord.c
         tasks/complementS2.c
+        tasks/hasStringEveryCharOfWord.c
 )
 
 target_link_libraries(string algorithms)
