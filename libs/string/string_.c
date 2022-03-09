@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <assert.h>
 #include <memory.h>
 
@@ -215,4 +216,18 @@ void freeBuffer() {
 
 void wordDescriptorToString(wordDescriptor word, char *destination) {
     memcpy(destination, word.begin, wordlen_(word));
+}
+
+void getBagOfWordsWithWordSorting(bagOfWords *bag, char *s) {
+    bag->size = 0;
+    wordDescriptor word;
+    int isWordInString = getWord(s, &word);
+    while (isWordInString) {
+        qsort(word.begin, wordlen_(word), sizeof(char), compare_chars);
+        bag->words[bag->size] = word;
+        bag->size += 1;
+
+        s = word.end;
+        isWordInString = getWord(s, &word);
+    }
 }

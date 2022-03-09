@@ -119,7 +119,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "course::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-course-Debug-3f48727586f76754375d.json",
+					"jsonFile" : "target-course-Debug-8be198359a137faa0fdc.json",
 					"name" : "course",
 					"projectIndex" : 0
 				},
@@ -133,7 +133,7 @@
 				{
 					"directoryIndex" : 4,
 					"id" : "string::@3f2b1fb9d1440f41f43e",
-					"jsonFile" : "target-string-Debug-2296263a95d6480cde69.json",
+					"jsonFile" : "target-string-Debug-7002500b30bf449b6c1d.json",
 					"name" : "string",
 					"projectIndex" : 0
 				}

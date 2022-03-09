@@ -8,6 +8,11 @@
 // сортировки массива qsort.
 int compare_ints(const void *a, const void *b);
 
+//применяется в качестве функции-компаратора
+// целочисленных значений типа char для быстрой
+// сортировки массива qsort.
+int compare_chars(const void *a, const void *b);
+
 // возвращает минимальное из двух значений a и b
 // типа size_t.
 size_t min2_size_t(size_t a, size_t b);

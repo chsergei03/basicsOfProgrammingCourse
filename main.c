@@ -15,6 +15,7 @@
 #include "libs/string/tasks/getWordBeforeFirstWordWithA.h"
 #include "libs/string/tasks/lastWordInFirstStringInSecondString.h"
 #include "libs/string/tasks/hasStringIdenticalWords.h"
+#include "libs/string/tasks/hasStringPairOfWordsWithIdenticalCharacters.h"
 
 #define ASSERT_STRING(expected, got) assertString(expected, got, __FILE__, __FUNCTION__, __LINE__)
 
@@ -1439,6 +1440,58 @@ void test_hasStringIdenticalWords() {
     test_hasStringIdenticalWords_fullString_withoutIdenticalWords();
 }
 
+void test_hasStringPairOfWordsWithIdenticalCharacters_emptyString() {
+    char s[] = "";
+    int isPairOfWordsWithIdenticalCharactersInString = hasStringPairOfWordsWithIdenticalCharacters(s);
+    assert(!isPairOfWordsWithIdenticalCharactersInString);
+}
+
+void test_hasStringPairOfWordsWithIdenticalCharacters_filledString_oneWord() {
+    char s[5] = "hp";
+    int isPairOfWordsWithIdenticalCharactersInString = hasStringPairOfWordsWithIdenticalCharacters(s);
+    assert(!isPairOfWordsWithIdenticalCharactersInString);
+}
+
+void test_hasStringPairOfWordsWithIdenticalCharacters_filledString_withRequestedWords() {
+    char s[25] = "laf animated series alf";
+    int isPairOfWordsWithIdenticalCharactersInString = hasStringPairOfWordsWithIdenticalCharacters(s);
+    assert(isPairOfWordsWithIdenticalCharactersInString);
+}
+
+void test_hasStringPairOfWordsWithIdenticalCharacters_filledString_withoutRequestedWords() {
+    char s[25] = "sony yns0 xperia 1 IV";
+    int isPairOfWordsWithIdenticalCharactersInString = hasStringPairOfWordsWithIdenticalCharacters(s);
+    assert(!isPairOfWordsWithIdenticalCharactersInString);
+}
+
+void test_hasStringPairOfWordsWithIdenticalCharacters_fullString_oneWord() {
+    char s[] = " dell";
+    int isPairOfWordsWithIdenticalCharactersInString = hasStringPairOfWordsWithIdenticalCharacters(s);
+    assert(!isPairOfWordsWithIdenticalCharactersInString);
+}
+
+void test_hasStringPairOfWordsWithIdenticalCharacters_fullString_withRequestedWords() {
+    char s[] = "write music in the studio . studio process";
+    int isPairOfWordsWithIdenticalCharactersInString = hasStringPairOfWordsWithIdenticalCharacters(s);
+    assert(isPairOfWordsWithIdenticalCharactersInString);
+}
+
+void test_hasStringPairOfWordsWithIdenticalCharacters_fullString_withoutRequestedWords() {
+    char s[] = " create of program";
+    int isPairOfWordsWithIdenticalCharactersInString = hasStringPairOfWordsWithIdenticalCharacters(s);
+    assert(!isPairOfWordsWithIdenticalCharactersInString);
+}
+
+void test_hasStringPairOfWordsWithIdenticalCharacters() {
+    test_hasStringPairOfWordsWithIdenticalCharacters_emptyString();
+    test_hasStringPairOfWordsWithIdenticalCharacters_filledString_oneWord();
+    test_hasStringPairOfWordsWithIdenticalCharacters_filledString_withRequestedWords();
+    test_hasStringPairOfWordsWithIdenticalCharacters_filledString_withoutRequestedWords();
+    test_hasStringPairOfWordsWithIdenticalCharacters_fullString_oneWord();
+    test_hasStringPairOfWordsWithIdenticalCharacters_fullString_withRequestedWords();
+    test_hasStringPairOfWordsWithIdenticalCharacters_fullString_withoutRequestedWords();
+}
+
 void test_string_tasks() {
     test_removeNonLetters();
     test_removeExtraSpaces();
@@ -1455,6 +1508,7 @@ void test_string_tasks() {
     testAll_getWordBeforeFirstWordWithA();
     test_lastWordInFirstStringInSecondString();
     test_hasStringIdenticalWords();
+    test_hasStringPairOfWordsWithIdenticalCharacters();
 }
 
 int main() {

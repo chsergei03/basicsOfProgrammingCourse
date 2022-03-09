@@ -6,6 +6,8 @@
 #include <ctype.h>
 #include <memory.h>
 
+#include "../../libs/algorithms/algorithm.h"
+
 #define MAX_STRING_SIZE 100
 #define MAX_N_WORDS_IN_STRING 100
 #define MAX_WORD_SIZE 20
@@ -149,5 +151,9 @@ void freeBuffer();
 // переводит слово word, являющееся переменной типа wordDescriptor, в строку,
 // записывая в адрес destination.
 void wordDescriptorToString(wordDescriptor word, char *destination);
+
+// получает позиции начала и конца каждого слова строки s, сортирует
+// буквы слова и записывает их в массив слов bag типа bagOfWords.
+void getBagOfWordsWithWordSorting(bagOfWords *bag, char *s);
 
 #endif

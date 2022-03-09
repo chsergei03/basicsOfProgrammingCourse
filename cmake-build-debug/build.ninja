@@ -74,9 +74,9 @@ build CMakeFiles/course.dir/main.c.obj: C_COMPILER__course_Debug D$:/university/
 #############################################
 # Link the executable course.exe
 
-build course.exe: C_EXECUTABLE_LINKER__course_Debug CMakeFiles/course.dir/main.c.obj | libs/data_structures/libdata_structures.a libs/algorithms/libalgorithms.a libs/string/libstring.a || libs/algorithms/libalgorithms.a libs/data_structures/libdata_structures.a libs/string/libstring.a
+build course.exe: C_EXECUTABLE_LINKER__course_Debug CMakeFiles/course.dir/main.c.obj | libs/data_structures/libdata_structures.a libs/algorithms/libalgorithms.a libs/string/libstring.a libs/algorithms/libalgorithms.a || libs/algorithms/libalgorithms.a libs/data_structures/libdata_structures.a libs/string/libstring.a
   FLAGS = -g
-  LINK_LIBRARIES = libs/data_structures/libdata_structures.a  libs/algorithms/libalgorithms.a  libs/string/libstring.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = libs/data_structures/libdata_structures.a  libs/algorithms/libalgorithms.a  libs/string/libstring.a  libs/algorithms/libalgorithms.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\course.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
@@ -325,7 +325,7 @@ build libs/string/edit_cache: phony libs/string/CMakeFiles/edit_cache.util
 #############################################
 # Order-only phony target for string
 
-build cmake_object_order_depends_target_string: phony || libs/string/CMakeFiles/string.dir
+build cmake_object_order_depends_target_string: phony || cmake_object_order_depends_target_algorithms
 
 build libs/string/CMakeFiles/string.dir/string_.c.obj: C_COMPILER__string_Debug D$:/university/op/course/libs/string/string_.c || cmake_object_order_depends_target_string
   DEP_FILE = libs\string\CMakeFiles\string.dir\string_.c.obj.d
@@ -417,6 +417,12 @@ build libs/string/CMakeFiles/string.dir/tasks/hasStringIdenticalWords.c.obj: C_C
   OBJECT_DIR = libs\string\CMakeFiles\string.dir
   OBJECT_FILE_DIR = libs\string\CMakeFiles\string.dir\tasks
 
+build libs/string/CMakeFiles/string.dir/tasks/hasStringPairOfWordsWithIdenticalCharacters.c.obj: C_COMPILER__string_Debug D$:/university/op/course/libs/string/tasks/hasStringPairOfWordsWithIdenticalCharacters.c || cmake_object_order_depends_target_string
+  DEP_FILE = libs\string\CMakeFiles\string.dir\tasks\hasStringPairOfWordsWithIdenticalCharacters.c.obj.d
+  FLAGS = -g -std=gnu11
+  OBJECT_DIR = libs\string\CMakeFiles\string.dir
+  OBJECT_FILE_DIR = libs\string\CMakeFiles\string.dir\tasks
+
 
 # =============================================================================
 # Link build statements for STATIC_LIBRARY target string
@@ -425,7 +431,7 @@ build libs/string/CMakeFiles/string.dir/tasks/hasStringIdenticalWords.c.obj: C_C
 #############################################
 # Link the static library libs\string\libstring.a
 
-build libs/string/libstring.a: C_STATIC_LIBRARY_LINKER__string_Debug libs/string/CMakeFiles/string.dir/string_.c.obj libs/string/CMakeFiles/string.dir/tasks/removeNonLetters.c.obj libs/string/CMakeFiles/string.dir/tasks/removeExtraSpaces.c.obj libs/string/CMakeFiles/string.dir/tasks/digitToStartReverseTransform.c.obj libs/string/CMakeFiles/string.dir/tasks/digitToEndTransform.c.obj libs/string/CMakeFiles/string.dir/tasks/replaceDigitsBySpaces.c.obj libs/string/CMakeFiles/string.dir/tasks/replace.c.obj libs/string/CMakeFiles/string.dir/tasks/areWordsLexicographicallyOrdered.c.obj libs/string/CMakeFiles/string.dir/tasks/printWordsReverse.c.obj libs/string/CMakeFiles/string.dir/tasks/getPalindromesCount.c.obj libs/string/CMakeFiles/string.dir/tasks/fillStringWithAlternatingWordsOfTwoOtherStrings.c.obj libs/string/CMakeFiles/string.dir/tasks/reverseWordOrderInString.c.obj libs/string/CMakeFiles/string.dir/tasks/getWordBeforeFirstWordWithA.c.obj libs/string/CMakeFiles/string.dir/tasks/lastWordInFirstStringInSecondString.c.obj libs/string/CMakeFiles/string.dir/tasks/hasStringIdenticalWords.c.obj
+build libs/string/libstring.a: C_STATIC_LIBRARY_LINKER__string_Debug libs/string/CMakeFiles/string.dir/string_.c.obj libs/string/CMakeFiles/string.dir/tasks/removeNonLetters.c.obj libs/string/CMakeFiles/string.dir/tasks/removeExtraSpaces.c.obj libs/string/CMakeFiles/string.dir/tasks/digitToStartReverseTransform.c.obj libs/string/CMakeFiles/string.dir/tasks/digitToEndTransform.c.obj libs/string/CMakeFiles/string.dir/tasks/replaceDigitsBySpaces.c.obj libs/string/CMakeFiles/string.dir/tasks/replace.c.obj libs/string/CMakeFiles/string.dir/tasks/areWordsLexicographicallyOrdered.c.obj libs/string/CMakeFiles/string.dir/tasks/printWordsReverse.c.obj libs/string/CMakeFiles/string.dir/tasks/getPalindromesCount.c.obj libs/string/CMakeFiles/string.dir/tasks/fillStringWithAlternatingWordsOfTwoOtherStrings.c.obj libs/string/CMakeFiles/string.dir/tasks/reverseWordOrderInString.c.obj libs/string/CMakeFiles/string.dir/tasks/getWordBeforeFirstWordWithA.c.obj libs/string/CMakeFiles/string.dir/tasks/lastWordInFirstStringInSecondString.c.obj libs/string/CMakeFiles/string.dir/tasks/hasStringIdenticalWords.c.obj libs/string/CMakeFiles/string.dir/tasks/hasStringPairOfWordsWithIdenticalCharacters.c.obj || libs/algorithms/libalgorithms.a
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = libs\string\CMakeFiles\string.dir
   POST_BUILD = cd .

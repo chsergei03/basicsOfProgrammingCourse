@@ -9,6 +9,15 @@ int compare_ints(const void *a, const void *b) {
     return 0;
 }
 
+int compare_chars(const void *a, const void *b) {
+    char arg1 = *(const char *) a;
+    char arg2 = *(const char *) b;
+    if (arg1 < arg2) return -1;
+    if (arg1 > arg2) return 1;
+
+    return 0;
+}
+
 size_t min2_size_t(const size_t a, const size_t b) {
     return a < b ? a : b;
 }

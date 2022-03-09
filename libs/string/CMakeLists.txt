@@ -14,4 +14,7 @@ add_library(string
         tasks/getWordBeforeFirstWordWithA.c
         tasks/lastWordInFirstStringInSecondString.c
         tasks/hasStringIdenticalWords.c
+        tasks/hasStringPairOfWordsWithIdenticalCharacters.c
 )
+
+target_link_libraries(string algorithms)
