@@ -22,9 +22,7 @@ void complementS2(char *s1, char *s2) {
 
     size_t minSize = min2_size_t(bag1.size, bag2.size);
     size_t complementSize = minSize + abs_int(bag1.size - bag2.size);
-
     writePtr = getEndOfString(writePtr);
-
     for (size_t i = minSize; i < complementSize; i++) {
         if (i > 0) {
             *writePtr = SPACE_CHAR;

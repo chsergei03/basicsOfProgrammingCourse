@@ -8,7 +8,7 @@ void removeExtraSpaces(char *s) {
     char *lastNonSpace = findNonSpaceReverse(s + strlen_(s), s);
     char *substrBegin = s;
     size_t spaceSequenceLen = 0;
-    while (*substrBegin != '\0') {
+    while (*substrBegin != NULL_SYMBOL) {
         if (isspace(*substrBegin))
             spaceSequenceLen += substrBegin >= firstNonSpace &&
                                 substrBegin <= lastNonSpace;
@@ -23,5 +23,5 @@ void removeExtraSpaces(char *s) {
         substrBegin++;
     }
 
-    *s = '\0';
+    *s = NULL_SYMBOL;
 }

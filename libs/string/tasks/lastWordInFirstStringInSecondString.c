@@ -18,5 +18,6 @@ wordDescriptor lastWordInFirstStringInSecondString(char *s1, char *s2) {
     }
 
     wordDescriptor noWord = {"", ""};
+
     return noWord;
 }

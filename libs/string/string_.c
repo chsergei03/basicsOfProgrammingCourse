@@ -7,7 +7,7 @@
 
 size_t strlen_(const char *begin) {
     const char *end = begin;
-    while (*end != '\0') {
+    while (*end != NULL_SYMBOL) {
         end++;
     }
 
@@ -22,14 +22,14 @@ char *find(char *begin, const char *end, const int ch) {
 }
 
 char *findNonSpace(char *begin) {
-    while (*begin != '\0' && !isgraph(*begin))
+    while (*begin != NULL_SYMBOL && !isgraph(*begin))
         begin++;
 
     return begin;
 }
 
 char *findSpace(char *begin) {
-    while (*begin != '\0' && !isspace(*begin))
+    while (*begin != NULL_SYMBOL && !isspace(*begin))
         begin++;
 
     return begin;
@@ -50,7 +50,7 @@ char *findSpaceReverse(char *rbegin, const char *rend) {
 }
 
 int strcmp_(const char *lhs, const char *rhs) {
-    while (*lhs != '\0' && *lhs == *rhs) {
+    while (*lhs != NULL_SYMBOL && *lhs == *rhs) {
         lhs++;
         rhs++;
     }
@@ -143,6 +143,7 @@ int wordcmp_(wordDescriptor w1, wordDescriptor w2) {
         w1.begin++;
         w2.begin++;
     }
+
     return *w1.begin - *w2.begin;
 }
 
