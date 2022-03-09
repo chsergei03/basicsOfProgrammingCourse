@@ -19,6 +19,7 @@
 #include "libs/string/tasks/getStringFromWordsOfStringWhichAreNotEqualToLastWord.h"
 #include "libs/string/tasks/getWordBeforeFirstWWord.h"
 #include "libs/string/tasks/deleteWordsWhichAreEqualToLastWord.h"
+#include "libs/string/tasks/complementS2.h"
 
 #define ASSERT_STRING(expected, got) assertString(expected, got, __FILE__, __FUNCTION__, __LINE__)
 
@@ -1622,6 +1623,63 @@ void test_deleteWordsWhichAreEqualToLastWord() {
     test_deleteWordsWhichAreEqualToLastWord_fullString();
 }
 
+void test_complementS2_twoEmptyStrings() {
+    char s1[MAX_STRING_SIZE + 1] = "";
+    char s2[MAX_STRING_SIZE + 1] = "";
+    complementS2(s1, s2);
+    char expectedS[] = "";
+    ASSERT_STRING(expectedS, s1);
+}
+
+void test_complementS2_emptyS1AndNonEmptyS2() {
+    char s1[MAX_STRING_SIZE + 1] = "";
+    char s2[MAX_STRING_SIZE + 1] = " lab work";
+    complementS2(s1, s2);
+    char expectedS[] = "lab work";
+    ASSERT_STRING(expectedS, s1);
+}
+
+void test_complementS2_nonEmptyS1AndEmptyS2() {
+    char s1[MAX_STRING_SIZE + 1] = " escape key";
+    char s2[MAX_STRING_SIZE + 1] = "";
+    complementS2(s1, s2);
+    char expectedS[] = "escape key";
+    ASSERT_STRING(expectedS, s2);
+}
+
+void test_complementS2_twoNonEmptyStrings_equalN1AndN2() {
+    char s1[MAX_STRING_SIZE + 1] = " the flow vsrap";
+    char s2[MAX_STRING_SIZE + 1] = "wylsacom rozetked trashbox";
+    complementS2(s1, s2);
+    char expectedS[] = " the flow vsrap";
+    ASSERT_STRING(expectedS, s1);
+}
+
+void test_complementS2_twoNonEmptyStrings_n1MoreThanN2() {
+    char s1[MAX_STRING_SIZE + 1] = " spotify youtube apple music ";
+    char s2[MAX_STRING_SIZE + 1] = "yandex music";
+    complementS2(s1, s2);
+    char expectedS[] = "yandex music apple music";
+    ASSERT_STRING(expectedS, s2);
+}
+
+void test_complementS2_twoNonEmptyStrings_n1LessThanN2() {
+    char s1[MAX_STRING_SIZE + 1] = " material you";
+    char s2[MAX_STRING_SIZE + 1] = "   clock widget app";
+    complementS2(s1, s2);
+    char expectedS[] = " material you app";
+    ASSERT_STRING(expectedS, s1);
+}
+
+void test_complementS2() {
+    test_complementS2_twoEmptyStrings();
+    test_complementS2_emptyS1AndNonEmptyS2();
+    test_complementS2_nonEmptyS1AndEmptyS2();
+    test_complementS2_twoNonEmptyStrings_equalN1AndN2();
+    test_complementS2_twoNonEmptyStrings_n1MoreThanN2();
+    test_complementS2_twoNonEmptyStrings_n1LessThanN2();
+}
+
 void test_string_tasks() {
     test_removeNonLetters();
     test_removeExtraSpaces();
@@ -1642,6 +1700,7 @@ void test_string_tasks() {
     test_getStringFromWordsOfStringWhichIsNotEqualToLastWord();
     testAll_getWordBeforeFirstWWord();
     test_deleteWordsWhichAreEqualToLastWord();
+    test_complementS2();
 }
 
 int main() {
