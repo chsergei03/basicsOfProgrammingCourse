@@ -16,6 +16,7 @@
 #include "libs/string/tasks/lastWordInFirstStringInSecondString.h"
 #include "libs/string/tasks/hasStringIdenticalWords.h"
 #include "libs/string/tasks/hasStringPairOfWordsWithIdenticalCharacters.h"
+#include "libs/string/tasks/getStringFromWordsOfStringWhichAreNotEqualToLastWord.h"
 
 #define ASSERT_STRING(expected, got) assertString(expected, got, __FILE__, __FUNCTION__, __LINE__)
 
@@ -1492,6 +1493,49 @@ void test_hasStringPairOfWordsWithIdenticalCharacters() {
     test_hasStringPairOfWordsWithIdenticalCharacters_fullString_withoutRequestedWords();
 }
 
+void test_getStringFromWordsOfStringWhichIsNotEqualToLastWord_emptyString() {
+    char s[] = "";
+    getStringFromWordsOfStringWhichIsNotEqualToLastWord(s);
+    char expectedS[] = "";
+    ASSERT_STRING(expectedS, s);
+}
+
+void test_getStringFromWordsOfStringWhichIsNotEqualToLastWord_filledString_oneWord() {
+    char s[7] = "  jvc";
+    getStringFromWordsOfStringWhichIsNotEqualToLastWord(s);
+    char expectedS[] = "";
+    ASSERT_STRING(expectedS, s);
+}
+
+void test_getStringFromWordsOfStringWhichIsNotEqualToLastWord_filledString() {
+    char s[50] = " pulpy nectar home sweet home";
+    getStringFromWordsOfStringWhichIsNotEqualToLastWord(s);
+    char expectedS[] = "pulpy nectar sweet";
+    ASSERT_STRING(expectedS, s);
+}
+
+void test_getStringFromWordsOfStringWhichIsNotEqualToLastWord_fullString_oneWord() {
+    char s[] = " jbl";
+    getStringFromWordsOfStringWhichIsNotEqualToLastWord(s);
+    char expectedS[] = "";
+    ASSERT_STRING(expectedS, s);
+}
+
+void test_getStringFromWordsOfStringWhichIsNotEqualToLastWord_fullString() {
+    char s[] = " instagram like story tell story";
+    getStringFromWordsOfStringWhichIsNotEqualToLastWord(s);
+    char expectedS[] = "instagram like tell";
+    ASSERT_STRING(expectedS, s);
+}
+
+void test_getStringFromWordsOfStringWhichIsNotEqualToLastWord() {
+    test_getStringFromWordsOfStringWhichIsNotEqualToLastWord_emptyString();
+    test_getStringFromWordsOfStringWhichIsNotEqualToLastWord_filledString_oneWord();
+    test_getStringFromWordsOfStringWhichIsNotEqualToLastWord_filledString();
+    test_getStringFromWordsOfStringWhichIsNotEqualToLastWord_fullString_oneWord();
+    test_getStringFromWordsOfStringWhichIsNotEqualToLastWord_fullString();
+}
+
 void test_string_tasks() {
     test_removeNonLetters();
     test_removeExtraSpaces();
@@ -1509,6 +1553,7 @@ void test_string_tasks() {
     test_lastWordInFirstStringInSecondString();
     test_hasStringIdenticalWords();
     test_hasStringPairOfWordsWithIdenticalCharacters();
+    test_getStringFromWordsOfStringWhichIsNotEqualToLastWord();
 }
 
 int main() {
