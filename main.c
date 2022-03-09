@@ -17,6 +17,7 @@
 #include "libs/string/tasks/hasStringIdenticalWords.h"
 #include "libs/string/tasks/hasStringPairOfWordsWithIdenticalCharacters.h"
 #include "libs/string/tasks/getStringFromWordsOfStringWhichAreNotEqualToLastWord.h"
+#include "libs/string/tasks/getWordBeforeFirstWWord.h"
 
 #define ASSERT_STRING(expected, got) assertString(expected, got, __FILE__, __FUNCTION__, __LINE__)
 
@@ -1536,6 +1537,47 @@ void test_getStringFromWordsOfStringWhichIsNotEqualToLastWord() {
     test_getStringFromWordsOfStringWhichIsNotEqualToLastWord_fullString();
 }
 
+void testAll_getWordBeforeFirstWWord() {
+    char *beginWord, *endWord;
+
+    char s1a[] = "";
+    char s2a[] = "";
+    assert(getWordBeforeFirstWWord(s1a,
+                                   s2a,
+                                   &beginWord,
+                                   &endWord) == EMPTY_S1_STRING);
+
+    char s1b[] = "sony imx 586  ";
+    char s2b[] = "panasonic gh5 sony";
+    assert(getWordBeforeFirstWWord(s1b,
+                                   s2b,
+                                   &beginWord,
+                                   &endWord) == FIRST_WORD_W);
+
+
+    char s1c[] = " asus x55vd";
+    char s2c[] = " pixel x55vd 6 pro";
+    assert(getWordBeforeFirstWWord(s1c,
+                                   s2c,
+                                   &beginWord,
+                                   &endWord) == WORD_BEFORE_FIRST_W_FOUND);
+
+    char got[MAX_WORD_SIZE];
+
+    copy(beginWord, endWord, got);
+
+    got[endWord - beginWord] = NULL_SYMBOL;
+
+    ASSERT_STRING("asus", got);
+
+    char s1d[] = " do sports";
+    char s2d[] = "  simply clever";
+    assert(getWordBeforeFirstWWord(s1d,
+                                   s2d,
+                                   &beginWord,
+                                   &endWord) == NO_WORDS_FROM_S1_IN_S2);
+}
+
 void test_string_tasks() {
     test_removeNonLetters();
     test_removeExtraSpaces();
@@ -1554,6 +1596,7 @@ void test_string_tasks() {
     test_hasStringIdenticalWords();
     test_hasStringPairOfWordsWithIdenticalCharacters();
     test_getStringFromWordsOfStringWhichIsNotEqualToLastWord();
+    testAll_getWordBeforeFirstWWord();
 }
 
 int main() {

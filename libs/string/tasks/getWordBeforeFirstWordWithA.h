@@ -13,7 +13,7 @@ int isAFoundInWord(wordDescriptor word);
 // a, возвращает именованную константу NOT_FOUND_A_WORD_WITH_A, если слова
 // с буквой a не было найдено в строке, возвращает именованную константу
 // EMPTY_STRING, если строка пустая, возвращает именованную константу
-// EMPTY_STRING, если искомое слово было найдено.
+// WORD_FOUND, если искомое слово было найдено.
 wordBeforeFirstWordWithAReturnCode getWordBeforeFirstWordWithA(char *s,
                                                                char **beginWordBefore,
                                                                char **endWordBefore);
