@@ -14,6 +14,7 @@
 #include "libs/string/tasks/reverseWordOrderInString.h"
 #include "libs/string/tasks/getWordBeforeFirstWordWithA.h"
 #include "libs/string/tasks/lastWordInFirstStringInSecondString.h"
+#include "libs/string/tasks/hasStringIdenticalWords.h"
 
 #define ASSERT_STRING(expected, got) assertString(expected, got, __FILE__, __FUNCTION__, __LINE__)
 
@@ -1386,6 +1387,58 @@ void test_lastWordInFirstStringInSecondString() {
     test_lastWordInFirstStringInSecondString_twoNonEmptyStrings_3();
 }
 
+void test_hasStringIdenticalWords_emptyString() {
+    char s[] = "";
+    int areIdenticalWordsInString = hasStringIdenticalWords(s);
+    assert(!areIdenticalWordsInString);
+}
+
+void test_hasStringIdenticalWords_filledString_oneWord() {
+    char s[10] = "display";
+    int areIdenticalWordsInString = hasStringIdenticalWords(s);
+    assert(!areIdenticalWordsInString);
+}
+
+void test_hasStringIdenticalWords_filledString_withIdenticalWords() {
+    char s[50] = "pen pineapple pen apple pen";
+    int areIdenticalWordsInString = hasStringIdenticalWords(s);
+    assert(areIdenticalWordsInString);
+}
+
+void test_hasStringIdenticalWords_filledString_withoutIdenticalWords() {
+    char s[50] = "London is the capital of Great Britain.";
+    int areIdenticalWordsInString = hasStringIdenticalWords(s);
+    assert(!areIdenticalWordsInString);
+}
+
+void test_hasStringIdenticalWords_fullString_oneWord() {
+    char s[] = " MacStudio   ";
+    int areIdenticalWordsInString = hasStringIdenticalWords(s);
+    assert(!areIdenticalWordsInString);
+}
+
+void test_hasStringIdenticalWords_fullString_withIdenticalWords() {
+    char s[] = " write code, test, commit, write code again";
+    int areIdenticalWordsInString = hasStringIdenticalWords(s);
+    assert(areIdenticalWordsInString);
+}
+
+void test_hasStringIdenticalWords_fullString_withoutIdenticalWords() {
+    char s[] = "London is the capital of Great Britain.";
+    int areIdenticalWordsInString = hasStringIdenticalWords(s);
+    assert(!areIdenticalWordsInString);
+}
+
+void test_hasStringIdenticalWords() {
+    test_hasStringIdenticalWords_emptyString();
+    test_hasStringIdenticalWords_filledString_oneWord();
+    test_hasStringIdenticalWords_filledString_withIdenticalWords();
+    test_hasStringIdenticalWords_filledString_withoutIdenticalWords();
+    test_hasStringIdenticalWords_fullString_oneWord();
+    test_hasStringIdenticalWords_fullString_withIdenticalWords();
+    test_hasStringIdenticalWords_fullString_withoutIdenticalWords();
+}
+
 void test_string_tasks() {
     test_removeNonLetters();
     test_removeExtraSpaces();
@@ -1401,6 +1454,7 @@ void test_string_tasks() {
     test_reverseWordOrderInString();
     testAll_getWordBeforeFirstWordWithA();
     test_lastWordInFirstStringInSecondString();
+    test_hasStringIdenticalWords();
 }
 
 int main() {

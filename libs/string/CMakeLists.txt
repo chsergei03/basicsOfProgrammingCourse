@@ -13,4 +13,5 @@ add_library(string
         tasks/reverseWordOrderInString.c
         tasks/getWordBeforeFirstWordWithA.c
         tasks/lastWordInFirstStringInSecondString.c
+        tasks/hasStringIdenticalWords.c
 )
