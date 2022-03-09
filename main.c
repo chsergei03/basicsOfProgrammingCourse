@@ -18,6 +18,7 @@
 #include "libs/string/tasks/hasStringPairOfWordsWithIdenticalCharacters.h"
 #include "libs/string/tasks/getStringFromWordsOfStringWhichAreNotEqualToLastWord.h"
 #include "libs/string/tasks/getWordBeforeFirstWWord.h"
+#include "libs/string/tasks/deleteWordsWhichAreEqualToLastWord.h"
 
 #define ASSERT_STRING(expected, got) assertString(expected, got, __FILE__, __FUNCTION__, __LINE__)
 
@@ -1578,6 +1579,49 @@ void testAll_getWordBeforeFirstWWord() {
                                    &endWord) == NO_WORDS_FROM_S1_IN_S2);
 }
 
+void test_deleteWordsWhichAreEqualToLastWord_emptyString() {
+    char s[] = "";
+    deleteWordsWhichAreEqualToLastWord(s);
+    char expectedS[] = "";
+    ASSERT_STRING(expectedS, s);
+}
+
+void test_deleteWordsWhichAreEqualToLastWord_filledString_oneWord() {
+    char s[15] = " smartphone ";
+    deleteWordsWhichAreEqualToLastWord(s);
+    char expectedS[] = " ";
+    ASSERT_STRING(expectedS, s);
+}
+
+void test_deleteWordsWhichAreEqualToLastWord_filledString() {
+    char s[50] = "thirty seconds to Mars go to Mars";
+    deleteWordsWhichAreEqualToLastWord(s);
+    char expectedS[] = "thirty seconds to  go to ";
+    ASSERT_STRING(expectedS, s);
+}
+
+void test_deleteWordsWhichAreEqualToLastWord_fullString_oneWord() {
+    char s[] = " asus";
+    deleteWordsWhichAreEqualToLastWord(s);
+    char expectedS[] = " ";
+    ASSERT_STRING(expectedS, s);
+}
+
+void test_deleteWordsWhichAreEqualToLastWord_fullString() {
+    char s[] = "  dream hyperdrive life futura dream";
+    deleteWordsWhichAreEqualToLastWord(s);
+    char expectedS[] = "   hyperdrive life futura ";
+    ASSERT_STRING(expectedS, s);
+}
+
+void test_deleteWordsWhichAreEqualToLastWord() {
+    test_deleteWordsWhichAreEqualToLastWord_emptyString();
+    test_deleteWordsWhichAreEqualToLastWord_filledString_oneWord();
+    test_deleteWordsWhichAreEqualToLastWord_filledString();
+    test_deleteWordsWhichAreEqualToLastWord_fullString_oneWord();
+    test_deleteWordsWhichAreEqualToLastWord_fullString();
+}
+
 void test_string_tasks() {
     test_removeNonLetters();
     test_removeExtraSpaces();
@@ -1597,6 +1641,7 @@ void test_string_tasks() {
     test_hasStringPairOfWordsWithIdenticalCharacters();
     test_getStringFromWordsOfStringWhichIsNotEqualToLastWord();
     testAll_getWordBeforeFirstWWord();
+    test_deleteWordsWhichAreEqualToLastWord();
 }
 
 int main() {
