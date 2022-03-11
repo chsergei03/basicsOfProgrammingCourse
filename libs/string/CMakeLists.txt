@@ -20,6 +20,8 @@ add_library(string
         tasks/deleteWordsWhichAreEqualToLastWord.c
         tasks/complementS2.c
         tasks/hasStringEveryCharOfWord.c
+
+        tests/test_string.c
 )
 
 target_link_libraries(string algorithms)
