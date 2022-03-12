@@ -58,7 +58,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 #############################################
 # Order-only phony target for course
 
-build cmake_object_order_depends_target_course: phony || cmake_object_order_depends_target_algorithms cmake_object_order_depends_target_data_structures cmake_object_order_depends_target_string
+build cmake_object_order_depends_target_course: phony || cmake_object_order_depends_target_algorithms cmake_object_order_depends_target_data_structures cmake_object_order_depends_target_sorting_time_complexity cmake_object_order_depends_target_string
 
 build CMakeFiles/course.dir/main.c.obj: C_COMPILER__course_Debug D$:/university/op/course/main.c || cmake_object_order_depends_target_course
   DEP_FILE = CMakeFiles\course.dir\main.c.obj.d
@@ -74,9 +74,9 @@ build CMakeFiles/course.dir/main.c.obj: C_COMPILER__course_Debug D$:/university/
 #############################################
 # Link the executable course.exe
 
-build course.exe: C_EXECUTABLE_LINKER__course_Debug CMakeFiles/course.dir/main.c.obj | libs/data_structures/libdata_structures.a libs/algorithms/libalgorithms.a libs/string/libstring.a libs/algorithms/libalgorithms.a || libs/algorithms/libalgorithms.a libs/data_structures/libdata_structures.a libs/string/libstring.a
+build course.exe: C_EXECUTABLE_LINKER__course_Debug CMakeFiles/course.dir/main.c.obj | libs/data_structures/libdata_structures.a libs/algorithms/libalgorithms.a libs/string/libstring.a libs/sorting_time_complexity/libsorting_time_complexity.a libs/algorithms/libalgorithms.a || libs/algorithms/libalgorithms.a libs/data_structures/libdata_structures.a libs/sorting_time_complexity/libsorting_time_complexity.a libs/string/libstring.a
   FLAGS = -g
-  LINK_LIBRARIES = libs/data_structures/libdata_structures.a  libs/algorithms/libalgorithms.a  libs/string/libstring.a  libs/algorithms/libalgorithms.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = libs/data_structures/libdata_structures.a  libs/algorithms/libalgorithms.a  libs/string/libstring.a  libs/sorting_time_complexity/libsorting_time_complexity.a  libs/algorithms/libalgorithms.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\course.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
@@ -488,6 +488,71 @@ build libs/string/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 build libs/string/rebuild_cache: phony libs/string/CMakeFiles/rebuild_cache.util
 
 # =============================================================================
+# Write statements declared in CMakeLists.txt:
+# D:/university/op/course/libs/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target sorting_time_complexity
+
+
+#############################################
+# Order-only phony target for sorting_time_complexity
+
+build cmake_object_order_depends_target_sorting_time_complexity: phony || libs/sorting_time_complexity/CMakeFiles/sorting_time_complexity.dir
+
+build libs/sorting_time_complexity/CMakeFiles/sorting_time_complexity.dir/sorting_time_complexity.c.obj: C_COMPILER__sorting_time_complexity_Debug D$:/university/op/course/libs/sorting_time_complexity/sorting_time_complexity.c || cmake_object_order_depends_target_sorting_time_complexity
+  DEP_FILE = libs\sorting_time_complexity\CMakeFiles\sorting_time_complexity.dir\sorting_time_complexity.c.obj.d
+  FLAGS = -g -std=gnu11
+  OBJECT_DIR = libs\sorting_time_complexity\CMakeFiles\sorting_time_complexity.dir
+  OBJECT_FILE_DIR = libs\sorting_time_complexity\CMakeFiles\sorting_time_complexity.dir
+
+build libs/sorting_time_complexity/CMakeFiles/sorting_time_complexity.dir/array_generators/array_generators.c.obj: C_COMPILER__sorting_time_complexity_Debug D$:/university/op/course/libs/sorting_time_complexity/array_generators/array_generators.c || cmake_object_order_depends_target_sorting_time_complexity
+  DEP_FILE = libs\sorting_time_complexity\CMakeFiles\sorting_time_complexity.dir\array_generators\array_generators.c.obj.d
+  FLAGS = -g -std=gnu11
+  OBJECT_DIR = libs\sorting_time_complexity\CMakeFiles\sorting_time_complexity.dir
+  OBJECT_FILE_DIR = libs\sorting_time_complexity\CMakeFiles\sorting_time_complexity.dir\array_generators
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target sorting_time_complexity
+
+
+#############################################
+# Link the static library libs\sorting_time_complexity\libsorting_time_complexity.a
+
+build libs/sorting_time_complexity/libsorting_time_complexity.a: C_STATIC_LIBRARY_LINKER__sorting_time_complexity_Debug libs/sorting_time_complexity/CMakeFiles/sorting_time_complexity.dir/sorting_time_complexity.c.obj libs/sorting_time_complexity/CMakeFiles/sorting_time_complexity.dir/array_generators/array_generators.c.obj
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = libs\sorting_time_complexity\CMakeFiles\sorting_time_complexity.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = libs\sorting_time_complexity\libsorting_time_complexity.a
+  TARGET_PDB = sorting_time_complexity.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build libs/sorting_time_complexity/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\university\op\course\cmake-build-debug\libs\sorting_time_complexity && C:\Users\grsy\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\213.5744.254\bin\cmake\win\bin\cmake.exe -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build libs/sorting_time_complexity/edit_cache: phony libs/sorting_time_complexity/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build libs/sorting_time_complexity/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\university\op\course\cmake-build-debug\libs\sorting_time_complexity && C:\Users\grsy\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\213.5744.254\bin\cmake\win\bin\cmake.exe --regenerate-during-build -SD:\university\op\course -BD:\university\op\course\cmake-build-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build libs/sorting_time_complexity/rebuild_cache: phony libs/sorting_time_complexity/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
 # Target aliases.
 
 build algorithms: phony libs/algorithms/libalgorithms.a
@@ -500,7 +565,11 @@ build libalgorithms.a: phony libs/algorithms/libalgorithms.a
 
 build libdata_structures.a: phony libs/data_structures/libdata_structures.a
 
+build libsorting_time_complexity.a: phony libs/sorting_time_complexity/libsorting_time_complexity.a
+
 build libstring.a: phony libs/string/libstring.a
+
+build sorting_time_complexity: phony libs/sorting_time_complexity/libsorting_time_complexity.a
 
 build string: phony libs/string/libstring.a
 
@@ -519,7 +588,7 @@ build all: phony course.exe libs/all
 #############################################
 # Folder: D:/university/op/course/cmake-build-debug/libs
 
-build libs/all: phony libs/algorithms/all libs/data_structures/all libs/string/all
+build libs/all: phony libs/algorithms/all libs/data_structures/all libs/string/all libs/sorting_time_complexity/all
 
 # =============================================================================
 
@@ -538,6 +607,13 @@ build libs/data_structures/all: phony libs/data_structures/libdata_structures.a
 # =============================================================================
 
 #############################################
+# Folder: D:/university/op/course/cmake-build-debug/libs/sorting_time_complexity
+
+build libs/sorting_time_complexity/all: phony libs/sorting_time_complexity/libsorting_time_complexity.a
+
+# =============================================================================
+
+#############################################
 # Folder: D:/university/op/course/cmake-build-debug/libs/string
 
 build libs/string/all: phony libs/string/libstring.a
@@ -549,14 +625,14 @@ build libs/string/all: phony libs/string/libstring.a
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | ../CMakeLists.txt ../libs/CMakeLists.txt ../libs/algorithms/CMakeLists.txt ../libs/data_structures/CMakeLists.txt ../libs/string/CMakeLists.txt C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeCInformation.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeCommonLanguageInclude.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeGenericSystem.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeInitializeConfigs.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeLanguageInformation.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeRCInformation.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeSystemSpecificInformation.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeSystemSpecificInitialize.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU-C.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-C.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-windres.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/WindowsPaths.cmake CMakeCache.txt CMakeFiles/3.21.1/CMakeCCompiler.cmake CMakeFiles/3.21.1/CMakeRCCompiler.cmake CMakeFiles/3.21.1/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | ../CMakeLists.txt ../libs/CMakeLists.txt ../libs/algorithms/CMakeLists.txt ../libs/data_structures/CMakeLists.txt ../libs/sorting_time_complexity/CMakeLists.txt ../libs/string/CMakeLists.txt C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeCInformation.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeCommonLanguageInclude.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeGenericSystem.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeInitializeConfigs.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeLanguageInformation.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeRCInformation.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeSystemSpecificInformation.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeSystemSpecificInitialize.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU-C.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-C.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-windres.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/WindowsPaths.cmake CMakeCache.txt CMakeFiles/3.21.1/CMakeCCompiler.cmake CMakeFiles/3.21.1/CMakeRCCompiler.cmake CMakeFiles/3.21.1/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build ../CMakeLists.txt ../libs/CMakeLists.txt ../libs/algorithms/CMakeLists.txt ../libs/data_structures/CMakeLists.txt ../libs/string/CMakeLists.txt C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeCInformation.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeCommonLanguageInclude.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeGenericSystem.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeInitializeConfigs.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeLanguageInformation.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeRCInformation.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeSystemSpecificInformation.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeSystemSpecificInitialize.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU-C.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-C.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-windres.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/WindowsPaths.cmake CMakeCache.txt CMakeFiles/3.21.1/CMakeCCompiler.cmake CMakeFiles/3.21.1/CMakeRCCompiler.cmake CMakeFiles/3.21.1/CMakeSystem.cmake: phony
+build ../CMakeLists.txt ../libs/CMakeLists.txt ../libs/algorithms/CMakeLists.txt ../libs/data_structures/CMakeLists.txt ../libs/sorting_time_complexity/CMakeLists.txt ../libs/string/CMakeLists.txt C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeCInformation.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeCommonLanguageInclude.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeGenericSystem.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeInitializeConfigs.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeLanguageInformation.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeRCInformation.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeSystemSpecificInformation.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeSystemSpecificInitialize.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU-C.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-C.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-windres.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/WindowsPaths.cmake CMakeCache.txt CMakeFiles/3.21.1/CMakeCCompiler.cmake CMakeFiles/3.21.1/CMakeRCCompiler.cmake CMakeFiles/3.21.1/CMakeSystem.cmake: phony
 
 
 #############################################

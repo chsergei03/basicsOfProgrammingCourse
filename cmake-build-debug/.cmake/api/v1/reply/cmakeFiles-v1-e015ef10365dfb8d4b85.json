@@ -112,6 +112,9 @@
 		},
 		{
 			"path" : "libs/string/CMakeLists.txt"
+		},
+		{
+			"path" : "libs/sorting_time_complexity/CMakeLists.txt"
 		}
 	],
 	"kind" : "cmakeFiles",

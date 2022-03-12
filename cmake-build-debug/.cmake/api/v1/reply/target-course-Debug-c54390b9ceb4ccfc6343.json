@@ -48,6 +48,12 @@
 				"file" : 0,
 				"line" : 12,
 				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 13,
+				"parent" : 0
 			}
 		]
 	},
@@ -91,6 +97,10 @@
 		{
 			"backtrace" : 4,
 			"id" : "string::@3f2b1fb9d1440f41f43e"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "sorting_time_complexity::@5c69a530e9579a7284f0"
 		}
 	],
 	"id" : "course::@6890427a1f51a3e7e1df",
@@ -119,6 +129,11 @@
 			{
 				"backtrace" : 4,
 				"fragment" : "libs\\string\\libstring.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "libs\\sorting_time_complexity\\libsorting_time_complexity.a",
 				"role" : "libraries"
 			},
 			{

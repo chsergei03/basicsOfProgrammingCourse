@@ -12,3 +12,6 @@ D:/university/op/course/cmake-build-debug/libs/data_structures/CMakeFiles/rebuil
 D:/university/op/course/cmake-build-debug/libs/string/CMakeFiles/edit_cache.dir
 D:/university/op/course/cmake-build-debug/libs/string/CMakeFiles/string.dir
 D:/university/op/course/cmake-build-debug/libs/string/CMakeFiles/rebuild_cache.dir
+D:/university/op/course/cmake-build-debug/libs/sorting_time_complexity/CMakeFiles/sorting_time_complexity.dir
+D:/university/op/course/cmake-build-debug/libs/sorting_time_complexity/CMakeFiles/edit_cache.dir
+D:/university/op/course/cmake-build-debug/libs/sorting_time_complexity/CMakeFiles/rebuild_cache.dir

@@ -96,6 +96,25 @@ rule C_STATIC_LIBRARY_LINKER__string_Debug
 
 
 #############################################
+# Rule for compiling C files.
+
+rule C_COMPILER__sorting_time_complexity_Debug
+  depfile = $DEP_FILE
+  deps = gcc
+  command = C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+  description = Building C object $out
+
+
+#############################################
+# Rule for linking C static library.
+
+rule C_STATIC_LIBRARY_LINKER__sorting_time_complexity_Debug
+  command = cmd.exe /C "$PRE_LINK && C:\Users\grsy\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\213.5744.254\bin\cmake\win\bin\cmake.exe -E rm -f $TARGET_FILE && C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\ar.exe qc $TARGET_FILE $LINK_FLAGS $in && C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\ranlib.exe $TARGET_FILE && $POST_BUILD"
+  description = Linking C static library $TARGET_FILE
+  restat = $RESTAT
+
+
+#############################################
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
