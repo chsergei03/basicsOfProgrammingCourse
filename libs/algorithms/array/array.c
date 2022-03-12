@@ -179,6 +179,20 @@ long long getSum_(const int *const a,
     return sum;
 }
 
+size_t getMinPos_int_(const int *const a,
+                      const size_t n,
+                      const size_t pos) {
+    int min = a[pos];
+    size_t minPos = pos;
+    for (size_t i = pos; i < n; i++)
+        if (a[i] < min) {
+            min = a[i];
+            minPos = i;
+        }
+
+    return minPos;
+}
+
 size_t getMinPos_longLong_(const long long *const a,
                            const size_t n,
                            const size_t pos) {

@@ -79,6 +79,10 @@ long long getSum_(const int *a, size_t n);
 // long long в области, начинающейся с позиции pos.
 size_t getMinPos_longLong_(const long long *a, size_t n, size_t pos);
 
+// возвращает позицию минимального элемента массива a размера n типа
+// int в области, начинающейся с позиции pos.
+size_t getMinPos_int_(const int *a, size_t n, size_t pos);
+
 // возвращает максимальный элемент
 // массива a размера n типа int.
 int getMax_(const int *a, size_t n);
