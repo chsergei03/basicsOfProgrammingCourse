@@ -130,14 +130,14 @@
 				{
 					"directoryIndex" : 2,
 					"id" : "algorithms::@4f84be16bc75261b2db5",
-					"jsonFile" : "target-algorithms-Debug-d33870f0fbf058ffaaa4.json",
+					"jsonFile" : "target-algorithms-Debug-264252bc5ef202eec764.json",
 					"name" : "algorithms",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "course::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-course-Debug-c54390b9ceb4ccfc6343.json",
+					"jsonFile" : "target-course-Debug-54a61c247dc0b9fa8894.json",
 					"name" : "course",
 					"projectIndex" : 0
 				},

@@ -114,4 +114,9 @@ bool isNonDescendingSortedArray_(const int *a, size_t n);
 // в массиве a размера n типа int.
 int countValues_(const int *a, size_t n, int value);
 
+// возвращает значение 'истина', если массив a1 размера n1 типа int
+// и массив a2 размера n2 равны, в противном случае - 'ложь'.
+bool areEqualArrays_(const int *const a1, const size_t n1,
+                     const int *const a2, const size_t n2);
+
 #endif

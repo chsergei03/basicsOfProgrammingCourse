@@ -14,6 +14,7 @@
 		"commands" : 
 		[
 			"add_executable",
+			"add_subdirectory",
 			"target_link_libraries"
 		],
 		"files" : 
@@ -34,23 +35,23 @@
 			{
 				"command" : 1,
 				"file" : 0,
+				"line" : 8,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
 				"line" : 10,
 				"parent" : 0
 			},
 			{
-				"command" : 1,
-				"file" : 0,
-				"line" : 11,
-				"parent" : 0
-			},
-			{
-				"command" : 1,
+				"command" : 2,
 				"file" : 0,
 				"line" : 12,
 				"parent" : 0
 			},
 			{
-				"command" : 1,
+				"command" : 2,
 				"file" : 0,
 				"line" : 13,
 				"parent" : 0
@@ -87,11 +88,11 @@
 	"dependencies" : 
 	[
 		{
-			"backtrace" : 3,
+			"backtrace" : 2,
 			"id" : "algorithms::@4f84be16bc75261b2db5"
 		},
 		{
-			"backtrace" : 2,
+			"backtrace" : 3,
 			"id" : "data_structures::@396ab3a44f37844d7cdb"
 		},
 		{
@@ -118,11 +119,16 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "libs\\data_structures\\libdata_structures.a",
+				"fragment" : "libs\\algorithms\\libalgorithms.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
+				"fragment" : "libs\\data_structures\\libdata_structures.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
 				"fragment" : "libs\\algorithms\\libalgorithms.a",
 				"role" : "libraries"
 			},
@@ -137,7 +143,7 @@
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 3,
+				"backtrace" : 2,
 				"fragment" : "libs\\algorithms\\libalgorithms.a",
 				"role" : "libraries"
 			},

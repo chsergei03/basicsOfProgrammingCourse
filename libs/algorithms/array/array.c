@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include <limits.h>
+#include <memory.h>
 
 #include "array.h"
 
@@ -268,4 +269,12 @@ int countValues_(const int *const a,
         count += a[i] == value;
 
     return count;
+}
+
+bool areEqualArrays_(const int *const a1, const size_t n1,
+                     const int *const a2, const size_t n2) {
+    if (n1 != n2)
+        return false;
+
+    return memcmp(a1, a2, n1 * sizeof(int)) == 0;
 }
