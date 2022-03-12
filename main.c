@@ -4,6 +4,7 @@
 #include "libs/sorting_time_complexity/array_generators/array_generators.h"
 #include "libs/algorithms/array_sortings/bubble_sort.h"
 #include "libs/algorithms/array_sortings/selection_sort.h"
+#include "libs/algorithms/array_sortings/insertionSort.h"
 
 void test_bubbleSort_arrayWithOneElement() {
     int a[] = {19};
@@ -135,9 +136,75 @@ void test_selectionSort() {
     test_selectionSort_orderedBackwardsArray_withoutRepeatedValues();
 }
 
+void test_insertionSort_arrayWithOneElement() {
+    int a[] = {1};
+    size_t n = 1;
+    insertionSort(a, n);
+    int expectedA[] = {1};
+    size_t expectedN = n;
+    assert(areEqualArrays_(a, n, expectedA, expectedN));
+}
+
+void test_insertionSort_unorderedArray() {
+    int a[] = {5, 15, 2, -6, 0, 89};
+    size_t n = 6;
+    insertionSort(a, n);
+    int expectedA[] = {-6, 0, 2, 5, 15, 89};
+    size_t expectedN = n;
+    assert(areEqualArrays_(a, n, expectedA, expectedN));
+}
+
+void test_insertionSort_orderedArray_withRepeatedValues() {
+    int a[] = {10, 12, 12, 20, 30};
+    size_t n = 5;
+    insertionSort(a, n);
+    int expectedA[] = {10, 12, 12, 20, 30};
+    size_t expectedN = n;
+    assert(areEqualArrays_(a, n, expectedA, expectedN));
+}
+
+void test_insertionSort_orderedArray_withoutRepeatedValues() {
+    int a[6] = {};
+    size_t n = 6;
+    generateOrderedArray(a, n);
+    insertionSort(a, n);
+    int expectedA[] = {0, 1, 2, 3, 4, 5};
+    size_t expectedN = n;
+    assert(areEqualArrays_(a, n, expectedA, expectedN));
+}
+
+void test_insertionSort_orderedBackwardsArray_withRepeatedValues() {
+    int a[] = {1};
+    size_t n = 1;
+    insertionSort(a, n);
+    int expectedA[] = {1};
+    size_t expectedN = n;
+    assert(areEqualArrays_(a, n, expectedA, expectedN));
+}
+
+void test_insertionSort_orderedBackwardsArray_withoutRepeatedValues() {
+    int a[3] = {};
+    size_t n = 3;
+    generateOrderedArray(a, n);
+    insertionSort(a, n);
+    int expectedA[] = {0, 1, 2};
+    size_t expectedN = n;
+    assert(areEqualArrays_(a, n, expectedA, expectedN));
+}
+
+void test_insertionSort() {
+    test_insertionSort_arrayWithOneElement();
+    test_insertionSort_unorderedArray();
+    test_insertionSort_orderedArray_withRepeatedValues();
+    test_insertionSort_orderedArray_withoutRepeatedValues();
+    test_insertionSort_orderedBackwardsArray_withRepeatedValues();
+    test_insertionSort_orderedBackwardsArray_withoutRepeatedValues();
+}
+
 void test_array_sortings() {
     test_bubbleSort();
     test_selectionSort();
+    test_insertionSort();
 }
 
 int main() {
