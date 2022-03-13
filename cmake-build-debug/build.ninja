@@ -168,6 +168,12 @@ build libs/algorithms/CMakeFiles/algorithms.dir/array_sortings/insertionSort.c.o
   OBJECT_DIR = libs\algorithms\CMakeFiles\algorithms.dir
   OBJECT_FILE_DIR = libs\algorithms\CMakeFiles\algorithms.dir\array_sortings
 
+build libs/algorithms/CMakeFiles/algorithms.dir/array_sortings/combSort.c.obj: C_COMPILER__algorithms_Debug D$:/university/op/course/libs/algorithms/array_sortings/combSort.c || cmake_object_order_depends_target_algorithms
+  DEP_FILE = libs\algorithms\CMakeFiles\algorithms.dir\array_sortings\combSort.c.obj.d
+  FLAGS = -g -std=gnu11
+  OBJECT_DIR = libs\algorithms\CMakeFiles\algorithms.dir
+  OBJECT_FILE_DIR = libs\algorithms\CMakeFiles\algorithms.dir\array_sortings
+
 
 # =============================================================================
 # Link build statements for STATIC_LIBRARY target algorithms
@@ -176,7 +182,7 @@ build libs/algorithms/CMakeFiles/algorithms.dir/array_sortings/insertionSort.c.o
 #############################################
 # Link the static library libs\algorithms\libalgorithms.a
 
-build libs/algorithms/libalgorithms.a: C_STATIC_LIBRARY_LINKER__algorithms_Debug libs/algorithms/CMakeFiles/algorithms.dir/algorithm.c.obj libs/algorithms/CMakeFiles/algorithms.dir/array/array.c.obj libs/algorithms/CMakeFiles/algorithms.dir/array_sortings/bubble_sort.c.obj libs/algorithms/CMakeFiles/algorithms.dir/array_sortings/selection_sort.c.obj libs/algorithms/CMakeFiles/algorithms.dir/array_sortings/insertionSort.c.obj
+build libs/algorithms/libalgorithms.a: C_STATIC_LIBRARY_LINKER__algorithms_Debug libs/algorithms/CMakeFiles/algorithms.dir/algorithm.c.obj libs/algorithms/CMakeFiles/algorithms.dir/array/array.c.obj libs/algorithms/CMakeFiles/algorithms.dir/array_sortings/bubble_sort.c.obj libs/algorithms/CMakeFiles/algorithms.dir/array_sortings/selection_sort.c.obj libs/algorithms/CMakeFiles/algorithms.dir/array_sortings/insertionSort.c.obj libs/algorithms/CMakeFiles/algorithms.dir/array_sortings/combSort.c.obj
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = libs\algorithms\CMakeFiles\algorithms.dir
   POST_BUILD = cd .
