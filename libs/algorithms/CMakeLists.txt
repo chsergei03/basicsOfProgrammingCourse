@@ -7,4 +7,5 @@ add_library(algorithms
         array_sortings/selection_sort.c
         array_sortings/insertionSort.c
         array_sortings/combSort.c
+        array_sortings/shellSort.c
 )

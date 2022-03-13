@@ -6,6 +6,7 @@
 #include "libs/algorithms/array_sortings/selection_sort.h"
 #include "libs/algorithms/array_sortings/insertionSort.h"
 #include "libs/algorithms/array_sortings/combSort.h"
+#include "libs/algorithms/array_sortings/shellSort.h"
 
 void test_bubbleSort_arrayWithOneElement() {
     int a[] = {19};
@@ -212,10 +213,10 @@ void test_combSort_arrayWithOneElement() {
 }
 
 void test_combSort_unorderedArray() {
-    int a[] = {123, -94, 6, 738, 1021, -350, 2, 7};
-    size_t n = 8;
+    int a[] = {1021, 123, -94, 6, 738, 1021, -350, 2, 7};
+    size_t n = 9;
     combSort(a, n);
-    int expectedA[] = {-350, -94, 2, 6, 7, 123, 738, 1021};
+    int expectedA[] = {-350, -94, 2, 6, 7, 123, 738, 1021, 1021};
     size_t expectedN = n;
     assert(areEqualArrays_(a, n, expectedA, expectedN));
 }
@@ -267,11 +268,77 @@ void test_combSort() {
     test_combSort_orderedBackwardsArray_withoutRepeatedValues();
 }
 
+void test_shellSort_arrayWithOneElement() {
+    int a[] = {5};
+    size_t n = 1;
+    shellSort(a, n);
+    int expectedA[] = {5};
+    size_t expectedN = n;
+    assert(areEqualArrays_(a, n, expectedA, expectedN));
+}
+
+void test_shellSort_unorderedArray() {
+    int a[] = {163, 5, 2, -17, -17, 81, -4};
+    size_t n = 7;
+    shellSort(a, n);
+    int expectedA[] = {-17, -17, -4, 2, 5, 81, 163};
+    size_t expectedN = n;
+    assert(areEqualArrays_(a, n, expectedA, expectedN));
+}
+
+void test_shellSort_orderedArray_withRepeatedValues() {
+    int a[] = {0, 0, 2, 5, 7, 8, 8};
+    size_t n = 7;
+    shellSort(a, n);
+    int expectedA[] = {0, 0, 2, 5, 7, 8, 8};
+    size_t expectedN = n;
+    assert(areEqualArrays_(a, n, expectedA, expectedN));
+}
+
+void test_shellSort_orderedArray_withoutRepeatedValues() {
+    int a[6] = {};
+    size_t n = 6;
+    generateOrderedArray(a, n);
+    shellSort(a, n);
+    int expectedA[] = {0, 1, 2, 3, 4, 5};
+    size_t expectedN = n;
+    assert(areEqualArrays_(a, n, expectedA, expectedN));
+}
+
+void test_shellSort_orderedBackwardsArray_withRepeatedValues() {
+    int a[] = {56, 50, 50, 9, 9, -4};
+    size_t n = 6;
+    shellSort(a, n);
+    int expectedA[] = {-4, 9, 9, 50, 50, 56};
+    size_t expectedN = n;
+    assert(areEqualArrays_(a, n, expectedA, expectedN));
+}
+
+void test_shellSort_orderedBackwardsArray_withoutRepeatedValues() {
+    int a[10] = {};
+    size_t n = 10;
+    generateOrderedBackwardsArray(a, n);
+    shellSort(a, n);
+    int expectedA[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+    size_t expectedN = n;
+    assert(areEqualArrays_(a, n, expectedA, expectedN));
+}
+
+void test_shellSort() {
+    test_shellSort_arrayWithOneElement();
+    test_shellSort_unorderedArray();
+    test_shellSort_orderedArray_withRepeatedValues();
+    test_shellSort_orderedArray_withoutRepeatedValues();
+    test_shellSort_orderedBackwardsArray_withRepeatedValues();
+    test_shellSort_orderedBackwardsArray_withoutRepeatedValues();
+}
+
 void test_array_sortings() {
     test_bubbleSort();
     test_selectionSort();
     test_insertionSort();
     test_combSort();
+    test_shellSort();
 }
 
 int main() {
