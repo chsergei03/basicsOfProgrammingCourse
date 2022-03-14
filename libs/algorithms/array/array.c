@@ -292,3 +292,11 @@ bool areEqualArrays_(const int *const a1, const size_t n1,
 
     return memcmp(a1, a2, n1 * sizeof(int)) == 0;
 }
+
+bool hasArrayPositiveElement_(const int *const a, const size_t n) {
+    for (size_t i = 0; i < n; i++)
+        if (a[i] > 0)
+            return true;
+
+    return false;
+}

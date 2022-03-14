@@ -94,10 +94,8 @@ int getMin_(const int *a, size_t n);
 // возвращает позицию первого вхождения элемента x в массиве
 // a размера n типа long long в области, начинающейся с позиции
 // pos при его наличии, иначе - n.
-size_t linearSearchFromPos_longLong_(const long long *a,
-                                     size_t n,
-                                     size_t pos,
-                                     long long x);
+size_t linearSearchFromPos_longLong_(const long long *a, size_t n,
+                                     size_t pos, long long x);
 
 // возвращает значение 'истина', если массив
 // a размера n типа long long состоит только
@@ -122,5 +120,9 @@ int countValues_(const int *a, size_t n, int value);
 // и массив a2 размера n2 равны, в противном случае - 'ложь'.
 bool areEqualArrays_(const int *const a1, const size_t n1,
                      const int *const a2, const size_t n2);
+
+// возвращает значение 'истина', если массив a размера n типа int
+// содержит элемент с положительным значением, в противном случае - 'ложь'
+bool hasArrayPositiveElement_(const int *const a, const size_t n);
 
 #endif

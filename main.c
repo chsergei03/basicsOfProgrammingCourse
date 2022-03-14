@@ -7,6 +7,8 @@
 #include "libs/algorithms/array_sortings/insertionSort.h"
 #include "libs/algorithms/array_sortings/combSort.h"
 #include "libs/algorithms/array_sortings/shellSort.h"
+#include "libs/algorithms/array_sortings/countSort.h"
+#include "libs/algorithms/array_sortings/digitSort.h"
 
 void test_bubbleSort_arrayWithOneElement() {
     int a[] = {19};
@@ -333,12 +335,144 @@ void test_shellSort() {
     test_shellSort_orderedBackwardsArray_withoutRepeatedValues();
 }
 
+void test_countSort_arrayWithOneElement() {
+    int a[] = {7};
+    size_t n = 1;
+    countSort(a, n);
+    int expectedA[] = {7};
+    size_t expectedN = n;
+    assert(areEqualArrays_(a, n, expectedA, expectedN));
+}
+
+void test_countSort_unorderedArray() {
+    int a[] = {3, -1, 3, 1, 2, 2, 1, 2, 3, 2, 1};
+    size_t n = 11;
+    countSort(a, n);
+    int expectedA[] = {-1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3};
+    size_t expectedN = n;
+    assert(areEqualArrays_(a, n, expectedA, expectedN));
+}
+
+void test_countSort_orderedArray_withRepeatedValues() {
+    int a[] = {4, 4, 5, 6, 7, 7, 8, 8, 8, 9, 10};
+    size_t n = 11;
+    countSort(a, n);
+    int expectedA[] = {4, 4, 5, 6, 7, 7, 8, 8, 8, 9, 10};
+    size_t expectedN = n;
+    assert(areEqualArrays_(a, n, expectedA, expectedN));
+}
+
+void test_countSort_orderedArray_withoutRepeatedValues() {
+    int a[6] = {};
+    size_t n = 6;
+    generateOrderedArray(a, n);
+    countSort(a, n);
+    int expectedA[] = {0, 1, 2, 3, 4, 5};
+    size_t expectedN = n;
+    assert(areEqualArrays_(a, n, expectedA, expectedN));
+}
+
+void test_countSort_orderedBackwardsArray_withRepeatedValues() {
+    int a[] = {4, 3, 3, 2, 1, 0, 0, -2, -4};
+    size_t n = 9;
+    countSort(a, n);
+    int expectedA[] = {-4, -2, 0, 0, 1, 2, 3, 3, 4};
+    size_t expectedN = n;
+    assert(areEqualArrays_(a, n, expectedA, expectedN));
+}
+
+void test_countSort_orderedBackwardsArray_withoutRepeatedValues() {
+    int a[7] = {};
+    size_t n = 7;
+    generateOrderedBackwardsArray(a, n);
+    countSort(a, n);
+    int expectedA[] = {0, 1, 2, 3, 4, 5, 6};
+    size_t expectedN = n;
+    assert(areEqualArrays_(a, n, expectedA, expectedN));
+}
+
+void test_countSort() {
+    test_countSort_arrayWithOneElement();
+    test_countSort_unorderedArray();
+    test_countSort_orderedArray_withRepeatedValues();
+    test_countSort_orderedArray_withoutRepeatedValues();
+    test_countSort_orderedBackwardsArray_withRepeatedValues();
+    test_countSort_orderedBackwardsArray_withoutRepeatedValues();
+}
+
+void test_digitSort_arrayWithOneElement() {
+    int a[] = {7};
+    size_t n = 1;
+    digitSort(a, n);
+    int expectedA[] = {7};
+    size_t expectedN = n;
+    assert(areEqualArrays_(a, n, expectedA, expectedN));
+}
+
+void test_digitSort_unorderedArray() {
+    int a[] = {40, 3, 127, 2, 12, 12, 1000};
+    size_t n = 7;
+    digitSort(a, n);
+    int expectedA[] = {2, 3, 12, 12, 40, 127, 1000};
+    size_t expectedN = n;
+    assert(areEqualArrays_(a, n, expectedA, expectedN));
+}
+
+void test_digitSort_orderedArray_withRepeatedValues() {
+    int a[] = {0, 3, 5, 5, 7, 9, 13, 15};
+    size_t n = 8;
+    digitSort(a, n);
+    int expectedA[] = {0, 3, 5, 5, 7, 9, 13, 15};
+    size_t expectedN = n;
+    assert(areEqualArrays_(a, n, expectedA, expectedN));
+}
+
+void test_digitSort_orderedArray_withoutRepeatedValues() {
+    int a[6] = {};
+    size_t n = 6;
+    generateOrderedArray(a, n);
+    digitSort(a, n);
+    int expectedA[] = {0, 1, 2, 3, 4, 5};
+    size_t expectedN = n;
+    assert(areEqualArrays_(a, n, expectedA, expectedN));
+}
+
+void test_digitSort_orderedBackwardsArray_withRepeatedValues() {
+    int a[] = {300, 264, 85, 85, 30, 10, 10, 9, 0};
+    size_t n = 9;
+    digitSort(a, n);
+    int expectedA[] = {0, 9, 10, 10, 30, 85, 85, 264, 300};
+    size_t expectedN = n;
+    assert(areEqualArrays_(a, n, expectedA, expectedN));
+}
+
+void test_digitSort_orderedBackwardsArray_withoutRepeatedValues() {
+    int a[9] = {};
+    size_t n = 9;
+    generateOrderedArray(a, n);
+    digitSort(a, n);
+    int expectedA[] = {0, 1, 2, 3, 4, 5, 6, 7, 8};
+    size_t expectedN = n;
+    assert(areEqualArrays_(a, n, expectedA, expectedN));
+}
+
+void test_digitSort() {
+    test_digitSort_arrayWithOneElement();
+    test_digitSort_unorderedArray();
+    test_digitSort_orderedArray_withRepeatedValues();
+    test_digitSort_orderedArray_withoutRepeatedValues();
+    test_digitSort_orderedBackwardsArray_withRepeatedValues();
+    test_digitSort_orderedBackwardsArray_withoutRepeatedValues();
+}
+
 void test_array_sortings() {
     test_bubbleSort();
     test_selectionSort();
     test_insertionSort();
     test_combSort();
     test_shellSort();
+    test_countSort();
+    test_digitSort();
 }
 
 int main() {

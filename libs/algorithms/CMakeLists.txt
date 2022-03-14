@@ -8,4 +8,6 @@ add_library(algorithms
         array_sortings/insertionSort.c
         array_sortings/combSort.c
         array_sortings/shellSort.c
+        array_sortings/countSort.c
+        array_sortings/digitSort.c
 )
