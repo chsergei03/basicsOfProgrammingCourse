@@ -1,4 +1,4 @@
-#include "combSort.h"
+#include "comb_sort.h"
 
 #define DECREASE_FACTOR 1.24733
 

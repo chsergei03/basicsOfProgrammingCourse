@@ -1,6 +1,6 @@
 #include <malloc.h>
 
-#include "countSort.h"
+#include "count_sort.h"
 
 size_t getValueAppearsCountArraySize(const int *const a,
                                      const size_t n,

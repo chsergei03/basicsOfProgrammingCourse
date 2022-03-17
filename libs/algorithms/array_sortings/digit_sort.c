@@ -1,7 +1,7 @@
 #include <malloc.h>
 #include <memory.h>
 
-#include "digitSort.h"
+#include "digit_sort.h"
 #include "../array/array.h"
 
 #define MAX_8BIT_NUMBER 255

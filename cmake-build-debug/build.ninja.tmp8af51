@@ -162,32 +162,32 @@ build libs/algorithms/CMakeFiles/algorithms.dir/array_sortings/selection_sort.c.
   OBJECT_DIR = libs\algorithms\CMakeFiles\algorithms.dir
   OBJECT_FILE_DIR = libs\algorithms\CMakeFiles\algorithms.dir\array_sortings
 
-build libs/algorithms/CMakeFiles/algorithms.dir/array_sortings/insertion_sort.c.obj: C_COMPILER__algorithms_Debug D$:/university/op/course/libs/algorithms/array_sortings/insertion_sort.c || cmake_object_order_depends_target_algorithms
-  DEP_FILE = libs\algorithms\CMakeFiles\algorithms.dir\array_sortings\insertion_sort.c.obj.d
+build libs/algorithms/CMakeFiles/algorithms.dir/array_sortings/insertionSort.c.obj: C_COMPILER__algorithms_Debug D$:/university/op/course/libs/algorithms/array_sortings/insertionSort.c || cmake_object_order_depends_target_algorithms
+  DEP_FILE = libs\algorithms\CMakeFiles\algorithms.dir\array_sortings\insertionSort.c.obj.d
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\algorithms\CMakeFiles\algorithms.dir
   OBJECT_FILE_DIR = libs\algorithms\CMakeFiles\algorithms.dir\array_sortings
 
-build libs/algorithms/CMakeFiles/algorithms.dir/array_sortings/comb_sort.c.obj: C_COMPILER__algorithms_Debug D$:/university/op/course/libs/algorithms/array_sortings/comb_sort.c || cmake_object_order_depends_target_algorithms
-  DEP_FILE = libs\algorithms\CMakeFiles\algorithms.dir\array_sortings\comb_sort.c.obj.d
+build libs/algorithms/CMakeFiles/algorithms.dir/array_sortings/combSort.c.obj: C_COMPILER__algorithms_Debug D$:/university/op/course/libs/algorithms/array_sortings/combSort.c || cmake_object_order_depends_target_algorithms
+  DEP_FILE = libs\algorithms\CMakeFiles\algorithms.dir\array_sortings\combSort.c.obj.d
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\algorithms\CMakeFiles\algorithms.dir
   OBJECT_FILE_DIR = libs\algorithms\CMakeFiles\algorithms.dir\array_sortings
 
-build libs/algorithms/CMakeFiles/algorithms.dir/array_sortings/shell_sort.c.obj: C_COMPILER__algorithms_Debug D$:/university/op/course/libs/algorithms/array_sortings/shell_sort.c || cmake_object_order_depends_target_algorithms
-  DEP_FILE = libs\algorithms\CMakeFiles\algorithms.dir\array_sortings\shell_sort.c.obj.d
+build libs/algorithms/CMakeFiles/algorithms.dir/array_sortings/shellSort.c.obj: C_COMPILER__algorithms_Debug D$:/university/op/course/libs/algorithms/array_sortings/shellSort.c || cmake_object_order_depends_target_algorithms
+  DEP_FILE = libs\algorithms\CMakeFiles\algorithms.dir\array_sortings\shellSort.c.obj.d
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\algorithms\CMakeFiles\algorithms.dir
   OBJECT_FILE_DIR = libs\algorithms\CMakeFiles\algorithms.dir\array_sortings
 
-build libs/algorithms/CMakeFiles/algorithms.dir/array_sortings/count_sort.c.obj: C_COMPILER__algorithms_Debug D$:/university/op/course/libs/algorithms/array_sortings/count_sort.c || cmake_object_order_depends_target_algorithms
-  DEP_FILE = libs\algorithms\CMakeFiles\algorithms.dir\array_sortings\count_sort.c.obj.d
+build libs/algorithms/CMakeFiles/algorithms.dir/array_sortings/countSort.c.obj: C_COMPILER__algorithms_Debug D$:/university/op/course/libs/algorithms/array_sortings/countSort.c || cmake_object_order_depends_target_algorithms
+  DEP_FILE = libs\algorithms\CMakeFiles\algorithms.dir\array_sortings\countSort.c.obj.d
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\algorithms\CMakeFiles\algorithms.dir
   OBJECT_FILE_DIR = libs\algorithms\CMakeFiles\algorithms.dir\array_sortings
 
-build libs/algorithms/CMakeFiles/algorithms.dir/array_sortings/digit_sort.c.obj: C_COMPILER__algorithms_Debug D$:/university/op/course/libs/algorithms/array_sortings/digit_sort.c || cmake_object_order_depends_target_algorithms
-  DEP_FILE = libs\algorithms\CMakeFiles\algorithms.dir\array_sortings\digit_sort.c.obj.d
+build libs/algorithms/CMakeFiles/algorithms.dir/array_sortings/digitSort.c.obj: C_COMPILER__algorithms_Debug D$:/university/op/course/libs/algorithms/array_sortings/digitSort.c || cmake_object_order_depends_target_algorithms
+  DEP_FILE = libs\algorithms\CMakeFiles\algorithms.dir\array_sortings\digitSort.c.obj.d
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\algorithms\CMakeFiles\algorithms.dir
   OBJECT_FILE_DIR = libs\algorithms\CMakeFiles\algorithms.dir\array_sortings
@@ -200,7 +200,7 @@ build libs/algorithms/CMakeFiles/algorithms.dir/array_sortings/digit_sort.c.obj:
 #############################################
 # Link the static library libs\algorithms\libalgorithms.a
 
-build libs/algorithms/libalgorithms.a: C_STATIC_LIBRARY_LINKER__algorithms_Debug libs/algorithms/CMakeFiles/algorithms.dir/algorithm.c.obj libs/algorithms/CMakeFiles/algorithms.dir/array/array.c.obj libs/algorithms/CMakeFiles/algorithms.dir/array_sortings/bubble_sort.c.obj libs/algorithms/CMakeFiles/algorithms.dir/array_sortings/selection_sort.c.obj libs/algorithms/CMakeFiles/algorithms.dir/array_sortings/insertion_sort.c.obj libs/algorithms/CMakeFiles/algorithms.dir/array_sortings/comb_sort.c.obj libs/algorithms/CMakeFiles/algorithms.dir/array_sortings/shell_sort.c.obj libs/algorithms/CMakeFiles/algorithms.dir/array_sortings/count_sort.c.obj libs/algorithms/CMakeFiles/algorithms.dir/array_sortings/digit_sort.c.obj
+build libs/algorithms/libalgorithms.a: C_STATIC_LIBRARY_LINKER__algorithms_Debug libs/algorithms/CMakeFiles/algorithms.dir/algorithm.c.obj libs/algorithms/CMakeFiles/algorithms.dir/array/array.c.obj libs/algorithms/CMakeFiles/algorithms.dir/array_sortings/bubble_sort.c.obj libs/algorithms/CMakeFiles/algorithms.dir/array_sortings/selection_sort.c.obj libs/algorithms/CMakeFiles/algorithms.dir/array_sortings/insertionSort.c.obj libs/algorithms/CMakeFiles/algorithms.dir/array_sortings/combSort.c.obj libs/algorithms/CMakeFiles/algorithms.dir/array_sortings/shellSort.c.obj libs/algorithms/CMakeFiles/algorithms.dir/array_sortings/countSort.c.obj libs/algorithms/CMakeFiles/algorithms.dir/array_sortings/digitSort.c.obj
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = libs\algorithms\CMakeFiles\algorithms.dir
   POST_BUILD = cd .
@@ -563,133 +563,4 @@ build libs/sorting_time_complexity/CMakeFiles/sorting_time_complexity.dir/array_
 #############################################
 # Link the static library libs\sorting_time_complexity\libsorting_time_complexity.a
 
-build libs/sorting_time_complexity/libsorting_time_complexity.a: C_STATIC_LIBRARY_LINKER__sorting_time_complexity_Debug libs/sorting_time_complexity/CMakeFiles/sorting_time_complexity.dir/sorting_time_complexity.c.obj libs/sorting_time_complexity/CMakeFiles/sorting_time_complexity.dir/array_generators/array_generators.c.obj
-  LANGUAGE_COMPILE_FLAGS = -g
-  OBJECT_DIR = libs\sorting_time_complexity\CMakeFiles\sorting_time_complexity.dir
-  POST_BUILD = cd .
-  PRE_LINK = cd .
-  TARGET_FILE = libs\sorting_time_complexity\libsorting_time_complexity.a
-  TARGET_PDB = sorting_time_complexity.a.dbg
-
-
-#############################################
-# Utility command for edit_cache
-
-build libs/sorting_time_complexity/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D D:\university\op\course\cmake-build-debug\libs\sorting_time_complexity && C:\Users\grsy\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\213.5744.254\bin\cmake\win\bin\cmake.exe -E echo "No interactive CMake dialog available.""
-  DESC = No interactive CMake dialog available...
-  restat = 1
-
-build libs/sorting_time_complexity/edit_cache: phony libs/sorting_time_complexity/CMakeFiles/edit_cache.util
-
-
-#############################################
-# Utility command for rebuild_cache
-
-build libs/sorting_time_complexity/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D D:\university\op\course\cmake-build-debug\libs\sorting_time_complexity && C:\Users\grsy\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\213.5744.254\bin\cmake\win\bin\cmake.exe --regenerate-during-build -SD:\university\op\course -BD:\university\op\course\cmake-build-debug"
-  DESC = Running CMake to regenerate build system...
-  pool = console
-  restat = 1
-
-build libs/sorting_time_complexity/rebuild_cache: phony libs/sorting_time_complexity/CMakeFiles/rebuild_cache.util
-
-# =============================================================================
-# Target aliases.
-
-build algorithms: phony libs/algorithms/libalgorithms.a
-
-build course: phony course.exe
-
-build data_structures: phony libs/data_structures/libdata_structures.a
-
-build libalgorithms.a: phony libs/algorithms/libalgorithms.a
-
-build libdata_structures.a: phony libs/data_structures/libdata_structures.a
-
-build libsorting_time_complexity.a: phony libs/sorting_time_complexity/libsorting_time_complexity.a
-
-build libstring.a: phony libs/string/libstring.a
-
-build sorting_time_complexity: phony libs/sorting_time_complexity/libsorting_time_complexity.a
-
-build string: phony libs/string/libstring.a
-
-# =============================================================================
-# Folder targets.
-
-# =============================================================================
-
-#############################################
-# Folder: D:/university/op/course/cmake-build-debug
-
-build all: phony course.exe libs/all
-
-# =============================================================================
-
-#############################################
-# Folder: D:/university/op/course/cmake-build-debug/libs
-
-build libs/all: phony libs/algorithms/all libs/data_structures/all libs/string/all libs/sorting_time_complexity/all
-
-# =============================================================================
-
-#############################################
-# Folder: D:/university/op/course/cmake-build-debug/libs/algorithms
-
-build libs/algorithms/all: phony libs/algorithms/libalgorithms.a
-
-# =============================================================================
-
-#############################################
-# Folder: D:/university/op/course/cmake-build-debug/libs/data_structures
-
-build libs/data_structures/all: phony libs/data_structures/libdata_structures.a
-
-# =============================================================================
-
-#############################################
-# Folder: D:/university/op/course/cmake-build-debug/libs/sorting_time_complexity
-
-build libs/sorting_time_complexity/all: phony libs/sorting_time_complexity/libsorting_time_complexity.a
-
-# =============================================================================
-
-#############################################
-# Folder: D:/university/op/course/cmake-build-debug/libs/string
-
-build libs/string/all: phony libs/string/libstring.a
-
-# =============================================================================
-# Built-in targets
-
-
-#############################################
-# Re-run CMake if any of its inputs changed.
-
-build build.ninja: RERUN_CMAKE | ../CMakeLists.txt ../libs/CMakeLists.txt ../libs/algorithms/CMakeLists.txt ../libs/data_structures/CMakeLists.txt ../libs/sorting_time_complexity/CMakeLists.txt ../libs/string/CMakeLists.txt C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeCInformation.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeCommonLanguageInclude.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeGenericSystem.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeInitializeConfigs.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeLanguageInformation.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeRCInformation.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeSystemSpecificInformation.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeSystemSpecificInitialize.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU-C.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-C.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-windres.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/WindowsPaths.cmake CMakeCache.txt CMakeFiles/3.21.1/CMakeCCompiler.cmake CMakeFiles/3.21.1/CMakeRCCompiler.cmake CMakeFiles/3.21.1/CMakeSystem.cmake
-  pool = console
-
-
-#############################################
-# A missing CMake input file is not an error.
-
-build ../CMakeLists.txt ../libs/CMakeLists.txt ../libs/algorithms/CMakeLists.txt ../libs/data_structures/CMakeLists.txt ../libs/sorting_time_complexity/CMakeLists.txt ../libs/string/CMakeLists.txt C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeCInformation.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeCommonLanguageInclude.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeGenericSystem.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeInitializeConfigs.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeLanguageInformation.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeRCInformation.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeSystemSpecificInformation.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeSystemSpecificInitialize.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU-C.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-C.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-windres.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/WindowsPaths.cmake CMakeCache.txt CMakeFiles/3.21.1/CMakeCCompiler.cmake CMakeFiles/3.21.1/CMakeRCCompiler.cmake CMakeFiles/3.21.1/CMakeSystem.cmake: phony
-
-
-#############################################
-# Clean all the built files.
-
-build clean: CLEAN
-
-
-#############################################
-# Print all primary targets available.
-
-build help: HELP
-
-
-#############################################
-# Make the all target the default.
-
-default all
+build libs/sorting_time_complexity/libsorting_time_complexity.a: C_STATIC_LIBRARY_LINKER__sorting_time_complexity_Debug libs/sorting_time_complexity/CMakeFiles/sorting_time_complexity.dir/sorting_time_

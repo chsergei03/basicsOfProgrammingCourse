@@ -1,4 +1,4 @@
-#include "insertionSort.h"
+#include "insertion_sort.h"
 
 void insertionSort(int *const a, const size_t n) {
     for (size_t i = 1; i < n; i++) {

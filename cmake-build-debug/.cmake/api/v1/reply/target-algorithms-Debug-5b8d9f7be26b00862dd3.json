@@ -120,31 +120,31 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "libs/algorithms/array_sortings/insertionSort.c",
+			"path" : "libs/algorithms/array_sortings/insertion_sort.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "libs/algorithms/array_sortings/combSort.c",
+			"path" : "libs/algorithms/array_sortings/comb_sort.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "libs/algorithms/array_sortings/shellSort.c",
+			"path" : "libs/algorithms/array_sortings/shell_sort.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "libs/algorithms/array_sortings/countSort.c",
+			"path" : "libs/algorithms/array_sortings/count_sort.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "libs/algorithms/array_sortings/digitSort.c",
+			"path" : "libs/algorithms/array_sortings/digit_sort.c",
 			"sourceGroupIndex" : 0
 		}
 	],

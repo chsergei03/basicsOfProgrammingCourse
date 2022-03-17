@@ -4,11 +4,11 @@
 #include "libs/sorting_time_complexity/array_generators/array_generators.h"
 #include "libs/algorithms/array_sortings/bubble_sort.h"
 #include "libs/algorithms/array_sortings/selection_sort.h"
-#include "libs/algorithms/array_sortings/insertionSort.h"
-#include "libs/algorithms/array_sortings/combSort.h"
-#include "libs/algorithms/array_sortings/shellSort.h"
-#include "libs/algorithms/array_sortings/countSort.h"
-#include "libs/algorithms/array_sortings/digitSort.h"
+#include "libs/algorithms/array_sortings/insertion_sort.h"
+#include "libs/algorithms/array_sortings/comb_sort.h"
+#include "libs/algorithms/array_sortings/shell_sort.h"
+#include "libs/algorithms/array_sortings/count_sort.h"
+#include "libs/algorithms/array_sortings/digit_sort.h"
 
 void test_bubbleSort_arrayWithOneElement() {
     int a[] = {19};
@@ -78,7 +78,7 @@ void test_bubbleSort() {
 void test_selectionSort_arrayWithOneElement() {
     int a[] = {6};
     size_t n = 1;
-    bubbleSort(a, n);
+    selectionSort(a, n);
     int expectedA[] = {6};
     size_t expectedN = n;
     assert(areEqualArrays_(a, n, expectedA, expectedN));
@@ -87,7 +87,7 @@ void test_selectionSort_arrayWithOneElement() {
 void test_selectionSort_unorderedArray() {
     int a[] = {3, 4, 26, -1, 14, 1, 9, 4};
     size_t n = 8;
-    bubbleSort(a, n);
+    selectionSort(a, n);
     int expectedA[] = {-1, 1, 3, 4, 4, 9, 14, 26};
     size_t expectedN = n;
     assert(areEqualArrays_(a, n, expectedA, expectedN));
@@ -96,7 +96,7 @@ void test_selectionSort_unorderedArray() {
 void test_selectionSort_orderedArray_withRepeatedValues() {
     int a[] = {3, 5, 5, 9, 10, 11, 30};
     size_t n = 7;
-    bubbleSort(a, n);
+    selectionSort(a, n);
     int expectedA[] = {3, 5, 5, 9, 10, 11, 30};
     size_t expectedN = n;
     assert(areEqualArrays_(a, n, expectedA, expectedN));
@@ -106,7 +106,7 @@ void test_selectionSort_orderedArray_withoutRepeatedValues() {
     int a[4] = {};
     size_t n = 4;
     generateOrderedArray(a, n);
-    bubbleSort(a, n);
+    selectionSort(a, n);
     int expectedA[] = {0, 1, 2, 3};
     size_t expectedN = n;
     assert(areEqualArrays_(a, n, expectedA, expectedN));
@@ -115,7 +115,7 @@ void test_selectionSort_orderedArray_withoutRepeatedValues() {
 void test_selectionSort_orderedBackwardsArray_withRepeatedValues() {
     int a[] = {22, 10, 7, 7, 5, -3};
     size_t n = 6;
-    bubbleSort(a, n);
+    selectionSort(a, n);
     int expectedA[] = {-3, 5, 7, 7, 10, 22};
     size_t expectedN = n;
     assert(areEqualArrays_(a, n, expectedA, expectedN));
@@ -125,7 +125,7 @@ void test_selectionSort_orderedBackwardsArray_withoutRepeatedValues() {
     int a[8] = {};
     size_t n = 8;
     generateOrderedBackwardsArray(a, n);
-    bubbleSort(a, n);
+    selectionSort(a, n);
     int expectedA[] = {0, 1, 2, 3, 4, 5, 6, 7};
     size_t expectedN = n;
     assert(areEqualArrays_(a, n, expectedA, expectedN));

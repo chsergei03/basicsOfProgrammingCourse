@@ -3,7 +3,7 @@
 
 #include <stddef.h>
 
-#include "countSort.h"
+#include "count_sort.h"
 #include "../array/array.h"
 
 // возвращает значение байта с индексом bytePosFromEnd
