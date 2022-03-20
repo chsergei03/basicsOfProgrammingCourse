@@ -4,8 +4,8 @@
 #include "array_generators.h"
 
 void generateRandomArray(int *a, const size_t n) {
+    srand(time(0));
     for (size_t i = 0; i < n; i++) {
-        srand(time(0));
         a[i] = rand();
     }
 }

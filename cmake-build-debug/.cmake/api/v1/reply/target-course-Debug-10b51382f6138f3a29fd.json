@@ -88,6 +88,10 @@
 	"dependencies" : 
 	[
 		{
+			"backtrace" : 5,
+			"id" : "sorting_time_complexity::@5c69a530e9579a7284f0"
+		},
+		{
 			"backtrace" : 2,
 			"id" : "algorithms::@4f84be16bc75261b2db5"
 		},
@@ -98,10 +102,6 @@
 		{
 			"backtrace" : 4,
 			"id" : "string::@3f2b1fb9d1440f41f43e"
-		},
-		{
-			"backtrace" : 5,
-			"id" : "sorting_time_complexity::@5c69a530e9579a7284f0"
 		}
 	],
 	"id" : "course::@6890427a1f51a3e7e1df",
