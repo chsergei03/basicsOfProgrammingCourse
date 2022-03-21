@@ -2,6 +2,7 @@
 #define INC_COMB_SORT_H
 
 #include <stddef.h>
+#include <stdbool.h>
 
 #include "../algorithm.h"
 
