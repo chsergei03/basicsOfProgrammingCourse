@@ -6,6 +6,13 @@
 
 #include "../algorithms/array/array.h"
 #include "array_generators/array_generators.h"
+#include "../algorithms/array_sortings/bubble_sort.h"
+#include "../algorithms/array_sortings/selection_sort.h"
+#include "../algorithms/array_sortings/count_sort.h"
+#include "../algorithms/array_sortings/insertion_sort.h"
+#include "../algorithms/array_sortings/comb_sort.h"
+#include "../algorithms/array_sortings/shell_sort.h"
+#include "../algorithms/array_sortings/digit_sort.h"
 
 // структура 'функция сортировки'.
 typedef struct sortFunc {

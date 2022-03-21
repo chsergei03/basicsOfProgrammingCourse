@@ -19,7 +19,8 @@ void checkTime(void (*sort)(int *, size_t),
                size_t size, char *experimentName) {
     static size_t runCounter = 1;
 
-    static int innerBuffer[100000];
+    int *innerBuffer = (int *) malloc(size * sizeof(int));
+
     generate(innerBuffer, size);
     printf("Run #%zu| ", runCounter++);
     printf("Name: %s\n", experimentName);
@@ -47,10 +48,19 @@ void checkTime(void (*sort)(int *, size_t),
 
         outputArray_(innerBuffer, size);
     }
+
+    free(innerBuffer);
 }
 
 void timeExperiment() {
-    sortFunc sortFuncs[] = {};
+    sortFunc sortFuncs[] = {
+            {bubbleSort,    "bubbleSort"},
+            {selectionSort, "selectionSort"},
+            {insertionSort, "insertionSort"},
+            {combSort,      "combSort"},
+            {shellSort,     "shellSort"},
+            {digitSort,     "digitSort"}
+    };
 
     const unsigned FUNCS_N = ARRAY_SIZE(sortFuncs);
 
@@ -65,7 +75,38 @@ void timeExperiment() {
     for (size_t size = 10000; size <= 100000; size += 10000) {
         printf("------------------------------\n");
         printf("size: %zu\n", size);
-        for (size_t i = 0; i < FUNCS_N; i++) {
+        for (size_t i = 0; i < FUNCS_N - 4; i++) {
+            for (size_t j = 0; j < CASES_N; j++) {
+                static char filename[128];
+                sprintf(filename, "%s_%s_time",
+                        sortFuncs[i].name, generateFuncs[j].name);
+                checkTime(sortFuncs[i].sort,
+                          generateFuncs[j].generate,
+                          size, filename);
+            }
+        }
+        printf("\n");
+    }
+
+    for (size_t size = 150000; size <= 350000; size += 10000) {
+        printf("------------------------------\n");
+        printf("size: %zu\n", size);
+        size_t i = 2;
+        for (size_t j = 0; j < CASES_N; j++) {
+            static char filename[128];
+            sprintf(filename, "%s_%s_time",
+                    sortFuncs[i].name, generateFuncs[j].name);
+            checkTime(sortFuncs[i].sort,
+                      generateFuncs[j].generate,
+                      size, filename);
+        }
+        printf("\n");
+    }
+
+    for (size_t size = 200000; size <= 2000000; size += 100000) {
+        printf("------------------------------\n");
+        printf("size: %zu\n", size);
+        for (size_t i = FUNCS_N - 3; i < FUNCS_N; i++) {
             for (size_t j = 0; j < CASES_N; j++) {
                 static char filename[128];
                 sprintf(filename, "%s_%s_time",

@@ -2,6 +2,7 @@
 
 #include "libs/algorithms/array/array.h"
 #include "libs/sorting_time_complexity/array_generators/array_generators.h"
+#include "libs/sorting_time_complexity/sorting_time_complexity.h"
 #include "libs/algorithms/array_sortings/bubble_sort.h"
 #include "libs/algorithms/array_sortings/selection_sort.h"
 #include "libs/algorithms/array_sortings/insertion_sort.h"
@@ -477,6 +478,8 @@ void test_array_sortings() {
 
 int main() {
     test_array_sortings();
+
+    timeExperiment();
 
     return 0;
 }
