@@ -119,3 +119,75 @@ void timeExperiment() {
         printf("\n");
     }
 }
+
+void checkComparisonsCount(long long (*sort)(int *, size_t),
+                           void (*generate)(int *, size_t),
+                           const size_t size, char *experimentName) {
+    static size_t runCounter = 1;
+
+    int *innerBuffer = (int *) malloc(size * sizeof(int));
+
+    generate(innerBuffer, size);
+    printf("Run #%zu| ", runCounter++);
+    printf("Name: %s\n", experimentName);
+
+    long long comparisonsCount = sort(innerBuffer, size);
+
+    printf("Status: ");
+    if (isNonDescendingSortedArray_(innerBuffer, size)) {
+        printf("OK! Comparisons count: %lld.\n", comparisonsCount);
+
+        char filename[256];
+        sprintf(filename, "./data/%s.csv", experimentName);
+        FILE *f = fopen(filename, "a");
+        if (f == NULL) {
+            printf("FileOpenError %s", filename);
+            exit(1);
+        }
+        fprintf(f, "%zu: %lld\n", size, comparisonsCount);
+        fclose(f);
+    } else {
+        printf("Wrong!\n");
+
+        outputArray_(innerBuffer, size);
+    }
+
+    free(innerBuffer);
+}
+
+void comparisonsCountExperiment() {
+    sortFunc_compCount sortFuncs[] = {
+            {bubbleSort_comparisonsCount,    "bubbleSort"},
+            {selectionSort_comparisonsCount, "selectionSort"},
+            {insertionSort_comparisonsCount, "insertionSort"},
+            {combSort_comparisonsCount,      "combSort"},
+            {shellSort_comparisonsCount,     "shellSort"},
+            {digitSort_comparisonsCount,     "digitSort"},
+    };
+
+    const unsigned FUNCS_N = ARRAY_SIZE(sortFuncs);
+
+    generateFunc generateFuncs[] = {
+            {generateRandomArray,           "random"},
+            {generateOrderedArray,          "ordered"},
+            {generateOrderedBackwardsArray, "orderedBackwards"}
+    };
+
+    const unsigned CASES_N = ARRAY_SIZE(generateFuncs);
+
+    for (size_t size = 10000; size <= 100000; size += 10000) {
+        printf("------------------------------\n");
+        printf("size: %zu\n", size);
+        for (size_t i = 0; i < FUNCS_N; i++) {
+            for (size_t j = 0; j < CASES_N; j++) {
+                static char filename[128];
+                sprintf(filename, "%s_%s_comparisonsCount",
+                        sortFuncs[i].name, generateFuncs[j].name);
+                checkComparisonsCount(sortFuncs[i].sort,
+                                      generateFuncs[j].generate,
+                                      size, filename);
+            }
+        }
+        printf("\n");
+    }
+}

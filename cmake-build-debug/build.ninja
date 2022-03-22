@@ -65,8 +65,6 @@ build CMakeFiles/course.dir/main.c.obj: C_COMPILER__course_Debug D$:/university/
   FLAGS = -g -std=gnu11
   OBJECT_DIR = CMakeFiles\course.dir
   OBJECT_FILE_DIR = CMakeFiles\course.dir
-  TARGET_COMPILE_PDB = CMakeFiles\course.dir\
-  TARGET_PDB = course.pdb
 
 
 # =============================================================================
@@ -82,10 +80,9 @@ build course.exe: C_EXECUTABLE_LINKER__course_Debug CMakeFiles/course.dir/main.c
   OBJECT_DIR = CMakeFiles\course.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = CMakeFiles\course.dir\
   TARGET_FILE = course.exe
   TARGET_IMPLIB = libcourse.dll.a
-  TARGET_PDB = course.pdb
+  TARGET_PDB = course.exe.dbg
 
 
 #############################################
@@ -146,72 +143,54 @@ build libs/algorithms/CMakeFiles/algorithms.dir/algorithm.c.obj: C_COMPILER__alg
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\algorithms\CMakeFiles\algorithms.dir
   OBJECT_FILE_DIR = libs\algorithms\CMakeFiles\algorithms.dir
-  TARGET_COMPILE_PDB = libs\algorithms\CMakeFiles\algorithms.dir\algorithms.pdb
-  TARGET_PDB = libs\algorithms\libalgorithms.pdb
 
 build libs/algorithms/CMakeFiles/algorithms.dir/array/array.c.obj: C_COMPILER__algorithms_Debug D$:/university/op/course/libs/algorithms/array/array.c || cmake_object_order_depends_target_algorithms
   DEP_FILE = libs\algorithms\CMakeFiles\algorithms.dir\array\array.c.obj.d
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\algorithms\CMakeFiles\algorithms.dir
   OBJECT_FILE_DIR = libs\algorithms\CMakeFiles\algorithms.dir\array
-  TARGET_COMPILE_PDB = libs\algorithms\CMakeFiles\algorithms.dir\algorithms.pdb
-  TARGET_PDB = libs\algorithms\libalgorithms.pdb
 
 build libs/algorithms/CMakeFiles/algorithms.dir/array_sortings/bubble_sort.c.obj: C_COMPILER__algorithms_Debug D$:/university/op/course/libs/algorithms/array_sortings/bubble_sort.c || cmake_object_order_depends_target_algorithms
   DEP_FILE = libs\algorithms\CMakeFiles\algorithms.dir\array_sortings\bubble_sort.c.obj.d
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\algorithms\CMakeFiles\algorithms.dir
   OBJECT_FILE_DIR = libs\algorithms\CMakeFiles\algorithms.dir\array_sortings
-  TARGET_COMPILE_PDB = libs\algorithms\CMakeFiles\algorithms.dir\algorithms.pdb
-  TARGET_PDB = libs\algorithms\libalgorithms.pdb
 
 build libs/algorithms/CMakeFiles/algorithms.dir/array_sortings/selection_sort.c.obj: C_COMPILER__algorithms_Debug D$:/university/op/course/libs/algorithms/array_sortings/selection_sort.c || cmake_object_order_depends_target_algorithms
   DEP_FILE = libs\algorithms\CMakeFiles\algorithms.dir\array_sortings\selection_sort.c.obj.d
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\algorithms\CMakeFiles\algorithms.dir
   OBJECT_FILE_DIR = libs\algorithms\CMakeFiles\algorithms.dir\array_sortings
-  TARGET_COMPILE_PDB = libs\algorithms\CMakeFiles\algorithms.dir\algorithms.pdb
-  TARGET_PDB = libs\algorithms\libalgorithms.pdb
 
 build libs/algorithms/CMakeFiles/algorithms.dir/array_sortings/insertion_sort.c.obj: C_COMPILER__algorithms_Debug D$:/university/op/course/libs/algorithms/array_sortings/insertion_sort.c || cmake_object_order_depends_target_algorithms
   DEP_FILE = libs\algorithms\CMakeFiles\algorithms.dir\array_sortings\insertion_sort.c.obj.d
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\algorithms\CMakeFiles\algorithms.dir
   OBJECT_FILE_DIR = libs\algorithms\CMakeFiles\algorithms.dir\array_sortings
-  TARGET_COMPILE_PDB = libs\algorithms\CMakeFiles\algorithms.dir\algorithms.pdb
-  TARGET_PDB = libs\algorithms\libalgorithms.pdb
 
 build libs/algorithms/CMakeFiles/algorithms.dir/array_sortings/comb_sort.c.obj: C_COMPILER__algorithms_Debug D$:/university/op/course/libs/algorithms/array_sortings/comb_sort.c || cmake_object_order_depends_target_algorithms
   DEP_FILE = libs\algorithms\CMakeFiles\algorithms.dir\array_sortings\comb_sort.c.obj.d
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\algorithms\CMakeFiles\algorithms.dir
   OBJECT_FILE_DIR = libs\algorithms\CMakeFiles\algorithms.dir\array_sortings
-  TARGET_COMPILE_PDB = libs\algorithms\CMakeFiles\algorithms.dir\algorithms.pdb
-  TARGET_PDB = libs\algorithms\libalgorithms.pdb
 
 build libs/algorithms/CMakeFiles/algorithms.dir/array_sortings/shell_sort.c.obj: C_COMPILER__algorithms_Debug D$:/university/op/course/libs/algorithms/array_sortings/shell_sort.c || cmake_object_order_depends_target_algorithms
   DEP_FILE = libs\algorithms\CMakeFiles\algorithms.dir\array_sortings\shell_sort.c.obj.d
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\algorithms\CMakeFiles\algorithms.dir
   OBJECT_FILE_DIR = libs\algorithms\CMakeFiles\algorithms.dir\array_sortings
-  TARGET_COMPILE_PDB = libs\algorithms\CMakeFiles\algorithms.dir\algorithms.pdb
-  TARGET_PDB = libs\algorithms\libalgorithms.pdb
 
 build libs/algorithms/CMakeFiles/algorithms.dir/array_sortings/count_sort.c.obj: C_COMPILER__algorithms_Debug D$:/university/op/course/libs/algorithms/array_sortings/count_sort.c || cmake_object_order_depends_target_algorithms
   DEP_FILE = libs\algorithms\CMakeFiles\algorithms.dir\array_sortings\count_sort.c.obj.d
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\algorithms\CMakeFiles\algorithms.dir
   OBJECT_FILE_DIR = libs\algorithms\CMakeFiles\algorithms.dir\array_sortings
-  TARGET_COMPILE_PDB = libs\algorithms\CMakeFiles\algorithms.dir\algorithms.pdb
-  TARGET_PDB = libs\algorithms\libalgorithms.pdb
 
 build libs/algorithms/CMakeFiles/algorithms.dir/array_sortings/digit_sort.c.obj: C_COMPILER__algorithms_Debug D$:/university/op/course/libs/algorithms/array_sortings/digit_sort.c || cmake_object_order_depends_target_algorithms
   DEP_FILE = libs\algorithms\CMakeFiles\algorithms.dir\array_sortings\digit_sort.c.obj.d
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\algorithms\CMakeFiles\algorithms.dir
   OBJECT_FILE_DIR = libs\algorithms\CMakeFiles\algorithms.dir\array_sortings
-  TARGET_COMPILE_PDB = libs\algorithms\CMakeFiles\algorithms.dir\algorithms.pdb
-  TARGET_PDB = libs\algorithms\libalgorithms.pdb
 
 
 # =============================================================================
@@ -226,9 +205,8 @@ build libs/algorithms/libalgorithms.a: C_STATIC_LIBRARY_LINKER__algorithms_Debug
   OBJECT_DIR = libs\algorithms\CMakeFiles\algorithms.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = libs\algorithms\CMakeFiles\algorithms.dir\algorithms.pdb
   TARGET_FILE = libs\algorithms\libalgorithms.a
-  TARGET_PDB = libs\algorithms\libalgorithms.pdb
+  TARGET_PDB = algorithms.a.dbg
 
 
 #############################################
@@ -272,80 +250,60 @@ build libs/data_structures/CMakeFiles/data_structures.dir/bitset/bitset.c.obj: C
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\data_structures\CMakeFiles\data_structures.dir
   OBJECT_FILE_DIR = libs\data_structures\CMakeFiles\data_structures.dir\bitset
-  TARGET_COMPILE_PDB = libs\data_structures\CMakeFiles\data_structures.dir\data_structures.pdb
-  TARGET_PDB = libs\data_structures\libdata_structures.pdb
 
 build libs/data_structures/CMakeFiles/data_structures.dir/ordered_array_set/ordered_array_set.c.obj: C_COMPILER__data_structures_Debug D$:/university/op/course/libs/data_structures/ordered_array_set/ordered_array_set.c || cmake_object_order_depends_target_data_structures
   DEP_FILE = libs\data_structures\CMakeFiles\data_structures.dir\ordered_array_set\ordered_array_set.c.obj.d
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\data_structures\CMakeFiles\data_structures.dir
   OBJECT_FILE_DIR = libs\data_structures\CMakeFiles\data_structures.dir\ordered_array_set
-  TARGET_COMPILE_PDB = libs\data_structures\CMakeFiles\data_structures.dir\data_structures.pdb
-  TARGET_PDB = libs\data_structures\libdata_structures.pdb
 
 build libs/data_structures/CMakeFiles/data_structures.dir/unordered_array_set/unordered_array_set.c.obj: C_COMPILER__data_structures_Debug D$:/university/op/course/libs/data_structures/unordered_array_set/unordered_array_set.c || cmake_object_order_depends_target_data_structures
   DEP_FILE = libs\data_structures\CMakeFiles\data_structures.dir\unordered_array_set\unordered_array_set.c.obj.d
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\data_structures\CMakeFiles\data_structures.dir
   OBJECT_FILE_DIR = libs\data_structures\CMakeFiles\data_structures.dir\unordered_array_set
-  TARGET_COMPILE_PDB = libs\data_structures\CMakeFiles\data_structures.dir\data_structures.pdb
-  TARGET_PDB = libs\data_structures\libdata_structures.pdb
 
 build libs/data_structures/CMakeFiles/data_structures.dir/tests/test_set.c.obj: C_COMPILER__data_structures_Debug D$:/university/op/course/libs/data_structures/tests/test_set.c || cmake_object_order_depends_target_data_structures
   DEP_FILE = libs\data_structures\CMakeFiles\data_structures.dir\tests\test_set.c.obj.d
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\data_structures\CMakeFiles\data_structures.dir
   OBJECT_FILE_DIR = libs\data_structures\CMakeFiles\data_structures.dir\tests
-  TARGET_COMPILE_PDB = libs\data_structures\CMakeFiles\data_structures.dir\data_structures.pdb
-  TARGET_PDB = libs\data_structures\libdata_structures.pdb
 
 build libs/data_structures/CMakeFiles/data_structures.dir/vector/vector.c.obj: C_COMPILER__data_structures_Debug D$:/university/op/course/libs/data_structures/vector/vector.c || cmake_object_order_depends_target_data_structures
   DEP_FILE = libs\data_structures\CMakeFiles\data_structures.dir\vector\vector.c.obj.d
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\data_structures\CMakeFiles\data_structures.dir
   OBJECT_FILE_DIR = libs\data_structures\CMakeFiles\data_structures.dir\vector
-  TARGET_COMPILE_PDB = libs\data_structures\CMakeFiles\data_structures.dir\data_structures.pdb
-  TARGET_PDB = libs\data_structures\libdata_structures.pdb
 
 build libs/data_structures/CMakeFiles/data_structures.dir/void_vector/void_vector.c.obj: C_COMPILER__data_structures_Debug D$:/university/op/course/libs/data_structures/void_vector/void_vector.c || cmake_object_order_depends_target_data_structures
   DEP_FILE = libs\data_structures\CMakeFiles\data_structures.dir\void_vector\void_vector.c.obj.d
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\data_structures\CMakeFiles\data_structures.dir
   OBJECT_FILE_DIR = libs\data_structures\CMakeFiles\data_structures.dir\void_vector
-  TARGET_COMPILE_PDB = libs\data_structures\CMakeFiles\data_structures.dir\data_structures.pdb
-  TARGET_PDB = libs\data_structures\libdata_structures.pdb
 
 build libs/data_structures/CMakeFiles/data_structures.dir/tests/test_vector.c.obj: C_COMPILER__data_structures_Debug D$:/university/op/course/libs/data_structures/tests/test_vector.c || cmake_object_order_depends_target_data_structures
   DEP_FILE = libs\data_structures\CMakeFiles\data_structures.dir\tests\test_vector.c.obj.d
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\data_structures\CMakeFiles\data_structures.dir
   OBJECT_FILE_DIR = libs\data_structures\CMakeFiles\data_structures.dir\tests
-  TARGET_COMPILE_PDB = libs\data_structures\CMakeFiles\data_structures.dir\data_structures.pdb
-  TARGET_PDB = libs\data_structures\libdata_structures.pdb
 
 build libs/data_structures/CMakeFiles/data_structures.dir/matrix/matrix.c.obj: C_COMPILER__data_structures_Debug D$:/university/op/course/libs/data_structures/matrix/matrix.c || cmake_object_order_depends_target_data_structures
   DEP_FILE = libs\data_structures\CMakeFiles\data_structures.dir\matrix\matrix.c.obj.d
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\data_structures\CMakeFiles\data_structures.dir
   OBJECT_FILE_DIR = libs\data_structures\CMakeFiles\data_structures.dir\matrix
-  TARGET_COMPILE_PDB = libs\data_structures\CMakeFiles\data_structures.dir\data_structures.pdb
-  TARGET_PDB = libs\data_structures\libdata_structures.pdb
 
 build libs/data_structures/CMakeFiles/data_structures.dir/matrix/tasks/tasks_matrix.c.obj: C_COMPILER__data_structures_Debug D$:/university/op/course/libs/data_structures/matrix/tasks/tasks_matrix.c || cmake_object_order_depends_target_data_structures
   DEP_FILE = libs\data_structures\CMakeFiles\data_structures.dir\matrix\tasks\tasks_matrix.c.obj.d
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\data_structures\CMakeFiles\data_structures.dir
   OBJECT_FILE_DIR = libs\data_structures\CMakeFiles\data_structures.dir\matrix\tasks
-  TARGET_COMPILE_PDB = libs\data_structures\CMakeFiles\data_structures.dir\data_structures.pdb
-  TARGET_PDB = libs\data_structures\libdata_structures.pdb
 
 build libs/data_structures/CMakeFiles/data_structures.dir/tests/test_matrix.c.obj: C_COMPILER__data_structures_Debug D$:/university/op/course/libs/data_structures/tests/test_matrix.c || cmake_object_order_depends_target_data_structures
   DEP_FILE = libs\data_structures\CMakeFiles\data_structures.dir\tests\test_matrix.c.obj.d
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\data_structures\CMakeFiles\data_structures.dir
   OBJECT_FILE_DIR = libs\data_structures\CMakeFiles\data_structures.dir\tests
-  TARGET_COMPILE_PDB = libs\data_structures\CMakeFiles\data_structures.dir\data_structures.pdb
-  TARGET_PDB = libs\data_structures\libdata_structures.pdb
 
 
 # =============================================================================
@@ -360,9 +318,8 @@ build libs/data_structures/libdata_structures.a: C_STATIC_LIBRARY_LINKER__data_s
   OBJECT_DIR = libs\data_structures\CMakeFiles\data_structures.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = libs\data_structures\CMakeFiles\data_structures.dir\data_structures.pdb
   TARGET_FILE = libs\data_structures\libdata_structures.a
-  TARGET_PDB = libs\data_structures\libdata_structures.pdb
+  TARGET_PDB = data_structures.a.dbg
 
 
 #############################################
@@ -417,176 +374,132 @@ build libs/string/CMakeFiles/string.dir/string_.c.obj: C_COMPILER__string_Debug 
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\string\CMakeFiles\string.dir
   OBJECT_FILE_DIR = libs\string\CMakeFiles\string.dir
-  TARGET_COMPILE_PDB = libs\string\CMakeFiles\string.dir\string.pdb
-  TARGET_PDB = libs\string\libstring.pdb
 
 build libs/string/CMakeFiles/string.dir/tasks/removeNonLetters.c.obj: C_COMPILER__string_Debug D$:/university/op/course/libs/string/tasks/removeNonLetters.c || cmake_object_order_depends_target_string
   DEP_FILE = libs\string\CMakeFiles\string.dir\tasks\removeNonLetters.c.obj.d
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\string\CMakeFiles\string.dir
   OBJECT_FILE_DIR = libs\string\CMakeFiles\string.dir\tasks
-  TARGET_COMPILE_PDB = libs\string\CMakeFiles\string.dir\string.pdb
-  TARGET_PDB = libs\string\libstring.pdb
 
 build libs/string/CMakeFiles/string.dir/tasks/removeExtraSpaces.c.obj: C_COMPILER__string_Debug D$:/university/op/course/libs/string/tasks/removeExtraSpaces.c || cmake_object_order_depends_target_string
   DEP_FILE = libs\string\CMakeFiles\string.dir\tasks\removeExtraSpaces.c.obj.d
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\string\CMakeFiles\string.dir
   OBJECT_FILE_DIR = libs\string\CMakeFiles\string.dir\tasks
-  TARGET_COMPILE_PDB = libs\string\CMakeFiles\string.dir\string.pdb
-  TARGET_PDB = libs\string\libstring.pdb
 
 build libs/string/CMakeFiles/string.dir/tasks/digitToStartReverseTransform.c.obj: C_COMPILER__string_Debug D$:/university/op/course/libs/string/tasks/digitToStartReverseTransform.c || cmake_object_order_depends_target_string
   DEP_FILE = libs\string\CMakeFiles\string.dir\tasks\digitToStartReverseTransform.c.obj.d
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\string\CMakeFiles\string.dir
   OBJECT_FILE_DIR = libs\string\CMakeFiles\string.dir\tasks
-  TARGET_COMPILE_PDB = libs\string\CMakeFiles\string.dir\string.pdb
-  TARGET_PDB = libs\string\libstring.pdb
 
 build libs/string/CMakeFiles/string.dir/tasks/digitToEndTransform.c.obj: C_COMPILER__string_Debug D$:/university/op/course/libs/string/tasks/digitToEndTransform.c || cmake_object_order_depends_target_string
   DEP_FILE = libs\string\CMakeFiles\string.dir\tasks\digitToEndTransform.c.obj.d
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\string\CMakeFiles\string.dir
   OBJECT_FILE_DIR = libs\string\CMakeFiles\string.dir\tasks
-  TARGET_COMPILE_PDB = libs\string\CMakeFiles\string.dir\string.pdb
-  TARGET_PDB = libs\string\libstring.pdb
 
 build libs/string/CMakeFiles/string.dir/tasks/replaceDigitsBySpaces.c.obj: C_COMPILER__string_Debug D$:/university/op/course/libs/string/tasks/replaceDigitsBySpaces.c || cmake_object_order_depends_target_string
   DEP_FILE = libs\string\CMakeFiles\string.dir\tasks\replaceDigitsBySpaces.c.obj.d
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\string\CMakeFiles\string.dir
   OBJECT_FILE_DIR = libs\string\CMakeFiles\string.dir\tasks
-  TARGET_COMPILE_PDB = libs\string\CMakeFiles\string.dir\string.pdb
-  TARGET_PDB = libs\string\libstring.pdb
 
 build libs/string/CMakeFiles/string.dir/tasks/replace.c.obj: C_COMPILER__string_Debug D$:/university/op/course/libs/string/tasks/replace.c || cmake_object_order_depends_target_string
   DEP_FILE = libs\string\CMakeFiles\string.dir\tasks\replace.c.obj.d
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\string\CMakeFiles\string.dir
   OBJECT_FILE_DIR = libs\string\CMakeFiles\string.dir\tasks
-  TARGET_COMPILE_PDB = libs\string\CMakeFiles\string.dir\string.pdb
-  TARGET_PDB = libs\string\libstring.pdb
 
 build libs/string/CMakeFiles/string.dir/tasks/areWordsLexicographicallyOrdered.c.obj: C_COMPILER__string_Debug D$:/university/op/course/libs/string/tasks/areWordsLexicographicallyOrdered.c || cmake_object_order_depends_target_string
   DEP_FILE = libs\string\CMakeFiles\string.dir\tasks\areWordsLexicographicallyOrdered.c.obj.d
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\string\CMakeFiles\string.dir
   OBJECT_FILE_DIR = libs\string\CMakeFiles\string.dir\tasks
-  TARGET_COMPILE_PDB = libs\string\CMakeFiles\string.dir\string.pdb
-  TARGET_PDB = libs\string\libstring.pdb
 
 build libs/string/CMakeFiles/string.dir/tasks/printWordsReverse.c.obj: C_COMPILER__string_Debug D$:/university/op/course/libs/string/tasks/printWordsReverse.c || cmake_object_order_depends_target_string
   DEP_FILE = libs\string\CMakeFiles\string.dir\tasks\printWordsReverse.c.obj.d
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\string\CMakeFiles\string.dir
   OBJECT_FILE_DIR = libs\string\CMakeFiles\string.dir\tasks
-  TARGET_COMPILE_PDB = libs\string\CMakeFiles\string.dir\string.pdb
-  TARGET_PDB = libs\string\libstring.pdb
 
 build libs/string/CMakeFiles/string.dir/tasks/getPalindromesCount.c.obj: C_COMPILER__string_Debug D$:/university/op/course/libs/string/tasks/getPalindromesCount.c || cmake_object_order_depends_target_string
   DEP_FILE = libs\string\CMakeFiles\string.dir\tasks\getPalindromesCount.c.obj.d
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\string\CMakeFiles\string.dir
   OBJECT_FILE_DIR = libs\string\CMakeFiles\string.dir\tasks
-  TARGET_COMPILE_PDB = libs\string\CMakeFiles\string.dir\string.pdb
-  TARGET_PDB = libs\string\libstring.pdb
 
 build libs/string/CMakeFiles/string.dir/tasks/fillStringWithAlternatingWordsOfTwoOtherStrings.c.obj: C_COMPILER__string_Debug D$:/university/op/course/libs/string/tasks/fillStringWithAlternatingWordsOfTwoOtherStrings.c || cmake_object_order_depends_target_string
   DEP_FILE = libs\string\CMakeFiles\string.dir\tasks\fillStringWithAlternatingWordsOfTwoOtherStrings.c.obj.d
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\string\CMakeFiles\string.dir
   OBJECT_FILE_DIR = libs\string\CMakeFiles\string.dir\tasks
-  TARGET_COMPILE_PDB = libs\string\CMakeFiles\string.dir\string.pdb
-  TARGET_PDB = libs\string\libstring.pdb
 
 build libs/string/CMakeFiles/string.dir/tasks/reverseWordOrderInString.c.obj: C_COMPILER__string_Debug D$:/university/op/course/libs/string/tasks/reverseWordOrderInString.c || cmake_object_order_depends_target_string
   DEP_FILE = libs\string\CMakeFiles\string.dir\tasks\reverseWordOrderInString.c.obj.d
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\string\CMakeFiles\string.dir
   OBJECT_FILE_DIR = libs\string\CMakeFiles\string.dir\tasks
-  TARGET_COMPILE_PDB = libs\string\CMakeFiles\string.dir\string.pdb
-  TARGET_PDB = libs\string\libstring.pdb
 
 build libs/string/CMakeFiles/string.dir/tasks/getWordBeforeFirstWordWithA.c.obj: C_COMPILER__string_Debug D$:/university/op/course/libs/string/tasks/getWordBeforeFirstWordWithA.c || cmake_object_order_depends_target_string
   DEP_FILE = libs\string\CMakeFiles\string.dir\tasks\getWordBeforeFirstWordWithA.c.obj.d
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\string\CMakeFiles\string.dir
   OBJECT_FILE_DIR = libs\string\CMakeFiles\string.dir\tasks
-  TARGET_COMPILE_PDB = libs\string\CMakeFiles\string.dir\string.pdb
-  TARGET_PDB = libs\string\libstring.pdb
 
 build libs/string/CMakeFiles/string.dir/tasks/lastWordInFirstStringInSecondString.c.obj: C_COMPILER__string_Debug D$:/university/op/course/libs/string/tasks/lastWordInFirstStringInSecondString.c || cmake_object_order_depends_target_string
   DEP_FILE = libs\string\CMakeFiles\string.dir\tasks\lastWordInFirstStringInSecondString.c.obj.d
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\string\CMakeFiles\string.dir
   OBJECT_FILE_DIR = libs\string\CMakeFiles\string.dir\tasks
-  TARGET_COMPILE_PDB = libs\string\CMakeFiles\string.dir\string.pdb
-  TARGET_PDB = libs\string\libstring.pdb
 
 build libs/string/CMakeFiles/string.dir/tasks/hasStringIdenticalWords.c.obj: C_COMPILER__string_Debug D$:/university/op/course/libs/string/tasks/hasStringIdenticalWords.c || cmake_object_order_depends_target_string
   DEP_FILE = libs\string\CMakeFiles\string.dir\tasks\hasStringIdenticalWords.c.obj.d
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\string\CMakeFiles\string.dir
   OBJECT_FILE_DIR = libs\string\CMakeFiles\string.dir\tasks
-  TARGET_COMPILE_PDB = libs\string\CMakeFiles\string.dir\string.pdb
-  TARGET_PDB = libs\string\libstring.pdb
 
 build libs/string/CMakeFiles/string.dir/tasks/hasStringPairOfWordsWithIdenticalCharacters.c.obj: C_COMPILER__string_Debug D$:/university/op/course/libs/string/tasks/hasStringPairOfWordsWithIdenticalCharacters.c || cmake_object_order_depends_target_string
   DEP_FILE = libs\string\CMakeFiles\string.dir\tasks\hasStringPairOfWordsWithIdenticalCharacters.c.obj.d
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\string\CMakeFiles\string.dir
   OBJECT_FILE_DIR = libs\string\CMakeFiles\string.dir\tasks
-  TARGET_COMPILE_PDB = libs\string\CMakeFiles\string.dir\string.pdb
-  TARGET_PDB = libs\string\libstring.pdb
 
 build libs/string/CMakeFiles/string.dir/tasks/getStringFromWordsOfStringWhichAreNotEqualToLastWord.c.obj: C_COMPILER__string_Debug D$:/university/op/course/libs/string/tasks/getStringFromWordsOfStringWhichAreNotEqualToLastWord.c || cmake_object_order_depends_target_string
   DEP_FILE = libs\string\CMakeFiles\string.dir\tasks\getStringFromWordsOfStringWhichAreNotEqualToLastWord.c.obj.d
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\string\CMakeFiles\string.dir
   OBJECT_FILE_DIR = libs\string\CMakeFiles\string.dir\tasks
-  TARGET_COMPILE_PDB = libs\string\CMakeFiles\string.dir\string.pdb
-  TARGET_PDB = libs\string\libstring.pdb
 
 build libs/string/CMakeFiles/string.dir/tasks/getWordBeforeFirstWWord.c.obj: C_COMPILER__string_Debug D$:/university/op/course/libs/string/tasks/getWordBeforeFirstWWord.c || cmake_object_order_depends_target_string
   DEP_FILE = libs\string\CMakeFiles\string.dir\tasks\getWordBeforeFirstWWord.c.obj.d
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\string\CMakeFiles\string.dir
   OBJECT_FILE_DIR = libs\string\CMakeFiles\string.dir\tasks
-  TARGET_COMPILE_PDB = libs\string\CMakeFiles\string.dir\string.pdb
-  TARGET_PDB = libs\string\libstring.pdb
 
 build libs/string/CMakeFiles/string.dir/tasks/deleteWordsWhichAreEqualToLastWord.c.obj: C_COMPILER__string_Debug D$:/university/op/course/libs/string/tasks/deleteWordsWhichAreEqualToLastWord.c || cmake_object_order_depends_target_string
   DEP_FILE = libs\string\CMakeFiles\string.dir\tasks\deleteWordsWhichAreEqualToLastWord.c.obj.d
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\string\CMakeFiles\string.dir
   OBJECT_FILE_DIR = libs\string\CMakeFiles\string.dir\tasks
-  TARGET_COMPILE_PDB = libs\string\CMakeFiles\string.dir\string.pdb
-  TARGET_PDB = libs\string\libstring.pdb
 
 build libs/string/CMakeFiles/string.dir/tasks/complementS2.c.obj: C_COMPILER__string_Debug D$:/university/op/course/libs/string/tasks/complementS2.c || cmake_object_order_depends_target_string
   DEP_FILE = libs\string\CMakeFiles\string.dir\tasks\complementS2.c.obj.d
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\string\CMakeFiles\string.dir
   OBJECT_FILE_DIR = libs\string\CMakeFiles\string.dir\tasks
-  TARGET_COMPILE_PDB = libs\string\CMakeFiles\string.dir\string.pdb
-  TARGET_PDB = libs\string\libstring.pdb
 
 build libs/string/CMakeFiles/string.dir/tasks/hasStringEveryCharOfWord.c.obj: C_COMPILER__string_Debug D$:/university/op/course/libs/string/tasks/hasStringEveryCharOfWord.c || cmake_object_order_depends_target_string
   DEP_FILE = libs\string\CMakeFiles\string.dir\tasks\hasStringEveryCharOfWord.c.obj.d
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\string\CMakeFiles\string.dir
   OBJECT_FILE_DIR = libs\string\CMakeFiles\string.dir\tasks
-  TARGET_COMPILE_PDB = libs\string\CMakeFiles\string.dir\string.pdb
-  TARGET_PDB = libs\string\libstring.pdb
 
 build libs/string/CMakeFiles/string.dir/tests/test_string.c.obj: C_COMPILER__string_Debug D$:/university/op/course/libs/string/tests/test_string.c || cmake_object_order_depends_target_string
   DEP_FILE = libs\string\CMakeFiles\string.dir\tests\test_string.c.obj.d
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\string\CMakeFiles\string.dir
   OBJECT_FILE_DIR = libs\string\CMakeFiles\string.dir\tests
-  TARGET_COMPILE_PDB = libs\string\CMakeFiles\string.dir\string.pdb
-  TARGET_PDB = libs\string\libstring.pdb
 
 
 # =============================================================================
@@ -601,9 +514,8 @@ build libs/string/libstring.a: C_STATIC_LIBRARY_LINKER__string_Debug libs/string
   OBJECT_DIR = libs\string\CMakeFiles\string.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = libs\string\CMakeFiles\string.dir\string.pdb
   TARGET_FILE = libs\string\libstring.a
-  TARGET_PDB = libs\string\libstring.pdb
+  TARGET_PDB = string.a.dbg
 
 
 #############################################
@@ -636,16 +548,18 @@ build libs/sorting_time_complexity/CMakeFiles/sorting_time_complexity.dir/sortin
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\sorting_time_complexity\CMakeFiles\sorting_time_complexity.dir
   OBJECT_FILE_DIR = libs\sorting_time_complexity\CMakeFiles\sorting_time_complexity.dir
-  TARGET_COMPILE_PDB = libs\sorting_time_complexity\CMakeFiles\sorting_time_complexity.dir\sorting_time_complexity.pdb
-  TARGET_PDB = libs\sorting_time_complexity\libsorting_time_complexity.pdb
 
 build libs/sorting_time_complexity/CMakeFiles/sorting_time_complexity.dir/array_generators/array_generators.c.obj: C_COMPILER__sorting_time_complexity_Debug D$:/university/op/course/libs/sorting_time_complexity/array_generators/array_generators.c || cmake_object_order_depends_target_sorting_time_complexity
   DEP_FILE = libs\sorting_time_complexity\CMakeFiles\sorting_time_complexity.dir\array_generators\array_generators.c.obj.d
   FLAGS = -g -std=gnu11
   OBJECT_DIR = libs\sorting_time_complexity\CMakeFiles\sorting_time_complexity.dir
   OBJECT_FILE_DIR = libs\sorting_time_complexity\CMakeFiles\sorting_time_complexity.dir\array_generators
-  TARGET_COMPILE_PDB = libs\sorting_time_complexity\CMakeFiles\sorting_time_complexity.dir\sorting_time_complexity.pdb
-  TARGET_PDB = libs\sorting_time_complexity\libsorting_time_complexity.pdb
+
+build libs/sorting_time_complexity/CMakeFiles/sorting_time_complexity.dir/comparisons_count/comparisons_count.c.obj: C_COMPILER__sorting_time_complexity_Debug D$:/university/op/course/libs/sorting_time_complexity/comparisons_count/comparisons_count.c || cmake_object_order_depends_target_sorting_time_complexity
+  DEP_FILE = libs\sorting_time_complexity\CMakeFiles\sorting_time_complexity.dir\comparisons_count\comparisons_count.c.obj.d
+  FLAGS = -g -std=gnu11
+  OBJECT_DIR = libs\sorting_time_complexity\CMakeFiles\sorting_time_complexity.dir
+  OBJECT_FILE_DIR = libs\sorting_time_complexity\CMakeFiles\sorting_time_complexity.dir\comparisons_count
 
 
 # =============================================================================
@@ -655,14 +569,13 @@ build libs/sorting_time_complexity/CMakeFiles/sorting_time_complexity.dir/array_
 #############################################
 # Link the static library libs\sorting_time_complexity\libsorting_time_complexity.a
 
-build libs/sorting_time_complexity/libsorting_time_complexity.a: C_STATIC_LIBRARY_LINKER__sorting_time_complexity_Debug libs/sorting_time_complexity/CMakeFiles/sorting_time_complexity.dir/sorting_time_complexity.c.obj libs/sorting_time_complexity/CMakeFiles/sorting_time_complexity.dir/array_generators/array_generators.c.obj
+build libs/sorting_time_complexity/libsorting_time_complexity.a: C_STATIC_LIBRARY_LINKER__sorting_time_complexity_Debug libs/sorting_time_complexity/CMakeFiles/sorting_time_complexity.dir/sorting_time_complexity.c.obj libs/sorting_time_complexity/CMakeFiles/sorting_time_complexity.dir/array_generators/array_generators.c.obj libs/sorting_time_complexity/CMakeFiles/sorting_time_complexity.dir/comparisons_count/comparisons_count.c.obj
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = libs\sorting_time_complexity\CMakeFiles\sorting_time_complexity.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = libs\sorting_time_complexity\CMakeFiles\sorting_time_complexity.dir\sorting_time_complexity.pdb
   TARGET_FILE = libs\sorting_time_complexity\libsorting_time_complexity.a
-  TARGET_PDB = libs\sorting_time_complexity\libsorting_time_complexity.pdb
+  TARGET_PDB = sorting_time_complexity.a.dbg
 
 
 #############################################
@@ -760,14 +673,14 @@ build libs/string/all: phony libs/string/libstring.a
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | ../CMakeLists.txt ../libs/CMakeLists.txt ../libs/algorithms/CMakeLists.txt ../libs/data_structures/CMakeLists.txt ../libs/sorting_time_complexity/CMakeLists.txt ../libs/string/CMakeLists.txt C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeCCompiler.cmake.in C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeCCompilerABI.c C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeCInformation.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeCommonLanguageInclude.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeCompilerIdDetection.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeDetermineCCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeDetermineCompileFeatures.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeDetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeDetermineCompilerABI.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeDetermineCompilerId.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeDetermineRCCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeDetermineSystem.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeFindBinUtils.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeGenericSystem.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeInitializeConfigs.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeLanguageInformation.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeParseImplicitIncludeInfo.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeParseImplicitLinkInfo.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeParseLibraryArchitecture.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeRCCompiler.cmake.in C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeRCInformation.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeSystem.cmake.in C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeSystemSpecificInformation.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeSystemSpecificInitialize.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeTestCCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeTestCompilerCommon.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeTestRCCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/ADSP-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/ARMCC-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/ARMClang-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/AppleClang-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/Borland-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/Bruce-C-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/Clang-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/Clang-DetermineCompilerInternal.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/Compaq-C-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/Cray-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/Embarcadero-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/Fujitsu-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GHS-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU-C-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU-C.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU-FindBinUtils.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/HP-C-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/IAR-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/Intel-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/MSVC-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/NVHPC-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/NVIDIA-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/PGI-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/PathScale-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/ROCMClang-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/SCO-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/SDCC-C-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/SunPro-C-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/TI-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/Watcom-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/XL-C-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/XLClang-C-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/zOS-C-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Internal/FeatureTesting.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-C.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-windres.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/WindowsPaths.cmake CMakeCache.txt CMakeFiles/3.21.1/CMakeCCompiler.cmake CMakeFiles/3.21.1/CMakeRCCompiler.cmake CMakeFiles/3.21.1/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | ../CMakeLists.txt ../libs/CMakeLists.txt ../libs/algorithms/CMakeLists.txt ../libs/data_structures/CMakeLists.txt ../libs/sorting_time_complexity/CMakeLists.txt ../libs/string/CMakeLists.txt C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeCInformation.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeCommonLanguageInclude.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeGenericSystem.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeInitializeConfigs.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeLanguageInformation.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeRCInformation.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeSystemSpecificInformation.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeSystemSpecificInitialize.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU-C.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-C.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-windres.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/WindowsPaths.cmake CMakeCache.txt CMakeFiles/3.21.1/CMakeCCompiler.cmake CMakeFiles/3.21.1/CMakeRCCompiler.cmake CMakeFiles/3.21.1/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build ../CMakeLists.txt ../libs/CMakeLists.txt ../libs/algorithms/CMakeLists.txt ../libs/data_structures/CMakeLists.txt ../libs/sorting_time_complexity/CMakeLists.txt ../libs/string/CMakeLists.txt C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeCCompiler.cmake.in C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeCCompilerABI.c C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeCInformation.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeCommonLanguageInclude.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeCompilerIdDetection.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeDetermineCCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeDetermineCompileFeatures.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeDetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeDetermineCompilerABI.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeDetermineCompilerId.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeDetermineRCCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeDetermineSystem.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeFindBinUtils.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeGenericSystem.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeInitializeConfigs.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeLanguageInformation.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeParseImplicitIncludeInfo.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeParseImplicitLinkInfo.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeParseLibraryArchitecture.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeRCCompiler.cmake.in C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeRCInformation.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeSystem.cmake.in C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeSystemSpecificInformation.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeSystemSpecificInitialize.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeTestCCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeTestCompilerCommon.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeTestRCCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/ADSP-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/ARMCC-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/ARMClang-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/AppleClang-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/Borland-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/Bruce-C-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/Clang-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/Clang-DetermineCompilerInternal.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/Compaq-C-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/Cray-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/Embarcadero-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/Fujitsu-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GHS-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU-C-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU-C.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU-FindBinUtils.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/HP-C-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/IAR-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/Intel-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/MSVC-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/NVHPC-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/NVIDIA-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/PGI-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/PathScale-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/ROCMClang-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/SCO-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/SDCC-C-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/SunPro-C-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/TI-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/Watcom-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/XL-C-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/XLClang-C-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/zOS-C-DetermineCompiler.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Internal/FeatureTesting.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-C.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-windres.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/WindowsPaths.cmake CMakeCache.txt CMakeFiles/3.21.1/CMakeCCompiler.cmake CMakeFiles/3.21.1/CMakeRCCompiler.cmake CMakeFiles/3.21.1/CMakeSystem.cmake: phony
+build ../CMakeLists.txt ../libs/CMakeLists.txt ../libs/algorithms/CMakeLists.txt ../libs/data_structures/CMakeLists.txt ../libs/sorting_time_complexity/CMakeLists.txt ../libs/string/CMakeLists.txt C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeCInformation.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeCommonLanguageInclude.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeGenericSystem.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeInitializeConfigs.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeLanguageInformation.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeRCInformation.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeSystemSpecificInformation.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/CMakeSystemSpecificInitialize.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU-C.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-C.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-windres.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows.cmake C$:/Users/grsy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/Platform/WindowsPaths.cmake CMakeCache.txt CMakeFiles/3.21.1/CMakeCCompiler.cmake CMakeFiles/3.21.1/CMakeRCCompiler.cmake CMakeFiles/3.21.1/CMakeSystem.cmake: phony
 
 
 #############################################

@@ -54,7 +54,8 @@
 			"sourceIndexes" : 
 			[
 				0,
-				1
+				1,
+				2
 			]
 		}
 	],
@@ -73,7 +74,8 @@
 			"sourceIndexes" : 
 			[
 				0,
-				1
+				1,
+				2
 			]
 		}
 	],
@@ -89,6 +91,12 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "libs/sorting_time_complexity/array_generators/array_generators.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "libs/sorting_time_complexity/comparisons_count/comparisons_count.c",
 			"sourceGroupIndex" : 0
 		}
 	],

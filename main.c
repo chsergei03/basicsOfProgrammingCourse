@@ -479,7 +479,7 @@ void test_array_sortings() {
 int main() {
     test_array_sortings();
 
-    timeExperiment();
+    comparisonsCountExperiment();
 
     return 0;
 }
