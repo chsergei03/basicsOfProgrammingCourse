@@ -85,3 +85,10 @@
 13	1515	6696386193972880	libs/sorting_time_complexity/CMakeFiles/sorting_time_complexity.dir/comparisons_count/comparisons_count.c.obj	c4f12eae92952a87
 1517	2713	6696386206385171	libs/sorting_time_complexity/libsorting_time_complexity.a	c2b44c52ecb7d5eb
 2713	3677	6696386215729358	course.exe	7b6295152249a5d2
+33	1442	6696433090896207	libs/sorting_time_complexity/CMakeFiles/sorting_time_complexity.dir/sorting_time_complexity.c.obj	c929b05c64c2492f
+13	1786	6696433091805645	CMakeFiles/course.dir/main.c.obj	3c54e443c0d81610
+1443	3783	6696433114411604	libs/sorting_time_complexity/libsorting_time_complexity.a	c2b44c52ecb7d5eb
+3784	4321	6696433120587755	course.exe	7b6295152249a5d2
+14	267	6696433913114004	libs/sorting_time_complexity/CMakeFiles/sorting_time_complexity.dir/sorting_time_complexity.c.obj	c929b05c64c2492f
+268	525	6696433915602518	libs/sorting_time_complexity/libsorting_time_complexity.a	c2b44c52ecb7d5eb
+526	912	6696433919440121	course.exe	7b6295152249a5d2

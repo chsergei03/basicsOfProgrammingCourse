@@ -41,7 +41,7 @@ void checkTime(void (*sort)(int *, size_t),
                size_t size, char *experimentName);
 
 // производит запуск замеров времени выполнения сортировок
-// целочисленных массивов
+// целочисленных массивов.
 void timeExperiment();
 
 // записывает в текстовый файл с расширением .csv результат замера количества
@@ -54,5 +54,9 @@ void checkComparisonsCount(long long (*sort)(int *, size_t),
 // производит запуск замеров количества операций сравнения сортировок
 // целочисленных массивов.
 void comparisonsCountExperiment();
+
+// производит запуск замеров времени выполнения сортировки
+// массива размера N (N >= 200000) типа int.
+void timeExperiment_question2();
 
 #endif

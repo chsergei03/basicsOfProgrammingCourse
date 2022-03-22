@@ -191,3 +191,71 @@ void comparisonsCountExperiment() {
         printf("\n");
     }
 }
+
+void checkTime_question2(void (*sort)(int *, size_t),
+                         void (*generate)(int *, size_t),
+                         size_t size, size_t i,
+                         char *experimentName) {
+    static size_t runCounter = 1;
+
+    int *innerBuffer = (int *) malloc(size * sizeof(int));
+
+    generate(innerBuffer, size);
+    printf("Run #%zu| ", runCounter++);
+    printf("Name: %s\n", experimentName);
+
+    double time;
+    TIME_TEST({
+                  sort(innerBuffer, size);
+              }, time)
+
+    printf("Status: ");
+    if (isNonDescendingSortedArray_(innerBuffer, size)) {
+        printf("OK! Time: %.3f s.\n", time);
+
+        char filename[256];
+        sprintf(filename, "./data/%s.csv", experimentName);
+        FILE *f = fopen(filename, "a");
+        if (f == NULL) {
+            printf("FileOpenError %s", filename);
+            exit(1);
+        }
+        fprintf(f, "%zu: %.3f\n", i, time);
+        fclose(f);
+    } else {
+        printf("Wrong!\n");
+
+        outputArray_(innerBuffer, size);
+    }
+
+    free(innerBuffer);
+}
+
+void timeExperiment_question2() {
+    sortFunc sortFunc = {digitSort, "digitSort"};
+
+    generateFunc generateFuncs[] = {
+            {generateRandomArray,           "random"},
+            {generateOrderedArray,          "ordered"},
+            {generateOrderedBackwardsArray, "orderedBackwards"}
+    };
+
+    const unsigned CASES_N = ARRAY_SIZE(generateFuncs);
+
+
+    size_t size = 200000;
+    printf("------------------------------\n");
+    printf("size: %zu\n", size);
+    for (size_t i = 0; i < CASES_N; i++) {
+        static char filename[128];
+        sprintf(filename, "question2_%s_%s_time",
+                sortFunc.name, generateFuncs[i].name);
+        for (size_t j = 1; j <= 10; j++) {
+            checkTime_question2(sortFunc.sort,
+                                generateFuncs[i].generate,
+                                size, j, filename);
+        }
+        printf("\n");
+    }
+
+}
