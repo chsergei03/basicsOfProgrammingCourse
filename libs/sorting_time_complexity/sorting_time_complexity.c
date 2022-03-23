@@ -65,9 +65,9 @@ void timeExperiment() {
     const unsigned FUNCS_N = ARRAY_SIZE(sortFuncs);
 
     generateFunc generateFuncs[] = {
-            {generateRandomArray,           "random"},
             {generateOrderedArray,          "ordered"},
-            {generateOrderedBackwardsArray, "orderedBackwards"}
+            {generateOrderedBackwardsArray, "orderedBackwards"},
+            {generateRandomArray,           "random"},
     };
 
     const unsigned CASES_N = ARRAY_SIZE(generateFuncs);
@@ -92,7 +92,7 @@ void timeExperiment() {
         printf("------------------------------\n");
         printf("size: %zu\n", size);
         size_t i = 2;
-        for (size_t j = 0; j < CASES_N; j++) {
+        for (size_t j = 1; j < CASES_N; j++) {
             static char filename[128];
             sprintf(filename, "%s_%s_time",
                     sortFuncs[i].name, generateFuncs[j].name);
@@ -100,6 +100,20 @@ void timeExperiment() {
                       generateFuncs[j].generate,
                       size, filename);
         }
+        printf("\n");
+    }
+
+    for (size_t size = 10000000; size <= 100000000; size += 10000000) {
+        printf("------------------------------\n");
+        printf("size: %zu\n", size);
+        size_t i = 2;
+        size_t j = 0;
+        static char filename[128];
+        sprintf(filename, "%s_%s_time",
+                sortFuncs[i].name, generateFuncs[j].name);
+        checkTime(sortFuncs[i].sort,
+                  generateFuncs[j].generate,
+                  size, filename);
         printf("\n");
     }
 
